@@ -1,538 +1,312 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CEDEAM - Centro de Estudios del Desarrollo del Área Metropolitana</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    :root {
-      /* Paleta de colores CEDEAM */
-      --verde-principal: #2c8e72;
-      --verde-oscuro: #428b76;
-      --verde-profundo: #5c8b7e;
-      --verde-claro: #86b3a7;
-      --verde-pastel: #aed0c7;
-      --verde-muy-claro: #d1e0dc;
-      --gris-fondo: #f1f9f8;
-      --gris-texto: #667b75;
-      --gris-oscuro: #8c9a96;
-      --negro-institucional: #1d2b27;
-      --borde: #d1e0dc;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Proyectos de Inversión - PBA</title>
+    <style>
+        /* Estilos Generales e Identidad Visual GBA */
+        :root {
+            --azul-institucional: #0056b3;
+            --celeste-gba: #00aae4;
+            --gris-oscuro: #333333;
+            --gris-medio: #666666;
+            --gris-claro: #f8f9fa;
+            --blanco: #ffffff;
+            --borde-tarjeta: #dee2e6;
+            --rojo-error: #dc3545;
+        }
 
-    body { 
-      font-family: 'Inter', sans-serif; 
-      background: var(--gris-fondo); 
-      color: var(--negro-institucional); 
-      line-height: 1.5;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    /* BARRA DE NAVEGACIÓN SUPERIOR */
-    .navbar {
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--borde);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding: 1rem 2rem;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+            background-color: var(--gris-claro);
+        }
 
-    .navbar-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-    .brand {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-    }
+        /* Encabezado del Formulario */
+        .form-header {
+            background-color: var(--blanco);
+            padding: 30px;
+            border-radius: 8px 8px 0 0;
+            border: 1px solid var(--borde-tarjeta);
+            border-bottom: 4px solid var(--azul-institucional);
+            text-align: center;
+        }
 
-    .brand-text {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 0.9;
-      color: var(--verde-principal);
-      letter-spacing: 0.5px;
-    }
+        .form-header h1 {
+            font-size: 1.8rem;
+            color: var(--azul-institucional);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
 
-    .brand-text span {
-      color: var(--gris-texto);
-      display: block;
-      font-size: 0.85rem;
-      font-family: 'Inter', sans-serif;
-      font-weight: 500;
-      letter-spacing: 1px;
-      margin-top: 4px;
-    }
+        .form-header p {
+            font-size: 0.95rem;
+            color: var(--gris-medio);
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
+        /* Cuerpo del Formulario */
+        form {
+            background-color: var(--blanco);
+            padding: 40px 30px;
+            border-radius: 0 0 8px 8px;
+            border: 1px solid var(--borde-tarjeta);
+            border-top: none;
+        }
 
-    .nav-link {
-      text-decoration: none;
-      color: var(--negro-institucional);
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--azul-institucional);
+            margin: 25px 0 15px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--borde-tarjeta);
+            text-transform: uppercase;
+            font-weight: bold;
+        }
 
-    .nav-link:hover, .nav-link.active {
-      color: var(--verde-principal);
-    }
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
 
-    /* SECCIÓN HERO INSTITUCIONAL */
-    .hero {
-      background: linear-gradient(135deg, var(--negro-institucional) 0%, var(--verde-profundo) 100%);
-      color: white;
-      padding: 6rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
+        /* Grupos de campos */
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-    .hero-content {
-      max-width: 850px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
+        .form-row {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
 
-    .hero h1 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: -0.5px;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-    }
+        .form-col {
+            display: table-cell;
+            padding-right: 15px;
+            vertical-align: top;
+        }
 
-    .hero p {
-      font-size: 1.25rem;
-      font-weight: 300;
-      color: var(--verde-muy-claro);
-      max-width: 700px;
-      margin: 0 auto;
-    }
+        .form-col:last-child {
+            padding-right: 0;
+        }
 
-    /* CONTENEDORES DE SECCIONES */
-    .section-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 1.5rem;
-    }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gris-oscuro);
+        }
 
-    .section-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 2.2rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--negro-institucional);
-      margin-bottom: 2rem;
-      letter-spacing: 0.5px;
-    }
+        label .required {
+            color: var(--rojo-error);
+            margin-left: 3px;
+        }
 
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 4px;
-      background: var(--verde-principal);
-      margin-top: 0.5rem;
-      border-radius: 2px;
-    }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--borde-tarjeta);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--gris-oscuro);
+            transition: border-color 0.2s ease;
+        }
 
-    /* PILAR 1: PORTAL DE DATOS */
-    .grid-categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--azul-institucional);
+        }
 
-    .category-card {
-      background: white;
-      border: 1px solid var(--borde);
-      border-radius: 12px;
-      padding: 2rem;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.3s ease;
-    }
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
 
-    .category-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(44, 142, 114, 0.08);
-      border-color: var(--verde-principal);
-    }
+        /* Botón de Envío */
+        .submit-container {
+            text-align: center;
+            margin-top: 30px;
+        }
 
-    .card-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--gris-fondo);
-      color: var(--verde-principal);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.25rem;
-    }
+        .btn-submit {
+            background-color: var(--azul-institucional);
+            color: var(--blanco);
+            border: none;
+            padding: 14px 40px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            text-transform: uppercase;
+        }
 
-    .category-card h3 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      color: var(--negro-institucional);
-      margin-bottom: 0.5rem;
-    }
+        .btn-submit:hover {
+            background-color: #004085;
+        }
 
-    .category-card p { font-size: 0.95rem; color: var(--gris-texto); margin-bottom: 1.5rem; }
-    .card-footer { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--verde-oscuro); }
+        /* Enlace para volver */
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--gris-medio);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
 
-    /* PILAR 2: PUBLICACIONES EN DIARIOS WEB */
-    .press-bg { background: #ffffff; border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
-    .grid-press { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
-    .press-card { display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem; border-left: 4px solid var(--verde-claro); background: var(--gris-fondo); border-radius: 0 8px 8px 0; }
-    .press-media { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--verde-principal); margin-bottom: 0.5rem; letter-spacing: 1px; }
-    .press-card h4 { font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--negro-institucional); }
-    .press-card p { font-size: 0.9rem; color: var(--gris-texto); margin-bottom: 1rem; }
-    .press-link { font-size: 0.9rem; font-weight: 600; color: var(--verde-oscuro); text-decoration: none; }
-    .press-link:hover { text-decoration: underline; }
+        .back-link:hover {
+            color: var(--azul-institucional);
+            text-decoration: underline;
+        }
 
-    /* PILAR 3: SECCIÓN DE INFORMES (SISTEMA DE PESTAÑAS INTERACTIVAS) */
-    .tabs-container { margin-top: 1.5rem; }
-    .tabs-nav { display: flex; gap: 0.5rem; border-bottom: 2px solid var(--borde); margin-bottom: 2rem; }
-    
-    .tab-btn {
-      padding: 0.75rem 1.5rem;
-      background: none;
-      border: none;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--gris-texto);
-      cursor: pointer;
-      transition: all 0.2s;
-      border-bottom: 3px solid transparent;
-      margin-bottom: -2px;
-    }
-
-    .tab-btn:hover { color: var(--verde-principal); }
-    .tab-btn.active { color: var(--verde-principal); border-bottom-color: var(--verde-principal); }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
-
-    .grid-reports { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .report-card { background: white; border-radius: 8px; padding: 1.5rem; border: 1px solid var(--borde); display: flex; flex-direction: column; justify-content: space-between; }
-    .report-tag { background: var(--verde-muy-claro); color: var(--verde-profundo); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 4px; width: fit-content; margin-bottom: 1rem; }
-    .report-card h4 { font-size: 1.1rem; color: var(--negro-institucional); margin-bottom: 0.5rem; }
-
-    /* TABLA COMPACTA PARA COYUNTURA TRIMESTRAL */
-    .coyuntura-table-container { background: white; border: 1px solid var(--borde); border-radius: 8px; overflow: hidden; }
-    .coyuntura-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
-    .coyuntura-table th { background: var(--negro-institucional); color: white; padding: 1rem; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; font-size: 1.1rem; font-weight: 600; }
-    .coyuntura-table td { padding: 1rem; border-bottom: 1px solid var(--borde); }
-    .coyuntura-table tr:last-child td { border-bottom: none; }
-    .coyuntura-table tr:hover { background-color: var(--gris-fondo); }
-    
-    .btn-table-download {
-      color: var(--verde-principal);
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-    .btn-table-download:hover { color: var(--verde-oscuro); text-decoration: underline; }
-
-    .btn-download { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.25rem; padding: 0.5rem 1rem; background: var(--verde-principal); color: white; text-decoration: none; font-size: 0.85rem; font-weight: 500; border-radius: 4px; transition: background 0.2s; }
-    .btn-download:hover { background: var(--verde-oscuro); }
-
-    /* PILAR 4: MULTIMEDIA Y YOUTUBE */
-    .youtube-bg { background: #ffffff; border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
-    .grid-youtube { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-    .video-card { background: var(--gris-fondo); border-radius: 12px; overflow: hidden; border: 1px solid var(--borde); }
-    .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; }
-    .video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .video-body { padding: 1.25rem; }
-    .video-body h4 { font-size: 1.1rem; color: var(--negro-institucional); margin-bottom: 0.5rem; }
-    .video-body p { font-size: 0.9rem; color: var(--gris-texto); }
-
-    /* NUEVA SECCIÓN: GALERÍA DE FOTOS */
-    .grid-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .gallery-card { background: white; border: 1px solid var(--borde); border-radius: 12px; overflow: hidden; transition: transform 0.3s; }
-    .gallery-card:hover { transform: translateY(-3px); }
-    .gallery-img-wrapper { width: 100%; height: 200px; background: #e2ece9; overflow: hidden; position: relative; }
-    
-    /* Configuración por si usas imágenes reales o relativas en tu carpeta */
-    .gallery-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-    .gallery-info { padding: 1rem; }
-    .gallery-info span { font-size: 0.75rem; font-weight: 700; color: var(--verde-principal); text-transform: uppercase; }
-    .gallery-info h4 { font-size: 1rem; color: var(--negro-institucional); margin-top: 0.25rem; }
-
-    /* FOOTER INSTITUCIONAL */
-    footer { background: var(--negro-institucional); color: var(--verde-pastel); padding: 3rem 2rem; text-align: center; font-size: 0.9rem; border-top: 3px solid var(--verde-principal); }
-  </style>
+        @media (max-width: 768px) {
+            .form-col {
+                display: block !important;
+                width: 100% !important;
+                padding-right: 0 !important;
+                margin-bottom: 20px;
+            }
+            .form-col:last-child {
+                margin-bottom: 0;
+            }
+            .container {
+                margin: 20px auto;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="navbar-container">
-      <a href="#" class="brand">
-        <div class="brand-text">
-          CEDEAM
-          <span>Centro de Estudios del Desarrollo del Área Metropolitana</span>
-        </div>
-      </a>
-      <div class="nav-links">
-        <a href="#" class="nav-link active">Inicio</a>
-        <a href="#portal-datos" class="nav-link">Portal de Datos</a>
-        <a href="#publicaciones" class="nav-link">En los Medios</a>
-        <a href="#informes" class="nav-link">Informes PDF</a>
-        <a href="#multimedia" class="nav-link">Videos</a>
-        <a href="#galeria" class="nav-link">Fotos</a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Plataforma de Investigación y Monitoreo Territorial</h1>
-      <p>Análisis territorializado, visualización de indicadores y divulgación académica para el desarrollo socioeconómico urbano sustentable.</p>
-    </div>
-  </header>
-
-  <main class="section-container" id="portal-datos">
-    <h2 class="section-title">Portal de Datos Territoriales</h2>
-    <div class="grid-categories">
-      <a href="#" class="category-card" onclick="navegarA('ocupacion')">
-        <div>
-          <div class="card-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          </div>
-          <h3>Ocupación e Ingresos</h3>
-          <p>Análisis de las tasas de empleo, niveles de ingreso y líneas de pobreza en la región metropolitana.</p>
-        </div>
-        <div class="card-footer">Explorar Matriz →</div>
-      </a>
-
-      <a href="#" class="category-card" onclick="navegarA('sociales')">
-        <div>
-          <div class="card-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-          </div>
-          <h3>Indicadores Sociales</h3>
-          <p>Acceso a salud, educación, vulnerabilidad habitacional y canastas de consumo territorializadas.</p>
-        </div>
-        <div class="card-footer">Explorar Matriz →</div>
-      </a>
-
-      <a href="#" class="category-card" onclick="navegarA('inmobiliario')">
-        <div>
-          <div class="card-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-          </div>
-          <h3>Mercado Inmobiliario</h3>
-          <p>Evolución del valor del suelo, costo del metro cuadrado, dinámicas de alquileres y permisologías.</p>
-        </div>
-        <div class="card-footer">Explorar Matriz →</div>
-      </a>
-    </div>
-  </main>
-
-  <div class="press-bg" id="publicaciones">
-    <section class="section-container">
-      <h2 class="section-title">Columnas y Notas en Diarios</h2>
-      <div class="grid-press">
-        <div class="press-card">
-          <div>
-            <div class="press-media">Infobae / Opinión</div>
-            <h4>Súper RIGI</h4>
-            <p>El impacto de la inteligencia artificial sobre el mundo laboral y la productividad.</p>
-          </div>
-          <a href="https://www.infobae.com/economia/2026/06/17/raul-sanchez-economista-de-la-uba-hoy-no-es-necesario-trabajar-tantas-horas-con-los-avances-tecnologicos/" target="_blank" class="press-link">Leer artículo completo ↗</a>
-        </div>
+    <div class="container">
         
-        <div class="press-card">
-          <div>
-            <div class="press-media">ALGO PASA, BUENOS AIRES</div>
-            <h4>Buenos Aires Deep Tech</h4>
-            <p>Potencialidades sobre la tecnología en la Ciudad de Buenos Aires.</p>
-          </div>
-          <a href="https://algopasabuenosaires.com.ar/libro-sobre-innovacion-tecnologica-en-bs-as/" target="_blank" class="press-link">Leer artículo completo ↗</a>
+        <!-- Encabezado -->
+        <div class="form-header">
+            <h1>Registro de Proyectos de Inversión</h1>
+            <p>Por favor, complete el siguiente formulario con los datos generales de su empresa y la propuesta de inversión para que nuestro equipo técnico pueda asesorarlo.</p>
         </div>
-      </div>
-    </section>
-  </div>
 
-  <section class="section-container" id="informes">
-    <h2 class="section-title">Informes Técnicos y Documentos</h2>
-    
-    <div class="tabs-container">
-      <div class="tabs-nav">
-        <button class="tab-btn active" onclick="cambiarPestana(event, 'anuales')">Informes Anuales y Técnicos</button>
-        <button class="tab-btn" onclick="cambiarPestana(event, 'coyuntura')">Monitoreo de Coyuntura (Trimestral)</button>
-      </div>
-
-      <div id="anuales" class="tab-content active">
-        <div class="grid-reports">
-          <div class="report-card">
-            <div>
-              <div class="report-tag">PDF / Informe Anual</div>
-              <h4>Reporte de Desarrollo Humano Metropolitano 2026</h4>
-              <p>Compendio completo indexado con cruce de variables sociodemográficas y habitacionales.</p>
+        <!-- Formulario -->
+        <form action="#" method="POST">
+            
+            <!-- SECCIÓN 1: DATOS DE LA EMPRESA / CONTACTO -->
+            <div class="section-title">1. Datos de la Empresa y Contacto</div>
+            
+            <div class="form-group">
+                <label for="empresa">Nombre de la Empresa o Razón Social<span class="required">*</span></label>
+                <input type="text" id="empresa" name="empresa" required placeholder="Ej. Alimentos Bonaerenses S.A.">
             </div>
-            <a href="documentos/informe_anual_2026.pdf" download class="btn-download">Descargar PDF</a>
-          </div>
 
-          <div class="report-card">
-            <div>
-              <div class="report-tag">PDF / Documento de Trabajo</div>
-              <h4>Incidencia Fiscal y Presupuesto por Comunas</h4>
-              <p>Metodología y resultados de la distribución del gasto público en el territorio analizado.</p>
+            <div class="form-row">
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="contacto_nombre">Nombre del Contacto<span class="required">*</span></label>
+                        <input type="text" id="contacto_nombre" name="contacto_nombre" required placeholder="Juan">
+                    </div>
+                </div>
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="contacto_apellido">Apellido del Contacto<span class="required">*</span></label>
+                        <input type="text" id="contacto_apellido" name="contacto_apellido" required placeholder="Pérez">
+                    </div>
+                </div>
             </div>
-            <a href="documentos/incidencia_fiscal.pdf" download class="btn-download">Descargar PDF</a>
-          </div>
-        </div>
-      </div>
 
-      <div id="coyuntura" class="tab-content">
-        <div class="coyuntura-table-container">
-          <table class="coyuntura-table">
-            <thead>
-              <tr>
-                <th>Período</th>
-                <th>Nombre del Informe</th>
-                <th>Descripción Básica</th>
-                <th>Acción</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>2026 - 1T</strong></td>
-                <td>Informe CABA - 1er Trimestre 2026</td>
-                <td>Evolución económica trimestral y monitoreo de actividad sectorial.</td>
-                <td><a href="Informes_coyuntura/informe_caba_1trim_2026.pdf" download class="btn-table-download">Descargar PDF ⬇️</a></td>
-              </tr>
-              <tr>
-                <td><strong>2026 - 2T</strong></td>
-                <td>Informe CABA - 2do Trimestre 2026</td>
-                <td>Monitoreo de indicadores de empleo y mercado del suelo.</td>
-                <td><a href="#" class="btn-table-download" style="color: var(--gris-oscuro); pointer-events: none;">Próximamente</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+            <div class="form-row">
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico Corporativo<span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="ejemplo@empresa.com">
+                    </div>
+                </div>
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="telefono">Teléfono / Celular de Contacto<span class="required">*</span></label>
+                        <input type="tel" id="telefono" name="telefono" required placeholder="+54 9 ...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="web">Sitio Web / Perfil de LinkedIn (Opcional)</label>
+                <input type="text" id="web" name="web" placeholder="https://www.empresa.com">
+            </div>
+
+            <!-- SECCIÓN 2: DETALLES DEL PROYECTO -->
+            <div class="section-title">2. Información General del Proyecto</div>
+
+            <div class="form-group">
+                <label for="sector">Sector Estratégico del Proyecto<span class="required">*</span></label>
+                <select id="sector" name="sector" required>
+                    <option value="" disabled selected>Seleccione un sector...</option>
+                    <option value="agroindustria">Agroindustria y Alimentos</option>
+                    <option value="tecnologia">Tecnología, Software y Servicios Clave</option>
+                    <option value="energia">Energía, Petróleo y Renovables</option>
+                    <option value="manufactura">Industria Manufacturera y Metalmecánica</option>
+                    <option value="otro">Otro Sector Productivo</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="monto">Monto Estimado de Inversión (USD)<span class="required">*</span></label>
+                        <select id="monto" name="monto" required>
+                            <option value="" disabled selected>Seleccione un rango...</option>
+                            <option value="rango_1">Hasta USD 500.000</option>
+                            <option value="rango_2">USD 500.000 a USD 2 Millones</option>
+                            <option value="rango_3">USD 2 Millones a USD 10 Millones</option>
+                            <option value="rango_4">Más de USD 10 Millones</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="empleo">Estimación de Empleo a Generar<span class="required">*</span></label>
+                        <input type="text" id="empleo" name="empleo" required placeholder="Ej. 25 puestos directos">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="localizacion">Preferencia de Localización / Municipio (Si aplica)</label>
+                <input type="text" id="localizacion" name="localizacion" placeholder="Ej. Parque Industrial Pilar, Olavarría, Bahía Blanca, etc.">
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion">Descripción Breve de la Propuesta / Necesidades Específicas<span class="required">*</span></label>
+                <textarea id="descripcion" name="descripcion" required placeholder="Por favor, detalle brevemente los objetivos del proyecto, requerimiento de infraestructura, espacio físico o incentivos fiscales necesarios..."></textarea>
+            </div>
+
+            <!-- Botón de Envío -->
+            <div class="submit-container">
+                <button type="submit" class="btn-submit">Enviar Proyecto</button>
+            </div>
+
+            <a href="index.html" class="back-link">← Volver al Portal de Oportunidades</a>
+
+        </form>
     </div>
-  </section>
 
-  <div class="youtube-bg" id="multimedia">
-    <section class="section-container">
-      <h2 class="section-title">Material Audiovisual y Conferencias</h2>
-      <div class="grid-youtube">
-        <div class="video-card">
-          <div class="video-responsive">
-            <iframe src="https://www.youtube.com/embed/An2iT9aggYE" title="Conferencia CEDEAM" allowfullscreen></iframe>
-          </div>
-          <div class="video-body">
-            <h4>Presentación de Indicadores de Vivienda</h4>
-            <p>Seminario virtual sobre políticas habitacionales sustentables en los cordones metropolitanos.</p>
-          </div>
-        </div>
-
-        <div class="video-card">
-          <div class="video-responsive">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Panel de Debate" allowfullscreen></iframe>
-          </div>
-          <div class="video-body">
-            <h4>Debate Abierto: Mercado del Suelo en CABA</h4>
-            <p>Intervención de los investigadores del centro analizando las permisologías y dinámicas constructivas.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <section class="section-container" id="galeria">
-    <h2 class="section-title">Registro Fotográfico y Eventos</h2>
-    <div class="grid-gallery">
-      <div class="gallery-card">
-        <div class="gallery-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=600&q=80" alt="Presentación de Libro">
-        </div>
-        <div class="gallery-info">
-          <span>Presentación de Libro / 2026</span>
-          <h4>Lanzamiento "Innovación Tecnológica en Buenos Aires"</h4>
-        </div>
-      </div>
-
-      <div class="gallery-card">
-        <div class="gallery-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80" alt="Seminario FCE">
-        </div>
-        <div class="gallery-info">
-          <span>Seminario Académico</span>
-          <h4>Debate sobre Políticas Metropolitanas - Aula Magna FCE</h4>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2026 CEDEAM - Centro de Estudios del Desarrollo del Área Metropolitana. <br> Facultad de Ciencias Económicas (FCE).</p>
-  </footer>
-
-<script>
-  // Script para manejar el cambio de pestañas de los informes
-  function cambiarPestana(evt, nombrePestana) {
-    let i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].classList.remove("active");
-    }
-    tablinks = document.getElementsByClassName("tab-btn");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].classList.remove("active");
-    }
-    document.getElementById(nombrePestana).classList.add("active");
-    evt.currentTarget.classList.add("active");
-  }
-
-  // Script de navegación de matrices
-  function navegarA(destino) {
-    let nombreArchivo = "";
-    if (destino === 'ocupacion') { nombreArchivo = "Ind.Ocup.html"; } 
-    else if (destino === 'sociales') { nombreArchivo = "Ind.Sociales.html"; } 
-    else if (destino === 'demograficos') { nombreArchivo = "Ind.Demograficos.html"; } 
-    else if (destino === 'fiscales') { nombreArchivo = "Ind.Fiscales.html"; } 
-    else if (destino === 'inmobiliario') { nombreArchivo = "Mercado_inm.html"; }
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const comunaActual = urlParams.get('comuna') || 'todas';
-
-    if (window.location.protocol === 'file:') {
-      window.location.href = nombreArchivo;
-    } else {
-      window.location.href = `${nombreArchivo}?comuna=${comunaActual}`;
-    }
-  }
-</script>
 </body>
 </html>
