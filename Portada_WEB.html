@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inversiones y Comercio Exterior - Provincia de Buenos Aires</title>
+    <title>Inversiones y Comercio Exterior - PBA</title>
     <style>
-        /* Estilos Base e Institucionales */
+        /* Estilos Generales e Identidad Visual GBA */
         :root {
-            --azul-pba: #0056b3;
-            --azul-oscuro: #003670;
-            --celeste-pba: #00b4d8;
-            --gris-oscuro: #212529;
-            --gris-medio: #6c757d;
+            --azul-institucional: #0056b3;
+            --celeste-gba: #00aae4;
+            --gris-oscuro: #333333;
+            --gris-medio: #666666;
             --gris-claro: #f8f9fa;
             --blanco: #ffffff;
-            --borde: #dee2e6;
+            --borde-tarjeta: #e9ecef;
         }
 
         * {
@@ -26,433 +25,552 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             color: var(--gris-oscuro);
-            background-color: var(--blanco);
             line-height: 1.6;
-        }
-
-        header {
             background-color: var(--blanco);
-            border-bottom: 1px solid var(--borde);
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
         }
 
-        .logo {
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--azul-pba);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        nav a {
-            color: var(--gris-oscuro);
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        nav a:hover, nav a.active {
-            color: var(--azul-pba);
-        }
-
-        /* --- Carrusel Portada (Hero) --- */
-        .hero-carousel {
-            position: relative;
+        .container {
             max-width: 1200px;
-            margin: 40px auto;
-            height: 400px;
-            background-color: var(--azul-oscuro);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .carousel-track {
-            display: flex;
-            width: 300%;
-            height: 100%;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .carousel-slide {
-            width: 33.333%;
-            height: 100%;
-            padding: 60px 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: var(--blanco);
-            background: linear-gradient(135deg, var(--azul-oscuro) 0%, #002247 100%);
-            position: relative;
-        }
-
-        .carousel-slide:nth-child(2) {
-            background: linear-gradient(135deg, #004085 0%, var(--azul-oscuro) 100%);
-        }
-        .carousel-slide:nth-child(3) {
-            background: linear-gradient(135deg, #001f3f 0%, #004085 100%);
-        }
-
-        .carousel-slide h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
-        }
-
-        .carousel-slide p {
-            font-size: 1.15rem;
-            max-width: 700px;
-            margin-bottom: 30px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .carousel-btn {
-            align-self: flex-start;
-            background-color: var(--celeste-pba);
-            color: var(--azul-oscuro);
-            padding: 12px 28px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.2s ease;
-        }
-
-        .carousel-btn:hover {
-            background-color: var(--blanco);
-            color: var(--azul-pba);
-            transform: translateY(-2px);
-        }
-
-        /* Flechas de Navegación */
-        .carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--blanco);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.2s ease;
-            z-index: 10;
-        }
-
-        .carousel-arrow:hover {
-            background-color: rgba(255, 255, 255, 0.25);
-        }
-
-        .arrow-left { left: 20px; }
-        .arrow-right { right: 20px; }
-
-        /* Indicadores (Puntitos) */
-        .carousel-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.4);
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .dot.active {
-            background-color: var(--celeste-pba);
-            width: 24px;
-            border-radius: 5px;
-        }
-
-
-        /* --- Sección: Sectores Estratégicos (Acordeón) --- */
-        .sectors-section {
-            max-width: 1000px;
-            margin: 60px auto;
+            margin: 0 auto;
             padding: 0 20px;
         }
 
-        .sectors-section h2 {
-            font-size: 2rem;
-            color: var(--azul-oscuro);
-            margin-bottom: 10px;
-            text-align: center;
-            font-weight: 700;
-        }
-
-        .sectors-subtitle {
-            text-align: center;
-            color: var(--gris-medio);
-            margin-bottom: 40px;
-            font-size: 1.05rem;
-        }
-
-        .accordion-container {
-            border: 1px solid var(--borde);
-            border-radius: 8px;
-            overflow: hidden;
+        /* 1. Encabezado / Hero Section */
+        header {
             background-color: var(--blanco);
+            border-bottom: 1px solid var(--borde-tarjeta);
+            padding: 15px 0;
         }
 
-        .accordion-item {
-            border-bottom: 1px solid var(--borde);
-        }
-
-        .accordion-item:last-child {
-            border-bottom: none;
-        }
-
-        .accordion-header {
+        .nav-container {
+            display: table;
             width: 100%;
-            padding: 22px 30px;
-            background-color: var(--blanco);
-            border: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            text-align: left;
-            transition: background-color 0.2s ease;
         }
 
-        .accordion-header:hover {
-            background-color: var(--gris-claro);
-        }
-
-        .accordion-title {
+        .logo-placeholder {
+            display: table-cell;
+            vertical-align: middle;
+            font-weight: bold;
+            color: var(--azul-institucional);
             font-size: 1.2rem;
+        }
+
+        nav {
+            display: table-cell;
+            text-align: right;
+            vertical-align: middle;
+        }
+
+        nav a {
+            color: var(--gris-medio);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: var(--azul-institucional);
+        }
+
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(255,255,255,1) 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--azul-institucional);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gris-medio);
+            max-width: 700px;
+            margin: 0 auto 35px auto;
+        }
+
+        .cta-group {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
             font-weight: 600;
-            color: var(--gris-oscuro);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+            font-size: 1rem;
         }
 
-        /* Icono de flecha que rota */
-        .accordion-arrow {
-            font-size: 1.2rem;
-            color: var(--azul-pba);
-            transition: transform 0.3s ease;
+        .btn-primary {
+            background-color: var(--azul-institucional);
+            color: var(--blanco);
+            border: 2px solid var(--azul-institucional);
+        }
+
+        .btn-primary:hover {
+            background-color: #004085;
+            border-color: #004085;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--azul-institucional);
+            border: 2px solid var(--azul-institucional);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--azul-institucional);
+            color: var(--blanco);
+        }
+
+        /* 2. Sección: PBA EN N° */
+        .pba-numeros {
+            padding: 80px 0;
+            background-color: var(--blanco);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--azul-institucional);
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .pba-grid {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        .pba-col-left {
+            display: table-cell;
+            width: 40%;
+            vertical-align: middle;
+            text-align: center;
+            padding-right: 40px;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            max-width: 250px;
+            height: 300px;
+            background-color: #e9ecef;
+            margin: 0 auto 20px auto;
+            border-radius: 8px;
+            position: relative;
+            border: 2px dashed #ced4da;
+        }
+
+        .map-placeholder::after {
+            content: "Mapa de la Provincia de Buenos Aires";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--gris-medio);
+            font-size: 0.9rem;
+            padding: 0 10px;
+        }
+
+        .btn-brochure {
+            display: inline-block;
+            padding: 8px 20px;
+            border: 1px solid var(--gris-oscuro);
+            color: var(--gris-oscuro);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            border-radius: 4px;
+        }
+
+        .btn-brochure:hover {
+            background-color: var(--gris-oscuro);
+            color: var(--blanco);
+        }
+
+        .pba-col-right {
+            display: table-cell;
+            width: 60%;
+            vertical-align: middle;
+        }
+
+        .stats-table {
+            display: table;
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 20px;
+        }
+
+        .stats-row {
+            display: table-row;
+        }
+
+        .stat-card {
+            display: table-cell;
+            background-color: var(--gris-claro);
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 8px;
+            width: 50%;
+            border: 1px solid var(--borde-tarjeta);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--celeste-gba);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--gris-medio);
+            font-weight: 500;
+        }
+
+        /* 3. Sección: RPIE - SECTORES ESTRATÉGICOS */
+        .sectores-estrategicos {
+            padding: 80px 0;
+            background-color: var(--gris-claro);
+            border-top: 1px solid var(--borde-tarjeta);
+            border-bottom: 1px solid var(--borde-tarjeta);
+        }
+
+        .sectores-grid {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: separate;
+            border-spacing: 20px;
+        }
+
+        .sector-card {
+            display: table-cell;
+            background-color: var(--blanco);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--borde-tarjeta);
+            text-align: center;
+            width: 25%;
+        }
+
+        .sector-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 15px auto;
+            background-color: #e3f2fd;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .sector-icon::after {
+            content: "✓";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--azul-institucional);
             font-weight: bold;
         }
 
-        /* Rotación de la flecha cuando se activa */
-        .accordion-item.active .accordion-arrow {
-            transform: rotate(90deg);
+        .sector-card h3 {
+            font-size: 1.1rem;
+            color: var(--azul-institucional);
+            margin-bottom: 10px;
         }
 
-        /* Contenido desplegable animado */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            background-color: var(--gris-claro);
-        }
-
-        .accordion-body {
-            padding: 25px 30px;
-            color: #495057;
-            font-size: 1rem;
-            line-height: 1.7;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-
-        footer {
-            background-color: var(--gris-claro);
-            border-top: 1px solid var(--borde);
-            padding: 40px 20px;
-            text-align: center;
+        .sector-card p {
+            font-size: 0.85rem;
             color: var(--gris-medio);
+        }
+
+        /* 4. Sección: SERVICIOS */
+        .servicios {
+            padding: 80px 0;
+            background-color: var(--blanco);
+        }
+
+        .servicios-grid {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: separate;
+            border-spacing: 15px;
+        }
+
+        .servicio-card {
+            display: table-cell;
+            border: 1px solid var(--borde-tarjeta);
+            padding: 25px 15px;
+            border-radius: 6px;
+            text-align: center;
+            background-color: var(--blanco);
+            vertical-align: top;
+        }
+
+        .servicio-card h4 {
+            font-size: 0.95rem;
+            color: var(--gris-oscuro);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: bold;
+            min-height: 40px;
+        }
+
+        .servicio-desc {
+            font-size: 0.8rem;
+            color: var(--gris-medio);
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+
+        .servicio-link {
+            font-size: 0.85rem;
+            color: var(--azul-institucional);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .servicio-link:hover {
+            text-decoration: underline;
+        }
+
+        /* 5. Pie de Página: DATOS DE CONTACTO */
+        footer {
+            background-color: var(--azul-institucional);
+            color: var(--blanco);
+            padding: 60px 0;
+        }
+
+        .footer-grid {
+            display: table;
+            width: 100%;
+        }
+
+        .footer-info {
+            display: table-cell;
+            width: 60%;
+            vertical-align: top;
+        }
+
+        .footer-links {
+            display: table-cell;
+            width: 40%;
+            vertical-align: top;
+            text-align: right;
+        }
+
+        footer h2 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item strong {
+            color: var(--celeste-gba);
+        }
+
+        .footer-links a {
+            color: var(--blanco);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
             font-size: 0.9rem;
-            margin-top: 80px;
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            /* Adaptación básica para pantallas chicas sin romper la estructura principal */
+            .pba-col-left, .pba-col-right, .stats-card, .sector-card, .servicio-card, .footer-info, .footer-links {
+                display: block !important;
+                width: 100% !important;
+                padding-right: 0 !important;
+                margin-bottom: 20px;
+                text-align: center !important;
+            }
+            nav {
+                display: block !important;
+                text-align: center !important;
+                margin-top: 15px;
+            }
+            nav a {
+                margin: 0 10px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Encabezado de Navegación -->
+    <!-- 1. ENCABEZADO / HERO SECTION -->
     <header>
-        <div class="logo">Inversiones PBA</div>
-        <nav>
-            <a href="#" class="active">Inicio</a>
-            <a href="#sectores">Sectores</a>
-            <a href="inverti-form.html">Invertí</a>
-        </nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo-placeholder">INVERSIONES Y COMERCIO EXTERIOR</div>
+                <nav>
+                    <a href="#recursos">Recursos</a>
+                    <a href="#nosotros">Nosotros</a>
+                </nav>
+            </div>
+        </div>
     </header>
 
-    <!-- PORTADA: Carrusel de Secciones Clave -->
-    <section class="hero-carousel">
-        <!-- Flechas -->
-        <button class="carousel-arrow arrow-left" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="carousel-arrow arrow-right" onclick="moveSlide(1)">&#10095;</button>
-
-        <!-- Contenedor de las Diapositivas -->
-        <div class="carousel-track" id="carouselTrack">
-            
-            <!-- Diapositiva 1: RPIE -->
-            <div class="carousel-slide">
-                <h1>RPIE</h1>
-                <p>Registro Provincial de Inversores Extranjeros. Centralizá tus operaciones, accedé a asistencia institucional personalizada y simplificá las normativas de radicación en los municipios bonaerenses.</p>
-                <a href="inverti-form.html" class="carousel-btn">Iniciar Registro</a>
+    <section class="hero">
+        <div class="container">
+            <h1>Oportunidades Bonaerenses</h1>
+            <p>Descubra el potencial estratégico de la Provincia de Buenos Aires. Impulsamos el crecimiento económico conectando capacidades productivas locales con mercados globales.</p>
+            <div class="cta-group">
+                <a href="#inverti" class="btn btn-primary">Invertí</a>
+                <a href="#oferta" class="btn btn-secondary">Oferta Exportable</a>
             </div>
-
-            <!-- Diapositiva 2: Oferta Exportable -->
-            <div class="carousel-slide">
-                <h1>Oferta Exportable</h1>
-                <p>Impulsamos la inserción internacional de las empresas de la provincia. Conocé los catálogos sectoriales globales, misiones comerciales activas y matrices productivas con potencial exportador.</p>
-                <a href="#" class="carousel-btn">Ver Catálogo</a>
-            </div>
-
-            <!-- Diapositiva 3: Líneas de Crédito -->
-            <div class="carousel-slide">
-                <h1>Líneas de Crédito</h1>
-                <p>Financiamiento estratégico para proyectos productivos, ampliación de plantas industriales y adquisición de bienes de capital con tasas bonificadas mediante la banca pública provincial.</p>
-                <a href="#" class="carousel-btn">Consultar Líneas</a>
-            </div>
-
-        </div>
-
-        <!-- Puntitos Indicadores -->
-        <div class="carousel-dots">
-            <button class="dot active" onclick="currentSlide(0)"></button>
-            <button class="dot" onclick="currentSlide(1)"></button>
-            <button class="dot" onclick="currentSlide(2)"></button>
         </div>
     </section>
 
-
-    <!-- SECCIÓN: Sectores Estratégicos -->
-    <section class="sectors-section" id="sectores">
-        <h2>Sectores Estratégicos</h2>
-        <p class="sectors-subtitle">Descubra los núcleos productivos clave que impulsan el desarrollo y las ventajas de radicación en la Provincia de Buenos Aires.</p>
-
-        <div class="accordion-container">
-
-            <!-- Sector 1 -->
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="accordion-title">Sector Alimentos</span>
-                    <span class="accordion-arrow">&#10148;</span>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-body">
-                        La Provincia de Buenos Aires es el principal corazón agroalimentario del país. Cuenta con una robusta red de procesamiento, amplias cadenas de valor lácteas, cárnicas y hortícolas, y una infraestructura logística de puertos de aguas profundas ideal para el abastecimiento interno y la exportación global competitiva.
+    <!-- 2. SECCIÓN: PBA EN N° -->
+    <section class="pba-numeros">
+        <div class="container">
+            <h2 class="section-title">PBA en N°</h2>
+            <div class="pba-grid">
+                <div class="pba-col-left">
+                    <div class="map-placeholder"></div>
+                    <a href="#" class="btn-brochure">📄 Brochure (PDF)</a>
+                </div>
+                <div class="pba-col-right">
+                    <div class="stats-table">
+                        <div class="stats-row">
+                            <div class="stat-card">
+                                <div class="stat-number">35%</div>
+                                <div class="stat-label">del PBI de Argentina</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">50%</div>
+                                <div class="stat-label">de la Producción Industrial</div>
+                            </div>
+                        </div>
+                        <div class="stats-row">
+                            <div class="stat-card">
+                                <div class="stat-number">38%</div>
+                                <div class="stat-label">del total de Exportaciones</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">40%</div>
+                                <div class="stat-label">de la Población Nacional</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Sector 2 -->
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="accordion-title">Sector Metalmecánica</span>
-                    <span class="accordion-arrow">&#10148;</span>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-body">
-                        Un entramado industrial histórico y altamente capacitado que abastece a la industria automotriz, agropartista y de maquinaria pesada. Posee una densa concentración de PyMEs técnicas calificadas, parques industriales especializados y articulación científico-tecnológica constante.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sector 3 -->
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="accordion-title">Sector Energía</span>
-                    <span class="accordion-arrow">&#10148;</span>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-body">
-                        Nexo estratégico para el desarrollo energético nacional, incluyendo infraestructura de refinamiento, generación térmica, nodos de distribución eléctrica y un enorme potencial en energías renovables (eólica y solar) junto con el desarrollo logístico vinculado a Vaca Muerta y la exploración costa afuera.
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- Pie de Página -->
+    <!-- 3. SECCIÓN: RPIE - SECTORES ESTRATÉGICOS -->
+    <section class="sectores-estrategicos">
+        <div class="container">
+            <h2 class="section-title">RPIE ➔ Sectores Estratégicos</h2>
+            <div class="sectores-grid">
+                <div class="sector-card">
+                    <div class="sector-icon"></div>
+                    <h3>Agroindustria</h3>
+                    <p>Líder nacional en producción de granos, carnes y alimentos procesados con tecnología de punta.</p>
+                </div>
+                <div class="sector-card">
+                    <div class="sector-icon"></div>
+                    <h3>Tecnología</h3>
+                    <p>Polos tecnológicos y software con talento humano calificado de exportación global.</p>
+                </div>
+                <div class="sector-card">
+                    <div class="sector-icon"></div>
+                    <h3>Energía</h3>
+                    <p>Matriz diversificada, desarrollo de hidrocarburos y proyectos de energías renovables.</p>
+                </div>
+                <div class="sector-card">
+                    <div class="sector-icon"></div>
+                    <h3>Manufactura</h3>
+                    <p>El corazón industrial del país con fuerte presencia automotriz, metalmecánica y química.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECCIÓN: SERVICIOS -->
+    <section class="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <h4>Promoción Comercial</h4>
+                    <div class="servicio-desc">Inserción de empresas en misiones internacionales y rondas de negocios masivas.</div>
+                    <a href="#" class="servicio-link">[ Ver más ]</a>
+                </div>
+                <div class="servicio-card">
+                    <h4>Oferta Exportable</h4>
+                    <div class="servicio-desc">Catálogo exhaustivo de productos y servicios bonaerenses consolidados para el mundo.</div>
+                    <a href="#" class="servicio-link">[ Ver más ]</a>
+                </div>
+                <div class="servicio-card">
+                    <h4>Formación</h4>
+                    <div class="servicio-desc">Capacitaciones técnicas continuas para potenciar el perfil exportador pyme.</div>
+                    <a href="#" class="servicio-link">[ Ver más ]</a>
+                </div>
+                <div class="servicio-card">
+                    <h4>Asistencia Técnica</h4>
+                    <div class="servicio-desc">Consultorías personalizadas para adecuar procesos a estándares exigidos afuera.</div>
+                    <a href="#" class="servicio-link">[ Ver más ]</a>
+                </div>
+                <div class="servicio-card">
+                    <h4>Información Estratégica</h4>
+                    <div class="servicio-desc">Monitoreo de mercados, estadísticas de comercio exterior e inteligencia comercial.</div>
+                    <a href="#" class="servicio-link">[ Ver más ]</a>
+                </div>
+                <div class="servicio-card">
+                    <h4>Oportunidades de Inversión</h4>
+                    <div class="servicio-desc">Cartera activa de proyectos e incentivos fiscales para la radicación de capitales.</div>
+                    <a href="#" class="servicio-link">[ Ver más ]</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PIE DE PÁGINA: DATOS DE CONTACTO -->
     <footer>
-        <p>© 2026 Ministerio de Producción, Ciencia e Innovación Tecnológica - Provincia de Buenos Aires</p>
-        <p style="margin-top: 5px; font-size: 0.8rem; color: #a0aec0;">Dirección Provincial de Promoción de Inversiones y Comercio Exterior</p>
-    </footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h2>Contactanos | Estamos en contacto</h2>
+                    <div class="contact-item"><strong>E-mail:</strong> inversionycomex.pba@gmail.com</div>
+                    <div class="contact-item"><strong>Cel:</strong> + 54 9 2216 72-6880</div>
+                    <div class="contact-item"><strong>Dirección:</strong> Tte. Gral Juan Domingo Perón 739, 1er Piso, CABA</div>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Inicio</a>
+                    <a href="#recursos">Recursos</a>
+                    <a href="#nosotros">Nosotros</a>
+                    <a href="#servicios">Servicios</a>
+                </div>
+            </div>
+        </div>
+    </footer >
 
-
-    <!-- LÓGICA DE INTERACCIÓN (JavaScript) -->
-    <script>
-        /* --- Script del Carrusel --- */
-        let currentIndex = 0;
-        const track = document.getElementById('carouselTrack');
-        const dots = document.querySelectorAll('.dot');
-        const totalSlides = 3;
-
-        function updateCarousel() {
-            track.style.transform = `translateX(-${currentIndex * 33.333}%)`;
-            dots.forEach((dot, index) => {
-                if(index === currentIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }
-
-        function moveSlide(direction) {
-            currentIndex += direction;
-            if (currentIndex >= totalSlides) currentIndex = 0;
-            if (currentIndex < 0) currentIndex = totalSlides - 1;
-            updateCarousel();
-        }
-
-        function currentSlide(index) {
-            currentIndex = index;
-            updateCarousel();
-        }
-
-        // Desplazamiento automático cada 6 segundos
-        setInterval(() => {
-            moveSlide(1);
-        }, 6000);
-
-
-        /* --- Script de los Sectores (Acordeón) --- */
-        function toggleAccordion(headerElement) {
-            const item = headerElement.parentElement;
-            const content = item.querySelector('.accordion-content');
-            const isOpen = item.classList.contains('active');
-            
-            // Cierra los otros por prolijidad visual
-            document.querySelectorAll('.accordion-item').forEach(el => {
-                el.classList.remove('active');
-                el.querySelector('.accordion-content').style.maxHeight = null;
-            });
-
-            // Si estaba cerrado, lo despliega dinámicamente calculando su altura
-            if (!isOpen) {
-                item.classList.add('active');
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        }
-    </script>
 </body>
 </html>
