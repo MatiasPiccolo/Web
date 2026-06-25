@@ -406,7 +406,7 @@
             border-radius: 5px;
         }
 
-        /* 5. NUEVA SECCIÓN OP2: Grilla Simétrica de Sectores */
+        /* 5. SECCIÓN OP2: Grilla Simétrica de Sectores */
         .sectores-estrategicos {
             padding: 80px 0;
             background-color: var(--blanco);
@@ -762,7 +762,7 @@
                     <h1>Oportunidades Bonaerenses</h1>
                     <p>Descubra el potencial estratégico de la Provincia de Buenos Aires. Conectamos capacidades productivas locales con el crecimiento económico de mercados internacionales.</p>
                     <div class="cta-group">
-                        <a href="#inverti" class="btn btn-primary">Invertí</a>
+                        <a href="Inverti.html" class="btn btn-primary">Invertí</a>
                         <a href="#oferta" class="btn btn-secondary">Oferta Exportable</a>
                     </div>
                 </div>
@@ -802,6 +802,7 @@
             <div class="pba-grid">
                 <div class="pba-col-left">
                     <div class="map-placeholder"></div>
+                    <a href="Inverti.html" class="btn-brochure" style="display: block; margin-bottom: 10px; background-color: var(--celeste-gba); border-color: var(--celeste-gba); color: var(--azul-oscuro);">Invertí en PBA</a>
                     <a href="#" class="btn-brochure">📄 Brochure (PDF)</a>
                 </div>
                 <div class="pba-col-right">
@@ -868,31 +869,26 @@
         <div class="container">
             <h2 class="section-title">Sectores Estratégicos</h2>
             <div class="sectores-grid">
-                
                 <div class="sector-card-op2" onclick="openModal('modal-industria')">
                     <h3>Industria</h3>
                     <p>Sector altamente diversificado: automotriz, metalurgia, químicos, textil, indumentaria y calzado.</p>
                     <span class="btn-ver-datos">Ver indicadores ➔</span>
                 </div>
-
                 <div class="sector-card-op2" onclick="openModal('modal-energia')">
                     <h3>Energía</h3>
                     <p>Principal generadora de energía eléctrica. Generación a través de fuentes renovables, en particular la eólica.</p>
                     <span class="btn-ver-datos">Ver indicadores ➔</span>
                 </div>
-
                 <div class="sector-card-op2" onclick="openModal('modal-turismo')">
                     <h3>Turismo</h3>
                     <p>Primer destino turístico del país, trabajadores calificados y calidad estructural hotelera.</p>
                     <span class="btn-ver-datos">Ver indicadores ➔</span>
                 </div>
-
                 <div class="sector-card-op2" onclick="openModal('modal-sbc')">
                     <h3>SBC</h3>
                     <p>Destacado en investigación y desarrollo, educación, software, industrias creativas y servicios profesionales.</p>
                     <span class="btn-ver-datos">Ver indicadores ➔</span>
                 </div>
-
             </div>
         </div>
     </section>
@@ -901,7 +897,7 @@
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal('modal-industria')">&times;</button>
             <div class="modal-header">
-                <h3>Industria</h3>
+                <h3>Industry</h3>
                 <p class="modal-desc">Sector altamente diversificado: automotriz, metalurgia, químicos, textil, indumentaria y calzado, entre otros.</p>
             </div>
             <div class="modal-macro-grid">
@@ -984,7 +980,7 @@
             <button class="modal-close" onclick="closeModal('modal-turismo')">&times;</button>
             <div class="modal-header">
                 <h3>Turismo</h3>
-                <p class="modal-desc">Primer destino turístico del país, trabajadores calificados y alta calidad estructural en hotelería y servicios turísticos asociados.</p>
+                <p class="modal-desc">Primer destino turístico del país, trabajadores calificados y alta calidad estructural en hotelería.</p>
             </div>
             <div class="modal-macro-grid">
                 <div class="macro-card">
@@ -1016,7 +1012,7 @@
             <button class="modal-close" onclick="closeModal('modal-sbc')">&times;</button>
             <div class="modal-header">
                 <h3>Servicios Basados en el Conocimiento</h3>
-                <p class="modal-desc">Destacado ecosistema de investigación y desarrollo (I+D), educación superior de vanguardia, software de exportación, industrias creativas y servicios profesionales complejos.</p>
+                <p class="modal-desc">Destacado ecosistema de investigación y desarrollo (I+D), educación superior de vanguardia, software, industrias creativas y servicios profesionales complejos.</p>
             </div>
             <div class="modal-macro-grid">
                 <div class="macro-card">
@@ -1079,10 +1075,11 @@
                     <div class="servicio-desc">Regulaciones vigentes, guías de trámites e informes de inversión y exportación.</div>
                     <a href="#" class="servicio-link">[ Ver más ]</a>
                 </div>
+                
                 <div class="servicio-card">
                     <h4>Monitor de inversiones y comercio exterior</h4>
                     <div class="servicio-desc">Informes de anuncios de inversión, anuncios de fusiones & adquisiciones, otros informes.</div>
-                    <a href="#" class="servicio-link">[ Ver más ]</a>
+                    <a href="Monitor.html" class="servicio-link">[ Ver más ]</a>
                 </div>
             </div>
         </div>
@@ -1108,7 +1105,7 @@
     </footer>
 
     <script>
-        /* --- 1. Lógica Carrusel Principal (Hero Azul) --- */
+        /* --- Lógica Carrusel Principal (Hero Azul) --- */
         let indexHero = 0;
         const heroTrack = document.getElementById('heroTrack');
         const heroDots = document.querySelectorAll('.hero-dot');
@@ -1134,8 +1131,7 @@
             actualizarHero();
         }
 
-
-        /* --- 2. Lógica Carrusel de Herramientas (Gris) --- */
+        /* --- Lógica Carrusel de Herramientas (Gris) --- */
         let indexTools = 0;
         const toolsTrack = document.getElementById('toolsTrack');
         const toolsDots = document.querySelectorAll('.tools-dot');
@@ -1161,8 +1157,7 @@
             actualizarTools();
         }
 
-
-        /* --- 3. NUEVA LÓGICA: Control de Modals (Opción 2) --- */
+        /* --- Control de Modals --- */
         function openModal(modalId) {
             document.getElementById(modalId).classList.add('active');
             document.body.classList.add('modal-open');
@@ -1173,7 +1168,6 @@
             document.body.classList.remove('modal-open');
         }
 
-        // Cierra el modal si el usuario hace clic afuera de la caja blanca (en el fondo oscuro)
         function closeModalOutside(event, modalId) {
             if (event.target.id === modalId) {
                 closeModal(modalId);
