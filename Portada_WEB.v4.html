@@ -155,11 +155,16 @@
         }
 
         .btn-tool {
+            display: inline-block;
             background-color: var(--azul-institucional);
             color: var(--blanco);
             border: 2px solid var(--azul-institucional);
             font-size: 0.85rem;
             padding: 8px 20px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         .btn-tool:hover {
             background-color: #004085;
@@ -268,14 +273,15 @@
 
         .btn-brochure {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 10px 25px;
             border: 1px solid var(--gris-oscuro);
             color: var(--gris-oscuro);
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             border-radius: 4px;
+            transition: all 0.2s ease;
         }
 
         .btn-brochure:hover {
@@ -802,7 +808,7 @@
             <div class="pba-grid">
                 <div class="pba-col-left">
                     <div class="map-placeholder"></div>
-                    <a href="Inverti.html" class="btn-brochure" style="display: block; margin-bottom: 10px; background-color: var(--celeste-gba); border-color: var(--celeste-gba); color: var(--azul-oscuro);">Invertí en PBA</a>
+                    <!-- Enlace modificado: solo se mantiene el acceso al brochure (PDF) -->
                     <a href="#" class="btn-brochure">📄 Brochure (PDF)</a>
                 </div>
                 <div class="pba-col-right">
@@ -843,7 +849,8 @@
                     <div class="tools-item">
                         <h3>RPIE</h3>
                         <p>Registro Provincial de Inversores Extranjeros. Centralizá gestiones operativas, obtené asistencia técnica en normativas locales y facilidades institucionales de radicación.</p>
-                        <a href="#" class="btn btn-tool">Registrarse</a>
+                        <!-- LINK REQUERIDO: Redirección al área oficial de Inversiones Estratégicas GBA -->
+                        <a href="https://www.gba.gob.ar/produccion/inversiones_estrategicas" target="_blank" class="btn btn-tool">Registrarse</a>
                     </div>
                     <div class="tools-item">
                         <h3>Oferta Exportable</h3>
@@ -893,6 +900,7 @@
         </div>
     </section>
 
+    <!-- COMPONENTES MODAL -->
     <div id="modal-industria" class="modal-overlay" onclick="closeModalOutside(event, 'modal-industria')">
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal('modal-industria')">&times;</button>
@@ -1076,6 +1084,7 @@
                     <a href="#" class="servicio-link">[ Ver más ]</a>
                 </div>
                 
+                <!-- Tarjeta de Monitor de Inversiones vinculada a Monitor.html -->
                 <div class="servicio-card">
                     <h4>Monitor de inversiones y comercio exterior</h4>
                     <div class="servicio-desc">Informes de anuncios de inversión, anuncios de fusiones & adquisiciones, otros informes.</div>
