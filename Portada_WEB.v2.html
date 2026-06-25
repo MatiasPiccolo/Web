@@ -44,22 +44,16 @@
         }
 
         .nav-container {
-            display: table;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             width: 100%;
         }
 
         .logo-placeholder {
-            display: table-cell;
-            vertical-align: middle;
             font-weight: bold;
             color: var(--azul-institucional);
             font-size: 1.2rem;
-        }
-
-        nav {
-            display: table-cell;
-            text-align: right;
-            vertical-align: middle;
         }
 
         nav a {
@@ -75,7 +69,7 @@
             color: var(--azul-institucional);
         }
 
-        /* 2. PORTADA: Carrusel Hero Azul Principal */
+        /* 2. PORTADA: Carrusel Hero Principal Azul */
         .hero-carousel {
             position: relative;
             background-color: var(--azul-oscuro);
@@ -84,12 +78,12 @@
 
         .hero-track {
             display: flex;
-            width: 300%; /* 3 diapositivas */
+            width: 300%;
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .hero-slide {
-            width: 33.333%;
+            width: 33.3333%;
             padding: 90px 0;
             text-align: center;
             color: var(--blanco);
@@ -152,6 +146,20 @@
         .btn-secondary:hover {
             background-color: var(--blanco);
             color: var(--azul-oscuro);
+        }
+
+        /* Botón específico para tarjetas internas del carrusel secundario */
+        .btn-tool {
+            background-color: var(--azul-institucional);
+            color: var(--blanco);
+            border: 2px solid var(--azul-institucional);
+            font-size: 0.85rem;
+            padding: 8px 20px;
+        }
+        .btn-tool:hover {
+            background-color: #004085;
+            border-color: #004085;
+            color: var(--blanco);
         }
 
         /* Flechas del Hero Principal */
@@ -220,17 +228,14 @@
         }
 
         .pba-grid {
-            display: table;
+            display: flex;
             width: 100%;
-            table-layout: fixed;
+            gap: 40px;
         }
 
         .pba-col-left {
-            display: table-cell;
             width: 40%;
-            vertical-align: middle;
             text-align: center;
-            padding-right: 40px;
         }
 
         .map-placeholder {
@@ -253,6 +258,8 @@
             color: var(--gris-medio);
             font-size: 0.9rem;
             padding: 0 10px;
+            width: 100%;
+            text-align: center;
         }
 
         .btn-brochure {
@@ -273,29 +280,26 @@
         }
 
         .pba-col-right {
-            display: table-cell;
             width: 60%;
-            vertical-align: middle;
         }
 
         .stats-table {
-            display: table;
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .stats-row {
-            display: table-row;
+            display: flex;
+            gap: 20px;
         }
 
         .stat-card {
-            display: table-cell;
+            flex: 1;
             background-color: var(--gris-claro);
             padding: 30px 20px;
             text-align: center;
             border-radius: 8px;
-            width: 50%;
             border: 1px solid var(--borde-tarjeta);
         }
 
@@ -333,12 +337,12 @@
 
         .tools-track {
             display: flex;
-            width: 300%; /* 3 elementos */
+            width: 300%;
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .tools-item {
-            width: 33.333%;
+            width: 33.3333%;
             padding: 50px 70px;
             text-align: center;
         }
@@ -410,21 +414,18 @@
         }
 
         .sectores-grid {
-            display: table;
+            display: flex;
             width: 100%;
-            table-layout: fixed;
-            border-collapse: separate;
-            border-spacing: 20px;
+            gap: 20px;
         }
 
         .sector-card {
-            display: table-cell;
+            flex: 1;
             background-color: var(--gris-claro);
             padding: 30px 20px;
             border-radius: 8px;
             border: 1px solid var(--borde-tarjeta);
             text-align: center;
-            width: 25%;
             vertical-align: top;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -504,21 +505,20 @@
         }
 
         .servicios-grid {
-            display: table;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
             width: 100%;
-            table-layout: fixed;
-            border-collapse: separate;
-            border-spacing: 15px;
         }
 
         .servicio-card {
-            display: table-cell;
+            flex: 1;
+            min-width: 250px;
             border: 1px solid var(--borde-tarjeta);
             padding: 25px 15px;
             border-radius: 6px;
             text-align: center;
             background-color: var(--blanco);
-            vertical-align: top;
         }
 
         .servicio-card h4 {
@@ -554,20 +554,17 @@
         }
 
         .footer-grid {
-            display: table;
+            display: flex;
+            justify-content: space-between;
             width: 100%;
         }
 
         .footer-info {
-            display: table-cell;
             width: 60%;
-            vertical-align: top;
         }
 
         .footer-links {
-            display: table-cell;
             width: 40%;
-            vertical-align: top;
             text-align: right;
         }
 
@@ -600,28 +597,20 @@
         }
 
         @media (max-width: 768px) {
-            .pba-col-left, .pba-col-right, .stats-card, .sector-card, .servicio-card, .footer-info, .footer-links {
-                display: block !important;
+            .pba-grid, .stats-row, .sectores-grid, .footer-grid {
+                flex-direction: column !important;
+            }
+            .pba-col-left, .pba-col-right, .sector-card, .footer-info, .footer-links {
                 width: 100% !important;
-                padding-right: 0 !important;
-                margin-bottom: 20px;
                 text-align: center !important;
             }
-            .sectores-grid { display: block !important; }
             .hero-arrow, .tools-control { display: none; }
-            nav {
-                display: block !important;
-                text-align: center !important;
-                margin-top: 15px;
-            }
-            nav a { margin: 0 10px; }
             .tools-item { padding: 40px 30px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. ENCABEZADO -->
     <header>
         <div class="container">
             <div class="nav-container">
@@ -634,14 +623,12 @@
         </div>
     </header>
 
-    <!-- 2. PORTADA: Carrusel Hero Principal Azul -->
     <section class="hero-carousel">
         <button class="hero-arrow hero-left" onclick="moverHero(-1)">&#10094;</button>
         <button class="hero-arrow hero-right" onclick="moverHero(1)">&#10095;</button>
 
         <div class="hero-track" id="heroTrack">
             
-            <!-- Slide Hero 1 -->
             <div class="hero-slide">
                 <div class="container">
                     <h1>Oportunidades Bonaerenses</h1>
@@ -653,7 +640,6 @@
                 </div>
             </div>
 
-            <!-- Slide Hero 2 -->
             <div class="hero-slide">
                 <div class="container">
                     <h1>Sectores en Crecimiento</h1>
@@ -665,7 +651,6 @@
                 </div>
             </div>
 
-            <!-- Slide Hero 3 -->
             <div class="hero-slide">
                 <div class="container">
                     <h1>Ecosistema Exportador</h1>
@@ -686,7 +671,6 @@
         </div>
     </section>
 
-    <!-- 3. SECCIÓN: PBA EN N° -->
     <section class="pba-numeros">
         <div class="container">
             <h2 class="section-title">PBA en N°</h2>
@@ -723,7 +707,6 @@
         </div>
     </section>
 
-    <!-- 4. SECCIÓN: Carrusel de Herramientas Clave (RPIE, Oferta Exportable, Créditos) -->
     <section class="carrusel-secciones" id="herramientas">
         <div class="container">
             <h2 class="section-title">Herramientas de Impulso</h2>
@@ -734,25 +717,22 @@
 
                 <div class="tools-track" id="toolsTrack">
                     
-                    <!-- Herramienta 1: RPIE -->
                     <div class="tools-item">
                         <h3>RPIE</h3>
                         <p>Registro Provincial de Inversores Extranjeros. Centralizá gestiones operativas, obtené asistencia técnica en normativas locales y facilidades institucionales de radicación.</p>
-                        <a href="#" class="btn btn-primary" style="font-size:0.85rem; padding:8px 20px; background-color: var(--azul-institucional); border-color: var(--azul-institucional); color: white;">Registrarse</a>
+                        <a href="#" class="btn btn-tool">Registrarse</a>
                     </div>
 
-                    <!-- Herramienta 2: Oferta Exportable -->
                     <div class="tools-item">
                         <h3>Oferta Exportable</h3>
                         <p>Catálogo consolidado y multidimensional de los productos bonaerenses listos para su inserción y comercialización competitiva en los mercados globales.</p>
-                        <a href="#" class="btn btn-primary" style="font-size:0.85rem; padding:8px 20px; background-color: var(--azul-institucional); border-color: var(--azul-institucional); color: white;">Explorar Catálogo</a>
+                        <a href="#" class="btn btn-tool">Explorar Catálogo</a>
                     </div>
 
-                    <!-- Herramienta 3: Líneas de Crédito -->
                     <div class="tools-item">
                         <h3>Líneas de Crédito</h3>
                         <p>Acceso a esquemas de financiamiento productivo estructurado, tasas bonificadas y convenios bancarios públicos para radicación o expansión de plantas industriales.</p>
-                        <a href="#" class="btn btn-primary" style="font-size:0.85rem; padding:8px 20px; background-color: var(--azul-institucional); border-color: var(--azul-institucional); color: white;">Ver Financiamiento</a>
+                        <a href="#" class="btn btn-tool">Ver Financiamiento</a>
                     </div>
 
                 </div>
@@ -766,13 +746,11 @@
         </div>
     </section>
 
-    <!-- 5. SECCIÓN: Sectores Estratégicos (Con Acordeones Desplegables) -->
     <section class="sectores-estrategicos" id="sectores">
         <div class="container">
             <h2 class="section-title">Sectores Estratégicos</h2>
             <div class="sectores-grid">
                 
-                <!-- Sector 1 -->
                 <div class="sector-card" onclick="toggleSector(this)">
                     <div class="sector-icon"></div>
                     <h3>Agroindustria</h3>
@@ -785,7 +763,6 @@
                     </div>
                 </div>
 
-                <!-- Sector 2 -->
                 <div class="sector-card" onclick="toggleSector(this)">
                     <div class="sector-icon"></div>
                     <h3>Tecnología</h3>
@@ -798,7 +775,6 @@
                     </div>
                 </div>
 
-                <!-- Sector 3 -->
                 <div class="sector-card" onclick="toggleSector(this)">
                     <div class="sector-icon"></div>
                     <h3>Energía</h3>
@@ -811,7 +787,6 @@
                     </div>
                 </div>
 
-                <!-- Sector 4 -->
                 <div class="sector-card" onclick="toggleSector(this)">
                     <div class="sector-icon"></div>
                     <h3>Manufactura</h3>
@@ -828,7 +803,6 @@
         </div>
     </section>
 
-    <!-- 6. SECCIÓN: SERVICIOS -->
     <section class="servicios">
         <div class="container">
             <h2 class="section-title">Nuestros Servicios</h2>
@@ -867,7 +841,6 @@
         </div>
     </section>
 
-    <!-- 7. PIE DE PÁGINA -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -887,7 +860,6 @@
         </div>
     </footer>
 
-    <!-- INTERACCIONES (JavaScript Independientes) -->
     <script>
         /* --- 1. Lógica Carrusel Principal (Hero Azul) --- */
         let indexHero = 0;
@@ -895,10 +867,12 @@
         const heroDots = document.querySelectorAll('.hero-dot');
 
         function actualizarHero() {
-            heroTrack.style.transform = `translateX(-${indexHero * 33.333}%)`;
-            heroDots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === indexHero);
-            });
+            if (heroTrack) {
+                heroTrack.style.transform = 'translateX(-' + (indexHero * 33.3333) + '%)';
+                heroDots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === indexHero);
+                });
+            }
         }
 
         function moverHero(dir) {
@@ -920,10 +894,12 @@
         const toolsDots = document.querySelectorAll('.tools-dot');
 
         function actualizarTools() {
-            toolsTrack.style.transform = `translateX(-${indexTools * 33.333}%)`;
-            toolsDots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === indexTools);
-            });
+            if (toolsTrack) {
+                toolsTrack.style.transform = 'translateX(-' + (indexTools * 33.3333) + '%)';
+                toolsDots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === indexTools);
+                });
+            }
         }
 
         function moverTools(dir) {
@@ -946,10 +922,11 @@
             
             document.querySelectorAll('.sector-card').forEach(el => {
                 el.classList.remove('active');
-                el.querySelector('.sector-dropdown-content').style.maxHeight = null;
+                const c = el.querySelector('.sector-dropdown-content');
+                if (c) c.style.maxHeight = null;
             });
 
-            if (!estaAbierto) {
+            if (!estaAbierto && contenido) {
                 tarjeta.classList.add('active');
                 contenido.style.maxHeight = contenido.scrollHeight + "px";
             }
