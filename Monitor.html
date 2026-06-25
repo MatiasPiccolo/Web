@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inversiones y Comercio Exterior - PBA</title>
+    <title>Monitor de Inversiones y Comercio Exterior - PBA</title>
     <style>
-        /* Estilos Generales e Identidad Visual GBA */
+        /* Paleta de Colores Identidad GBA */
         :root {
             --azul-institucional: #0056b3;
+            --azul-oscuro: #003670;
             --celeste-gba: #00aae4;
             --gris-oscuro: #333333;
             --gris-medio: #666666;
             --gris-claro: #f8f9fa;
             --blanco: #ffffff;
-            --borde-tarjeta: #e9ecef;
+            --borde-linea: #cbd5e1;
         }
 
         * {
@@ -27,6 +28,16 @@
             color: var(--gris-oscuro);
             line-height: 1.6;
             background-color: var(--blanco);
+            padding-bottom: 60px;
+        }
+
+        /* Encabezado e Introducción */
+        .header-monitor {
+            background-color: var(--gris-claro);
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 40px;
         }
 
         .container {
@@ -35,542 +46,392 @@
             padding: 0 20px;
         }
 
-        /* 1. Encabezado / Hero Section */
-        header {
-            background-color: var(--blanco);
-            border-bottom: 1px solid var(--borde-tarjeta);
-            padding: 15px 0;
-        }
-
-        .nav-container {
-            display: table;
-            width: 100%;
-        }
-
-        .logo-placeholder {
-            display: table-cell;
-            vertical-align: middle;
-            font-weight: bold;
-            color: var(--azul-institucional);
-            font-size: 1.2rem;
-        }
-
-        nav {
-            display: table-cell;
-            text-align: right;
-            vertical-align: middle;
-        }
-
-        nav a {
-            color: var(--gris-medio);
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
+        .header-monitor h1 {
+            font-size: 2.2rem;
+            color: var(--azul-oscuro);
             text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        nav a:hover {
-            color: var(--azul-institucional);
-        }
-
-        .hero {
-            padding: 80px 0;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(255,255,255,1) 100%);
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            color: var(--azul-institucional);
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--gris-medio);
-            max-width: 700px;
-            margin: 0 auto 35px auto;
-        }
-
-        .cta-group {
-            margin-top: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin: 0 10px;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
-            border: 2px solid var(--azul-institucional);
-        }
-
-        .btn-primary:hover {
-            background-color: #004085;
-            border-color: #004085;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--azul-institucional);
-            border: 2px solid var(--azul-institucional);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
-        }
-
-        /* 2. Sección: PBA EN N° */
-        .pba-numeros {
-            padding: 80px 0;
-            background-color: var(--blanco);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--azul-institucional);
-            margin-bottom: 50px;
-            text-transform: uppercase;
-        }
-
-        .pba-grid {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-        }
-
-        .pba-col-left {
-            display: table-cell;
-            width: 40%;
-            vertical-align: middle;
-            text-align: center;
-            padding-right: 40px;
-        }
-
-        .map-placeholder {
-            width: 100%;
-            max-width: 250px;
-            height: 300px;
-            background-color: #e9ecef;
-            margin: 0 auto 20px auto;
-            border-radius: 8px;
-            position: relative;
-            border: 2px dashed #ced4da;
-        }
-
-        .map-placeholder::after {
-            content: "Mapa de la Provincia de Buenos Aires";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--gris-medio);
-            font-size: 0.9rem;
-            padding: 0 10px;
-        }
-
-        .btn-brochure {
-            display: inline-block;
-            padding: 8px 20px;
-            border: 1px solid var(--gris-oscuro);
-            color: var(--gris-oscuro);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            border-radius: 4px;
-        }
-
-        .btn-brochure:hover {
-            background-color: var(--gris-oscuro);
-            color: var(--blanco);
-        }
-
-        .pba-col-right {
-            display: table-cell;
-            width: 60%;
-            vertical-align: middle;
-        }
-
-        .stats-table {
-            display: table;
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 20px;
-        }
-
-        .stats-row {
-            display: table-row;
-        }
-
-        .stat-card {
-            display: table-cell;
-            background-color: var(--gris-claro);
-            padding: 30px 20px;
-            text-align: center;
-            border-radius: 8px;
-            width: 50%;
-            border: 1px solid var(--borde-tarjeta);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--celeste-gba);
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size: 0.95rem;
-            color: var(--gris-medio);
-            font-weight: 500;
-        }
-
-        /* 3. Sección: RPIE - SECTORES ESTRATÉGICOS */
-        .sectores-estrategicos {
-            padding: 80px 0;
-            background-color: var(--gris-claro);
-            border-top: 1px solid var(--borde-tarjeta);
-            border-bottom: 1px solid var(--borde-tarjeta);
-        }
-
-        .sectores-grid {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-            border-collapse: separate;
-            border-spacing: 20px;
-        }
-
-        .sector-card {
-            display: table-cell;
-            background-color: var(--blanco);
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid var(--borde-tarjeta);
-            text-align: center;
-            width: 25%;
-        }
-
-        .sector-icon {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 15px auto;
-            background-color: #e3f2fd;
-            border-radius: 50%;
-            position: relative;
-        }
-
-        .sector-icon::after {
-            content: "✓";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--azul-institucional);
-            font-weight: bold;
-        }
-
-        .sector-card h3 {
-            font-size: 1.1rem;
-            color: var(--azul-institucional);
-            margin-bottom: 10px;
-        }
-
-        .sector-card p {
-            font-size: 0.85rem;
-            color: var(--gris-medio);
-        }
-
-        /* 4. Sección: SERVICIOS */
-        .servicios {
-            padding: 80px 0;
-            background-color: var(--blanco);
-        }
-
-        .servicios-grid {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-            border-collapse: separate;
-            border-spacing: 15px;
-        }
-
-        .servicio-card {
-            display: table-cell;
-            border: 1px solid var(--borde-tarjeta);
-            padding: 25px 15px;
-            border-radius: 6px;
-            text-align: center;
-            background-color: var(--blanco);
-            vertical-align: top;
-        }
-
-        .servicio-card h4 {
-            font-size: 0.95rem;
-            color: var(--gris-oscuro);
             margin-bottom: 15px;
-            text-transform: uppercase;
-            font-weight: bold;
-            min-height: 40px;
+            letter-spacing: -0.5px;
         }
 
-        .servicio-desc {
-            font-size: 0.8rem;
+        .header-monitor p {
+            font-size: 1.05rem;
             color: var(--gris-medio);
-            margin-bottom: 20px;
-            min-height: 60px;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.5;
         }
 
-        .servicio-link {
-            font-size: 0.85rem;
-            color: var(--azul-institucional);
-            text-decoration: none;
-            font-weight: bold;
+        /* Grilla Principal de 2 Columnas */
+        .monitor-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            align-items: start;
         }
 
-        .servicio-link:hover {
-            text-decoration: underline;
+        .monitor-col {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
 
-        /* 5. Pie de Página: DATOS DE CONTACTO */
-        footer {
-            background-color: var(--azul-institucional);
+        /* Estructura del Acordeón / Bloque de Informes */
+        .accordion-block {
+            border: 1px solid var(--borde-linea);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            background-color: var(--blanco);
+        }
+
+        /* Encabezado del Acordeón */
+        .accordion-header {
+            background-color: var(--azul-oscuro);
             color: var(--blanco);
-            padding: 60px 0;
-        }
-
-        .footer-grid {
-            display: table;
             width: 100%;
-        }
-
-        .footer-info {
-            display: table-cell;
-            width: 60%;
-            vertical-align: top;
-        }
-
-        .footer-links {
-            display: table-cell;
-            width: 40%;
-            vertical-align: top;
-            text-align: right;
-        }
-
-        footer h2 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .contact-item {
-            margin-bottom: 12px;
+            padding: 15px 20px;
             font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: left;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
         }
 
-        .contact-item strong {
-            color: var(--celeste-gba);
+        .accordion-header:hover {
+            background-color: var(--azul-institucional);
         }
 
-        .footer-links a {
-            color: var(--blanco);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
+        .accordion-icon {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-block.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Contenedor de la lista de PDFs */
+        .accordion-content {
+            max-height: 2000px; /* Suficiente para albergar los ítems */
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: var(--blanco);
+        }
+
+        .accordion-block.collapsed .accordion-content {
+            max-height: 0;
+        }
+
+        /* Fila de cada PDF */
+        .pdf-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            border-bottom: 1px solid #f1f5f9;
+            transition: background-color 0.2s;
+        }
+
+        .pdf-row:last-child {
+            border-bottom: none;
+        }
+
+        .pdf-row:hover {
+            background-color: #f8fafc;
+        }
+
+        /* Detalle Izquierdo: Icono + Título */
+        .pdf-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            padding-right: 15px;
+        }
+
+        .pdf-type-icon {
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 4px 6px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+            color: var(--azul-oscuro);
+            min-width: 38px;
+            text-align: center;
+        }
+
+        /* Colores específicos para los iconos de la captura */
+        .icon-f-a { background-color: #e0f2fe; color: #0369a1; font-size: 0.75rem; } /* Fusiones y Adquisiciones */
+        .icon-inv { background-color: #dcfce7; color: #15803d; font-size: 0.75rem; } /* Reportes Trimestrales/Anuales */
+        .icon-esp { background-color: #fae8ff; color: #a21caf; font-size: 0.75rem; } /* Especiales */
+
+        .pdf-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--gris-oscuro);
+        }
+
+        /* Acciones Derecha: Ver y Descargar */
+        .pdf-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-view {
             font-size: 0.9rem;
-            opacity: 0.8;
+            color: var(--gris-oscuro);
+            text-decoration: none;
+            font-weight: 500;
         }
 
-        .footer-links a:hover {
-            opacity: 1;
+        .btn-view:hover {
+            color: var(--azul-institucional);
             text-decoration: underline;
         }
 
-        @media (max-width: 768px) {
-            /* Adaptación básica para pantallas chicas sin romper la estructura principal */
-            .pba-col-left, .pba-col-right, .stats-card, .sector-card, .servicio-card, .footer-info, .footer-links {
-                display: block !important;
-                width: 100% !important;
-                padding-right: 0 !important;
-                margin-bottom: 20px;
-                text-align: center !important;
+        /* Botón de descarga PDF */
+        .btn-download-pdf {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #002347; /* Azul muy oscuro como la captura */
+            color: var(--blanco);
+            text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: bold;
+            min-width: 35px;
+            line-height: 1.1;
+            transition: background-color 0.2s;
+        }
+
+        .btn-download-pdf:hover {
+            background-color: var(--celeste-gba);
+        }
+
+        .btn-download-pdf::after {
+            content: "▼";
+            font-size: 0.55rem;
+            margin-top: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .monitor-grid {
+                grid-template-columns: 1fr;
             }
-            nav {
-                display: block !important;
-                text-align: center !important;
-                margin-top: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .pdf-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
             }
-            nav a {
-                margin: 0 10px;
+            .pdf-actions {
+                width: 100%;
+                justify-content: flex-end;
+                border-top: 1px dashed #e2e8f0;
+                padding-top: 8px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. ENCABEZADO / HERO SECTION -->
-    <header>
+    <header class="header-monitor">
         <div class="container">
-            <div class="nav-container">
-                <div class="logo-placeholder">INVERSIONES Y COMERCIO EXTERIOR</div>
-                <nav>
-                    <a href="#recursos">Recursos</a>
-                    <a href="#nosotros">Nosotros</a>
-                </nav>
-            </div>
+            <h1>Monitor de Inversiones</h1>
+            <p>Brindamos una síntesis del panorama de la inversión en la Provincia de Buenos Aires a partir del relevamiento y compilado de un conjunto específico, que nos permite analizar las características, dinámica y comportamiento de la inversión privada local y externa en la Provincia de Buenos Aires en comparación con el país.</p>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Oportunidades Bonaerenses</h1>
-            <p>Descubra el potencial estratégico de la Provincia de Buenos Aires. Impulsamos el crecimiento económico conectando capacidades productivas locales con mercados globales.</p>
-            <div class="cta-group">
-                <a href="#inverti" class="btn btn-primary">Invertí</a>
-                <a href="#oferta" class="btn btn-secondary">Oferta Exportable</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. SECCIÓN: PBA EN N° -->
-    <section class="pba-numeros">
-        <div class="container">
-            <h2 class="section-title">PBA en N°</h2>
-            <div class="pba-grid">
-                <div class="pba-col-left">
-                    <div class="map-placeholder"></div>
-                    <a href="#" class="btn-brochure">📄 Brochure (PDF)</a>
-                </div>
-                <div class="pba-col-right">
-                    <div class="stats-table">
-                        <div class="stats-row">
-                            <div class="stat-card">
-                                <div class="stat-number">35%</div>
-                                <div class="stat-label">del PBI de Argentina</div>
+    <main class="container">
+        <div class="monitor-grid">
+            
+            <div class="monitor-col">
+                
+                <div class="accordion-block">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Informes Trimestrales de Anuncios de Inversión
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pdf-row">
+                            <div class="pdf-info">
+                                <span class="pdf-type-icon icon-inv">📊</span>
+                                <span class="pdf-title">Informe Anuncios de Inversión, F&A - 2° Trimestre 2024</span>
                             </div>
-                            <div class="stat-card">
-                                <div class="stat-number">50%</div>
-                                <div class="stat-label">de la Producción Industrial</div>
+                            <div class="pdf-actions">
+                                <a href="ruta/al/archivo-2t2024.pdf" target="_blank" class="btn-view">Ver</a>
+                                <a href="ruta/al/archivo-2t2024.pdf" download class="btn-download-pdf">PDF</a>
                             </div>
                         </div>
-                        <div class="stats-row">
-                            <div class="stat-card">
-                                <div class="stat-number">38%</div>
-                                <div class="stat-label">del total de Exportaciones</div>
+                        <div class="pdf-row">
+                            <div class="pdf-info">
+                                <span class="pdf-type-icon icon-inv">📊</span>
+                                <span class="pdf-title">Informe Anuncios de Inversión, F&A - 1° Trimestre 2024</span>
                             </div>
-                            <div class="stat-card">
-                                <div class="stat-number">40%</div>
-                                <div class="stat-label">de la Población Nacional</div>
+                            <div class="pdf-actions">
+                                <a href="#" target="_blank" class="btn-view">Ver</a>
+                                <a href="#" download class="btn-download-pdf">PDF</a>
+                            </div>
+                        </div>
+                        <div class="pdf-row">
+                            <div class="pdf-info">
+                                <span class="pdf-type-icon icon-inv">📊</span>
+                                <span class="pdf-title">Informe Anuncios de Inversión, F&A - 4° Trimestre 2023</span>
+                            </div>
+                            <div class="pdf-actions">
+                                <a href="#" target="_blank" class="btn-view">Ver</a>
+                                <a href="#" download class="btn-download-pdf">PDF</a>
+                            </div>
+                        </div>
+                        <div class="pdf-row">
+                            <div class="pdf-info">
+                                <span class="pdf-type-icon icon-inv">📊</span>
+                                <span class="pdf-title">Informe Anuncios de Inversión, F&A - 1° Trimestre 2023</span>
+                            </div>
+                            <div class="pdf-actions">
+                                <a href="#" target="_blank" class="btn-view">Ver</a>
+                                <a href="#" download class="btn-download-pdf">PDF</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 3. SECCIÓN: RPIE - SECTORES ESTRATÉGICOS -->
-    <section class="sectores-estrategicos">
-        <div class="container">
-            <h2 class="section-title">RPIE ➔ Sectores Estratégicos</h2>
-            <div class="sectores-grid">
-                <div class="sector-card">
-                    <div class="sector-icon"></div>
-                    <h3>Agroindustria</h3>
-                    <p>Líder nacional en producción de granos, carnes y alimentos procesados con tecnología de punta.</p>
+                <div class="accordion-block">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Informes Anuales de Anuncios de Inversión
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pdf-row">
+                            <div class="pdf-info">
+                                <span class="pdf-type-icon icon-inv">📂</span>
+                                <span class="pdf-title">Informe Anuncios de Inversión, F&A - 2 Anual 2022</span>
+                            </div>
+                            <div class="pdf-actions">
+                                <a href="#" target="_blank" class="btn-view">Ver</a>
+                                <a href="#" download class="btn-download-pdf">PDF</a>
+                            </div>
+                        </div>
+                        <div class="pdf-row">
+                            <div class="pdf-info">
+                                <span class="pdf-type-icon icon-inv">📂</span>
+                                <span class="pdf-title">Informe Anuncios de Inversión, F&A - 2 Anual 2021</span>
+                            </div>
+                            <div class="pdf-actions">
+                                <a href="#" target="_blank" class="btn-view">Ver</a>
+                                <a href="#" download class="btn-download-pdf">PDF</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="sector-card">
-                    <div class="sector-icon"></div>
-                    <h3>Tecnología</h3>
-                    <p>Polos tecnológicos y software con talento humano calificado de exportación global.</p>
-                </div>
-                <div class="sector-card">
-                    <div class="sector-icon"></div>
-                    <h3>Energía</h3>
-                    <p>Matriz diversificada, desarrollo de hidrocarburos y proyectos de energías renovables.</p>
-                </div>
-                <div class="sector-card">
-                    <div class="sector-icon"></div>
-                    <h3>Manufactura</h3>
-                    <p>El corazón industrial del país con fuerte presencia automotriz, metalmecánica y química.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 4. SECCIÓN: SERVICIOS -->
-    <section class="servicios">
-        <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <div class="servicios-grid">
-                <div class="servicio-card">
-                    <h4>Promoción Comercial</h4>
-                    <div class="servicio-desc">Inserción de empresas en misiones internacionales y rondas de negocios masivas.</div>
-                    <a href="#" class="servicio-link">[ Ver más ]</a>
-                </div>
-                <div class="servicio-card">
-                    <h4>Oferta Exportable</h4>
-                    <div class="servicio-desc">Catálogo exhaustivo de productos y servicios bonaerenses consolidados para el mundo.</div>
-                    <a href="#" class="servicio-link">[ Ver más ]</a>
-                </div>
-                <div class="servicio-card">
-                    <h4>Formación</h4>
-                    <div class="servicio-desc">Capacitaciones técnicas continuas para potenciar el perfil exportador pyme.</div>
-                    <a href="#" class="servicio-link">[ Ver más ]</a>
-                </div>
-                <div class="servicio-card">
-                    <h4>Asistencia Técnica</h4>
-                    <div class="servicio-desc">Consultorías personalizadas para adecuar procesos a estándares exigidos afuera.</div>
-                    <a href="#" class="servicio-link">[ Ver más ]</a>
-                </div>
-                <div class="servicio-card">
-                    <h4>Información Estratégica</h4>
-                    <div class="servicio-desc">Monitoreo de mercados, estadísticas de comercio exterior e inteligencia comercial.</div>
-                    <a href="#" class="servicio-link">[ Ver más ]</a>
-                </div>
-                <div class="servicio-card">
-                    <h4>Oportunidades de Inversión</h4>
-                    <div class="servicio-desc">Cartera activa de proyectos e incentivos fiscales para la radicación de capitales.</div>
-                    <a href="#" class="servicio-link">[ Ver más ]</a>
-                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- 5. PIE DE PÁGINA: DATOS DE CONTACTO -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <h2>Contactanos | Estamos en contacto</h2>
-                    <div class="contact-item"><strong>E-mail:</strong> inversionycomex.pba@gmail.com</div>
-                    <div class="contact-item"><strong>Cel:</strong> + 54 9 2216 72-6880</div>
-                    <div class="contact-item"><strong>Dirección:</strong> Tte. Gral Juan Domingo Perón 739, 1er Piso, CABA</div>
+            <div class="monitor-col">
+                
+                <div class="accordion-block">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Informes de Anuncios de Fusiones y Adquisiciones
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pdf-row">
+                            <div class="pdf-info">
+                                <span class="pdf-type-icon icon-f-a">M&A</span>
+                                <span class="pdf-title">Primer semestre 2022</span>
+                            </div>
+                            <div class="pdf-actions">
+                                <a href="#" target="_blank" class="btn-view">Ver</a>
+                                <a href="#" download class="btn-download-pdf">PDF</a>
+                            </div>
+                        </div>
+                        <div class="pdf-row">
+                            <div class="pdf-info">
+                                <span class="pdf-type-icon icon-f-a">M&A</span>
+                                <span class="pdf-title">Segundo semestre 2022</span>
+                            </div>
+                            <div class="pdf-actions">
+                                <a href="#" target="_blank" class="btn-view">Ver</a>
+                                <a href="#" download class="btn-download-pdf">PDF</a>
+                            </div>
+                        </div>
+                        <div class="pdf-row">
+                            <div class="pdf-info">
+                                <span class="pdf-type-icon icon-f-a">M&A</span>
+                                <span class="pdf-title">Segundo Semestre 2021</span>
+                            </div>
+                            <div class="pdf-actions">
+                                <a href="#" target="_blank" class="btn-view">Ver</a>
+                                <a href="#" download class="btn-download-pdf">PDF</a>
+                            </div>
+                        </div>
+                        <div class="pdf-row">
+                            <div class="pdf-info">
+                                <span class="pdf-type-icon icon-f-a">M&A</span>
+                                <span class="pdf-title">Primer semestre 2021</span>
+                            </div>
+                            <div class="pdf-actions">
+                                <a href="#" target="_blank" class="btn-view">Ver</a>
+                                <a href="#" download class="btn-download-pdf">PDF</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <a href="#">Inicio</a>
-                    <a href="#recursos">Recursos</a>
-                    <a href="#nosotros">Nosotros</a>
-                    <a href="#servicios">Servicios</a>
+
+                <div class="accordion-block">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Otros Informes
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pdf-row">
+                            <div class="pdf-info">
+                                <span class="pdf-type-icon icon-esp">📋</span>
+                                <span class="pdf-title">Informe especial ¿Éxodo de empresas? Enero 2020 a Agosto 2021</span>
+                            </div>
+                            <div class="pdf-actions">
+                                <a href="#" target="_blank" class="btn-view">Ver</a>
+                                <a href="#" download class="btn-download-pdf">PDF</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-        </div>
-    </footer >
 
+        </div>
+    </main>
+
+    <script>
+        // Función interactiva para contraer o expandir las secciones
+        function toggleAccordion(button) {
+            const block = button.parentElement;
+            
+            // Alternamos la clase para abrir o cerrar usando CSS transitions
+            if (block.classList.contains('collapsed')) {
+                block.classList.remove('collapsed');
+                block.classList.add('active');
+            } else {
+                block.classList.add('collapsed');
+                block.classList.remove('active');
+            }
+        }
+
+        // Opcional: Podés inicializar algunos bloques cerrados al cargar la página si querés
+        // Por defecto en este código arrancan todos abiertos como en la imagen.
+    </script>
 </body>
 </html>
