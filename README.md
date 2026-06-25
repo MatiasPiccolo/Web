@@ -9,4 +9,5 @@ Portal de informes y visualizaciones interactivas.
 | Sección | URL |
 |---|---|
 | Portal principal | [Portada.html](https://matiaspiccolo.github.io/Web/Portada_WEB.html) |
+| 2da versión portada | [Portada.v2.html](https://matiaspiccolo.github.io/Web/Portada_WEB.v2.html) |
 | Forms invertí | [Invertí.html](https://matiaspiccolo.github.io/Web/inverti-form.html) |
