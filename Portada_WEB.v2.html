@@ -8,6 +8,7 @@
         /* Estilos Generales e Identidad Visual GBA */
         :root {
             --azul-institucional: #0056b3;
+            --azul-oscuro: #003670;
             --celeste-gba: #00aae4;
             --gris-oscuro: #333333;
             --gris-medio: #666666;
@@ -35,7 +36,7 @@
             padding: 0 20px;
         }
 
-        /* 1. Encabezado / Hero Section */
+        /* 1. Encabezado */
         header {
             background-color: var(--blanco);
             border-bottom: 1px solid var(--borde-tarjeta);
@@ -74,31 +75,52 @@
             color: var(--azul-institucional);
         }
 
-        .hero {
-            padding: 80px 0;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(255,255,255,1) 100%);
+
+        /* NUEVA PORTADA: Carrusel Hero de Fondo Azul */
+        .hero-carousel {
+            position: relative;
+            background-color: var(--azul-oscuro);
+            overflow: hidden;
         }
 
-        .hero h1 {
+        .carousel-track {
+            display: flex;
+            width: 300%; /* 3 diapositivas */
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-slide {
+            width: 33.333%;
+            padding: 80px 0;
+            text-align: center;
+            color: var(--blanco);
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, #002247 100%);
+        }
+
+        .carousel-slide:nth-child(2) {
+            background: linear-gradient(135deg, #004085 0%, var(--azul-oscuro) 100%);
+        }
+        
+        .carousel-slide:nth-child(3) {
+            background: linear-gradient(135deg, #001f3f 0%, #004085 100%);
+        }
+
+        .carousel-slide h1 {
             font-size: 2.8rem;
-            color: var(--azul-institucional);
+            font-weight: 800;
             margin-bottom: 20px;
             letter-spacing: -0.5px;
             text-transform: uppercase;
         }
 
-        .hero p {
+        .carousel-slide p {
             font-size: 1.2rem;
-            color: var(--gris-medio);
             max-width: 700px;
             margin: 0 auto 35px auto;
+            color: rgba(255, 255, 255, 0.9);
         }
 
-        .cta-group {
-            margin-top: 20px;
-        }
-
+        /* Botones institucionales dentro de la portada azul */
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -111,26 +133,82 @@
         }
 
         .btn-primary {
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
-            border: 2px solid var(--azul-institucional);
+            background-color: var(--celeste-gba);
+            color: var(--azul-oscuro);
+            border: 2px solid var(--celeste-gba);
         }
 
         .btn-primary:hover {
-            background-color: #004085;
-            border-color: #004085;
+            background-color: var(--blanco);
+            border-color: var(--blanco);
+            color: var(--azul-institucional);
         }
 
         .btn-secondary {
             background-color: transparent;
-            color: var(--azul-institucional);
-            border: 2px solid var(--azul-institucional);
+            color: var(--blanco);
+            border: 2px solid var(--blanco);
         }
 
         .btn-secondary:hover {
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
+            background-color: var(--blanco);
+            color: var(--azul-oscuro);
         }
+
+        /* Flechas Laterales de Navegación */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--blanco);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s ease;
+            z-index: 10;
+        }
+
+        .carousel-arrow:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .arrow-left { left: 40px; }
+        .arrow-right { right: 40px; }
+
+        /* Puntitos Indicadores Inferiores */
+        .carousel-dots {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.4);
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dot.active {
+            background-color: var(--celeste-gba);
+            width: 24px;
+            border-radius: 5px;
+        }
+
 
         /* 2. Sección: PBA EN N° */
         .pba-numeros {
@@ -239,7 +317,8 @@
             font-weight: 500;
         }
 
-        /* 3. Sección: RPIE - SECTORES ESTRATÉGICOS */
+
+        /* 3. Sección: Sectores Estratégicos con Acordeones Desplegables */
         .sectores-estrategicos {
             padding: 80px 0;
             background-color: var(--gris-claro);
@@ -258,11 +337,19 @@
         .sector-card {
             display: table-cell;
             background-color: var(--blanco);
-            padding: 30px;
+            padding: 30px 20px;
             border-radius: 8px;
             border: 1px solid var(--borde-tarjeta);
             text-align: center;
             width: 25%;
+            vertical-align: top;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .sector-card:hover {
+            border-color: var(--celeste-gba);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .sector-icon {
@@ -294,6 +381,39 @@
             font-size: 0.85rem;
             color: var(--gris-medio);
         }
+
+        /* Desplegable de los sectores */
+        .sector-toggle-icon {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: var(--azul-institucional);
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .sector-card.active .sector-toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .sector-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            text-align: left;
+            background-color: var(--blanco);
+            border-radius: 6px;
+        }
+
+        .sector-dropdown-body {
+            padding: 15px 10px 5px 10px;
+            font-size: 0.85rem;
+            color: var(--gris-oscuro);
+            line-height: 1.5;
+            border-top: 1px dashed var(--borde-tarjeta);
+            margin-top: 10px;
+        }
+
 
         /* 4. Sección: SERVICIOS */
         .servicios {
@@ -346,7 +466,7 @@
             text-decoration: underline;
         }
 
-        /* 5. Pie de Página: DATOS DE CONTACTO */
+        /* 5. Pie de Página */
         footer {
             background-color: var(--azul-institucional);
             color: var(--blanco);
@@ -402,13 +522,18 @@
         }
 
         @media (max-width: 768px) {
-            /* Adaptación básica para pantallas chicas sin romper la estructura principal */
             .pba-col-left, .pba-col-right, .stats-card, .sector-card, .servicio-card, .footer-info, .footer-links {
                 display: block !important;
                 width: 100% !important;
                 padding-right: 0 !important;
                 margin-bottom: 20px;
                 text-align: center !important;
+            }
+            .sectores-grid {
+                display: block !important;
+            }
+            .carousel-arrow {
+                display: none; /* Simplifica en móvil */
             }
             nav {
                 display: block !important;
@@ -423,7 +548,7 @@
 </head>
 <body>
 
-    <!-- 1. ENCABEZADO / HERO SECTION -->
+    <!-- 1. ENCABEZADO -->
     <header>
         <div class="container">
             <div class="nav-container">
@@ -436,16 +561,61 @@
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Oportunidades Bonaerenses</h1>
-            <p>Descubra el potencial estratégico de la Provincia de Buenos Aires. Impulsamos el crecimiento económico conectando capacidades productivas locales con mercados globales.</p>
-            <div class="cta-group">
-                <a href="#inverti" class="btn btn-primary">Invertí</a>
-                <a href="#oferta" class="btn btn-secondary">Oferta Exportable</a>
+    <!-- PORTADA: NUEVO Carrusel Dinámico de Fondo Azul -->
+    <section class="hero-carousel">
+        <!-- Flechas de navegación -->
+        <button class="carousel-arrow arrow-left" onclick="cambiarSlide(-1)">&#10094;</button>
+        <button class="carousel-arrow arrow-right" onclick="cambiarSlide(1)">&#10095;</button>
+
+        <!-- Contenedor Deslizante -->
+        <div class="carousel-track" id="heroTrack">
+            
+            <!-- Slide 1: RPIE -->
+            <div class="carousel-slide">
+                <div class="container">
+                    <h1>Oportunidades Bonaerenses: RPIE</h1>
+                    <p>Registro Provincial de Inversores Extranjeros. Centralizá gestiones operativas, obtené asistencia técnica en normativas locales y facilidades institucionales de radicación.</p>
+                    <div class="cta-group">
+                        <a href="#inverti" class="btn btn-primary">Invertí (RPIE)</a>
+                        <a href="#oferta" class="btn btn-secondary">Oferta Exportable</a>
+                    </div>
+                </div>
             </div>
+
+            <!-- Slide 2: Oferta Exportable -->
+            <div class="carousel-slide">
+                <div class="container">
+                    <h1>Oferta Exportable</h1>
+                    <p>Catálogo consolidado y multidimensional de los productos bonaerenses listos para su inserción, vinculación estratégica y comercialización competitiva en mercados globales.</p>
+                    <div class="cta-group">
+                        <a href="#oferta" class="btn btn-primary">Ver Oferta Exportable</a>
+                        <a href="#sectores" class="btn btn-secondary">Sectores Clave</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Líneas de Crédito -->
+            <div class="carousel-slide">
+                <div class="container">
+                    <h1>Líneas de Crédito</h1>
+                    <p>Acceso a esquemas de financiamiento productivo estructurado, tasas bonificadas y convenios bancarios públicos para la radicación o expansión de plantas industriales.</p>
+                    <div class="cta-group">
+                        <a href="#" class="btn btn-primary">Consultar Líneas</a>
+                        <a href="#inverti" class="btn btn-secondary">Iniciar Radicación</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Puntitos de Navegación -->
+        <div class="carousel-dots">
+            <button class="dot active" onclick="irASlide(0)"></button>
+            <button class="dot" onclick="irASlide(1)"></button>
+            <button class="dot" onclick="irASlide(2)"></button>
         </div>
     </section>
+
 
     <!-- 2. SECCIÓN: PBA EN N° -->
     <section class="pba-numeros">
@@ -484,34 +654,73 @@
         </div>
     </section>
 
-    <!-- 3. SECCIÓN: RPIE - SECTORES ESTRATÉGICOS -->
-    <section class="sectores-estrategicos">
+
+    <!-- 3. SECCIÓN: SECTORES ESTRATÉGICOS (Con Acordeones Desplegables) -->
+    <section class="sectores-estrategicos" id="sectores">
         <div class="container">
-            <h2 class="section-title">RPIE ➔ Sectores Estratégicos</h2>
+            <h2 class="section-title">Sectores Estratégicos</h2>
             <div class="sectores-grid">
-                <div class="sector-card">
+                
+                <!-- Sector 1: Agroindustria -->
+                <div class="sector-card" onclick="toggleSector(this)">
                     <div class="sector-icon"></div>
                     <h3>Agroindustria</h3>
                     <p>Líder nacional en producción de granos, carnes y alimentos procesados con tecnología de punta.</p>
+                    <span class="sector-toggle-icon">▼ MÁS INFO</span>
+                    
+                    <div class="sector-dropdown-content">
+                        <div class="sector-dropdown-body">
+                            La provincia representa el eje fundamental del procesamiento agroalimentario del país. Posee puertos especializados de aguas profundas, óptimas ventajas de rendimiento de suelos y una robusta articulación tecnológica orientada al valor agregado y exportación de alimentos procesados.
+                        </div>
+                    </div>
                 </div>
-                <div class="sector-card">
+
+                <!-- Sector 2: Tecnología -->
+                <div class="sector-card" onclick="toggleSector(this)">
                     <div class="sector-icon"></div>
                     <h3>Tecnología</h3>
                     <p>Polos tecnológicos y software con talento humano calificado de exportación global.</p>
+                    <span class="sector-toggle-icon">▼ MÁS INFO</span>
+                    
+                    <div class="sector-dropdown-content">
+                        <div class="sector-dropdown-body">
+                            Cuenta con múltiples centros y clústers tecnológicos distribuidos en nodos urbanos clave. Concentra una alta densidad de talento universitario enfocado al desarrollo de software, servicios basados en el conocimiento (SBC) y soluciones de biotecnología aplicada.
+                        </div>
+                    </div>
                 </div>
-                <div class="sector-card">
+
+                <!-- Sector 3: Energía -->
+                <div class="sector-card" onclick="toggleSector(this)">
                     <div class="sector-icon"></div>
                     <h3>Energía</h3>
                     <p>Matriz diversificada, desarrollo de hidrocarburos y proyectos de energías renovables.</p>
+                    <span class="sector-toggle-icon">▼ MÁS INFO</span>
+                    
+                    <div class="sector-dropdown-content">
+                        <div class="sector-dropdown-body">
+                            Punto neurálgico para la distribución de redes de energía, destilerías complejas de refinamiento e infraestructura logística asociada. Presenta una proyección ascendente en la instalación de parques eólicos modernos y proyectos sustentables.
+                        </div>
+                    </div>
                 </div>
-                <div class="sector-card">
+
+                <!-- Sector 4: Manufactura -->
+                <div class="sector-card" onclick="toggleSector(this)">
                     <div class="sector-icon"></div>
                     <h3>Manufactura</h3>
                     <p>El corazón industrial del país con fuerte presencia automotriz, metalmecánica y química.</p>
+                    <span class="sector-toggle-icon">▼ MÁS INFO</span>
+                    
+                    <div class="sector-dropdown-content">
+                        <div class="sector-dropdown-body">
+                            El tejido manufacturero bonaerense concentra la mayor cantidad de parques industriales operativos del país. Alberga cadenas terminales clave de automotrices, siderurgia, química pesada y un denso ecosistema de pymes metalmecánicas técnicas especializadas.
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
+
 
     <!-- 4. SECCIÓN: SERVICIOS -->
     <section class="servicios">
@@ -570,7 +779,57 @@
                 </div>
             </div>
         </div>
-    </footer >
+    </footer>
 
+    <!-- INTERACCIONES (JavaScript) -->
+    <script>
+        /* --- Script del Carrusel (Hero Azul) --- */
+        let indexActual = 0;
+        const track = document.getElementById('heroTrack');
+        const puntos = document.querySelectorAll('.dot');
+        const totalSlides = 3;
+
+        function actualizarCarrusel() {
+            track.style.transform = `translateX(-${indexActual * 33.333}%)`;
+            puntos.forEach((punto, i) => {
+                if(i === indexActual) {
+                    punto.classList.add('active');
+                } else {
+                    punto.classList.remove('active');
+                }
+            });
+        }
+
+        function cambiarSlide(direccion) {
+            indexActual += direccion;
+            if (indexActual >= totalSlides) indexActual = 0;
+            if (indexActual < 0) indexActual = totalSlides - 1;
+            actualizarCarrusel();
+        }
+
+        function irASlide(index) {
+            indexActual = index;
+            actualizarCarrusel();
+        }
+
+
+        /* --- Script Desplegables de Sectores --- */
+        function toggleSector(tarjeta) {
+            const contenido = tarjeta.querySelector('.sector-dropdown-content');
+            const estaAbierto = tarjeta.classList.contains('active');
+            
+            // Cierra los demás sectores para mantener ordenada la grilla
+            document.querySelectorAll('.sector-card').forEach(el => {
+                el.classList.remove('active');
+                el.querySelector('.sector-dropdown-content').style.maxHeight = null;
+            });
+
+            // Si estaba cerrado, lo abre calculando la altura real
+            if (!estaAbierto) {
+                tarjeta.classList.add('active');
+                contenido.style.maxHeight = contenido.scrollHeight + "px";
+            }
+        }
+    </script>
 </body>
 </html>
