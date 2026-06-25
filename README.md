@@ -13,3 +13,4 @@ Portal de informes y visualizaciones interactivas.
 | 3ra versión portada | [Portada.v3.html](https://matiaspiccolo.github.io/Web/Portada_WEB.v3.html) |
 | 4ta versión portada | [Portada.v4.html](https://matiaspiccolo.github.io/Web/Portada_WEB.v4.html) |
 | Forms invertí | [Invertí.html](https://matiaspiccolo.github.io/Web/inverti-form.html) |
+| Monitor | [Monitor.html](https://matiaspiccolo.github.io/Web/Monitor.html) |
