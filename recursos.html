@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inversiones y Comercio Exterior - PBA</title>
+    <title>Recursos y Descargas - Inversiones y Comercio Exterior - PBA</title>
     <style>
-        /* Estilos Generales e Identidad Visual GBA */
+        /* Estilos Generales e Identidad Visual GBA (Idénticos al Home) */
         :root {
             --azul-institucional: #0056b3;
+            --azul-oscuro: #003670;
             --celeste-gba: #00aae4;
             --gris-oscuro: #333333;
             --gris-medio: #666666;
@@ -35,7 +36,7 @@
             padding: 0 20px;
         }
 
-        /* 1. Encabezado / Hero Section */
+        /* 1. Encabezado */
         header {
             background-color: var(--blanco);
             border-bottom: 1px solid var(--borde-tarjeta);
@@ -43,22 +44,22 @@
         }
 
         .nav-container {
-            display: table;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             width: 100%;
         }
 
         .logo-placeholder {
-            display: table-cell;
-            vertical-align: middle;
             font-weight: bold;
             color: var(--azul-institucional);
             font-size: 1.2rem;
+            text-decoration: none;
         }
 
         nav {
-            display: table-cell;
-            text-align: right;
-            vertical-align: middle;
+            display: flex;
+            align-items: center;
         }
 
         nav a {
@@ -70,306 +71,252 @@
             font-size: 0.9rem;
         }
 
-        nav a:hover {
+        nav a:hover, nav a.active {
             color: var(--azul-institucional);
         }
 
-        .hero {
-            padding: 80px 0;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(255,255,255,1) 100%);
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            color: var(--azul-institucional);
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--gris-medio);
-            max-width: 700px;
-            margin: 0 auto 35px auto;
-        }
-
-        .cta-group {
-            margin-top: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin: 0 10px;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
-            border: 2px solid var(--azul-institucional);
-        }
-
-        .btn-primary:hover {
-            background-color: #004085;
-            border-color: #004085;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--azul-institucional);
-            border: 2px solid var(--azul-institucional);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
-        }
-
-        /* 2. Sección: PBA EN N° */
-        .pba-numeros {
-            padding: 80px 0;
-            background-color: var(--blanco);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--azul-institucional);
-            margin-bottom: 50px;
-            text-transform: uppercase;
-        }
-
-        .pba-grid {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-        }
-
-        .pba-col-left {
-            display: table-cell;
-            width: 40%;
-            vertical-align: middle;
-            text-align: center;
-            padding-right: 40px;
-        }
-
-        .map-placeholder {
-            width: 100%;
-            max-width: 250px;
-            height: 300px;
-            background-color: #e9ecef;
-            margin: 0 auto 20px auto;
-            border-radius: 8px;
-            position: relative;
-            border: 2px dashed #ced4da;
-        }
-
-        .map-placeholder::after {
-            content: "Mapa de la Provincia de Buenos Aires";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--gris-medio);
-            font-size: 0.9rem;
-            padding: 0 10px;
-        }
-
-        .btn-brochure {
-            display: inline-block;
-            padding: 8px 20px;
-            border: 1px solid var(--gris-oscuro);
-            color: var(--gris-oscuro);
-            text-decoration: none;
-            font-weight: bold;
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            margin-left: 25px;
+            padding-left: 15px;
+            border-left: 1px solid #ced4da;
+            gap: 8px;
             font-size: 0.85rem;
-            text-transform: uppercase;
-            border-radius: 4px;
+            font-weight: 600;
         }
 
-        .btn-brochure:hover {
-            background-color: var(--gris-oscuro);
-            color: var(--blanco);
-        }
-
-        .pba-col-right {
-            display: table-cell;
-            width: 60%;
-            vertical-align: middle;
-        }
-
-        .stats-table {
-            display: table;
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 20px;
-        }
-
-        .stats-row {
-            display: table-row;
-        }
-
-        .stat-card {
-            display: table-cell;
-            background-color: var(--gris-claro);
-            padding: 30px 20px;
-            text-align: center;
-            border-radius: 8px;
-            width: 50%;
-            border: 1px solid var(--borde-tarjeta);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--celeste-gba);
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size: 0.95rem;
+        .lang-btn {
             color: var(--gris-medio);
-            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
 
-        /* 3. Sección: RPIE - SECTORES ESTRATÉGICOS */
-        .sectores-estrategicos {
-            padding: 80px 0;
-            background-color: var(--gris-claro);
-            border-top: 1px solid var(--borde-tarjeta);
-            border-bottom: 1px solid var(--borde-tarjeta);
+        .lang-btn:hover { color: var(--azul-institucional); }
+
+        .lang-btn.active {
+            color: var(--azul-oscuro);
+            cursor: default;
+            pointer-events: none;
+            border-bottom: 2px solid var(--celeste-gba);
         }
 
-        .sectores-grid {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-            border-collapse: separate;
-            border-spacing: 20px;
+        .lang-divider {
+            color: #ced4da;
+            user-select: none;
         }
 
-        .sector-card {
-            display: table-cell;
-            background-color: var(--blanco);
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid var(--borde-tarjeta);
+        /* Banner de Título de la Página */
+        .page-banner {
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, #002247 100%);
+            color: var(--blanco);
+            padding: 50px 0;
             text-align: center;
-            width: 25%;
+            margin-bottom: 40px;
         }
 
-        .sector-icon {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 15px auto;
-            background-color: #e3f2fd;
-            border-radius: 50%;
-            position: relative;
-        }
-
-        .sector-icon::after {
-            content: "✓";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--azul-institucional);
-            font-weight: bold;
-        }
-
-        .sector-card h3 {
-            font-size: 1.1rem;
-            color: var(--azul-institucional);
+        .page-banner h1 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
             margin-bottom: 10px;
         }
 
-        .sector-card p {
-            font-size: 0.85rem;
-            color: var(--gris-medio);
+        .page-banner p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* 4. Sección: SERVICIOS */
-        .servicios {
-            padding: 80px 0;
-            background-color: var(--blanco);
+        /* 2. Distribución Principal en Dos Columnas (Inspirado en la lógica del Monitor) */
+        .recursos-layout {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 60px;
         }
 
-        .servicios-grid {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-            border-collapse: separate;
-            border-spacing: 15px;
+        .col-izquierda {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        .servicio-card {
-            display: table-cell;
+        .col-derecha {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* Paneles Estilo Monitor / Descargas */
+        .panel-recurso {
             border: 1px solid var(--borde-tarjeta);
-            padding: 25px 15px;
+            border-top: 4px solid var(--azul-institucional);
             border-radius: 6px;
-            text-align: center;
             background-color: var(--blanco);
-            vertical-align: top;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            overflow: hidden;
         }
 
-        .servicio-card h4 {
+        .panel-recurso.panel-secundario {
+            border-top-color: var(--celeste-gba);
+        }
+
+        .panel-header {
+            background-color: var(--gris-claro);
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--borde-tarjeta);
+        }
+
+        .panel-header h2 {
+            font-size: 1.1rem;
+            color: var(--azul-oscuro);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .panel-body {
+            padding: 10px 0;
+        }
+
+        .panel-desc-inline {
+            padding: 15px 20px;
+            font-size: 0.9rem;
+            color: var(--gris-medio);
+            border-bottom: 1px solid var(--borde-tarjeta);
+            background-color: #fafafa;
+        }
+
+        /* Filas de Descarga / Enlaces internos */
+        .recurso-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--borde-tarjeta);
+            transition: background-color 0.2s ease;
+        }
+
+        .recurso-item:last-child {
+            border-bottom: none;
+        }
+
+        .recurso-item:hover {
+            background-color: var(--gris-claro);
+        }
+
+        .recurso-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Iconos Profesionales SVG incorporados directamente */
+        .icon-doc {
+            width: 20px;
+            height: 20px;
+            fill: var(--azul-institucional);
+            flex-shrink: 0;
+        }
+
+        .recurso-title {
             font-size: 0.95rem;
             color: var(--gris-oscuro);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            font-weight: bold;
-            min-height: 40px;
+            font-weight: 500;
         }
 
-        .servicio-desc {
-            font-size: 0.8rem;
-            color: var(--gris-medio);
-            margin-bottom: 20px;
-            min-height: 60px;
+        .recurso-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .servicio-link {
+        .link-ver {
             font-size: 0.85rem;
-            color: var(--azul-institucional);
+            color: var(--gris-medio);
             text-decoration: none;
             font-weight: bold;
+            text-transform: uppercase;
         }
 
-        .servicio-link:hover {
-            text-decoration: underline;
+        .link-ver:hover {
+            color: var(--azul-institucional);
         }
 
-        /* 5. Pie de Página: DATOS DE CONTACTO */
+        .btn-pdf-download {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: bold;
+            gap: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-pdf-download:hover {
+            background-color: var(--celeste-gba);
+            color: var(--azul-oscuro);
+        }
+
+        .btn-pdf-download svg {
+            width: 12px;
+            height: 12px;
+            fill: currentColor;
+        }
+
+        /* Botón de enlace externo de sección (estilo RPIE) */
+        .panel-footer-action {
+            padding: 20px;
+            text-align: center;
+            background-color: var(--gris-claro);
+            border-top: 1px solid var(--borde-tarjeta);
+        }
+
+        .btn-link-web {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--azul-institucional);
+            border: 2px solid var(--azul-institucional);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-link-web:hover {
+            background-color: var(--azul-institucional);
+            color: var(--blanco);
+        }
+
+        /* 3. Pie de Página */
         footer {
             background-color: var(--azul-institucional);
             color: var(--blanco);
             padding: 60px 0;
+            border-top: 1px solid var(--borde-tarjeta);
         }
 
         .footer-grid {
-            display: table;
+            display: flex;
+            justify-content: space-between;
             width: 100%;
         }
 
-        .footer-info {
-            display: table-cell;
-            width: 60%;
-            vertical-align: top;
-        }
-
-        .footer-links {
-            display: table-cell;
-            width: 40%;
-            vertical-align: top;
-            text-align: right;
-        }
+        .footer-info { width: 60%; }
+        .footer-links { width: 40%; text-align: right; }
 
         footer h2 {
             font-size: 1.5rem;
@@ -383,9 +330,7 @@
             font-size: 0.95rem;
         }
 
-        .contact-item strong {
-            color: var(--celeste-gba);
-        }
+        .contact-item strong { color: var(--celeste-gba); }
 
         .footer-links a {
             color: var(--blanco);
@@ -401,158 +346,205 @@
             text-decoration: underline;
         }
 
+        /* Responsive */
+        @media (max-width: 992px) {
+            .recursos-layout { flex-direction: column; }
+            .col-izquierda, .col-derecha { width: 100%; }
+        }
+
         @media (max-width: 768px) {
-            /* Adaptación básica para pantallas chicas sin romper la estructura principal */
-            .pba-col-left, .pba-col-right, .stats-card, .sector-card, .servicio-card, .footer-info, .footer-links {
-                display: block !important;
-                width: 100% !important;
-                padding-right: 0 !important;
-                margin-bottom: 20px;
-                text-align: center !important;
-            }
-            nav {
-                display: block !important;
-                text-align: center !important;
-                margin-top: 15px;
-            }
-            nav a {
-                margin: 0 10px;
-            }
+            .nav-container { flex-direction: column; gap: 15px; }
+            nav { flex-wrap: wrap; justify-content: center; }
+            .lang-selector { margin-left: 15px; padding-left: 10px; }
+            .footer-grid { flex-direction: column !important; gap: 20px; }
+            .footer-info, .footer-links { width: 100% !important; text-align: center !important; }
+            .recurso-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .recurso-actions { width: 100%; justify-content: space-between; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. ENCABEZADO / HERO SECTION -->
     <header>
         <div class="container">
             <div class="nav-container">
-                <div class="logo-placeholder">INVERSIONES Y COMERCIO EXTERIOR</div>
+                <a href="index.html" class="logo-placeholder">INVERSIONES Y COMERCIO EXTERIOR</a>
                 <nav>
-                    <a href="#recursos">Recursos</a>
-                    <a href="#nosotros">Nosotros</a>
+                    <a href="recursos.html" class="active">Recursos</a>
+                    <a href="index.html#nosotros">Nosotros</a>
+                    
+                    <div class="lang-selector">
+                        <a href="#" class="lang-btn active">ES</a>
+                        <span class="lang-divider">|</span>
+                        <a href="recursos-en.html" class="lang-btn">EN</a>
+                        <span class="lang-divider">|</span>
+                        <a href="recursos-zh.html" class="lang-btn">ZH</a>
+                    </div>
                 </nav>
             </div>
         </div>
     </header>
 
-    <section class="hero">
+    <section class="page-banner">
         <div class="container">
-            <h1>Oportunidades Bonaerenses</h1>
-            <p>Descubra el potencial estratégico de la Provincia de Buenos Aires. Impulsamos el crecimiento económico conectando capacidades productivas locales con mercados globales.</p>
-            <div class="cta-group">
-                <a href="#inverti" class="btn btn-primary">Invertí</a>
-                <a href="#oferta" class="btn btn-secondary">Oferta Exportable</a>
-            </div>
+            <h1>Recursos y Descargas</h1>
+            <p>Acceda a las guías operativas, herramientas de registro institucional y documentos de localización municipal estratégica.</p>
         </div>
     </section>
 
-    <!-- 2. SECCIÓN: PBA EN N° -->
-    <section class="pba-numeros">
-        <div class="container">
-            <h2 class="section-title">PBA en N°</h2>
-            <div class="pba-grid">
-                <div class="pba-col-left">
-                    <div class="map-placeholder"></div>
-                    <a href="#" class="btn-brochure">📄 Brochure (PDF)</a>
-                </div>
-                <div class="pba-col-right">
-                    <div class="stats-table">
-                        <div class="stats-row">
-                            <div class="stat-card">
-                                <div class="stat-number">35%</div>
-                                <div class="stat-label">del PBI de Argentina</div>
+    <main class="container">
+        <div class="recursos-layout">
+            
+            <div class="col-izquierda">
+                <div class="panel-recurso">
+                    <div class="panel-header">
+                        <h2>Información Estratégica y Herramientas Municipales</h2>
+                    </div>
+                    <div class="panel-desc-inline">
+                        Seleccione y descargue los perfiles socioproductivos, normativas de zonificación y carpetas de localización para la radicación de inversiones en los municipios bonaerenses.
+                    </div>
+                    <div class="panel-body">
+                        <div class="recurso-item">
+                            <div class="recurso-info">
+                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                                <span class="recurso-title">Bahía Blanca - Guía de Localización e Infraestructura Puerto</span>
                             </div>
-                            <div class="stat-card">
-                                <div class="stat-number">50%</div>
-                                <div class="stat-label">de la Producción Industrial</div>
+                            <div class="recurso-actions">
+                                <a href="#" class="link-ver">Ver</a>
+                                <a href="docs/municipios/bahia-blanca.pdf" class="btn-pdf-download">
+                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
+                                </a>
                             </div>
                         </div>
-                        <div class="stats-row">
-                            <div class="stat-card">
-                                <div class="stat-number">38%</div>
-                                <div class="stat-label">del total de Exportaciones</div>
+                        <div class="recurso-item">
+                            <div class="recurso-info">
+                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                                <span class="recurso-title">La Plata - Perfil Sectorial de Servicios Basados en el Conocimiento</span>
                             </div>
-                            <div class="stat-card">
-                                <div class="stat-number">40%</div>
-                                <div class="stat-label">de la Población Nacional</div>
+                            <div class="recurso-actions">
+                                <a href="#" class="link-ver">Ver</a>
+                                <a href="docs/municipios/la-plata.pdf" class="btn-pdf-download">
+                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
+                                </a>
+                            </div>
+                        </div>
+                        <div class="recurso-item">
+                            <div class="recurso-info">
+                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                                <span class="recurso-title">Mar del Plata / General Pueyrredón - Parque Industrial y Pesca</span>
+                            </div>
+                            <div class="recurso-actions">
+                                <a href="#" class="link-ver">Ver</a>
+                                <a href="docs/municipios/mar-del-plata.pdf" class="btn-pdf-download">
+                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
+                                </a>
+                            </div>
+                        </div>
+                        <div class="recurso-item">
+                            <div class="recurso-info">
+                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                                <span class="recurso-title">Pilar - Sectores Manufactura, Logística y Parques Industriales</span>
+                            </div>
+                            <div class="recurso-actions">
+                                <a href="#" class="link-ver">Ver</a>
+                                <a href="docs/municipios/pilar.pdf" class="btn-pdf-download">
+                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
+                                </a>
+                            </div>
+                        </div>
+                        <div class="recurso-item">
+                            <div class="recurso-info">
+                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                                <span class="recurso-title">Zárate / Campana - Corredor Industrial y Terminales Portuarias</span>
+                            </div>
+                            <div class="recurso-actions">
+                                <a href="#" class="link-ver">Ver</a>
+                                <a href="docs/municipios/zarate.pdf" class="btn-pdf-download">
+                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- 3. SECCIÓN: RPIE - SECTORES ESTRATÉGICOS -->
-    <section class="sectores-estrategicos">
-        <div class="container">
-            <h2 class="section-title">RPIE ➔ Sectores Estratégicos</h2>
-            <div class="sectores-grid">
-                <div class="sector-card">
-                    <div class="sector-icon"></div>
-                    <h3>Agroindustria</h3>
-                    <p>Líder nacional en producción de granos, carnes y alimentos procesados con tecnología de punta.</p>
+            <div class="col-derecha">
+                
+                <div class="panel-recurso panel-secundario">
+                    <div class="panel-header">
+                        <h2>RPIE - Inversores Extranjeros</h2>
+                    </div>
+                    <div class="panel-body">
+                        <div class="recurso-item">
+                            <div class="recurso-info">
+                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                                <span class="recurso-title">Guía Marco Regulatorio e Incentivos RPIE</span>
+                            </div>
+                            <div class="recurso-actions">
+                                <a href="docs/rpie-guia.pdf" class="btn-pdf-download">
+                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
+                                </a>
+                            </div>
+                        </div>
+                        <div class="recurso-item">
+                            <div class="recurso-info">
+                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                                <span class="recurso-title">Formulario de Elegibilidad para Proyectos</span>
+                            </div>
+                            <div class="recurso-actions">
+                                <a href="docs/rpie-formulario.pdf" class="btn-pdf-download">
+                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer-action">
+                        <a href="https://www.gba.gob.ar/produccion/inversiones_estrategicas" target="_blank" class="btn-link-web">Acceder a la Web RPIE ↗</a>
+                    </div>
                 </div>
-                <div class="sector-card">
-                    <div class="sector-icon"></div>
-                    <h3>Tecnología</h3>
-                    <p>Polos tecnológicos y software con talento humano calificado de exportación global.</p>
+
+                <div class="panel-recurso">
+                    <div class="panel-header">
+                        <h2>Oferta Exportable Bonaerense</h2>
+                    </div>
+                    <div class="panel-body">
+                        <div class="recurso-item">
+                            <div class="recurso-info">
+                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                                <span class="recurso-title">Catálogo Consolidado de Empresas Exportadoras</span>
+                            </div>
+                            <div class="recurso-actions">
+                                <a href="docs/catalogo-oferta-exportable.pdf" class="btn-pdf-download">
+                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="sector-card">
-                    <div class="sector-icon"></div>
-                    <h3>Energía</h3>
-                    <p>Matriz diversificada, desarrollo de hidrocarburos y proyectos de energías renovables.</p>
+
+                <div class="panel-recurso">
+                    <div class="panel-header">
+                        <h2>Brochure Institucional</h2>
+                    </div>
+                    <div class="panel-body">
+                        <div class="recurso-item">
+                            <div class="recurso-info">
+                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                                <span class="recurso-title">PBA Investment Guide / Brochure General</span>
+                            </div>
+                            <div class="recurso-actions">
+                                <a href="docs/brochure-pba-completo.pdf" class="btn-pdf-download">
+                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="sector-card">
-                    <div class="sector-icon"></div>
-                    <h3>Manufactura</h3>
-                    <p>El corazón industrial del país con fuerte presencia automotriz, metalmecánica y química.</p>
-                </div>
+
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- 4. SECCIÓN: SERVICIOS -->
-    <section class="servicios">
-        <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <div class="servicios-grid">
-                <div class="servicio-card">
-                    <h4>Promoción Comercial</h4>
-                    <div class="servicio-desc">Inserción de empresas en misiones internacionales y rondas de negocios masivas.</div>
-                    <a href="#" class="servicio-link">[ Ver más ]</a>
-                </div>
-                <div class="servicio-card">
-                    <h4>Oferta Exportable</h4>
-                    <div class="servicio-desc">Catálogo exhaustivo de productos y servicios bonaerenses consolidados para el mundo.</div>
-                    <a href="#" class="servicio-link">[ Ver más ]</a>
-                </div>
-                <div class="servicio-card">
-                    <h4>Formación</h4>
-                    <div class="servicio-desc">Capacitaciones técnicas continuas para potenciar el perfil exportador pyme.</div>
-                    <a href="#" class="servicio-link">[ Ver más ]</a>
-                </div>
-                <div class="servicio-card">
-                    <h4>Asistencia Técnica</h4>
-                    <div class="servicio-desc">Consultorías personalizadas para adecuar procesos a estándares exigidos afuera.</div>
-                    <a href="#" class="servicio-link">[ Ver más ]</a>
-                </div>
-                <div class="servicio-card">
-                    <h4>Información Estratégica</h4>
-                    <div class="servicio-desc">Monitoreo de mercados, estadísticas de comercio exterior e inteligencia comercial.</div>
-                    <a href="#" class="servicio-link">[ Ver más ]</a>
-                </div>
-                <div class="servicio-card">
-                    <h4>Oportunidades de Inversión</h4>
-                    <div class="servicio-desc">Cartera activa de proyectos e incentivos fiscales para la radicación de capitales.</div>
-                    <a href="#" class="servicio-link">[ Ver más ]</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. PIE DE PÁGINA: DATOS DE CONTACTO -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -563,14 +555,14 @@
                     <div class="contact-item"><strong>Dirección:</strong> Tte. Gral Juan Domingo Perón 739, 1er Piso, CABA</div>
                 </div>
                 <div class="footer-links">
-                    <a href="#">Inicio</a>
-                    <a href="#recursos">Recursos</a>
-                    <a href="#nosotros">Nosotros</a>
-                    <a href="#servicios">Servicios</a>
+                    <a href="index.html">Inicio</a>
+                    <a href="recursos.html">Recursos</a>
+                    <a href="index.html#nosotros">Nosotros</a>
+                    <a href="index.html#servicios">Servicios</a>
                 </div>
             </div>
         </div>
-    </footer >
+    </footer>
 
 </body>
 </html>
