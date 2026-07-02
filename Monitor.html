@@ -58,8 +58,13 @@
             font-size: 1.05rem;
             color: var(--gris-medio);
             max-width: 900px;
-            margin: 0 auto;
-            line-height: 1.5;
+            margin: 0 auto 15px auto;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        .header-monitor p:last-child {
+            margin-bottom: 0;
         }
 
         /* Grilla Principal de 2 Columnas */
@@ -169,7 +174,6 @@
         /* Colores específicos para los iconos de la captura */
         .icon-f-a { background-color: #e0f2fe; color: #0369a1; font-size: 0.75rem; } /* Fusiones y Adquisiciones */
         .icon-inv { background-color: #dcfce7; color: #15803d; font-size: 0.75rem; } /* Reportes Trimestrales/Anuales */
-        .icon-esp { background-color: #fae8ff; color: #a21caf; font-size: 0.75rem; } /* Especiales */
 
         .pdf-title {
             font-size: 0.95rem;
@@ -250,16 +254,19 @@
 
     <header class="header-monitor">
         <div class="container">
-            <h1>Monitor de Inversiones</h1>
-            <p>Brindamos una síntesis del panorama de la inversión en la Provincia de Buenos Aires a partir del relevamiento y compilado de un conjunto específico, que nos permite analizar las características, dinámica y comportamiento de la inversión privada local y externa en la Provincia de Buenos Aires en comparación con el país.</p>
+            <!-- Título Actualizado -->
+            <h1>Monitori de inversiones y comercio exterior</h1>
+            <!-- Bajada Institucional Actualizada -->
+            <p>Brindamos una síntesis integral del desempeño económico de la Provincia de Buenos Aires a través del relevamiento, sistematización y análisis de los flujos de inversión privada y el intercambio comercial internacional.</p>
+            <p>A partir del seguimiento de anuncios de inversión y del procesamiento de datos de exportaciones provinciales, desarrollamos indicadores que nos permiten analizar la dinámica, las capacidades productivas y el posicionamiento de la Provincia de Buenos Aires en el contexto internacional.</p>
         </div>
     </header>
 
     <main class="container">
         <div class="monitor-grid">
             
+            <!-- Columna Izquierda -->
             <div class="monitor-col">
-                
                 <div class="accordion-block">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
                         Informes Trimestrales de Anuncios de Inversión
@@ -308,40 +315,10 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="accordion-block">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        Informes Anuales de Anuncios de Inversión
-                        <span class="accordion-icon">▼</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="pdf-row">
-                            <div class="pdf-info">
-                                <span class="pdf-type-icon icon-inv">📂</span>
-                                <span class="pdf-title">Informe Anuncios de Inversión, F&A - 2 Anual 2022</span>
-                            </div>
-                            <div class="pdf-actions">
-                                <a href="#" target="_blank" class="btn-view">Ver</a>
-                                <a href="#" download class="btn-download-pdf">PDF</a>
-                            </div>
-                        </div>
-                        <div class="pdf-row">
-                            <div class="pdf-info">
-                                <span class="pdf-type-icon icon-inv">📂</span>
-                                <span class="pdf-title">Informe Anuncios de Inversión, F&A - 2 Anual 2021</span>
-                            </div>
-                            <div class="pdf-actions">
-                                <a href="#" target="_blank" class="btn-view">Ver</a>
-                                <a href="#" download class="btn-download-pdf">PDF</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
+            <!-- Columna Derecha -->
             <div class="monitor-col">
-                
                 <div class="accordion-block">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
                         Informes de Anuncios de Fusiones y Adquisiciones
@@ -390,37 +367,15 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="accordion-block">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        Otros Informes
-                        <span class="accordion-icon">▼</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="pdf-row">
-                            <div class="pdf-info">
-                                <span class="pdf-type-icon icon-esp">📋</span>
-                                <span class="pdf-title">Informe especial ¿Éxodo de empresas? Enero 2020 a Agosto 2021</span>
-                            </div>
-                            <div class="pdf-actions">
-                                <a href="#" target="_blank" class="btn-view">Ver</a>
-                                <a href="#" download class="btn-download-pdf">PDF</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
         </div>
     </main>
 
     <script>
-        // Función interactiva para contraer o expandir las secciones
         function toggleAccordion(button) {
             const block = button.parentElement;
             
-            // Alternamos la clase para abrir o cerrar usando CSS transitions
             if (block.classList.contains('collapsed')) {
                 block.classList.remove('collapsed');
                 block.classList.add('active');
@@ -429,9 +384,6 @@
                 block.classList.remove('active');
             }
         }
-
-        // Opcional: Podés inicializar algunos bloques cerrados al cargar la página si querés
-        // Por defecto en este código arrancan todos abiertos como en la imagen.
     </script>
 </body>
 </html>
