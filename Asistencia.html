@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recursos y Descargas - Inversiones y Comercio Exterior - PBA</title>
+    <title>Asistencia Técnica - Inversiones y Comercio Exterior - PBA</title>
     <style>
-        /* Estilos Generales e Identidad Visual GBA (Idénticos al Home) */
+        /* Paleta de Colores Identidad GBA (Consistente con Monitor e Index) */
         :root {
             --azul-institucional: #0056b3;
             --azul-oscuro: #003670;
@@ -14,7 +14,7 @@
             --gris-medio: #666666;
             --gris-claro: #f8f9fa;
             --blanco: #ffffff;
-            --borde-tarjeta: #e9ecef;
+            --borde-linea: #cbd5e1;
         }
 
         * {
@@ -28,6 +28,7 @@
             color: var(--gris-oscuro);
             line-height: 1.6;
             background-color: var(--blanco);
+            padding-bottom: 60px;
         }
 
         .container {
@@ -36,533 +37,330 @@
             padding: 0 20px;
         }
 
-        /* 1. Encabezado */
-        header {
-            background-color: var(--blanco);
-            border-bottom: 1px solid var(--borde-tarjeta);
-            padding: 15px 0;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        .logo-placeholder {
-            font-weight: bold;
-            color: var(--azul-institucional);
-            font-size: 1.2rem;
-            text-decoration: none;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--gris-medio);
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        nav a:hover, nav a.active {
-            color: var(--azul-institucional);
-        }
-
-        .lang-selector {
-            display: flex;
-            align-items: center;
-            margin-left: 25px;
-            padding-left: 15px;
-            border-left: 1px solid #ced4da;
-            gap: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .lang-btn {
-            color: var(--gris-medio);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .lang-btn:hover { color: var(--azul-institucional); }
-
-        .lang-btn.active {
-            color: var(--azul-oscuro);
-            cursor: default;
-            pointer-events: none;
-            border-bottom: 2px solid var(--celeste-gba);
-        }
-
-        .lang-divider {
-            color: #ced4da;
-            user-select: none;
-        }
-
-        /* Banner de Título de la Página */
-        .page-banner {
-            background: linear-gradient(135deg, var(--azul-oscuro) 0%, #002247 100%);
-            color: var(--blanco);
-            padding: 50px 0;
+        /* Encabezado de la Sección */
+        .header-asistencia {
+            background-color: var(--gris-claro);
+            padding: 40px 0;
             text-align: center;
+            border-bottom: 1px solid #e2e8f0;
             margin-bottom: 40px;
         }
 
-        .page-banner h1 {
-            font-size: 2.3rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-            margin-bottom: 10px;
-        }
-
-        .page-banner p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.85);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* 2. Distribución Principal en Dos Columnas (Inspirado en la lógica del Monitor) */
-        .recursos-layout {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .col-izquierda {
-            width: 60%;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .col-derecha {
-            width: 40%;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        /* Paneles Estilo Monitor / Descargas */
-        .panel-recurso {
-            border: 1px solid var(--borde-tarjeta);
-            border-top: 4px solid var(--azul-institucional);
-            border-radius: 6px;
-            background-color: var(--blanco);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            overflow: hidden;
-        }
-
-        .panel-recurso.panel-secundario {
-            border-top-color: var(--celeste-gba);
-        }
-
-        .panel-header {
-            background-color: var(--gris-claro);
-            padding: 15px 20px;
-            border-bottom: 1px solid var(--borde-tarjeta);
-        }
-
-        .panel-header h2 {
-            font-size: 1.1rem;
+        .header-asistencia h1 {
+            font-size: 2.2rem;
             color: var(--azul-oscuro);
             text-transform: uppercase;
-            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .header-asistencia p {
+            font-size: 1.1rem;
+            color: var(--gris-medio);
+            max-width: 850px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Grilla Principal de 2 Columnas */
+        .asistencia-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            align-items: start;
+        }
+
+        .col-titulo {
+            font-size: 1.3rem;
+            color: var(--azul-oscuro);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--celeste-gba);
+            padding-bottom: 8px;
             letter-spacing: 0.5px;
         }
 
-        .panel-body {
-            padding: 10px 0;
-        }
-
-        .panel-desc-inline {
-            padding: 15px 20px;
-            font-size: 0.9rem;
-            color: var(--gris-medio);
-            border-bottom: 1px solid var(--borde-tarjeta);
-            background-color: #fafafa;
-        }
-
-        /* Filas de Descarga / Enlaces internos */
-        .recurso-item {
+        /* Estructura Bloques Desplegables (Acordeón) */
+        .accordion-container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 20px;
-            border-bottom: 1px solid var(--borde-tarjeta);
-            transition: background-color 0.2s ease;
-        }
-
-        .recurso-item:last-child {
-            border-bottom: none;
-        }
-
-        .recurso-item:hover {
-            background-color: var(--gris-claro);
-        }
-
-        .recurso-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        /* Iconos Profesionales SVG incorporados directamente */
-        .icon-doc {
-            width: 20px;
-            height: 20px;
-            fill: var(--azul-institucional);
-            flex-shrink: 0;
-        }
-
-        .recurso-title {
-            font-size: 0.95rem;
-            color: var(--gris-oscuro);
-            font-weight: 500;
-        }
-
-        .recurso-actions {
-            display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 15px;
         }
 
-        .link-ver {
-            font-size: 0.85rem;
-            color: var(--gris-medio);
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
+        .accordion-block {
+            border: 1px solid var(--borde-linea);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            background-color: var(--blanco);
+            transition: all 0.2s ease;
         }
 
-        .link-ver:hover {
-            color: var(--azul-institucional);
-        }
-
-        .btn-pdf-download {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .accordion-header {
             background-color: var(--azul-oscuro);
             color: var(--blanco);
+            width: 100%;
+            padding: 18px 20px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: left;
             border: none;
-            padding: 6px 10px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: bold;
-            gap: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             transition: background-color 0.2s;
         }
 
-        .btn-pdf-download:hover {
-            background-color: var(--celeste-gba);
-            color: var(--azul-oscuro);
+        .accordion-header:hover {
+            background-color: var(--azul-institucional);
         }
 
-        .btn-pdf-download svg {
-            width: 12px;
-            height: 12px;
-            fill: currentColor;
+        .accordion-icon {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
         }
 
-        /* Botón de enlace externo de sección (estilo RPIE) */
-        .panel-footer-action {
+        /* Estado Abierto (Active) */
+        .accordion-block.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Contenido Desplegable */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: var(--blanco);
+        }
+
+        .accordion-block.active .accordion-content {
+            max-height: 1000px;
+        }
+
+        .service-body {
             padding: 20px;
-            text-align: center;
-            background-color: var(--gris-claro);
-            border-top: 1px solid var(--borde-tarjeta);
-        }
-
-        .btn-link-web {
-            display: inline-block;
-            background-color: transparent;
-            color: var(--azul-institucional);
-            border: 2px solid var(--azul-institucional);
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .btn-link-web:hover {
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
-        }
-
-        /* 3. Pie de Página */
-        footer {
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
-            padding: 60px 0;
-            border-top: 1px solid var(--borde-tarjeta);
-        }
-
-        .footer-grid {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        .footer-info { width: 60%; }
-        .footer-links { width: 40%; text-align: right; }
-
-        footer h2 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .contact-item {
-            margin-bottom: 12px;
             font-size: 0.95rem;
+            color: var(--gris-oscuro);
+            border-top: 1px solid #f1f5f9;
         }
 
-        .contact-item strong { color: var(--celeste-gba); }
+        .service-body p {
+            margin-bottom: 12px;
+        }
 
-        .footer-links a {
-            color: var(--blanco);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
+        .item-list {
+            list-style: none;
+            padding-left: 5px;
+            margin-top: 10px;
+        }
+
+        .item-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
             font-size: 0.9rem;
-            opacity: 0.8;
         }
 
-        .footer-links a:hover {
-            opacity: 1;
-            text-decoration: underline;
+        .item-list li::before {
+            content: "•";
+            color: var(--celeste-gba);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .btn-solicitud {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: var(--gris-claro);
+            color: var(--azul-oscuro);
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            border: 1px solid var(--borde-linea);
+            transition: all 0.2s;
+        }
+
+        .btn-solicitud:hover {
+            background-color: var(--azul-institucional);
+            color: var(--blanco);
+            border-color: var(--azul-institucional);
+        }
+
+        /* Variación de color para destacar la columna de inversiones si se desea */
+        .col-inversiones .accordion-header {
+            background-color: #002752; /* Un tono sutilmente diferente para diferenciar áreas */
+        }
+        .col-inversiones .accordion-header:hover {
+            background-color: var(--azul-institucional);
         }
 
         /* Responsive */
         @media (max-width: 992px) {
-            .recursos-layout { flex-direction: column; }
-            .col-izquierda, .col-derecha { width: 100%; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 15px; }
-            nav { flex-wrap: wrap; justify-content: center; }
-            .lang-selector { margin-left: 15px; padding-left: 10px; }
-            .footer-grid { flex-direction: column !important; gap: 20px; }
-            .footer-info, .footer-links { width: 100% !important; text-align: center !important; }
-            .recurso-item { flex-direction: column; align-items: flex-start; gap: 10px; }
-            .recurso-actions { width: 100%; justify-content: space-between; }
+            .asistencia-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <header class="header-asistencia">
         <div class="container">
-            <div class="nav-container">
-                <a href="Portada_WEB.v5.html" class="logo-placeholder">Dirección Provincial de Promoción de Inversiones y Comercio Exterior</a>
-                <nav>
-                    <a href="recursos.html" class="active">Recursos</a>
-                    <a href="index.html#nosotros">Nosotros</a>
-                    
-                    <div class="lang-selector">
-                        <a href="#" class="lang-btn active">ES</a>
-                        <span class="lang-divider">|</span>
-                        <a href="recursos-en.html" class="lang-btn">EN</a>
-                        <span class="lang-divider">|</span>
-                        <a href="recursos-zh.html" class="lang-btn">ZH</a>
-                    </div>
-                </nav>
-            </div>
+            <h1>Asistencia técnica</h1>
+            <p>Servicios de consultoría para PyMEs con planes de expansión internacional y/o proyectos de inversión.</p>
         </div>
     </header>
 
-    <section class="page-banner">
-        <div class="container">
-            <h1>Recursos</h1>
-            <p>Acceda a las guías operativas, herramientas de registro institucional y documentos de localización municipal estratégica.</p>
-        </div>
-    </section>
-
     <main class="container">
-        <div class="recursos-layout">
+        <div class="asistencia-grid">
             
-            <div class="col-izquierda">
-                <div class="panel-recurso">
-                    <div class="panel-header">
-                        <h2>Información Municipal</h2>
-                    </div>
-                    <div class="panel-desc-inline">
-                        Seleccione y descargue los perfiles socioproductivos, normativas de zonificación y carpetas de localización para la radicación de inversiones en los municipios bonaerenses.
-                    </div>
-                    <div class="panel-body">
-                        <div class="recurso-item">
-                            <div class="recurso-info">
-                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                                <span class="recurso-title">Bahía Blanca - Guía de Localización e Infraestructura Puerto</span>
-                            </div>
-                            <div class="recurso-actions">
-                                <a href="#" class="link-ver">Ver</a>
-                                <a href="docs/municipios/bahia-blanca.pdf" class="btn-pdf-download">
-                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
-                                </a>
-                            </div>
-                        </div>
-                        <div class="recurso-item">
-                            <div class="recurso-info">
-                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                                <span class="recurso-title">La Plata - Perfil Sectorial de Servicios Basados en el Conocimiento</span>
-                            </div>
-                            <div class="recurso-actions">
-                                <a href="#" class="link-ver">Ver</a>
-                                <a href="docs/municipios/la-plata.pdf" class="btn-pdf-download">
-                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
-                                </a>
-                            </div>
-                        </div>
-                        <div class="recurso-item">
-                            <div class="recurso-info">
-                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                                <span class="recurso-title">Mar del Plata / General Pueyrredón - Parque Industrial y Pesca</span>
-                            </div>
-                            <div class="recurso-actions">
-                                <a href="#" class="link-ver">Ver</a>
-                                <a href="docs/municipios/mar-del-plata.pdf" class="btn-pdf-download">
-                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
-                                </a>
-                            </div>
-                        </div>
-                        <div class="recurso-item">
-                            <div class="recurso-info">
-                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                                <span class="recurso-title">Pilar - Sectores Manufactura, Logística y Parques Industriales</span>
-                            </div>
-                            <div class="recurso-actions">
-                                <a href="#" class="link-ver">Ver</a>
-                                <a href="docs/municipios/pilar.pdf" class="btn-pdf-download">
-                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
-                                </a>
-                            </div>
-                        </div>
-                        <div class="recurso-item">
-                            <div class="recurso-info">
-                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                                <span class="recurso-title">Zárate / Campana - Corredor Industrial y Terminales Portuarias</span>
-                            </div>
-                            <div class="recurso-actions">
-                                <a href="#" class="link-ver">Ver</a>
-                                <a href="docs/municipios/zarate.pdf" class="btn-pdf-download">
-                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-derecha">
+            <div>
+                <h2 class="col-titulo">Comercio Exterior (COMEX)</h2>
                 
-                <div class="panel-recurso panel-secundario">
-                    <div class="panel-header">
-                        <h2>Régimen Provincial de Inversiones Estratégicas (RPIE)</h2>
-                    </div>
-                    <div class="panel-body">
-                        <div class="recurso-item">
-                            <div class="recurso-info">
-                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                                <span class="recurso-title">Guía Marco Regulatorio e Incentivos RPIE</span>
-                            </div>
-                            <div class="recurso-actions">
-                                <a href="docs/rpie-guia.pdf" class="btn-pdf-download">
-                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
-                                </a>
-                            </div>
-                        </div>
-                        <div class="recurso-item">
-                            <div class="recurso-info">
-                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                                <span class="recurso-title">Formulario de Elegibilidad para Proyectos</span>
-                            </div>
-                            <div class="recurso-actions">
-                                <a href="docs/rpie-formulario.pdf" class="btn-pdf-download">
-                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
-                                </a>
+                <div class="accordion-container">
+                    
+                    <div class="accordion-block">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            1. Diagnóstico de Aptitud Exportadora
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="service-body">
+                                <p>Evaluamos la capacidad productiva, financiera y organizacional de tu PyME para determinar su viabilidad en los mercados internacionales.</p>
+                                <ul class="item-list">
+                                    <li>Análisis del valor agregado de los productos.</li>
+                                    <li>Identificación de fortalezas y cuellos de botella técnico-operativos.</li>
+                                    <li>Elaboración de una hoja de ruta con mejoras necesarias para exportar.</li>
+                                </ul>
+                                <a href="#" class="btn-solicitud">Solicitar Diagnóstico</a>
                             </div>
                         </div>
                     </div>
-                    <div class="panel-footer-action">
-                        <a href="https://www.gba.gob.ar/produccion/inversiones_estrategicas" target="_blank" class="btn-link-web">Acceder a la Web RPIE ↗</a>
-                    </div>
-                </div>
 
-                <div class="panel-recurso">
-                    <div class="panel-header">
-                        <h2>Oferta Exportable Bonaerense</h2>
-                    </div>
-                    <div class="panel-body">
-                        <div class="recurso-item">
-                            <div class="recurso-info">
-                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                                <span class="recurso-title">Catálogo Consolidado de Empresas Exportadoras</span>
-                            </div>
-                            <div class="recurso-actions">
-                                <a href="docs/catalogo-oferta-exportable.pdf" class="btn-pdf-download">
-                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel-recurso">
-                    <div class="panel-header">
-                        <h2>Brochure Institucional</h2>
-                    </div>
-                    <div class="panel-body">
-                        <div class="recurso-item">
-                            <div class="recurso-info">
-                                <svg class="icon-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                                <span class="recurso-title">PBA Investment Guide / Brochure General</span>
-                            </div>
-                            <div class="recurso-actions">
-                                <a href="docs/brochure-pba-completo.pdf" class="btn-pdf-download">
-                                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg> PDF
-                                </a>
+                    <div class="accordion-block">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            2. Diseño del Plan Estratégico Internacional
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="service-body">
+                                <p>Asesoramiento personalizado en la estructuración de la estrategia comercial para el ingreso a nuevos mercados globales.</p>
+                                <ul class="item-list">
+                                    <li>Selección guiada y priorización de mercados objetivos y nichos específicos.</li>
+                                    <li>Adecuación del producto según regulaciones del mercado de destino.</li>
+                                    <li>Análisis de canales de comercialización y herramientas de promoción adecuadas.</li>
+                                </ul>
+                                <a href="#" class="btn-solicitud">Contactar Consultor</a>
                             </div>
                         </div>
                     </div>
-                </div>
 
+                    <div class="accordion-block">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            3. Inteligencia Comercial y Alertas de Mercado
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="service-body">
+                                <p>Suministramos información técnica de alto valor comercial para anticipar oportunidades de negocios globales.</p>
+                                <ul class="item-list">
+                                    <li>Monitoreo de flujos comerciales e importaciones de la competencia.</li>
+                                    <li>Relevamiento de barreras arancelarias, normativas técnicas y fitosanitarias.</li>
+                                    <li>Informes sectoriales sobre tendencias globales de consumo.</li>
+                                </ul>
+                                <a href="#" class="btn-solicitud">Ver Informes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-block">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            4. Optimización de Costos y Cadena Logística
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="service-body">
+                                <p>Consultoría técnica para eficientizar los costos y plazos en los procesos logísticos y de transporte internacional.</p>
+                                <ul class="item-list">
+                                    <li>Estructuración de matrices de costos de exportación eficientes.</li>
+                                    <li>Asesoramiento en la selección de Incoterms y contratación de fletes/seguros.</li>
+                                    <li>Articulación y agilización de trámites de aduana en puertos de la Provincia.</li>
+                                </ul>
+                                <a href="#" class="btn-solicitud">Consultar Asesoría</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
+            <div class="col-inversiones">
+                <h2 class="col-titulo">Inversiones Productivas</h2>
+                
+                <div class="accordion-container">
+                    
+                    <div class="accordion-block">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            1. Diagnóstico de Viabilidad de Proyectos
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="service-body">
+                                <p>Asistencia técnica inicial para estructurar y validar la factibilidad de proyectos de inversión privada radicados en la Provincia de Buenos Aires.</p>
+                                <ul class="item-list">
+                                    <li>Análisis preliminar de localización, accesos logísticos y disponibilidad de servicios.</li>
+                                    <li>Identificación preliminar del encuadre legal, normativo e institucional.</li>
+                                    <li>Detección de necesidades de financiamiento técnico o adecuación ambiental.</li>
+                                </ul>
+                                <a href="#" class="btn-solicitud">Iniciar Diagnóstico</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-block">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            2. Asistencia Técnica Integral y Enlace Institucional
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="service-body">
+                                <p>Acompañamiento especializado continuo a lo largo de las fases de ejecución del proyecto de inversión.</p>
+                                <ul class="item-list">
+                                    <li>Articulación con organismos públicos provinciales y municipales para agilización de trámites.</li>
+                                    <li>Vinculación y asistencia técnica para aplicar a los beneficios del Régimen Provincial de Inversiones Estratégicas (RPIE).</li>
+                                    <li>Conexión con redes de proveedores locales para el desarrollo de la cadena de valor bonaerense.</li>
+                                </ul>
+                                <a href="#" class="btn-solicitud">Solicitar Acompañamiento</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <h2>Contactanos | Estamos en contacto</h2>
-                    <div class="contact-item"><strong>E-mail:</strong> inversionycomex.pba@gmail.com</div>
-                    <div class="contact-item"><strong>Cel:</strong> + 54 9 2216 72-6880</div>
-                    <div class="contact-item"><strong>Dirección:</strong> Tte. Gral Juan Domingo Perón 739, 1er Piso, CABA</div>
-                </div>
-                <div class="footer-links">
-                    <a href="index.html">Inicio</a>
-                    <a href="recursos.html">Recursos</a>
-                    <a href="index.html#nosotros">Nosotros</a>
-                    <a href="index.html#servicios">Servicios</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    <script>
+        // Función interactiva para contraer o expandir las secciones
+        function toggleAccordion(button) {
+            const block = button.parentElement;
+            
+            if (block.classList.contains('active')) {
+                block.classList.remove('active');
+            } else {
+                block.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
