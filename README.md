@@ -14,3 +14,6 @@ Portal de informes y visualizaciones interactivas.
 | Formulario de contacto | [Formulario.html](https://matiaspiccolo.github.io/Web/Formulario.html) |
 | Monitor | [Monitor.html](https://matiaspiccolo.github.io/Web/Monitor.html) |
 | Recursos | [Recursos.html](https://matiaspiccolo.github.io/Web/recursos.html) |
+| Asistencia | [Asistencia.html](https://matiaspiccolo.github.io/Web/Asistencia.html) |
+| Capacitaciones | [Capacitaciones.html](https://matiaspiccolo.github.io/Web/Capacitaciones.html) |
+| Informacion | [Informacion.html](https://matiaspiccolo.github.io/Web/Informacion.html) |
