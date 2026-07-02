@@ -1195,18 +1195,18 @@
         </div>
     </div>
 
-    <section class="servicios" id="servicios">
+   <section class="servicios" id="servicios">
         <div class="container">
             <h2 class="section-title">Nuestros Servicios</h2>
             <div class="servicios-grid">
                 <div class="servicio-card">
                     <h4>Promoción Comercial</h4>
-                    <div class="servicio-desc">Desarrollar bajada desde COMEX.</div>
+                    <div class="servicio-desc">Posicionamiento estratégico de productos bonaerenses en mercados internacionales y participación en rondas de negocios.</div>
                     <a href="#" class="servicio-link">[ Ver más ]</a>
                 </div>
                 <div class="servicio-card">
                     <h4>Oferta Exportable</h4>
-                    <div class="servicio-desc">Desarrollar bajada desde COMEX.</div>
+                    <div class="servicio-desc">Consolidación y difusión del catálogo productivo de la Provincia para conectar con potenciales compradores externos.</div>
                     <a href="#" class="servicio-link">[ Ver más ]</a>
                 </div>
                 <div class="servicio-card">
@@ -1247,8 +1247,16 @@
             margin-top: 40px;
         }
         
+        /* CORREGIDO: El media query de la grilla de contacto se unificó acá directamente */
+        @media(max-width: 768px) {
+            .contact-layout { 
+                grid-template-columns: 1fr; 
+                gap: 2.5rem; 
+            }
+        }
+        
         .contact-info h4 { 
-            font-size: 1.4rem; 
+            font-size: 1.4rem;  
             text-transform: uppercase; 
             margin-bottom: 1.5rem; 
             color: var(--azul-oscuro); 
@@ -1325,7 +1333,7 @@
             border-color: var(--azul-oscuro);
         }
 
-        /* Footer Renovado */
+        /* Footer */
         footer {
             background-color: var(--azul-oscuro);
             color: var(--blanco);
@@ -1363,13 +1371,11 @@
             color: var(--celeste-gba);
         }
 
+        /* CORREGIDO: Se eliminó el duplicado de .contact-layout y se centró la grilla */
         @media(max-width: 768px) { 
-            .contact-layout { 
-                grid-template-columns: 1fr; 
-                gap: 2.5rem; 
-            } 
             .footer-grid {
                 flex-direction: column !important;
+                align-items: center; /* Centrado correcto para móvil */
                 gap: 20px;
                 text-align: center;
             }
@@ -1429,76 +1435,3 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        /* --- Lógica Carrusel Principal (Hero Azul) --- */
-        let indexHero = 0;
-        const heroTrack = document.getElementById('heroTrack');
-        const heroDots = document.querySelectorAll('.hero-dot');
-
-        function actualizarHero() {
-            if (heroTrack) {
-                heroTrack.style.transform = 'translateX(-' + (indexHero * 33.3333) + '%)';
-                heroDots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === indexHero);
-                });
-            }
-        }
-
-        function moverHero(dir) {
-            indexHero += dir;
-            if (indexHero >= 3) indexHero = 0;
-            if (indexHero < 0) indexHero = 2;
-            actualizarHero();
-        }
-
-        function irAHero(idx) {
-            indexHero = idx;
-            actualizarHero();
-        }
-
-        /* --- Lógica Carrusel de Herramientas (Gris) --- */
-        let indexTools = 0;
-        const toolsTrack = document.getElementById('toolsTrack');
-        const toolsDots = document.querySelectorAll('.tools-dot');
-
-        function actualizarTools() {
-            if (toolsTrack) {
-                toolsTrack.style.transform = 'translateX(-' + (indexTools * 33.3333) + '%)';
-                toolsDots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === indexTools);
-                });
-            }
-        }
-
-        function moverTools(dir) {
-            indexTools += dir;
-            if (indexTools >= 3) indexTools = 0;
-            if (indexTools < 0) indexTools = 2;
-            actualizarTools();
-        }
-
-        function irATools(idx) {
-            indexTools = idx;
-            actualizarTools();
-        }
-
-        /* --- Control de Modals --- */
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.add('active');
-            document.body.classList.add('modal-open');
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
-            document.body.classList.remove('modal-open');
-        }
-
-        function closeModalOutside(event, modalId) {
-            if (event.target.id === modalId) {
-                closeModal(modalId);
-            }
-        }
-    </script>
-</body>
-</html>
