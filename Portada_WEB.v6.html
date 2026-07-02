@@ -1041,8 +1041,7 @@
         </div>
     </section>
 
-    <!-- COMPONENTES MODAL (MANTIENEN LOGICA COMPLETA) -->
-    <div id="modal-industria" class="modal-overlay" onclick="closeModalOutside(event, 'modal-industria')">
+  <div id="modal-industria" class="modal-overlay" onclick="closeModalOutside(event, 'modal-industria')">
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal('modal-industria')">&times;</button>
             <div class="modal-header">
@@ -1180,7 +1179,7 @@
                     <span class="macro-source">Red Provincial</span>
                 </div>
             </div>
-            <div class="modal-macro-grid">
+            <div class="modal-macro-grid" style="margin-top: 15px;">
                 <div class="macro-card">
                     <div class="macro-num">41</div>
                     <div class="macro-label">Universidades</div>
@@ -1188,14 +1187,14 @@
                 </div>
                 <div class="macro-card">
                     <div class="macro-num">101</div>
-                    <div class="macro-label">Centros de Investigación (CIC)</div>
+                    <div class="macro-label">Centros de Investigación</div>
                     <span class="macro-source">CIC / CONICET</span>
                 </div>
             </div>
         </div>
     </div>
 
-   <section class="servicios" id="servicios">
+    <section class="servicios" id="servicios">
         <div class="container">
             <h2 class="section-title">Nuestros Servicios</h2>
             <div class="servicios-grid">
@@ -1245,14 +1244,6 @@
             grid-template-columns: 1fr 1.2fr; 
             gap: 4rem; 
             margin-top: 40px;
-        }
-        
-        /* CORREGIDO: El media query de la grilla de contacto se unificó acá directamente */
-        @media(max-width: 768px) {
-            .contact-layout { 
-                grid-template-columns: 1fr; 
-                gap: 2.5rem; 
-            }
         }
         
         .contact-info h4 { 
@@ -1333,7 +1324,6 @@
             border-color: var(--azul-oscuro);
         }
 
-        /* Footer */
         footer {
             background-color: var(--azul-oscuro);
             color: var(--blanco);
@@ -1371,11 +1361,14 @@
             color: var(--celeste-gba);
         }
 
-        /* CORREGIDO: Se eliminó el duplicado de .contact-layout y se centró la grilla */
         @media(max-width: 768px) { 
+            .contact-layout { 
+                grid-template-columns: 1fr; 
+                gap: 2.5rem; 
+            }
             .footer-grid {
                 flex-direction: column !important;
-                align-items: center; /* Centrado correcto para móvil */
+                align-items: center; 
                 gap: 20px;
                 text-align: center;
             }
@@ -1435,3 +1428,76 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        /* --- Lógica Carrusel Principal --- */
+        let indexHero = 0;
+        const heroTrack = document.getElementById('heroTrack');
+        const heroDots = document.querySelectorAll('.hero-dot');
+
+        function actualizarHero() {
+            if (heroTrack) {
+                heroTrack.style.transform = 'translateX(-' + (indexHero * 33.3333) + '%)';
+                heroDots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === indexHero);
+                });
+            }
+        }
+
+        function moverHero(dir) {
+            indexHero += dir;
+            if (indexHero >= 3) indexHero = 0;
+            if (indexHero < 0) indexHero = 2;
+            actualizarHero();
+        }
+
+        function irAHero(idx) {
+            indexHero = idx;
+            actualizarHero();
+        }
+
+        /* --- Lógica Carrusel de Herramientas --- */
+        let indexTools = 0;
+        const toolsTrack = document.getElementById('toolsTrack');
+        const toolsDots = document.querySelectorAll('.tools-dot');
+
+        function actualizarTools() {
+            if (toolsTrack) {
+                toolsTrack.style.transform = 'translateX(-' + (indexTools * 33.3333) + '%)';
+                toolsDots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === indexTools);
+                });
+            }
+        }
+
+        function moverTools(dir) {
+            indexTools += dir;
+            if (indexTools >= 3) indexTools = 0;
+            if (indexTools < 0) indexTools = 2;
+            actualizarTools();
+        }
+
+        function irATools(idx) {
+            indexTools = idx;
+            actualizarTools();
+        }
+
+        /* --- Control de Modals --- */
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+
+        function closeModalOutside(event, modalId) {
+            if (event.target.id === modalId) {
+                closeModal(modalId);
+            }
+        }
+    </script>
+</body>
+</html>
