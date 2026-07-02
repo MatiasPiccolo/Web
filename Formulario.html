@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto / Invertí - PBA</title>
+    <title>Contacto / Inversiones y Comercio Exterior - PBA</title>
     <style>
         /* Estilos Esenciales Basados en Why Córdoba y GBA */
         :root {
@@ -133,8 +133,11 @@
 <body>
 
     <div class="form-container">
-        <h1>Invertí en la Provincia</h1>
-        <p>Póngase en contacto con nuestro equipo técnico para presentarnos su proyecto u obtener asistencia estratégica de localización.</p>
+        <!-- CAMBIO: Título integrador para abarcar ambas áreas de la subsecretaría / dirección -->
+        <h1>Contacto Institucional</h1>
+        
+        <!-- CAMBIO: Bajada redactada para explicitar los canales de inversión, asistencia técnica, rondas y comex -->
+        <p>Póngase en contacto con nuestro equipo técnico para presentarnos su proyecto productivo, solicitar asistencia exportadora, coordinar la participación en rondas de negocios u obtener asesoramiento estratégico.</p>
 
         <form action="#" method="POST">
             
@@ -159,17 +162,19 @@
             </div>
 
             <div class="form-group">
-                <label for="asunto">Asunto</label>
-                <input type="text" id="asunto" name="asunto" required placeholder="Ej. Radicación en Parque Industrial / Promoción Industrial">
+                <label for="asunto">Asunto / Motivo de la Consulta</label>
+                <!-- CAMBIO: Placeholder modificado para dar ejemplos claros de inversión y de exportaciones al mismo tiempo -->
+                <input type="text" id="asunto" name="asunto" required placeholder="Ej. Proyecto de Inversión / Asistencia Exportadora / Rondas de Negocios">
             </div>
 
             <div class="form-group">
-                <label for="mensaje">Detalles del Proyecto / Comentarios</label>
-                <textarea id="mensaje" name="mensaje" required placeholder="Escriba aquí los detalles generales de su propuesta o necesidades específicas..."></textarea>
+                <!-- CAMBIO: Etiqueta y placeholder neutralizados para que no asuman que solo se habla de un proyecto de radicación -->
+                <label for="mensaje">Detalles de la Consulta / Comentarios</label>
+                <textarea id="mensaje" name="mensaje" required placeholder="Escriba aquí los detalles generales de su propuesta, necesidades comerciales, mercados de interés o requerimientos específicos de su empresa..."></textarea>
             </div>
 
             <div class="btn-container">
-                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                <button type="submit" class="btn-submit">Enviar Consulta</button>
             </div>
 
             <a href="index.html" class="back-link">← Volver al Portal General</a>
