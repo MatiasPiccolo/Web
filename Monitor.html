@@ -40,12 +40,6 @@
             margin-bottom: 40px;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
         .header-monitor h1 {
             font-size: 2.2rem;
             color: var(--azul-oscuro);
@@ -55,33 +49,20 @@
         }
 
         .header-monitor p {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: var(--gris-medio);
-            max-width: 900px;
-            margin: 0 auto 15px auto;
+            max-width: 850px;
+            margin: 0 auto;
             line-height: 1.6;
-            text-align: justify;
-        }
-        
-        .header-monitor p:last-child {
-            margin-bottom: 0;
         }
 
-        /* Grilla Principal de 2 Columnas */
-        .monitor-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            align-items: start;
-        }
-
-        .monitor-col {
+        /* Contenedor de Bloques */
+        .monitor-sections {
             display: flex;
             flex-direction: column;
             gap: 25px;
         }
 
-        /* Estructura del Acordeón / Bloque de Informes */
         .accordion-block {
             border: 1px solid var(--borde-linea);
             border-radius: 8px;
@@ -90,13 +71,13 @@
             background-color: var(--blanco);
         }
 
-        /* Encabezado del Acordeón */
+        /* Encabezado del Bloque Desplegable */
         .accordion-header {
             background-color: var(--azul-oscuro);
             color: var(--blanco);
             width: 100%;
-            padding: 15px 20px;
-            font-size: 0.95rem;
+            padding: 18px 20px;
+            font-size: 1.1rem;
             font-weight: 700;
             text-transform: uppercase;
             text-align: left;
@@ -117,135 +98,120 @@
             transition: transform 0.3s ease;
         }
 
+        /* Estados de Animación del Acordeón */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        /* Cuando está activo se expande y rota la flecha */
+        .accordion-block.active .accordion-content {
+            max-height: 1200px; /* Suficiente espacio para las filas */
+            transition: max-height 0.5s ease-in;
+        }
+
         .accordion-block.active .accordion-icon {
             transform: rotate(180deg);
         }
 
-        /* Contenedor de la lista de PDFs */
-        .accordion-content {
-            max-height: 2000px; /* Suficiente para albergar los ítems */
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            background-color: var(--blanco);
+        /* Listado de Informes (Filas Internas) */
+        .pdf-list {
+            padding: 10px 20px;
         }
 
-        .accordion-block.collapsed .accordion-content {
-            max-height: 0;
-        }
-
-        /* Fila de cada PDF */
         .pdf-row {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 12px 20px;
+            align-items: center;
+            padding: 14px 0;
             border-bottom: 1px solid #f1f5f9;
-            transition: background-color 0.2s;
         }
 
         .pdf-row:last-child {
             border-bottom: none;
         }
 
-        .pdf-row:hover {
-            background-color: #f8fafc;
-        }
-
-        /* Detalle Izquierdo: Icono + Título */
         .pdf-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex: 1;
-            padding-right: 15px;
-        }
-
-        .pdf-type-icon {
-            font-size: 1.1rem;
-            font-weight: bold;
-            padding: 4px 6px;
-            border-radius: 4px;
-            background-color: #e2e8f0;
-            color: var(--azul-oscuro);
-            min-width: 38px;
-            text-align: center;
-        }
-
-        /* Colores específicos para los iconos de la captura */
-        .icon-f-a { background-color: #e0f2fe; color: #0369a1; font-size: 0.75rem; } /* Fusiones y Adquisiciones */
-        .icon-inv { background-color: #dcfce7; color: #15803d; font-size: 0.75rem; } /* Reportes Trimestrales/Anuales */
-
-        .pdf-title {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--gris-oscuro);
-        }
-
-        /* Acciones Derecha: Ver y Descargar */
-        .pdf-actions {
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
-        .btn-view {
-            font-size: 0.9rem;
+        /* Etiquetas Temáticas Cuadradas fijas */
+        .pdf-type-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 55px;
+            height: 32px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Colores específicos para cada tipo de informe */
+        .icon-c-e { background-color: #e0f2fe; color: #0369a1; }  /* Coyuntura Externa - Azul claro */
+        .icon-i-b { background-color: #fef3c7; color: #b45309; }  /* Informe Bimestral - Ámbar */
+        .icon-i-p { background-color: #dcfce7; color: #15803d; }  /* Informe Provincial - Verde */
+        .icon-f-a { background-color: #f3e8ff; color: #6b21a8; }  /* Fusiones y Adquisiciones - Violeta */
+
+        .pdf-title {
+            font-size: 1rem;
             color: var(--gris-oscuro);
-            text-decoration: none;
             font-weight: 500;
         }
 
-        .btn-view:hover {
-            color: var(--azul-institucional);
-            text-decoration: underline;
+        /* Botones de Acción Internos */
+        .pdf-actions {
+            display: flex;
+            gap: 10px;
         }
 
-        /* Botón de descarga PDF */
-        .btn-download-pdf {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #002347; /* Azul muy oscuro como la captura */
-            color: var(--blanco);
+        .btn-view, .btn-download-pdf {
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
             text-decoration: none;
-            padding: 4px 8px;
             border-radius: 4px;
-            font-size: 0.65rem;
-            font-weight: bold;
-            min-width: 35px;
-            line-height: 1.1;
-            transition: background-color 0.2s;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        .btn-view {
+            background-color: var(--gris-claro);
+            color: var(--gris-oscuro);
+            border: 1px solid var(--borde-linea);
+        }
+
+        .btn-view:hover {
+            background-color: #cbd5e1;
+            color: var(--gris-oscuro);
+        }
+
+        .btn-download-pdf {
+            background-color: var(--azul-institucional);
+            color: var(--blanco);
+            border: 1px solid var(--azul-institucional);
         }
 
         .btn-download-pdf:hover {
-            background-color: var(--celeste-gba);
+            background-color: var(--azul-oscuro);
+            border-color: var(--azul-oscuro);
         }
 
-        .btn-download-pdf::after {
-            content: "▼";
-            font-size: 0.55rem;
-            margin-top: 1px;
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .monitor-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
+        /* Ajustes Mobile */
         @media (max-width: 600px) {
             .pdf-row {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: start;
                 gap: 12px;
             }
             .pdf-actions {
                 width: 100%;
                 justify-content: flex-end;
-                border-top: 1px dashed #e2e8f0;
-                padding-top: 8px;
             }
         }
     </style>
@@ -254,99 +220,24 @@
 
     <header class="header-monitor">
         <div class="container">
-            <!-- Título Actualizado -->
-            <h1>Monitor de inversiones y comercio exterior</h1>
-            <!-- Bajada Institucional Actualizada -->
-            <p>A partir del seguimiento de anuncios de inversión y del procesamiento de datos de exportaciones provinciales, desarrollamos indicadores que nos permiten analizar la dinámica, las capacidades productivas y el posicionamiento de la Provincia de Buenos Aires en el contexto internacional.</p>
+            <h1>Monitor de Inversiones y Comercio Exterior</h1>
+            <p>Informes técnicos y de coyuntura para el seguimiento de la actividad económica global, nacional y provincial.</p>
         </div>
     </header>
 
     <main class="container">
-        <div class="monitor-grid">
-            
-            <!-- Columna Izquierda -->
-            <div class="monitor-col">
-                <div class="accordion-block">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        Informes Trimestrales de Anuncios de Inversión
-                        <span class="accordion-icon">▼</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="pdf-row">
-                            <div class="pdf-info">
-                                <span class="pdf-type-icon icon-inv">📊</span>
-                                <span class="pdf-title">Informe Anuncios de Inversión, F&A - 2° Trimestre 2024</span>
-                            </div>
-                            <div class="pdf-actions">
-                                <a href="ruta/al/archivo-2t2024.pdf" target="_blank" class="btn-view">Ver</a>
-                                <a href="ruta/al/archivo-2t2024.pdf" download class="btn-download-pdf">PDF</a>
-                            </div>
-                        </div>
-                        <div class="pdf-row">
-                            <div class="pdf-info">
-                                <span class="pdf-type-icon icon-inv">📊</span>
-                                <span class="pdf-title">Informe Anuncios de Inversión, F&A - 1° Trimestre 2024</span>
-                            </div>
-                            <div class="pdf-actions">
-                                <a href="#" target="_blank" class="btn-view">Ver</a>
-                                <a href="#" download class="btn-download-pdf">PDF</a>
-                            </div>
-                        </div>
-                        <div class="pdf-row">
-                            <div class="pdf-info">
-                                <span class="pdf-type-icon icon-inv">📊</span>
-                                <span class="pdf-title">Informe Anuncios de Inversión, F&A - 4° Trimestre 2023</span>
-                            </div>
-                            <div class="pdf-actions">
-                                <a href="#" target="_blank" class="btn-view">Ver</a>
-                                <a href="#" download class="btn-download-pdf">PDF</a>
-                            </div>
-                        </div>
-                        <div class="pdf-row">
-                            <div class="pdf-info">
-                                <span class="pdf-type-icon icon-inv">📊</span>
-                                <span class="pdf-title">Informe Anuncios de Inversión, F&A - 1° Trimestre 2023</span>
-                            </div>
-                            <div class="pdf-actions">
-                                <a href="#" target="_blank" class="btn-view">Ver</a>
-                                <a href="#" download class="btn-download-pdf">PDF</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="monitor-sections">
 
-            <!-- Columna Derecha -->
-            <div class="monitor-col">
-                <div class="accordion-block">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        Informes de Anuncios de Fusiones y Adquisiciones
-                        <span class="accordion-icon">▼</span>
-                    </button>
-                    <div class="accordion-content">
+            <div class="accordion-block active">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    Informes de Inversiones (M&amp;A)
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="pdf-list">
                         <div class="pdf-row">
                             <div class="pdf-info">
-                                <span class="pdf-type-icon icon-f-a">M&A</span>
-                                <span class="pdf-title">Primer semestre 2022</span>
-                            </div>
-                            <div class="pdf-actions">
-                                <a href="#" target="_blank" class="btn-view">Ver</a>
-                                <a href="#" download class="btn-download-pdf">PDF</a>
-                            </div>
-                        </div>
-                        <div class="pdf-row">
-                            <div class="pdf-info">
-                                <span class="pdf-type-icon icon-f-a">M&A</span>
-                                <span class="pdf-title">Segundo semestre 2022</span>
-                            </div>
-                            <div class="pdf-actions">
-                                <a href="#" target="_blank" class="btn-view">Ver</a>
-                                <a href="#" download class="btn-download-pdf">PDF</a>
-                            </div>
-                        </div>
-                        <div class="pdf-row">
-                            <div class="pdf-info">
-                                <span class="pdf-type-icon icon-f-a">M&A</span>
+                                <span class="pdf-type-icon icon-f-a">M&amp;A</span>
                                 <span class="pdf-title">Segundo Semestre 2021</span>
                             </div>
                             <div class="pdf-actions">
@@ -356,7 +247,7 @@
                         </div>
                         <div class="pdf-row">
                             <div class="pdf-info">
-                                <span class="pdf-type-icon icon-f-a">M&A</span>
+                                <span class="pdf-type-icon icon-f-a">M&amp;A</span>
                                 <span class="pdf-title">Primer semestre 2021</span>
                             </div>
                             <div class="pdf-actions">
@@ -375,12 +266,10 @@
         function toggleAccordion(button) {
             const block = button.parentElement;
             
-            if (block.classList.contains('collapsed')) {
-                block.classList.remove('collapsed');
-                block.classList.add('active');
-            } else {
-                block.classList.add('collapsed');
+            if (block.classList.contains('active')) {
                 block.classList.remove('active');
+            } else {
+                block.classList.add('active');
             }
         }
     </script>
