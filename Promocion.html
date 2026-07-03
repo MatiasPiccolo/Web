@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formación y Capacitaciones - Inversiones y Comercio Exterior - PBA</title>
+    <style>
+        /* Paleta de Colores Identidad GBA (Consistente con Monitor.html) */
+        :root {
+            --azul-institucional: #0056b3;
+            --azul-oscuro: #003670;
+            --celeste-gba: #00aae4;
+            --gris-oscuro: #333333;
+            --gris-medio: #666666;
+            --gris-claro: #f8f9fa;
+            --blanco: #ffffff;
+            --borde-linea: #cbd5e1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+            background-color: var(--blanco);
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Encabezado de la Sección */
+        .header-capacitacion {
+            background-color: var(--gris-claro);
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 40px;
+        }
+
+        .header-capacitacion h1 {
+            font-size: 2.2rem;
+            color: var(--azul-oscuro);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .header-capacitacion p {
+            font-size: 1.1rem;
+            color: var(--gris-medio);
+            max-width: 850px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Grilla Principal de 2 Columnas (Estilo Monitor) */
+        .capacitacion-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .col-titulo {
+            font-size: 1.3rem;
+            color: var(--azul-oscuro);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--celeste-gba);
+            padding-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Estructura Bloques Desplegables (COMEX) --- */
+        .comex-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .accordion-block {
+            border: 1px solid var(--borde-linea);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            background-color: var(--blanco);
+            transition: all 0.2s ease;
+        }
+
+        .accordion-header {
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            width: 100%;
+            padding: 18px 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: left;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+
+        .accordion-header:hover {
+            background-color: var(--azul-institucional);
+        }
+
+        .accordion-icon {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* Estado Abierto (Active) */
+        .accordion-block.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Contenido Desplegable */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: var(--blanco);
+        }
+
+        .accordion-block.active .accordion-content {
+            max-height: 1000px; /* Permite expandirse según contenido */
+        }
+
+        .module-body {
+            padding: 20px;
+            font-size: 0.95rem;
+            color: var(--gris-oscuro);
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .module-body p {
+            margin-bottom: 12px;
+        }
+
+        .program-list {
+            list-style: none;
+            padding-left: 5px;
+            margin-top: 10px;
+        }
+
+        .program-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .program-list li::before {
+            content: "•";
+            color: var(--celeste-gba);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* --- Tarjeta Destacada Proyectos de Inversión --- */
+        .proyecto-card {
+            background-color: var(--gris-claro);
+            border: 1px solid var(--borde-linea);
+            border-top: 4px solid var(--celeste-gba);
+            border-radius: 8px;
+            padding: 30px 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .proyecto-card h3 {
+            font-size: 1.2rem;
+            color: var(--azul-oscuro);
+            text-transform: uppercase;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .proyecto-card .badge {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .proyecto-card p {
+            font-size: 0.95rem;
+            color: var(--gris-medio);
+            margin-bottom: 20px;
+        }
+
+        .btn-inscription {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            transition: background-color 0.2s;
+            border: 1px solid var(--azul-oscuro);
+        }
+
+        .btn-inscription:hover {
+            background-color: var(--celeste-gba);
+            border-color: var(--celeste-gba);
+            color: var(--azul-oscuro);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .capacitacion-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-capacitacion">
+        <div class="container">
+            <h1>Formación y capacitaciones</h1>
+            <p>Acompañamiento a las empresas en sus planes de inversión y exportación.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="capacitacion-grid">
+            
+            <!-- Columna Izquierda: 4 Módulos Desplegables de COMEX -->
+            <div>
+                <h2 class="col-titulo">Programa de Formación en Comercio Exterior (COMEX)</h2>
+                
+                <div class="comex-container">
+                    
+                    <!-- Módulo 1 -->
+                    <div class="accordion-block">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            Módulo 1: Introducción al Comercio Internacional y Primeros Pasos
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="module-body">
+                                <p>Herramientas y conceptos fundamentales para iniciar el camino exportador de las empresas bonaerenses.</p>
+                                <ul class="program-list">
+                                    <li>Evaluación del potencial exportador de la empresa.</li>
+                                    <li>Estructura del ecosistema global y organismos reguladores.</li>
+                                    <li>Identificación de posiciones arancelarias básicas.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Módulo 2 -->
+                    <div class="accordion-block">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            Módulo 2: Investigación de Mercados y Estrategia Comercial
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="module-body">
+                                <p>Metodologías analíticas para seleccionar destinos viables y adaptar los productos a las demandas internacionales.</p>
+                                <ul class="program-list">
+                                    <li>Criterios de selección y priorización de mercados objetivos.</li>
+                                    <li>Barreras arancelarias y paraarancelarias de acceso.</li>
+                                    <li>Estrategias de posicionamiento, canales de distribución y consorcios de exportación.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Módulo 3 -->
+                    <div class="accordion-block">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            Módulo 3: Costos, Precios y Logística Internacional
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="module-body">
+                                <p>Análisis técnico operativo de la cadena logística y estructuración competitiva de precios.</p>
+                                <ul class="program-list">
+                                    <li>Determinación de costos de exportación y cálculo del Precio FOB/FCA.</li>
+                                    <li>Incoterms vigentes y su impacto en las responsabilidades contractuales.</li>
+                                    <li>Gestión del transporte internacional (marítimo, terrestre, aéreo) y esquemas de seguros.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Módulo 4 -->
+                    <div class="accordion-block">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            Módulo 4: Operatividad Aduanera, Normativa y Aspectos Financieros
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="module-body">
+                                <p>Marco regulatorio aduanero, instrumentos de cobro y liquidación de divisas.</p>
+                                <ul class="program-list">
+                                    <li>Documentación internacional obligatoria: Factura de Exportación, Certificados de Origen, BL.</li>
+                                    <li>Regímenes aduaneros y operatorias de control en frontera.</li>
+                                    <li>Medios de pago internacionales (Cartas de Crédito, transferencias) y regulaciones del Mercado Libre de Cambios.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Curso de Proyectos de Inversión -->
+            <div>
+                <h2 class="col-titulo">Proyectos de Inversión</h2>
+                
+                <div class="proyecto-card">
+                    <span class="badge">Curso Técnico Especializado</span>
+                    <h3>Curso de Formulación y Evaluación de Proyectos de Inversión</h3>
+                    <p>Capacitación orientada al diseño técnico-económico de proyectos productivos, análisis de riesgos, localización estratégica y optimización de estructuras financieras para potenciar la radicación de capitales en la Provincia.</p>
+                    
+                    <a href="#" class="btn-inscription">Solicitar Inscripción / Información</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Función interactiva reutilizable para contraer o expandir los módulos (Idéntica a Monitor.html)
+        function toggleAccordion(button) {
+            const block = button.parentElement;
+            
+            if (block.classList.contains('active')) {
+                block.classList.remove('active');
+            } else {
+                // Opcional: Descomentar la siguiente línea si preferís que se cierre un módulo automáticamente al abrir otro:
+                // document.querySelectorAll('.accordion-block').forEach(b => b.classList.remove('active'));
+                block.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
