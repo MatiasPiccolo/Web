@@ -140,7 +140,7 @@
 
 
         /* ==========================================================================
-           SECCIÓN INVERSIONES (Desplegable Limpio - Solo Texto)
+           SECCIÓN INVERSIONES (Desplegable con Bloque de Texto Único)
            ========================================================================== */
         .inversiones-container {
             display: flex;
@@ -196,32 +196,16 @@
             transform: rotate(180deg);
         }
 
+        /* Bloque de texto corrido sin divisiones ni viñetas */
         .accordion-body {
             padding: 20px;
         }
 
-        /* Lista de filas de texto limpias sin etiquetas */
-        .info-row {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--gris-claro);
+        .text-block-unificado {
             font-size: 0.95rem;
             color: var(--gris-oscuro);
-            font-weight: 500;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .info-row::before {
-            content: "•";
-            color: var(--celeste-gba);
-            font-weight: bold;
-            display: inline-block;
-            width: 15px;
-            flex-shrink: 0;
-        }
-
-        .info-row:last-child {
-            border-bottom: none;
+            line-height: 1.6;
+            font-weight: 400;
         }
 
         /* Ajustes Responsivos */
@@ -293,8 +277,9 @@
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <div class="info-row">Requisitos técnicos para la radicación en Parques Industriales y tecnológicos de la provincia.</div>
-                            <div class="info-row">Marco regulatorio provincial de ordenamiento del suelo industrial e infraestructura básica.</div>
+                            <p class="text-block-unificado">
+                                Brindamos acompañamiento en la evaluación y cumplimiento de los requisitos técnicos necesarios para la radicación en Parques Industriales y tecnológicos de la provincia de Buenos Aires. El servicio contempla el análisis normativo legal y la orientación en el marco regulatorio provincial aplicable al ordenamiento del suelo industrial y la factibilidad de infraestructura básica.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -306,8 +291,9 @@
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <div class="info-row">Subsidios de tasa de interés para proyectos productivos y sectores industriales estratégicos.</div>
-                            <div class="info-row">Vinculación directa con herramientas financieras avanzadas de la banca pública de fomento.</div>
+                            <p class="text-block-unificado">
+                                Orientación estratégica en la identificación de subsidios de tasa de interés y herramientas específicas de financiamiento destinadas a proyectos productivos y sectores industriales clave. Articulamos de manera directa con las diferentes líneas vigentes y los instrumentos avanzados de asistencia crediticia provistos por la banca pública de fomento.
+                            </p>
                         </div>
                     </div>
                 </div>
