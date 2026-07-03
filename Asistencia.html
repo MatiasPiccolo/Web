@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asistencia Técnica - Inversiones y Comercio Exterior - PBA</title>
+    <title>Asistencia Técnica - Inversiones y Comercio Exterior</title>
     <style>
-        /* Paleta de Colores Identidad GBA (Consistente con Monitor e Index) */
+        /* Paleta de Colores Identidad Institucional */
         :root {
             --azul-institucional: #0056b3;
             --azul-oscuro: #003670;
             --celeste-gba: #00aae4;
-            --gris-oscuro: #333333;
-            --gris-medio: #666666;
-            --gris-claro: #f8f9fa;
+            --gris-oscuro: #334155;
+            --gris-medio: #64748b;
+            --gris-claro: #f8fafc;
             --blanco: #ffffff;
-            --borde-linea: #cbd5e1;
+            --borde-linea: #e2e8f0;
+            --gris-boton: #334155;
         }
 
         * {
@@ -24,7 +25,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             color: var(--gris-oscuro);
             line-height: 1.6;
             background-color: var(--blanco);
@@ -37,51 +38,105 @@
             padding: 0 20px;
         }
 
-        /* Encabezado de la Sección */
-        .header-asistencia {
-            background-color: var(--gris-claro);
-            padding: 40px 0;
+        /* Encabezado General */
+        .main-header {
             text-align: center;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 40px 0;
+            background-color: var(--gris-claro);
+            border-bottom: 1px solid var(--borde-linea);
             margin-bottom: 40px;
         }
 
-        .header-asistencia h1 {
+        .main-header h1 {
             font-size: 2.2rem;
             color: var(--azul-oscuro);
             text-transform: uppercase;
+            font-weight: 800;
             margin-bottom: 15px;
-            letter-spacing: -0.5px;
         }
 
-        .header-asistencia p {
+        .main-header p {
             font-size: 1.1rem;
             color: var(--gris-medio);
             max-width: 850px;
             margin: 0 auto;
-            line-height: 1.6;
         }
 
-        /* Grilla Principal de 2 Columnas */
-        .asistencia-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            align-items: start;
-        }
-
-        .col-titulo {
-            font-size: 1.3rem;
+        .section-title {
+            font-size: 1.6rem;
             color: var(--azul-oscuro);
             text-transform: uppercase;
-            margin-bottom: 20px;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 25px;
             border-bottom: 2px solid var(--celeste-gba);
             padding-bottom: 8px;
-            letter-spacing: 0.5px;
         }
 
-        /* Estructura Bloques Desplegables (Acordeón) */
-        .accordion-container {
+        /* ==========================================================================
+           SECCIÓN COMEX (Estructura Fija de Tarjetas en Paralelo - Según Imagen)
+           ========================================================================== */
+        .comex-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .comex-card {
+            background-color: var(--blanco);
+            border: 1px solid var(--borde-linea);
+            border-radius: 6px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .comex-card h3 {
+            font-size: 1.25rem;
+            color: var(--azul-oscuro);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .comex-card p {
+            font-size: 0.95rem;
+            color: var(--gris-medio);
+            margin-bottom: 20px;
+            flex-grow: 1; /* Empuja el botón al fondo para mantener la simetría */
+        }
+
+        /* Botón Único General (Estilo Gris Oscuro de la portada) */
+        .btn-general {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--gris-boton);
+            color: var(--blanco);
+            text-decoration: none;
+            padding: 10px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-general:hover {
+            background-color: var(--azul-oscuro);
+        }
+
+
+        /* ==========================================================================
+           SECCIÓN INVERSIONES (Estructura Desplegable / Acordeón sin Botones Internos)
+           ========================================================================== */
+        .inversiones-container {
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -89,19 +144,17 @@
 
         .accordion-block {
             border: 1px solid var(--borde-linea);
-            border-radius: 8px;
+            border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
             background-color: var(--blanco);
-            transition: all 0.2s ease;
         }
 
         .accordion-header {
             background-color: var(--azul-oscuro);
             color: var(--blanco);
             width: 100%;
-            padding: 18px 20px;
-            font-size: 0.95rem;
+            padding: 16px 20px;
+            font-size: 1.05rem;
             font-weight: 700;
             text-transform: uppercase;
             text-align: left;
@@ -122,244 +175,157 @@
             transition: transform 0.3s ease;
         }
 
-        /* Estado Abierto (Active) */
-        .accordion-block.active .accordion-icon {
-            transform: rotate(180deg);
-        }
-
-        /* Contenido Desplegable */
         .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
-            background-color: var(--blanco);
         }
 
         .accordion-block.active .accordion-content {
-            max-height: 1000px;
+            max-height: 800px;
+            transition: max-height 0.5s ease-in;
         }
 
-        .service-body {
+        .accordion-block.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-body {
             padding: 20px;
+        }
+
+        /* Lista de filas internas limpia (sin botones de acción individuales) */
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gris-claro);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-tag {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 55px;
+            height: 28px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background-color: #e0f2fe;
+            color: #0369a1;
+        }
+
+        .info-text {
             font-size: 0.95rem;
             color: var(--gris-oscuro);
-            border-top: 1px solid #f1f5f9;
+            font-weight: 500;
         }
 
-        .service-body p {
-            margin-bottom: 12px;
-        }
-
-        .item-list {
-            list-style: none;
-            padding-left: 5px;
-            margin-top: 10px;
-        }
-
-        .item-list li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        .item-list li::before {
-            content: "•";
-            color: var(--celeste-gba);
-            font-weight: bold;
-            font-size: 1.2rem;
-            position: absolute;
-            left: 0;
-            top: -2px;
-        }
-
-        .btn-solicitud {
-            display: inline-block;
-            margin-top: 15px;
-            background-color: var(--gris-claro);
-            color: var(--azul-oscuro);
-            text-decoration: none;
-            padding: 8px 18px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            border: 1px solid var(--borde-linea);
-            transition: all 0.2s;
-        }
-
-        .btn-solicitud:hover {
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
-            border-color: var(--azul-institucional);
-        }
-
-        /* Variación de color para destacar la columna de inversiones si se desea */
-        .col-inversiones .accordion-header {
-            background-color: #002752; /* Un tono sutilmente diferente para diferenciar áreas */
-        }
-        .col-inversiones .accordion-header:hover {
-            background-color: var(--azul-institucional);
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .asistencia-grid {
+        /* Ajustes Mobile */
+        @media (max-width: 900px) {
+            .comex-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 20px;
             }
         }
     </style>
 </head>
 <body>
 
-    <header class="header-asistencia">
+    <header class="main-header">
         <div class="container">
-            <h1>Asistencia técnica</h1>
-            <p>Servicios de consultoría para PyMEs con planes de expansión internacional y/o proyectos de inversión.</p>
+            <h1>Servicios de Asistencia Técnica</h1>
+            <p>Programas de apoyo estratégico y herramientas técnicas dedicadas a fortalecer el entramado productivo bonaerense.</p>
         </div>
     </header>
 
     <main class="container">
-        <div class="asistencia-grid">
+
+        <section>
+            <h2 class="section-title">Asistencia Técnica en Comercio Exterior</h2>
             
-            <div>
-                <h2 class="col-titulo">Comercio Exterior (COMEX)</h2>
+            <div class="comex-grid">
                 
-                <div class="accordion-container">
-                    
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            1. Diagnóstico de Aptitud Exportadora
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="service-body">
-                                <p>Evaluamos la capacidad productiva, financiera y organizacional de tu PyME para determinar su viabilidad en los mercados internacionales.</p>
-                                <ul class="item-list">
-                                    <li>Análisis del valor agregado de los productos.</li>
-                                    <li>Identificación de fortalezas y cuellos de botella técnico-operativos.</li>
-                                    <li>Elaboración de una hoja de ruta con mejoras necesarias para exportar.</li>
-                                </ul>
-                                <a href="#" class="btn-solicitud">Solicitar Diagnóstico</a>
-                            </div>
-                        </div>
-                    </div>
+                <article class="comex-card">
+                    <h3>Programa de Primera Exportación</h3>
+                    <p>Asesoramiento personalizado e integral destinado a PyMEs industriales y de servicios que buscan dar sus primeros pasos de inserción en mercados internacionales de manera sostenible.</p>
+                    <a href="#" class="btn-general">Más Información</a>
+                </article>
 
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            2. Diseño del Plan Estratégico Internacional
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="service-body">
-                                <p>Asesoramiento personalizado en la estructuración de la estrategia comercial para el ingreso a nuevos mercados globales.</p>
-                                <ul class="item-list">
-                                    <li>Selección guiada y priorización de mercados objetivos y nichos específicos.</li>
-                                    <li>Adecuación del producto según regulaciones del mercado de destino.</li>
-                                    <li>Análisis de canales de comercialización y herramientas de promoción adecuadas.</li>
-                                </ul>
-                                <a href="#" class="btn-solicitud">Contactar Consultor</a>
-                            </div>
-                        </div>
-                    </div>
+                <article class="comex-card">
+                    <h3>Inteligencia Comercial</h3>
+                    <p>Elaboración de perfiles de mercado a medida, análisis de barreras arancelarias, detección de demandas externas potenciales y monitoreo de la competencia global.</p>
+                    <a href="#" class="btn-general">Más Información</a>
+                </article>
 
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            3. Inteligencia Comercial y Alertas de Mercado
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="service-body">
-                                <p>Suministramos información técnica de alto valor comercial para anticipar oportunidades de negocios globales.</p>
-                                <ul class="item-list">
-                                    <li>Monitoreo de flujos comerciales e importaciones de la competencia.</li>
-                                    <li>Relevamiento de barreras arancelarias, normativas técnicas y fitosanitarias.</li>
-                                    <li>Informes sectoriales sobre tendencias globales de consumo.</li>
-                                </ul>
-                                <a href="#" class="btn-solicitud">Ver Informes</a>
-                            </div>
-                        </div>
-                    </div>
+                <article class="comex-card">
+                    <h3>Consorcios de Exportación</h3>
+                    <p>Promoción de esquemas asociativos para agrupar PyMEs de sectores afines o complementarios, logrando optimizar costos operativos y potenciar la oferta exportable.</p>
+                    <a href="#" class="btn-general">Más Información</a>
+                </article>
 
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            4. Optimización de Costos y Cadena Logística
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="service-body">
-                                <p>Consultoría técnica para eficientizar los costos y plazos en los procesos logísticos y de transporte internacional.</p>
-                                <ul class="item-list">
-                                    <li>Estructuración de matrices de costos de exportación eficientes.</li>
-                                    <li>Asesoramiento en la selección de Incoterms y contratación de fletes/seguros.</li>
-                                    <li>Articulación y agilización de trámites de aduana en puertos de la Provincia.</li>
-                                </ul>
-                                <a href="#" class="btn-solicitud">Consultar Asesoría</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
             </div>
+        </section>
 
-            <div class="col-inversiones">
-                <h2 class="col-titulo">Inversiones Productivas</h2>
-                
-                <div class="accordion-container">
-                    
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            1. Diagnóstico de Viabilidad de Proyectos
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="service-body">
-                                <p>Asistencia técnica inicial para estructurar y validar la factibilidad de proyectos de inversión privada radicados en la Provincia de Buenos Aires.</p>
-                                <ul class="item-list">
-                                    <li>Análisis preliminar de localización, accesos logísticos y disponibilidad de servicios.</li>
-                                    <li>Identificación preliminar del encuadre legal, normativo e institucional.</li>
-                                    <li>Detección de necesidades de financiamiento técnico o adecuación ambiental.</li>
-                                </ul>
-                                <a href="#" class="btn-solicitud">Iniciar Diagnóstico</a>
+        <section>
+            <h2 class="section-title">Asistencia Técnica en Inversiones</h2>
+            
+            <div class="inversiones-container">
+
+                <div class="accordion-block active">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Localización Industrial y Parques
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="info-row">
+                                <span class="info-tag">Guía</span>
+                                <span class="info-text">Requisitos técnicos para la radicación en Parques Industriales</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-tag">Norma</span>
+                                <span class="info-text">Marco regulatorio provincial de ordenamiento del suelo industrial</span>
                             </div>
                         </div>
                     </div>
-
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            2. Asistencia Técnica Integral y Enlace Institucional
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="service-body">
-                                <p>Acompañamiento especializado continuo a lo largo de las fases de ejecución del proyecto de inversión.</p>
-                                <ul class="item-list">
-                                    <li>Articulación con organismos públicos provinciales y municipales para agilización de trámites.</li>
-                                    <li>Vinculación y asistencia técnica para aplicar a los beneficios del Régimen Provincial de Inversiones Estratégicas (RPIE).</li>
-                                    <li>Conexión con redes de proveedores locales para el desarrollo de la cadena de valor bonaerense.</li>
-                                </ul>
-                                <a href="#" class="btn-solicitud">Solicitar Acompañamiento</a>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
 
-        </div>
+                <div class="accordion-block">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Estructura de Financiamiento
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="info-row">
+                                <span class="info-tag">Líneas</span>
+                                <span class="info-text">Subsidios de tasa de interés para proyectos productivos estratégicos</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-tag">Bancos</span>
+                                <span class="info-text">Vinculación con herramientas financieras de la banca pública</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <script>
-        // Función interactiva para contraer o expandir las secciones
+        // Función interactiva limpia para contraer y expandir Inversiones
         function toggleAccordion(button) {
             const block = button.parentElement;
-            
-            if (block.classList.contains('active')) {
-                block.classList.remove('active');
-            } else {
-                block.classList.add('active');
-            }
+            block.classList.toggle('active');
         }
     </script>
 </body>
