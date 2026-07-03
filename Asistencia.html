@@ -74,7 +74,7 @@
         }
 
         /* ==========================================================================
-           SECCIÓN COMEX (Grilla Fija de 4 Columnas sin botones internos)
+           SECCIÓN COMEX (Grilla Fija de 4 Columnas con Detalle de Informe)
            ========================================================================== */
         .comex-grid {
             display: grid;
@@ -91,6 +91,16 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Etiqueta de detalle sobre el informe */
+        .card-informe-detalle {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--celeste-gba);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
         }
 
         .comex-card h3 {
@@ -196,7 +206,6 @@
             transform: rotate(180deg);
         }
 
-        /* Bloque de texto corrido sin divisiones ni viñetas */
         .accordion-body {
             padding: 20px;
         }
@@ -239,21 +248,25 @@
             <div class="comex-grid">
                 
                 <article class="comex-card">
+                    <div class="card-informe-detalle">1er informe</div>
                     <h3>Programa de Primera Exportación</h3>
                     <p>Asesoramiento personalizado e integral destinado a PyMEs industriales y de servicios que buscan dar sus primeros pasos de inserción en mercados internacionales de manera sostenible.</p>
                 </article>
 
                 <article class="comex-card">
+                    <div class="card-informe-detalle">2do informe</div>
                     <h3>Inteligencia Comercial</h3>
                     <p>Elaboración de perfiles de mercado a medida, análisis de barreras arancelarias, detección de demandas externas potenciales y monitoreo de la competencia global.</p>
                 </article>
 
                 <article class="comex-card">
+                    <div class="card-informe-detalle">3er informe</div>
                     <h3>Consorcios de Exportación</h3>
                     <p>Promoción de esquemas asociativos para agrupar PyMEs de sectores afines o complementarios, logrando optimizar costos operativos y potenciar la oferta exportable.</p>
                 </article>
 
                 <article class="comex-card">
+                    <div class="card-informe-detalle">4to informe</div>
                     <h3>Formación y Mejora Continua</h3>
                     <p>Ciclos continuos de asistencia técnica y seminarios de actualización en operatoria aduanera, logística internacional, costos y contratos de exportación.</p>
                 </article>
