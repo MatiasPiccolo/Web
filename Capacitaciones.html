@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formación y Capacitaciones - Inversiones y Comercio Exterior - PBA</title>
     <style>
-        /* Paleta de Colores Identidad GBA (Consistente con Monitor.html) */
+        /* Paleta de Colores Identidad GBA */
         :root {
             --azul-institucional: #0056b3;
             --azul-oscuro: #003670;
@@ -62,7 +62,7 @@
             line-height: 1.6;
         }
 
-        /* Grilla Principal de 2 Columnas (Estilo Monitor) */
+        /* Grilla Principal de 2 Columnas */
         .capacitacion-grid {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
@@ -136,7 +136,7 @@
         }
 
         .accordion-block.active .accordion-content {
-            max-height: 1000px; /* Permite expandirse según contenido */
+            max-height: 1000px;
         }
 
         .module-body {
@@ -154,7 +154,7 @@
             list-style: none;
             padding-left: 5px;
             margin-top: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .program-list li {
@@ -174,7 +174,7 @@
             top: -2px;
         }
 
-        /* Botón interno para los módulos desplegables */
+        /* Botón para enlaces dentro del módulo */
         .btn-modulo {
             display: inline-block;
             background-color: var(--azul-institucional);
@@ -185,7 +185,7 @@
             font-weight: 600;
             font-size: 0.85rem;
             text-transform: uppercase;
-            transition: background-color 0.2s, border-color 0.2s;
+            transition: background-color 0.2s;
             border: 1px solid var(--azul-institucional);
         }
 
@@ -273,11 +273,13 @@
     <main class="container">
         <div class="capacitacion-grid">
             
+            <!-- Columna Izquierda: 3 Módulos Desplegables de COMEX -->
             <div>
                 <h2 class="col-titulo">Programa de Formación en Comercio Exterior (COMEX)</h2>
                 
                 <div class="comex-container">
                     
+                    <!-- Módulo 1 -->
                     <div class="accordion-block">
                         <button class="accordion-header" onclick="toggleAccordion(this)">
                             Módulo 1: Introducción al Comercio Internacional y Primeros Pasos
@@ -291,11 +293,12 @@
                                     <li>Estructura del ecosistema global y organismos reguladores.</li>
                                     <li>Identificación de posiciones arancelarias básicas.</li>
                                 </ul>
-                                <a href="#" class="btn-modulo">Más Información / Material</a>
+                                <a href="#" class="btn-modulo">Acceder al Material</a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Módulo 2 -->
                     <div class="accordion-block">
                         <button class="accordion-header" onclick="toggleAccordion(this)">
                             Módulo 2: Investigación de Mercados y Estrategia Comercial
@@ -309,11 +312,12 @@
                                     <li>Barreras arancelarias y paraarancelarias de acceso.</li>
                                     <li>Estrategias de posicionamiento, canales de distribución y consorcios de exportación.</li>
                                 </ul>
-                                <a href="#" class="btn-modulo">Más Información / Material</a>
+                                <a href="#" class="btn-modulo">Acceder al Material</a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Módulo 3 -->
                     <div class="accordion-block">
                         <button class="accordion-header" onclick="toggleAccordion(this)">
                             Módulo 3: Costos, Precios y Logística Internacional
@@ -323,11 +327,11 @@
                             <div class="module-body">
                                 <p>Análisis técnico operativo de la cadena logística y estructuración competitiva de precios.</p>
                                 <ul class="program-list">
-                                    <li>Determinación de costos de exportación y cálculo del Precio FOB/FCA.</li>
+                                    <li>Determinación de costos de exportación y cálculo del Precio FOB o FCA.</li>
                                     <li>Incoterms vigentes y su impacto en las responsabilidades contractuales.</li>
-                                    <li>Gestión del transporte internacional (marítimo, terrestre, aéreo) y esquemas de seguros.</li>
+                                    <li>Gestión del transporte internacional y esquemas de seguros.</li>
                                 </ul>
-                                <a href="#" class="btn-modulo">Más Información / Material</a>
+                                <a href="#" class="btn-modulo">Acceder al Material</a>
                             </div>
                         </div>
                     </div>
@@ -335,6 +339,7 @@
                 </div>
             </div>
 
+            <!-- Columna Derecha: Curso de Proyectos de Inversión -->
             <div>
                 <h2 class="col-titulo">Proyectos de Inversión</h2>
                 
@@ -351,10 +356,8 @@
     </main>
 
     <script>
-        // Función interactiva reutilizable para contraer o expandir los módulos (Idéntica a Monitor.html)
         function toggleAccordion(button) {
             const block = button.parentElement;
-            
             if (block.classList.contains('active')) {
                 block.classList.remove('active');
             } else {
