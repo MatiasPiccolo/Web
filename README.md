@@ -12,6 +12,7 @@ Portal de informes y visualizaciones interactivas.
 | Forms invertí | [Invertí.html](https://matiaspiccolo.github.io/Web/Inverti.html) |
 | Formulario de contacto | [Formulario.html](https://matiaspiccolo.github.io/Web/Formulario.html) |
 | Recursos | [Recursos.html](https://matiaspiccolo.github.io/Web/recursos.html) |
+| Promocion | [Promocion.html](https://matiaspiccolo.github.io/Web/Promocion.html) |
 | Capacitaciones | [Capacitaciones.html](https://matiaspiccolo.github.io/Web/Capacitaciones.html) |
 | Asistencia | [Asistencia.html](https://matiaspiccolo.github.io/Web/Asistencia.html) |
 | Informacion | [Informacion.html](https://matiaspiccolo.github.io/Web/Informacion.html) |
