@@ -154,6 +154,7 @@
             list-style: none;
             padding-left: 5px;
             margin-top: 10px;
+            margin-bottom: 15px;
         }
 
         .program-list li {
@@ -171,6 +172,26 @@
             position: absolute;
             left: 0;
             top: -2px;
+        }
+
+        /* Botón interno para los módulos desplegables */
+        .btn-modulo {
+            display: inline-block;
+            background-color: var(--azul-institucional);
+            color: var(--blanco);
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: background-color 0.2s, border-color 0.2s;
+            border: 1px solid var(--azul-institucional);
+        }
+
+        .btn-modulo:hover {
+            background-color: var(--azul-oscuro);
+            border-color: var(--azul-oscuro);
         }
 
         /* --- Tarjeta Destacada Proyectos de Inversión --- */
@@ -252,13 +273,11 @@
     <main class="container">
         <div class="capacitacion-grid">
             
-            <!-- Columna Izquierda: 4 Módulos Desplegables de COMEX -->
             <div>
                 <h2 class="col-titulo">Programa de Formación en Comercio Exterior (COMEX)</h2>
                 
                 <div class="comex-container">
                     
-                    <!-- Módulo 1 -->
                     <div class="accordion-block">
                         <button class="accordion-header" onclick="toggleAccordion(this)">
                             Módulo 1: Introducción al Comercio Internacional y Primeros Pasos
@@ -272,11 +291,11 @@
                                     <li>Estructura del ecosistema global y organismos reguladores.</li>
                                     <li>Identificación de posiciones arancelarias básicas.</li>
                                 </ul>
+                                <a href="#" class="btn-modulo">Más Información / Material</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Módulo 2 -->
                     <div class="accordion-block">
                         <button class="accordion-header" onclick="toggleAccordion(this)">
                             Módulo 2: Investigación de Mercados y Estrategia Comercial
@@ -290,11 +309,11 @@
                                     <li>Barreras arancelarias y paraarancelarias de acceso.</li>
                                     <li>Estrategias de posicionamiento, canales de distribución y consorcios de exportación.</li>
                                 </ul>
+                                <a href="#" class="btn-modulo">Más Información / Material</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Módulo 3 -->
                     <div class="accordion-block">
                         <button class="accordion-header" onclick="toggleAccordion(this)">
                             Módulo 3: Costos, Precios y Logística Internacional
@@ -308,24 +327,7 @@
                                     <li>Incoterms vigentes y su impacto en las responsabilidades contractuales.</li>
                                     <li>Gestión del transporte internacional (marítimo, terrestre, aéreo) y esquemas de seguros.</li>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 4 -->
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Módulo 4: Operatividad Aduanera, Normativa y Aspectos Financieros
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="module-body">
-                                <p>Marco regulatorio aduanero, instrumentos de cobro y liquidación de divisas.</p>
-                                <ul class="program-list">
-                                    <li>Documentación internacional obligatoria: Factura de Exportación, Certificados de Origen, BL.</li>
-                                    <li>Regímenes aduaneros y operatorias de control en frontera.</li>
-                                    <li>Medios de pago internacionales (Cartas de Crédito, transferencias) y regulaciones del Mercado Libre de Cambios.</li>
-                                </ul>
+                                <a href="#" class="btn-modulo">Más Información / Material</a>
                             </div>
                         </div>
                     </div>
@@ -333,7 +335,6 @@
                 </div>
             </div>
 
-            <!-- Columna Derecha: Curso de Proyectos de Inversión -->
             <div>
                 <h2 class="col-titulo">Proyectos de Inversión</h2>
                 
@@ -357,8 +358,6 @@
             if (block.classList.contains('active')) {
                 block.classList.remove('active');
             } else {
-                // Opcional: Descomentar la siguiente línea si preferís que se cierre un módulo automáticamente al abrir otro:
-                // document.querySelectorAll('.accordion-block').forEach(b => b.classList.remove('active'));
                 block.classList.add('active');
             }
         }
