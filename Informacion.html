@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información Estratégica - Inversiones y Comercio Exterior - PBA</title>
+    <title>Información Estratégica - Inversiones y Comercio Exterior</title>
     <style>
-        /* Paleta de Colores Identidad GBA (Consistente con los módulos anteriores) */
+        /* Paleta de Colores Identidad Institucional */
         :root {
             --azul-institucional: #0056b3;
             --azul-oscuro: #003670;
@@ -62,144 +62,147 @@
             line-height: 1.6;
         }
 
-        /* Grilla Principal de 3 Columnas Simétricas */
-        .estrategica-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            align-items: start;
-        }
-
-        .col-titulo {
-            font-size: 1.15rem;
-            color: var(--azul-oscuro);
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--celeste-gba);
-            padding-bottom: 8px;
-            letter-spacing: 0.3px;
-            min-height: 42px; /* Alinea los títulos en pantallas grandes */
-            display: flex;
-            align-items: flex-end;
-        }
-
-        /* Estructura Bloques Desplegables (Acordeón) */
-        .accordion-container {
+        /* Estructura de Bloques de Contenedores Fijos */
+        .estrategica-container {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 30px;
         }
 
-        .accordion-block {
+        .info-block {
             border: 1px solid var(--borde-linea);
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
             background-color: var(--blanco);
-            transition: all 0.2s ease;
         }
 
-        .accordion-header {
+        /* Encabezados Fijos (Ya no son botones) */
+        .info-block-header {
             background-color: var(--azul-oscuro);
             color: var(--blanco);
-            width: 100%;
-            padding: 15px 18px;
-            font-size: 0.9rem;
+            padding: 18px 20px;
+            font-size: 1.1rem;
             font-weight: 700;
             text-transform: uppercase;
-            text-align: left;
-            border: none;
-            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        /* Contenido del Bloque */
+        .info-block-content {
+            background-color: var(--blanco);
+            padding: 20px;
+        }
+
+        .block-description {
+            font-size: 0.95rem;
+            color: var(--gris-medio);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+
+        /* Listado de Descargas y Enlaces */
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .resource-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background-color 0.2s;
-            line-height: 1.3;
+            padding: 12px 15px;
+            background-color: var(--gris-claro);
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
         }
 
-        .accordion-header:hover {
-            background-color: var(--azul-institucional);
-        }
-
-        .accordion-icon {
-            font-size: 0.75rem;
-            transition: transform 0.3s ease;
-            margin-left: 10px;
-        }
-
-        /* Estado Abierto (Active) */
-        .accordion-block.active .accordion-icon {
-            transform: rotate(180deg);
-        }
-
-        /* Contenido Desplegable */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            background-color: var(--blanco);
-        }
-
-        .accordion-block.active .accordion-content {
-            max-height: 800px;
-        }
-
-        .info-body {
-            padding: 18px;
-            font-size: 0.9rem;
-            color: var(--gris-oscuro);
-            border-top: 1px solid #f1f5f9;
-        }
-
-        .info-body p {
-            margin-bottom: 12px;
-            color: var(--gris-medio);
-        }
-
-        /* Lista de Archivos / Enlaces */
-        .link-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .link-list li {
-            margin-bottom: 8px;
-        }
-
-        .link-list li:last-child {
-            margin-bottom: 0;
-        }
-
-        .download-link {
+        .resource-info {
             display: flex;
             align-items: center;
-            gap: 8px;
-            color: var(--azul-oscuro);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 6px 0;
-            transition: color 0.2s;
+            gap: 12px;
         }
 
-        .download-link:hover {
-            color: var(--celeste-gba);
-            text-decoration: underline;
+        /* Identificadores Visuales del Recurso */
+        .resource-tag {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
         }
 
-        .download-link::before {
-            content: "📄";
+        .tag-pdf {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .tag-link {
+            background-color: #e0f2fe;
+            color: #0369a1;
+        }
+
+        .resource-title {
             font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--gris-oscuro);
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .estrategica-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
+        /* Botones de Acción */
+        .resource-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        .btn-download {
+            background-color: var(--azul-institucional);
+            color: var(--blanco);
+            border: 1px solid var(--azul-institucional);
+        }
+
+        .btn-download:hover {
+            background-color: var(--azul-oscuro);
+            border-color: var(--azul-oscuro);
+        }
+
+        .btn-external {
+            background-color: var(--blanco);
+            color: var(--gris-oscuro);
+            border: 1px solid var(--borde-linea);
+        }
+
+        .btn-external:hover {
+            background-color: #cbd5e1;
+        }
+
+        /* Responsivo */
+        @media (max-width: 650px) {
+            .resource-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
             }
-            .col-titulo {
-                min-height: auto;
-                padding-bottom: 5px;
+            .resource-actions {
+                width: 100%;
+                justify-content: flex-end;
             }
         }
     </style>
@@ -208,163 +211,121 @@
 
     <header class="header-estrategica">
         <div class="container">
-            <h1>Información estratégica</h1>
-            <p>Regulaciones vigentes, guías de trámites e informes de inversión y exportación.</p>
+            <h1>Información Estratégica</h1>
+            <p>Acceda a los marcos regulatorios, guías operativas e incentivos vigentes para la radicación de capitales y el fomento comercial.</p>
         </div>
     </header>
 
     <main class="container">
-        <div class="estrategica-grid">
+        <div class="estrategica-container">
             
-            <!-- Columna 1: Regulaciones (RPIE y Nacionales) -->
-            <div>
-                <h2 class="col-titulo">Marco Regulatorio (RPIE y Nacionales)</h2>
-                <div class="accordion-container">
-                    
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Régimen Provincial de Inversiones Estratégicas (RPIE)
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="info-body">
-                                <p>Marco normativo de la Provincia de Buenos Aires diseñado para incentivar proyectos que generen valor agregado, empleo calificado y desarrollo tecnológico.</p>
-                                <ul class="link-list">
-                                    <li><a href="#" class="download-link" target="_blank">Texto de la Ley Provincial (PDF)</a></li>
-                                    <li><a href="#" class="download-link" target="_blank">Decreto Reglamentario y Criterios</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Normativas Nacionales de Inversión
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="info-body">
-                                <p>Leyes, regulaciones generales y regímenes de incentivo sectorial aplicables en el territorio nacional.</p>
-                                <ul class="link-list">
-                                    <li><a href="#" class="download-link" target="_blank">Ley de Inversiones Extranjeras</a></li>
-                                    <li><a href="#" class="download-link" target="_blank">Regímenes Sectoriales de Promoción</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
+            <section class="info-block">
+                <div class="info-block-header">
+                    Régimen de Promoción de Inversiones (RPIE)
                 </div>
-            </div>
-
-            <!-- Columna 2: Guía de incentivos y programas -->
-            <div>
-                <h2 class="col-titulo">Guía de Incentivos y Programas</h2>
-                <div class="accordion-container">
-                    
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Beneficios Fiscales y Exenciones Provinciales
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="info-body">
-                                <p>Detalle de las exenciones impositivas en Ingresos Brutos, Impuesto Inmobiliario y Sellos para nuevas radicaciones productivas.</p>
-                                <ul class="link-list">
-                                    <li><a href="#" class="download-link" target="_blank">Guía de Incentivos Fiscales PBA</a></li>
-                                </ul>
+                <div class="info-block-content">
+                    <p class="block-description">Marco normativo y legal detallado que regula los incentivos y las garantías para las inversiones en el territorio provincial.</p>
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <div class="resource-info">
+                                <span class="resource-tag tag-pdf">PDF</span>
+                                <span class="resource-title">Texto Completo del Régimen de Promoción (RPIE)</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="#" download class="btn-action btn-download">Descargar</a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-info">
+                                <span class="resource-tag tag-link">Link</span>
+                                <span class="resource-title">Plataforma Digital de Tramitación y Consulta Externa</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="#" target="_blank" class="btn-action btn-external">Acceder</a>
                             </div>
                         </div>
                     </div>
-
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Programas de Financiamiento y Crédito Productivo
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="info-body">
-                                <p>Líneas de financiamiento activas, subsidios de tasa y herramientas de crédito destinadas a la expansión y modernización de PyMEs.</p>
-                                <ul class="link-list">
-                                    <li><a href="#" class="download-link" target="_blank">Catálogo de Programas Financieros</a></li>
-                                    <li><a href="#" class="download-link" target="_blank">Líneas de Crédito Banco Provincia</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Programas de Apoyo al Comercio Exterior
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="info-body">
-                                <p>Herramientas públicas de promoción comercial, misiones internacionales, rondas de negocios y subsidios específicos para exportadores.</p>
-                                <ul class="link-list">
-                                    <li><a href="#" class="download-link" target="_blank">Calendario de Promoción Comercial</a></li>
-                                    <li><a href="#" class="download-link" target="_blank">Ventanilla Única de Comercio Exterior</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
+            </section>
 
-            <!-- Columna 3: Guías de trámites y registros -->
-            <div>
-                <h2 class="col-titulo">Guías de Trámites y Registros</h2>
-                <div class="accordion-container">
-                    
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Registros Provinciales Obligatorios
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="info-body">
-                                <p>Acceso a las plataformas, instructivos y requisitos necesarios para inscribir unidades productivas en los registros oficiales de la Provincia.</p>
-                                <ul class="link-list">
-                                    <li><a href="#" class="download-link" target="_blank">Inscripción en el Registro PyME</a></li>
-                                    <li><a href="#" class="download-link" target="_blank">Registro de Proveedores Provinciales</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Guías de Radicación Industrial y Ambiental
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="info-body">
-                                <p>Procedimientos paso a paso para la habilitación de plantas productivas, obtención de categorías industriales y certificaciones de impacto ambiental.</p>
-                                <ul class="link-list">
-                                    <li><a href="#" class="download-link" target="_blank">Guía de Radicación en Parques Industriales</a></li>
-                                    <li><a href="#" class="download-link" target="_blank">Trámites y Licencias Ambientales</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
+            <section class="info-block">
+                <div class="info-block-header">
+                    Guías de Trámites y Registros
                 </div>
-            </div>
+                <div class="info-block-content">
+                    <p class="block-description">Manuales prácticos paso a paso para la habilitación de establecimientos y cumplimiento de normativas locales.</p>
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <div class="resource-info">
+                                <span class="resource-tag tag-pdf">PDF</span>
+                                <span class="resource-title">Guía de Radicación Industrial y Parques Industriales</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="#" download class="btn-action btn-download">Descargar</a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-info">
+                                <span class="resource-tag tag-pdf">PDF</span>
+                                <span class="resource-title">Manual de Registros Ambientales y Factibilidad</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="#" download class="btn-action btn-download">Descargar</a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-info">
+                                <span class="resource-tag tag-pdf">PDF</span>
+                                <span class="resource-title">Trámites de Habilitación Comercial Municipalizada</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="#" download class="btn-action btn-download">Descargar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-block">
+                <div class="info-block-header">
+                    Guía de Incentivos y Programas
+                </div>
+                <div class="info-block-content">
+                    <p class="block-description">Resumen de beneficios fiscales, subsidios de tasas y programas de financiamiento activos para sectores estratégicos.</p>
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <div class="resource-info">
+                                <span class="resource-tag tag-pdf">PDF</span>
+                                <span class="resource-title">Exenciones Impositivas para Nuevas Inversiones</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="#" download class="btn-action btn-download">Descargar</a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-info">
+                                <span class="resource-tag tag-pdf">PDF</span>
+                                <span class="resource-title">Líneas de Financiamiento y Crédito Productivo</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="#" download class="btn-action btn-download">Descargar</a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-info">
+                                <span class="resource-tag tag-pdf">PDF</span>
+                                <span class="resource-title">Programas de Incentivo al Empleo y Capacitación Laboral</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="#" download class="btn-action btn-download">Descargar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
         </div>
     </main>
 
-    <script>
-        // Función interactiva modular para abrir/cerrar acordeones (Consistente con los demás módulos)
-        function toggleAccordion(button) {
-            const block = button.parentElement;
-            
-            if (block.classList.contains('active')) {
-                block.classList.remove('active');
-            } else {
-                block.classList.add('active');
-            }
-        }
-    </script>
 </body>
 </html>
