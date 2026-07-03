@@ -107,7 +107,7 @@
 
         /* Cuando está activo se expande y rota la flecha */
         .accordion-block.active .accordion-content {
-            max-height: 1200px; /* Suficiente espacio para las filas */
+            max-height: 1200px;
             transition: max-height 0.5s ease-in;
         }
 
@@ -153,10 +153,10 @@
         }
 
         /* Colores específicos para cada tipo de informe */
-        .icon-c-e { background-color: #e0f2fe; color: #0369a1; }  /* Coyuntura Externa - Azul claro */
-        .icon-i-b { background-color: #fef3c7; color: #b45309; }  /* Informe Bimestral - Ámbar */
-        .icon-i-p { background-color: #dcfce7; color: #15803d; }  /* Informe Provincial - Verde */
-        .icon-f-a { background-color: #f3e8ff; color: #6b21a8; }  /* Fusiones y Adquisiciones - Violeta */
+        .icon-c-e { background-color: #e0f2fe; color: #0369a1; }
+        .icon-i-b { background-color: #fef3c7; color: #b45309; }
+        .icon-i-p { background-color: #dcfce7; color: #15803d; }
+        .icon-f-a { background-color: #f3e8ff; color: #6b21a8; }
 
         .pdf-title {
             font-size: 1rem;
@@ -265,12 +265,7 @@
     <script>
         function toggleAccordion(button) {
             const block = button.parentElement;
-            
-            if (block.classList.contains('active')) {
-                block.classList.remove('active');
-            } else {
-                block.classList.add('active');
-            }
+            block.classList.toggle('active');
         }
     </script>
 </body>
