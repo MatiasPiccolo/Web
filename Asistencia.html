@@ -74,7 +74,7 @@
         }
 
         /* ==========================================================================
-           SECCIÓN COMEX (Grilla Fija de 4 Columnas con Detalle de Informe)
+           SECCIÓN COMEX (Grilla Fija de 4 Columnas con Interacción Desplegable)
            ========================================================================== */
         .comex-grid {
             display: grid;
@@ -91,6 +91,33 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            height: fit-content;
+            transition: all 0.3s ease;
+        }
+
+        .comex-card-trigger {
+            background: none;
+            border: none;
+            text-align: left;
+            width: 100%;
+            padding: 0;
+            cursor: pointer;
+            font-family: inherit;
+            display: block;
+            position: relative;
+        }
+
+        .comex-card-trigger .accordion-icon {
+            position: absolute;
+            right: 0;
+            top: 4px;
+            font-size: 0.75rem;
+            color: var(--gris-medio);
+            transition: transform 0.3s ease;
+        }
+
+        .comex-card.active .accordion-icon {
+            transform: rotate(180deg);
         }
 
         /* Etiqueta de detalle sobre el informe */
@@ -110,6 +137,7 @@
             margin-bottom: 12px;
             font-weight: 700;
             line-height: 1.3;
+            padding-right: 15px;
         }
 
         .comex-card p {
@@ -148,9 +176,8 @@
             background-color: var(--azul-oscuro);
         }
 
-
         /* ==========================================================================
-           SECCIÓN INVERSIONES (Desplegable con Bloque de Texto Único)
+           SECCIÓN INVERSIONES (Lista Desplegable Tradicional)
            ========================================================================== */
         .inversiones-container {
             display: flex;
@@ -202,7 +229,7 @@
             transition: max-height 0.5s ease-in;
         }
 
-        .accordion-block.active .accordion-icon {
+        .accordion-block.active .accordion-header .accordion-icon {
             transform: rotate(180deg);
         }
 
@@ -242,74 +269,97 @@
 
     <main class="container">
 
+        <!-- SECCIÓN 1: COMERCIO EXTERIOR -->
         <section>
             <h2 class="section-title">Asistencia Técnica en Comercio Exterior</h2>
             
-<!-- SECCIÓN COMEX: Convertida a Cajas Desplegables -->
-            <div class="inversiones-container" style="margin-bottom: 30px;">
-
+            <div class="comex-grid">
+                
                 <!-- Informe 1 -->
-                <div class="accordion-block">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <span>1er informe - Diagnóstico, Tratamiento arancelario y Precio FOB</span>
+                <div class="comex-card">
+                    <button class="comex-card-trigger" onclick="toggleCardAccordion(this)">
+                        <div class="card-informe-detalle">1er informe</div>
+                        <h3>Diagnóstico, Tratamiento arancelario y Precio FOB</h3>
                         <span class="accordion-icon">▼</span>
                     </button>
                     <div class="accordion-content">
-                        <div class="accordion-body">
-                            <p class="text-block-unificado">
-                                El proceso comienza con un diagnóstico de la empresa; este análisis abarca el proceso productivo, los canales de comercialización y la experiencia previa en comercio internacional. Luego se emplea la herramienta FODA (Fortalezas, Oportunidades, Debilidades y Amenazas) para evaluar el funcionamiento organizacional y su oferta, lo que permitirá identificar el producto o servicio con mayor potencial exportador. A continuación se procederá a definir la posición arancelaria de cada producto y su tratamiento aduanero. Con esta información se confeccionará un precio de exportación considerando todos los costos asociados a la operation exportadora.
-                            </p>
+                        <div class="accordion-body" style="padding: 10px 0 0 0;">
+                            <p>El proceso comienza con un diagnóstico de la empresa; este análisis abarca el proceso productivo, los canales de comercialización y la experiencia previa en comercio internacional. Luego se emplea la herramienta FODA (Fortalezas, Oportunidades, Debilidades y Amenazas) para evaluar el funcionamiento organizacional y su oferta, lo que permitirá identificar el producto o servicio con mayor potencial exportador. A continuación se procederá a definir la posición arancelaria de cada producto y su tratamiento aduanero. Con esta información se confeccionará un precio de exportación considerando todos los costos asociados a la operation exportadora.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Informe 2 -->
-                <div class="accordion-block">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <span>2do informe - Destinos posibles de exportación</span>
+                <div class="comex-card">
+                    <button class="comex-card-trigger" onclick="toggleCardAccordion(this)">
+                        <div class="card-informe-detalle">2do informe</div>
+                        <h3>Destinos posibles de exportación</h3>
                         <span class="accordion-icon">▼</span>
                     </button>
                     <div class="accordion-content">
-                        <div class="accordion-body">
-                            <p class="text-block-unificado">
-                                A partir de la posición arancelaria, y tras un análisis de estadísticas y flujos comerciales, se seleccionarán los destinos de exportación más adecuados para la oferta de la empresa. Además se tendrán en cuenta criterios como la cercanía geográfica, el PBI per cápita, la cuota de mercado, el nivel de importación, los requisitos de ingreso, los lazos culturales y los niveles arancelarios. Con dichos criterios se elaborará una Matriz de Selectividad, para determinar los mercados más estratégicos.
-                            </p>
+                        <div class="accordion-body" style="padding: 10px 0 0 0;">
+                            <p>A partir de la posición arancelaria, y tras un análisis de estadísticas y flujos comerciales, se seleccionarán los destinos de exportación más adecuados para la oferta de la empresa. Además se tendrán en cuenta criterios como la cercanía geográfica, el PBI per cápita, la cuota de mercado, el nivel de importación, los requisitos de ingreso, los lazos culturales y los niveles arancelarios. Con dichos criterios se elaborará una Matriz de Selectividad, para determinar los mercados más estratégicos.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Informe 3 -->
-                <div class="accordion-block">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <span>3er informe - Estudio de mercado sobre un posible destino</span>
+                <div class="comex-card">
+                    <button class="comex-card-trigger" onclick="toggleCardAccordion(this)">
+                        <div class="card-informe-detalle">3er informe</div>
+                        <h3>Estudio de mercado sobre un posible destino</h3>
                         <span class="accordion-icon">▼</span>
                     </button>
                     <div class="accordion-content">
-                        <div class="accordion-body">
-                            <p class="text-block-unificado">
-                                Para profundizar en el mercado de destino, el asistente técnico elaborará un informe detallado que incluirá un análisis económico, demográfico, del sector, de la competencia y del comercio bilateral. Además, el informe aportará información clave como los requisitos de ingreso del producto, datos de contacto de potenciales contrapartes y precios de referencia en plaza.
-                            </p>
+                        <div class="accordion-body" style="padding: 10px 0 0 0;">
+                            <p>Para profundizar en el mercado de destino, el asistente técnico elaborará un informe detallado que incluirá un análisis económico, demográfico, del sector, de la competencia y del comercio bilateral. Además, el informe aportará información clave como los requisitos de ingreso del producto, datos de contacto de potenciales contrapartes y precios de referencia en plaza.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Informe 4 -->
-                <div class="accordion-block">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <span>4to informe - Plan de exportación</span>
+                <div class="comex-card">
+                    <button class="comex-card-trigger" onclick="toggleCardAccordion(this)">
+                        <div class="card-informe-detalle">4to informe</div>
+                        <h3>Plan de exportación</h3>
                         <span class="accordion-icon">▼</span>
                     </button>
                     <div class="accordion-content">
-                        <div class="accordion-body">
-                            <p class="text-block-unificado">
-                                Este informe final tiene como objetivo principal servir a la empresa como herramienta para transformar en acciones concretas todo lo planificado previamente. En él se revisarán las herramientas de comunicación, las planillas de activación y seguimiento de potenciales clientes, y se elaborará la propuesta comercial, la estrategia de fijación de precios y un cronograma de actividades.
-                            </p>
+                        <div class="accordion-body" style="padding: 10px 0 0 0;">
+                            <p>Este informe final tiene como objetivo principal servir a la empresa como herramienta para transformar en acciones concretas todo lo planificado previamente. En él se revisarán las herramientas de comunicación, las planillas de activación y seguimiento de potenciales clientes, y se elaborará la propuesta comercial, la estrategia de fijación de precios y un cronograma de actividades.</p>
                         </div>
                     </div>
                 </div>
 
             </div>
 
+            <div class="comex-action-container">
+                <a href="#" class="btn-inscription">Inscripción</a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: INVERSIONES -->
+        <section>
+            <h2 class="section-title">Asistencia Técnica en Inversiones</h2>
+            
+            <div class="inversiones-container">
+
+                <!-- Categoría 1 -->
+                <div class="accordion-block active">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Diagnóstico
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p class="text-block-unificado">
+                                Orientada a brindar asistencia integral en la formulación de proyectos de inversión. Contempla los estudios de mercado, el análisis técnico y operativo, los análisis normativos respectivos y el plan económico financiero.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categoría 2 -->
                 <div class="accordion-block">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
                         Asistencia Técnica en Identificación y Diagnóstico de Proyectos de Inversión
@@ -329,8 +379,8 @@
 
     </main>
 
-<script>
-        // Función interactiva para contraer y expandir los bloques (Comex e Inversiones)
+    <script>
+        // Función para los bloques tradicionales de Inversiones
         function toggleAccordion(button) {
             const block = button.parentElement;
             const content = button.nextElementSibling;
@@ -344,7 +394,21 @@
             }
         }
 
-        // Inicializar los que ya vienen abiertos por defecto al cargar la página
+        // Función específica para los cuadrantes en paralelo de COMEX
+        function toggleCardAccordion(button) {
+            const card = button.closest('.comex-card');
+            const content = button.nextElementSibling;
+            
+            card.classList.toggle('active');
+            
+            if (card.classList.contains('active')) {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.style.maxHeight = null;
+            }
+        }
+
+        // Inicializar elementos que vienen abiertos de fábrica (como el primer bloque de inversiones)
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll('.accordion-block.active .accordion-content').forEach(content => {
                 content.style.maxHeight = content.scrollHeight + "px";
