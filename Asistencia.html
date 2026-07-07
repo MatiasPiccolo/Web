@@ -143,6 +143,37 @@
         .comex-card p {
             font-size: 0.9rem;
             color: var(--gris-medio);
+            margin-bottom: 10px;
+        }
+
+        /* Estilo de lista de ítems dentro de COMEX */
+        .comex-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 8px;
+        }
+
+        .comex-list li {
+            position: relative;
+            padding-left: 15px;
+            font-size: 0.88rem;
+            color: var(--gris-oscuro);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .comex-list li::before {
+            content: "•";
+            color: var(--celeste-gba);
+            font-weight: bold;
+            font-size: 1.1rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .comex-list li strong {
+            color: var(--azul-oscuro);
         }
 
         /* Contenedor del Botón Centrado de COMEX */
@@ -284,7 +315,12 @@
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-body" style="padding: 10px 0 0 0;">
-                            <p>El proceso comienza con un diagnóstico de la empresa; este análisis abarca el proceso productivo, los canales de comercialización y la experiencia previa en comercio internacional. Luego se emplea la herramienta FODA (Fortalezas, Oportunidades, Debilidades y Amenazas) para evaluar el funcionamiento organizacional y su oferta, lo que permitirá identificar el producto o servicio con mayor potencial exportador. A continuación se procederá a definir la posición arancelaria de cada producto y su tratamiento aduanero. Con esta información se confeccionará un precio de exportación considerando todos los costos asociados a la operation exportadora.</p>
+                            <ul class="comex-list">
+                                <li>Análisis integral de la empresa que abarca su proceso productivo, los canales de comercialización y su experiencia previa en comercio internacional.</li>
+                                <li>Evaluación estratégica (FODA) para evaluar el funcionamiento de la organización y su oferta, con el objetivo de identificar el producto o servicio que tenga el mayor potencial exportador.</li>
+                                <li>Se define la posición arancelaria de cada producto seleccionado y se determina su tratamiento aduanero correspondiente.</li>
+                                <li>Se confecciona el precio de exportación definitivo, contemplando cada uno de los costos asociados a la operación.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -298,7 +334,13 @@
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-body" style="padding: 10px 0 0 0;">
-                            <p>A partir de la posición arancelaria, y tras un análisis de estadísticas y flujos comerciales, se seleccionarán los destinos de exportación más adecuados para la oferta de la empresa. Además se tendrán en cuenta criterios como la cercanía geográfica, el PBI per cápita, la cuota de mercado, el nivel de importación, los requisitos de ingreso, los lazos culturales y los niveles arancelarios. Con dichos criterios se elaborará una Matriz de Selectividad, para determinar los mercados más estratégicos.</p>
+                            <p>Se eligen los mercados de exportación más adecuados para la oferta de la empresa. Para definir estos destinos, se consideran variables clave como:</p>
+                            <ul class="comex-list">
+                                <li>Cercanía geográfica y lazos culturales.</li>
+                                <li>Indicadores económicos (PBI per cápita, nivel de importación y cuota de mercado).</li>
+                                <li>Barreras y normativas (requisitos de ingreso y niveles arancelarios).</li>
+                            </ul>
+                            <p style="margin-top: 10px;">Con todos estos criterios ponderados, se elabora una Matriz de Selectividad para determinar cuáles son los mercados más estratégicos para el negocio.</p>
                         </div>
                     </div>
                 </div>
@@ -312,7 +354,11 @@
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-body" style="padding: 10px 0 0 0;">
-                            <p>Para profundizar en el mercado de destino, el asistente técnico elaborará un informe detallado que incluirá un análisis económico, demográfico, del sector, de la competencia y del comercio bilateral. Además, el informe aportará información clave como los requisitos de ingreso del producto, datos de contacto de potenciales contrapartes y precios de referencia en plaza.</p>
+                            <ul class="comex-list">
+                                <li>Se elabora un informe detallado que contempla el panorama económico, demográfico, la situación del sector, el comportamiento de la competencia y el comercio bilateral.</li>
+                                <li>El documento aporta de manera específica las normativas y los requisitos de ingreso exigidos para el producto en el mercado de destino.</li>
+                                <li>Incluye información práctica clave, como precios de referencia en plaza y datos de contacto de potenciales contrapartes para la negociación.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -326,7 +372,12 @@
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-body" style="padding: 10px 0 0 0;">
-                            <p>Este informe final tiene como objetivo principal servir a la empresa como herramienta para transformar en acciones concretas todo lo planificado previamente. En él se revisarán las herramientas de comunicación, las planillas de activación y seguimiento de potenciales clientes, y se elaborará la propuesta comercial, la estrategia de fijación de precios y un cronograma de actividades.</p>
+                            <ul class="comex-list">
+                                <li>El informe final funciona como una herramienta práctica para que la empresa transforme toda la planificación previa en acciones concretas.</li>
+                                <li>Se evalúan los canales de comunicación y las planillas destinadas a la activación y el seguimiento de potenciales clientes.</li>
+                                <li>Se elabora formalmente la propuesta comercial junto con la estrategia de fijación de precios.</li>
+                                <li>Se diseña un cronograma de actividades para ordenar y ejecutar los pasos a seguir.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
