@@ -170,7 +170,7 @@
             border-color: var(--azul-oscuro);
         }
 
-        /* --- Tarjeta Destacada Proyectos de Inversión --- */
+        /* --- Tarjeta Destacada Proyectos de Inversión (Rediseñada) --- */
         .proyecto-card {
             background-color: var(--gris-claro);
             border: 1px solid var(--borde-linea);
@@ -201,9 +201,51 @@
         }
 
         .proyecto-card p {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
+            color: var(--gris-oscuro);
+            margin-bottom: 15px;
+        }
+
+        .proyecto-card .alianza-texto {
+            font-size: 0.85rem;
             color: var(--gris-medio);
-            margin-bottom: 20px;
+            font-style: italic;
+            border-left: 2px solid var(--borde-linea);
+            padding-left: 10px;
+            margin-bottom: 18px;
+        }
+
+        .proyecto-card h4 {
+            font-size: 0.95rem;
+            color: var(--azul-oscuro);
+            text-transform: uppercase;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .proyecto-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 25px;
+        }
+
+        .proyecto-list li {
+            position: relative;
+            padding-left: 18px;
+            font-size: 0.88rem;
+            margin-bottom: 8px;
+            color: var(--gris-oscuro);
+        }
+
+        .proyecto-list li::before {
+            content: "•";
+            color: var(--celeste-gba);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
         }
 
         .btn-inscription {
@@ -250,12 +292,12 @@
         <div class="capacitacion-grid">
             
             <div>
-                <!-- TÍTULO DE LA COLUMNA CAMBIADO -->
+                <!-- TÍTULO DE LA COLUMNA -->
                 <h2 class="col-titulo">Capacitaciones COMEX</h2>
                 
                 <div class="comex-container">
                     
-                    <!-- DESPLEGABLE 1 MODIFICADO -->
+                    <!-- DESPLEGABLE 1 -->
                     <div class="accordion-block">
                         <button class="accordion-header" onclick="toggleAccordion(this)">
                             Capacitaciones Online en Comercio Exterior para PyMEs Bonaerenses
@@ -269,7 +311,7 @@
                         </div>
                     </div>
 
-                    <!-- DESPLEGABLE 2 MODIFICADO -->
+                    <!-- DESPLEGABLE 2 -->
                     <div class="accordion-block">
                         <button class="accordion-header" onclick="toggleAccordion(this)">
                             Curso presencial para pymes
@@ -283,7 +325,7 @@
                         </div>
                     </div>
 
-                    <!-- DESPLEGABLE 3 MODIFICADO -->
+                    <!-- DESPLEGABLE 3 -->
                     <div class="accordion-block">
                         <button class="accordion-header" onclick="toggleAccordion(this)">
                             Preguntas frecuentes
@@ -303,12 +345,28 @@
             <div>
                 <h2 class="col-titulo">Proyectos de Inversión</h2>
                 
+                <!-- TARJETA REDISEÑADA CON LA NUEVA INFORMACIÓN -->
                 <div class="proyecto-card">
                     <span class="badge">Curso Técnico Especializado</span>
                     <h3>Curso de Formulación y Evaluación de Proyectos de Inversión</h3>
-                    <p>Capacitación orientada al diseño técnico-económico de proyectos productivos, análisis de riesgos, localización estratégica y optimización de estructuras financieras para potenciar la radicación de capitales en la Provincia.</p>
                     
-                    <a href="#" class="btn-inscription">Convocatoria cerrada</a>
+                    <p><strong>Dirigido a:</strong> PyMEs y agentes municipales con poca o ninguna experiencia en la preparación de carpetas de proyectos de inversión.</p>
+                    
+                    <p class="alianza-texto">Actividad realizada en conjunto con la Escuela de Economía y Gestión para el Desarrollo Local.</p>
+                    
+                    <p>Busca concientizar, sensibilizar y brindar instrumentos técnicos sobre la importancia de una correcta formulación, tanto con fines de tener una evaluación positiva para conseguir financiamiento, como para implementar la adecuada planificación de un proyecto de inversión.</p>
+                    
+                    <h4>Contenidos:</h4>
+                    <ul class="proyecto-list">
+                        <li><strong>Módulo 1:</strong> Introducción: ¿Cómo identificar un proyecto de inversión?</li>
+                        <li><strong>Módulo 2:</strong> ¿Cómo hacer el estudio de mercado de mi proyecto?</li>
+                        <li><strong>Módulo 3:</strong> El estudio técnico y ambiental</li>
+                        <li><strong>Módulo 4:</strong> Estudio económico-financiero</li>
+                        <li><strong>Módulo 5:</strong> Herramientas de financiamiento</li>
+                        <li><strong>Módulo 6:</strong> Presentación y planificación de proyectos de inversión</li>
+                    </ul>
+                    
+                    <a href="mailto:direcciondeinversionespba@gmail.com" class="btn-inscription">Más información y consultas</a>
                 </div>
             </div>
 
