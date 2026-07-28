@@ -9,6 +9,8 @@
         :root {
             --azul-oscuro: #0f172a;
             --celeste-gba: #00aae4;
+            --verde-exito: #10b981;
+            --verde-exito-hover: #059669;
             --gris-texto: #475569;
             --gris-oscuro: #334155;
             --gris-claro: #f8fafc;
@@ -37,7 +39,7 @@
             padding: 0 20px;
         }
 
-        /* Sección de Encabezado */
+        /* Sección de Encabezado Principal */
         .section-header {
             text-align: center;
             margin-bottom: 40px;
@@ -59,7 +61,102 @@
             color: var(--gris-texto);
         }
 
-        /* Grilla de 4 Columnas Fijas (Proporcional a la imagen) */
+        /* Títulos de Secciones */
+        .section-title {
+            color: var(--azul-oscuro);
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--celeste-gba);
+            display: inline-block;
+        }
+
+        .events-block {
+            margin-bottom: 50px;
+        }
+
+        /* Tarjeta Destacada para Próximos Eventos */
+        .featured-card {
+            background-color: var(--blanco);
+            border: 2px solid var(--celeste-gba);
+            border-radius: 6px;
+            padding: 24px;
+            display: flex;
+            gap: 24px;
+            box-shadow: 0 4px 12px rgba(0, 170, 228, 0.1);
+            align-items: center;
+        }
+
+        .featured-card-image {
+            width: 320px;
+            height: 200px;
+            flex-shrink: 0;
+            background-color: var(--gris-claro);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--borde);
+        }
+
+        .featured-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .badge-status {
+            display: inline-block;
+            background-color: #d1fae5;
+            color: #065f46;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+
+        .featured-card-date {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--azul-oscuro);
+            margin-bottom: 4px;
+        }
+
+        .featured-card-title {
+            color: var(--celeste-gba);
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .featured-card-description {
+            font-size: 0.9rem;
+            color: var(--gris-texto);
+            margin-bottom: 15px;
+        }
+
+        .featured-card-details {
+            list-style: none;
+            font-size: 0.85rem;
+            color: var(--gris-oscuro);
+            margin-bottom: 20px;
+        }
+
+        .featured-card-details li {
+            margin-bottom: 4px;
+        }
+
+        /* Grilla de 4 Columnas para Eventos Anteriores */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -67,7 +164,7 @@
             align-items: stretch;
         }
 
-        /* Estructura de las Tarjetas */
+        /* Estructura de las Tarjetas Generales */
         .card {
             background-color: var(--blanco);
             border: 1px solid var(--borde);
@@ -92,17 +189,16 @@
             text-transform: uppercase;
             line-height: 1.2;
             margin-bottom: 8px;
-            min-height: 40px; /* Para alinear el texto de los títulos */
+            min-height: 40px;
         }
 
         .card-subtitle {
             font-size: 0.85rem;
             color: var(--gris-texto);
             margin-bottom: 15px;
-            min-height: 45px; /* Para mantener alineadas las imágenes */
+            min-height: 45px;
         }
 
-        /* Contenedor de Imagen de Proporción Rectangular */
         .card-image-container {
             width: 100%;
             height: 160px;
@@ -115,15 +211,14 @@
         .card-image-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Evita que la imagen se estire o distorsione */
+            object-fit: cover;
         }
 
-        /* Bloque de Datos Estadísticos */
         .card-data-list {
             list-style: none;
             font-size: 0.85rem;
             color: var(--gris-oscuro);
-            margin-bottom: auto; /* Empuja los botones hacia el fondo */
+            margin-bottom: auto;
             padding-bottom: 20px;
         }
 
@@ -131,7 +226,7 @@
             margin-bottom: 4px;
         }
 
-        /* Botones de Acción Inferiores */
+        /* Botones de Acción */
         .card-actions {
             display: flex;
             gap: 6px;
@@ -143,18 +238,32 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 3px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 4px;
             border: none;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn-inscribirse {
+            background-color: var(--verde-exito);
+            color: var(--blanco);
+            font-size: 0.95rem;
+            padding: 10px 24px;
+            width: fit-content;
+        }
+
+        .btn-inscribirse:hover {
+            background-color: var(--verde-exito-hover);
         }
 
         .btn-celeste {
             background-color: var(--celeste-gba);
             color: var(--blanco);
+            font-size: 0.8rem;
+            padding: 6px 12px;
         }
 
         .btn-celeste:hover {
@@ -164,6 +273,8 @@
         .btn-gris {
             background-color: var(--boton-gris);
             color: var(--blanco);
+            font-size: 0.8rem;
+            padding: 6px 12px;
         }
 
         .btn-gris:hover {
@@ -196,6 +307,18 @@
             }
         }
 
+        @media (max-width: 850px) {
+            .featured-card {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .featured-card-image {
+                width: 100%;
+                height: 200px;
+            }
+        }
+
         @media (max-width: 650px) {
             .cards-grid {
                 grid-template-columns: 1fr;
@@ -213,101 +336,133 @@
             <p>Participá de las rondas de negocios y encontrá nuevos mercados para tus productos y servicios. Las mismas son organizadas por sectores productivos y te dará la posibilidad de reunirte con posibles distribuidores, agentes y compradores internacionales.</p>
         </header>
 
-        <!-- Grilla de Eventos -->
-        <main class="cards-grid">
+        <!-- SECCIÓN 1: Próximos Eventos / Inscripción -->
+        <section class="events-block">
+            <h2 class="section-title">Próximos Eventos</h2>
             
-            <!-- Tarjeta 1 -->
-            <article class="card">
-                <div class="card-date">Jueves 16 de abril 2026</div>
-                <h2 class="card-title">Ronda de Negocios Internacional</h2>
-                <p class="card-subtitle">Ronda de negocios internacional supermercadista | Escobar</p>
-                
-                <div class="card-image-container">
-                    <img src="https://via.placeholder.com/300x160" alt="Reuniones Ronda Escobar">
+            <article class="featured-card">
+                <div class="featured-card-image">
+                    <img src="https://via.placeholder.com/600x400" alt="Próxima Ronda de Negocios Internacional">
                 </div>
-                
-                <ul class="card-data-list">
-                    <li><strong>Pymes Participantes:</strong> 130</li>
-                    <li><strong>Mercados:</strong> Bolivia, Brasil, Chile, Colombia, España, Guyana, Paraguay, Perú y Uruguay.</li>
-                    <li><strong>Importadores Participantes:</strong> 27</li>
-                    <li><strong>Reuniones:</strong> 650</li>
-                </ul>
-                
-                <div class="card-actions">
-                    <a href="#" class="btn btn-celeste">Evento</a>
-                    <a href="#" class="btn btn-gris">Empresas participantes</a>
+                <div class="featured-card-content">
+                    <span class="badge-status">Inscripción Abierta</span>
+                    <div class="featured-card-date">Jueves 15 de Octubre 2026 - 09:00 hs</div>
+                    <h3 class="featured-card-title">Ronda de Negocios Internacional Multisectorial</h3>
+                    <p class="featured-card-description">Oportunidad estratégica para establecer contactos comerciales directos con importadores de Latinoamérica y Europa. Encuentro orientado a sectores de alimentos, tecnología e industria.</p>
+                    
+                    <ul class="featured-card-details">
+                        <li><strong>Lugar:</strong> Centro de Convenciones | Tigre</li>
+                        <li><strong>Sectores:</strong> Alimentos, Bebidas, Tecnología e Industria</li>
+                        <li><strong>Modalidad:</strong> Presencial (reuniones individuales de 15 min)</li>
+                    </ul>
+
+                    <div>
+                        <a href="#" class="btn btn-inscribirse">Inscribirse</a>
+                    </div>
                 </div>
             </article>
+        </section>
 
-            <!-- Tarjeta 2 -->
-            <article class="card">
-                <div class="card-date">Jueves 26 de noviembre 2025</div>
-                <h2 class="card-title">Ronda de Negocios Nacional e Internacional</h2>
-                <p class="card-subtitle">Ronda de Negocios Nacional e Internacional de Petróleo, Gas, Minería y Energía | La Plata</p>
-                
-                <div class="card-image-container">
-                    <img src="https://via.placeholder.com/300x160" alt="Reuniones Ronda La Plata">
-                </div>
-                
-                <ul class="card-data-list">
-                    <li><strong>Pymes Participantes:</strong> 204</li>
-                    <li><strong>Mercados:</strong> Argentina, Bolivia y Perú</li>
-                    <li><strong>Compradores Participantes:</strong> 45</li>
-                    <li><strong>Número de Reuniones:</strong> 1.010</li>
-                </ul>
-                
-                <div class="card-actions">
-                    <a href="#" class="btn btn-celeste">Evento</a>
-                    <a href="#" class="btn btn-gris">Empresas participantes</a>
-                </div>
-            </article>
+        <!-- SECCIÓN 2: Eventos Anteriores -->
+        <section class="events-block">
+            <h2 class="section-title">Eventos Anteriores</h2>
 
-            <!-- Tarjeta 3 -->
-            <article class="card">
-                <div class="card-date">Martes 14 de octubre 2025</div>
-                <h2 class="card-title">Ronda de Negocios Internacional</h2>
-                <p class="card-subtitle">Ronda de Negocios Internacional de Alimentos y Bebidas | Escobar</p>
+            <main class="cards-grid">
                 
-                <div class="card-image-container">
-                    <img src="https://via.placeholder.com/300x160" alt="Reuniones Ronda Alimentos">
-                </div>
-                
-                <ul class="card-data-list">
-                    <li><strong>Pymes Participantes:</strong> 100</li>
-                    <li><strong>Mercados:</strong> Bolivia, Brasil, Chile, Colombia, Costa Rica, Paraguay, Perú, Uruguay</li>
-                    <li><strong>Importadores Participantes:</strong> 20</li>
-                    <li><strong>Reuniones:</strong> 480</li>
-                </ul>
-                
-                <div class="card-actions">
-                    <a href="#" class="btn btn-celeste">Evento</a>
-                    <a href="#" class="btn btn-gris">Empresas participantes</a>
-                </div>
-            </article>
+                <!-- Tarjeta 1 -->
+                <article class="card">
+                    <div class="card-date">Jueves 16 de abril 2026</div>
+                    <h3 class="card-title">Ronda de Negocios Internacional</h3>
+                    <p class="card-subtitle">Ronda de negocios internacional supermercadista | Escobar</p>
+                    
+                    <div class="card-image-container">
+                        <img src="https://via.placeholder.com/300x160" alt="Reuniones Ronda Escobar">
+                    </div>
+                    
+                    <ul class="card-data-list">
+                        <li><strong>Pymes Participantes:</strong> 130</li>
+                        <li><strong>Mercados:</strong> Bolivia, Brasil, Chile, Colombia, España, Guyana, Paraguay, Perú y Uruguay.</li>
+                        <li><strong>Importadores Participantes:</strong> 27</li>
+                        <li><strong>Reuniones:</strong> 650</li>
+                    </ul>
+                    
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-celeste">Evento</a>
+                        <a href="#" class="btn btn-gris">Empresas participantes</a>
+                    </div>
+                </article>
 
-            <!-- Tarjeta 4 -->
-            <article class="card">
-                <div class="card-date">Jueves 26 de junio 2025</div>
-                <h2 class="card-title">Ronda de Negocios Internacional</h2>
-                <p class="card-subtitle">Ronda de Negocios Internacional de Calzado, Indumentaria, Marroquinería y Textil | Pilar</p>
-                
-                <div class="card-image-container">
-                    <img src="https://via.placeholder.com/300x160" alt="Reuniones Ronda Textil">
-                </div>
-                
-                <ul class="card-data-list">
-                    <li><strong>Pymes Participantes:</strong> 43</li>
-                    <li><strong>Mercados:</strong> Chile, Paraguay y Uruguay</li>
-                    <li><strong>Importadores Participantes:</strong> 12</li>
-                    <li><strong>Reuniones:</strong> 290</li>
-                </ul>
-                
-                <div class="card-actions">
-                    <a href="#" class="btn btn-celeste">Evento</a>
-                </div>
-            </article>
+                <!-- Tarjeta 2 -->
+                <article class="card">
+                    <div class="card-date">Jueves 26 de noviembre 2025</div>
+                    <h3 class="card-title">Ronda de Negocios Nacional e Internacional</h3>
+                    <p class="card-subtitle">Ronda de Negocios Nacional e Internacional de Petróleo, Gas, Minería y Energía | La Plata</p>
+                    
+                    <div class="card-image-container">
+                        <img src="https://via.placeholder.com/300x160" alt="Reuniones Ronda La Plata">
+                    </div>
+                    
+                    <ul class="card-data-list">
+                        <li><strong>Pymes Participantes:</strong> 204</li>
+                        <li><strong>Mercados:</strong> Argentina, Bolivia y Perú</li>
+                        <li><strong>Compradores Participantes:</strong> 45</li>
+                        <li><strong>Número de Reuniones:</strong> 1.010</li>
+                    </ul>
+                    
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-celeste">Evento</a>
+                        <a href="#" class="btn btn-gris">Empresas participantes</a>
+                    </div>
+                </article>
 
-        </main>
+                <!-- Tarjeta 3 -->
+                <article class="card">
+                    <div class="card-date">Martes 14 de octubre 2025</div>
+                    <h3 class="card-title">Ronda de Negocios Internacional</h3>
+                    <p class="card-subtitle">Ronda de Negocios Internacional de Alimentos y Bebidas | Escobar</p>
+                    
+                    <div class="card-image-container">
+                        <img src="https://via.placeholder.com/300x160" alt="Reuniones Ronda Alimentos">
+                    </div>
+                    
+                    <ul class="card-data-list">
+                        <li><strong>Pymes Participantes:</strong> 100</li>
+                        <li><strong>Mercados:</strong> Bolivia, Brasil, Chile, Colombia, Costa Rica, Paraguay, Perú, Uruguay</li>
+                        <li><strong>Importadores Participantes:</strong> 20</li>
+                        <li><strong>Reuniones:</strong> 480</li>
+                    </ul>
+                    
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-celeste">Evento</a>
+                        <a href="#" class="btn btn-gris">Empresas participantes</a>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 4 -->
+                <article class="card">
+                    <div class="card-date">Jueves 26 de junio 2025</div>
+                    <h3 class="card-title">Ronda de Negocios Internacional</h3>
+                    <p class="card-subtitle">Ronda de Negocios Internacional de Calzado, Indumentaria, Marroquinería y Textil | Pilar</p>
+                    
+                    <div class="card-image-container">
+                        <img src="https://via.placeholder.com/300x160" alt="Reuniones Ronda Textil">
+                    </div>
+                    
+                    <ul class="card-data-list">
+                        <li><strong>Pymes Participantes:</strong> 43</li>
+                        <li><strong>Mercados:</strong> Chile, Paraguay y Uruguay</li>
+                        <li><strong>Importadores Participantes:</strong> 12</li>
+                        <li><strong>Reuniones:</strong> 290</li>
+                    </ul>
+                    
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-celeste">Evento</a>
+                    </div>
+                </article>
+
+            </main>
+        </section>
+
     </div>
 
     <!-- Botón Volver Arriba -->
