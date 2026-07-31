@@ -346,7 +346,7 @@
             overflow: hidden;
         }
 
-        /* Fondo decorativo con patrón de flechas en SVG (basado en la imagen de referencia) */
+        /* Fondo decorativo con patrón de flechas en SVG */
         .pba-exporta-section::after {
             content: "";
             position: absolute;
@@ -791,6 +791,55 @@
             background-color: var(--blanco);
         }
 
+        .cursos-header-desc {
+            text-align: center;
+            max-width: 800px;
+            margin: -30px auto 45px auto;
+            color: var(--gris-medio);
+            font-size: 1.05rem;
+        }
+
+        .cursos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .curso-subcard {
+            background-color: var(--gris-claro);
+            border: 1px solid var(--borde-tarjeta);
+            border-top: 5px solid var(--azul-institucional);
+            border-radius: 8px;
+            padding: 35px 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .curso-subcard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+            border-top-color: var(--celeste-gba);
+        }
+
+        .curso-subcard h3 {
+            font-size: 1.2rem;
+            color: var(--azul-oscuro);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .curso-subcard p {
+            font-size: 0.9rem;
+            color: var(--gris-medio);
+            flex-grow: 1;
+        }
+
         /* Ventanas Emergentes (Modals) */
         .modal-overlay {
             position: fixed;
@@ -954,14 +1003,14 @@
             .sectores-foto-title-col, .sectores-banner-wrapper { width: 100%; }
             .sectores-foto-title-col h2::before { left: 50%; transform: translateX(-50%); }
             .sector-card-foto { min-width: calc(50% - 10px); }
-            .pba-exporta-grid, .rpie-features { grid-template-columns: repeat(2, 1fr); }
+            .pba-exporta-grid, .cursos-grid, .rpie-features { grid-template-columns: repeat(2, 1fr); }
             .regiones-grid { flex-direction: column; }
             .regiones-col-mapa, .regiones-col-desc { width: 100%; }
         }
 
         @media (max-width: 768px) {
             .sector-card-foto { min-width: 100%; }
-            .pba-exporta-grid, .rpie-features { grid-template-columns: 1fr; }
+            .pba-exporta-grid, .cursos-grid, .rpie-features { grid-template-columns: 1fr; }
             .pba-grid, .stats-row, .footer-grid { flex-direction: column !important; }
             .pba-col-left, .pba-col-right, .footer-info, .footer-links { width: 100% !important; text-align: center !important; }
             .hero-arrow { display: none; }
@@ -1294,11 +1343,36 @@
         </div>
     </section>
 
-    <!-- 7. CURSOS Y HERRAMIENTAS (SECCIÓN CON BOTÓN ÚNICO) -->
+    <!-- 7. CURSOS Y HERRAMIENTAS -->
     <section class="cursos-herramientas" id="cursos-herramientas">
-        <div class="container" style="text-align: center;">
-            <h2 class="section-title" style="margin-bottom: 30px;">Cursos y Herramientas</h2>
-            <a href="Herramientas.html" class="btn-tool" style="padding: 12px 30px; font-size: 1rem;">Ver Cursos y Herramientas</a>
+        <div class="container">
+            <h2 class="section-title">Cursos y Herramientas</h2>
+            <p class="cursos-header-desc">
+                Accedé a nuestros programas formativos, recursos técnicos y herramientas de análisis estratégico para potenciar el desarrollo de tu empresa.
+            </p>
+            <div class="cursos-grid">
+                
+                <div class="curso-subcard">
+                    <h3>Formación y Capacitaciones</h3>
+                    <p>Programas de formación continua y talleres prácticos orientados al acompañamiento integral de las empresas en sus proyectos de inversión y procesos de internacionalización.</p>
+                </div>
+
+                <div class="curso-subcard">
+                    <h3>Información Estratégica</h3>
+                    <p>Acceso consolidado a regulaciones vigentes, guías normativas de trámites, asistencia técnica e informes sectoriales especializados de inversión y exportación.</p>
+                </div>
+
+                <div class="curso-subcard">
+                    <h3>Monitor de Inversiones y Comercio Exterior</h3>
+                    <p>Herramienta interactiva para el seguimiento de anuncios de inversión, fusiones & adquisiciones y reportes periódicos de comercio exterior en la provincia.</p>
+                </div>
+
+            </div>
+
+            <!-- Botón único de redirección -->
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="AcaVaTuRuta.html" class="btn btn-tool" style="padding: 12px 35px; font-size: 1rem;">Ver Cursos y Herramientas</a>
+            </div>
         </div>
     </section>
 
