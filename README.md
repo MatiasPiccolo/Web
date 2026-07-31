@@ -10,6 +10,7 @@ Portal de informes y visualizaciones interactivas.
 |---|---|
 | Portada | [Portada.v5.html](https://matiaspiccolo.github.io/Web/Portada_WEB.v5.html) |
 | Portada 2 | [Portada.v6.html](https://matiaspiccolo.github.io/Web/Portada_WEB.v6.html) |
+| Portada 3 | [Portada.v7.html](https://matiaspiccolo.github.io/Web/Portada_WEB.v7.html) |
 | Forms invertí | [Invertí.html](https://matiaspiccolo.github.io/Web/Inverti.html) |
 | Formulario de contacto | [Formulario.html](https://matiaspiccolo.github.io/Web/Formulario.html) |
 | Recursos | [Recursos.html](https://matiaspiccolo.github.io/Web/recursos.html) |
