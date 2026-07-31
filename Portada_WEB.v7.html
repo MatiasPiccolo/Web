@@ -15,6 +15,7 @@
             --gris-claro: #f8f9fa;
             --blanco: #ffffff;
             --borde-tarjeta: #e9ecef;
+            --borde-linea: #cbd5e1;
             --overlay-bg: rgba(0, 24, 51, 0.85);
         }
 
@@ -167,18 +168,6 @@
             font-size: 1rem;
         }
 
-        .btn-primary {
-            background-color: var(--celeste-gba);
-            color: var(--azul-oscuro);
-            border: 2px solid var(--celeste-gba);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--blanco);
-            border-color: var(--blanco);
-            color: var(--azul-institucional);
-        }
-
         .btn-secondary {
             background-color: transparent;
             color: var(--blanco);
@@ -188,25 +177,6 @@
         .btn-secondary:hover {
             background-color: var(--blanco);
             color: var(--azul-oscuro);
-        }
-
-        .btn-tool {
-            display: inline-block;
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
-            border: 2px solid var(--azul-institucional);
-            font-size: 0.85rem;
-            padding: 8px 20px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin: 4px 6px;
-        }
-        .btn-tool:hover {
-            background-color: #004085;
-            border-color: #004085;
-            color: var(--blanco);
         }
 
         .hero-arrow {
@@ -362,93 +332,130 @@
             font-weight: 500;
         }
 
-        /* 4. SECCIÓN: Carrusel de Herramientas */
-        .carrusel-secciones {
-            padding: 80px 0;
+        /* 4. SECCIÓN UNIFICADA: Cursos y Herramientas (1 solo botón a Herramientas.html) */
+        .section-herramientas {
+            padding: 70px 0;
             background-color: var(--gris-claro);
             border-top: 1px solid var(--borde-tarjeta);
         }
 
-        .tools-wrapper {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        .herramientas-card-principal {
             background-color: var(--blanco);
-            border: 1px solid var(--borde-tarjeta);
+            border: 1px solid var(--borde-linea);
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
-        .tools-track {
-            display: flex;
-            width: 300%;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .tools-item {
-            width: 33.3333%;
-            padding: 50px 70px;
+        .herramientas-header {
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto 35px auto;
         }
 
-        .tools-item h3 {
-            font-size: 1.8rem;
-            color: var(--azul-institucional);
-            margin-bottom: 15px;
+        .badge-seccion {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
             text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
         }
 
-        .tools-item p {
+        .herramientas-header h2 {
+            font-size: 1.8rem;
+            color: var(--azul-oscuro);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .herramientas-header p {
+            font-size: 1rem;
             color: var(--gris-medio);
+            line-height: 1.6;
+        }
+
+        .herramientas-resumen-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .resumen-item {
+            background-color: var(--gris-claro);
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .resumen-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        .resumen-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .resumen-item h3 {
             font-size: 1.05rem;
-            margin-bottom: 25px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            color: var(--azul-oscuro);
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
-        .tools-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: transparent;
-            border: none;
-            color: var(--azul-institucional);
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 10;
-            transition: color 0.2s;
+        .resumen-item p {
+            font-size: 0.88rem;
+            color: var(--gris-oscuro);
+            line-height: 1.4;
         }
 
-        .tools-control:hover { color: var(--celeste-gba); }
-        .tools-prev { left: 15px; }
-        .tools-next { right: 15px; }
-
-        .tools-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 20px;
+        .herramientas-action {
+            text-align: center;
+            border-top: 1px dashed #e2e8f0;
+            padding-top: 25px;
         }
 
-        .tools-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #ced4da;
-            border: none;
-            cursor: pointer;
+        .btn-portal-herramientas {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s, transform 0.2s;
         }
 
-        .tools-dot.active {
+        .btn-portal-herramientas:hover {
             background-color: var(--azul-institucional);
-            width: 20px;
-            border-radius: 5px;
+            transform: scale(1.02);
         }
 
-        /* 5. SECCIÓN MODIFICADA: Sectores Estratégicos (Solo nombres) */
+        .btn-arrow {
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-portal-herramientas:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+
+        /* 5. Sectores Estratégicos */
         .sectores-estrategicos {
             padding: 80px 0;
             background-color: var(--blanco);
@@ -498,7 +505,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* 6. NUEVA SECCIÓN: Regiones Estratégicas y Mapa Regional */
+        /* 6. Regiones Estratégicas y Mapa Regional */
         .regiones-pba {
             padding: 80px 0;
             background-color: var(--gris-claro);
@@ -517,7 +524,6 @@
             text-align: center;
         }
 
-        /* Contenedor preparado para la imagen del mapa manteniendo proporción sin estirarse */
         .mapa-regiones-container {
             width: 100%;
             background-color: var(--blanco);
@@ -531,7 +537,7 @@
             width: 100%;
             height: auto;
             max-height: 480px;
-            object-fit: contain; /* Evita distorsiones manteniendo la forma original */
+            object-fit: contain;
             display: block;
         }
 
@@ -562,7 +568,7 @@
             color: var(--gris-medio);
         }
 
-        /* --- Estilos de las Ventanas Emergentes (Modals) --- */
+        /* Modals */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -815,6 +821,7 @@
             .subsectores-grid { grid-template-columns: repeat(2, 1fr); }
             .regiones-grid { flex-direction: column; }
             .regiones-col-mapa, .regiones-col-desc { width: 100%; }
+            .herramientas-resumen-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -825,8 +832,7 @@
                 width: 100% !important;
                 text-align: center !important;
             }
-            .hero-arrow, .tools-control { display: none; }
-            .tools-item { padding: 40px 30px; }
+            .hero-arrow { display: none; }
             .sectores-grid { grid-template-columns: 1fr; }
             .subsectores-grid { grid-template-columns: 1fr; }
             .modal-box { padding: 25px 15px; }
@@ -843,9 +849,7 @@
             <div class="nav-container">
                 <div class="logo-placeholder">Dirección Provincial de Promoción de Inversiones y Comercio Exterior</div>
                 <nav>
-                    <!-- CAMBIO 1: El enlace ahora apunta a "Nuestros recursos" -->
-                    <a href="recursos.html">Nuestros recursos</a>
-                    <!-- CAMBIO 3: Se eliminó el enlace de "Nosotros" -->
+                    <a href="Herramientas.html">Cursos y Herramientas</a>
                     
                     <div class="lang-selector">
                         <a href="#" class="lang-btn active">ES</a>
@@ -859,7 +863,7 @@
         </div>
     </header>
 
-<section class="hero-carousel">
+    <section class="hero-carousel">
         <button class="hero-arrow hero-left" onclick="moverHero(-1)">&#10094;</button>
         <button class="hero-arrow hero-right" onclick="moverHero(1)">&#10095;</button>
 
@@ -890,8 +894,8 @@
                     <h1>Régimen Provincial de Inversiones Estratégicas</h1>
                     <p>El Régimen Provincial de Inversiones Estratégicas (RPIE) impulsa proyectos de grandes inversiones mediante estabilidad jurídica, incentivos y acompañamiento integral en la Provincia de Buenos Aires.</p>
                     <div class="cta-group">
-                        <a href="#herramientas" class="btn btn-secondary">Inscripción</a>
-                        <a href="#" class="btn btn-secondary">Más información</a>
+                        <a href="Herramientas.html" class="btn btn-secondary">Inscripción</a>
+                        <a href="Herramientas.html" class="btn btn-secondary">Más información</a>
                     </div>
                 </div>
             </div>
@@ -940,43 +944,52 @@
         </div>
     </section>
 
-    <!-- CAMBIO 1: ID y Título de la sección renombrados a "Nuestros recursos" -->
-    <section class="carrusel-secciones" id="nuestros-recursos">
+    <!-- SECCIÓN UNIFICADA: CURSOS Y HERRAMIENTAS -->
+    <section class="section-herramientas" id="cursos-herramientas">
         <div class="container">
-            <h2 class="section-title">Nuestros recursos</h2>
-            <div class="tools-wrapper">
-                <button class="tools-control tools-prev" onclick="moverTools(-1)">&#10094;</button>
-                <button class="tools-control tools-next" onclick="moverTools(1)">&#10095;</button>
-                <div class="tools-track" id="toolsTrack">
-                    <div class="tools-item">
-                        <h3>RPIE</h3>
-                        <!-- CAMBIO 2: Nueva bajada institucional del RPIE -->
-                        <p>El Régimen Provincial de Inversiones Estratégicas (RPIE) impulsa proyectos de grandes inversiones mediante estabilidad jurídica, incentivos y acompañamiento integral en la Provincia de Buenos Aires.</p>
-                        <!-- CAMBIO 1: Dos botones funcionales con estilos consistentes -->
-                        <a href="https://www.gba.gob.ar/produccion/inversiones_estrategicas" target="_blank" class="btn btn-tool">Ir a la Web</a>
-                        <a href="ruta/al/documento.pdf" download class="btn btn-tool">Descargar PDF</a>
+            <div class="herramientas-card-principal">
+                
+                <header class="herramientas-header">
+                    <span class="badge-seccion">Centro de Recursos</span>
+                    <h2>Cursos y Herramientas Estratégicas</h2>
+                    <p>Acceda a todos los informes de mercado, normativas vigentes y programas de capacitación diseñados para acompañar las inversiones y el desarrollo exportador en la Provincia de Buenos Aires.</p>
+                </header>
+
+                <!-- Resumen de los 3 ejes -->
+                <div class="herramientas-resumen-grid">
+                    
+                    <div class="resumen-item">
+                        <div class="resumen-icon">📊</div>
+                        <h3>Monitor de Inversiones</h3>
+                        <p>Informes trimestrales sobre anuncios de inversión y reportes del mercado de Fusiones y Adquisiciones (F&A).</p>
                     </div>
-                    <div class="tools-item">
-                        <h3>Oferta Exportable</h3>
-                        <p>Conectá con el potencial productivo de la provincia y descubrí los bienes y servicios que las empresas bonaerenses proyectan al mundo.</p>
-                        <a href="#" class="btn btn-tool">Explorar Catálogo</a>
+
+                    <div class="resumen-item">
+                        <div class="resumen-icon">📋</div>
+                        <h3>Información Estratégica</h3>
+                        <p>Marcos regulatorios (RPIE), guías de radicación industrial y manuales de incentivos tributarios.</p>
                     </div>
-                    <div class="tools-item">
-                        <h3>Brochure</h3>
-                        <p>Accedé al Brochure institucional con la información más relevante de la Provincia de Buenos Aires.</p>
-                        <a href="#" class="btn btn-tool">Descargar Brochure</a>
+
+                    <div class="resumen-item">
+                        <div class="resumen-icon">🎓</div>
+                        <h3>Formación y Capacitaciones</h3>
+                        <p>Talleres en Comercio Exterior para PyMEs y programas técnicos de formulación de proyectos de inversión.</p>
                     </div>
+
                 </div>
-            </div>
-            <div class="tools-indicators">
-                <button class="tools-dot active" onclick="irATools(0)"></button>
-                <button class="tools-dot" onclick="irATools(1)"></button>
-                <button class="tools-dot" onclick="irATools(2)"></button>
+
+                <!-- Botón Único de Acción -->
+                <div class="herramientas-action">
+                    <a href="Herramientas.html" class="btn-portal-herramientas">
+                        Acceder a Cursos y Herramientas
+                        <span class="btn-arrow">→</span>
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN SECTORES MODIFICADA: Solo nombres -->
     <section class="sectores-estrategicos" id="sectores">
         <div class="container">
             <h2 class="section-title">Sectores Estratégicos</h2>
@@ -1001,21 +1014,17 @@
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN ADICIONADA: Mapa y Regiones de la Provincia -->
     <section class="regiones-pba" id="regiones">
         <div class="container">
             <h2 class="section-title">Regiones de la Provincia</h2>
             <div class="regiones-grid">
                 
-                <!-- Columna Izquierda: Espacio para el mapa rectangular regional -->
                 <div class="regiones-col-mapa">
                     <div class="mapa-regiones-container">
-                        <!-- Reemplazar "mapa-regiones.png" con la ruta correspondiente de la imagen real -->
                         <img src="mapa-regiones.png" alt="Mapa Regional de la Provincia de Buenos Aires" class="mapa-regiones-img" onerror="this.style.display='none'; this.parentNode.style.height='400px'; this.parentNode.style.position='relative'; this.parentNode.innerHTML='<span style=\'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;\'>[ Insertar Imagen del Mapa Regional aquí ]</span>'">
                     </div>
                 </div>
                 
-                <!-- Columna Derecha: Descripciones de las 5 regiones -->
                 <div class="regiones-col-desc">
                     <div class="region-item">
                         <h4>AMBA</h4>
@@ -1048,7 +1057,7 @@
         </div>
     </section>
 
-    <!-- COMPONENTES MODAL (MANTIENEN LOGICA COMPLETA) -->
+    <!-- Ventanas Emergentes (Modals) -->
     <div id="modal-industria" class="modal-overlay" onclick="closeModalOutside(event, 'modal-industria')">
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal('modal-industria')">&times;</button>
@@ -1250,9 +1259,7 @@
                 </div>
                 <div class="footer-links">
                     <a href="#">Inicio</a>
-                    <!-- CAMBIO 1: El enlace del footer ahora apunta a "Nuestros recursos" -->
-                    <a href="recursos.html">Nuestros recursos</a>
-                    <!-- CAMBIO 3: Se eliminó el enlace de "Nosotros" en el footer -->
+                    <a href="Herramientas.html">Cursos y Herramientas</a>
                     <a href="#servicios">Servicios</a>
                 </div>
             </div>
@@ -1284,32 +1291,6 @@
         function irAHero(idx) {
             indexHero = idx;
             actualizarHero();
-        }
-
-        /* --- Lógica Carrusel de Herramientas --- */
-        let indexTools = 0;
-        const toolsTrack = document.getElementById('toolsTrack');
-        const toolsDots = document.querySelectorAll('.tools-dot');
-
-        function actualizarTools() {
-            if (toolsTrack) {
-                toolsTrack.style.transform = 'translateX(-' + (indexTools * 33.3333) + '%)';
-                toolsDots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === indexTools);
-                });
-            }
-        }
-
-        function moverTools(dir) {
-            indexTools += dir;
-            if (indexTools >= 3) indexTools = 0;
-            if (indexTools < 0) indexTools = 2;
-            actualizarTools();
-        }
-
-        function irATools(idx) {
-            indexTools = idx;
-            actualizarTools();
         }
 
         /* --- Control de Modals --- */
