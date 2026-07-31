@@ -13,8 +13,8 @@
             --gris-oscuro: #333333;
             --gris-medio: #666666;
             --gris-claro: #f8f9fa;
-            --blanco: #ffffff;
             --borde-tarjeta: #e9ecef;
+            --blanco: #ffffff;
             --overlay-bg: rgba(0, 24, 51, 0.85);
         }
 
@@ -41,7 +41,7 @@
             padding: 0 20px;
         }
 
-        /* 1. Encabezado */
+        /* 1. Encabezado (Menú Superior Limpio) */
         header {
             background-color: var(--blanco);
             border-bottom: 1px solid var(--borde-tarjeta);
@@ -66,25 +66,9 @@
             align-items: center;
         }
 
-        nav a {
-            color: var(--gris-medio);
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        nav a:hover {
-            color: var(--azul-institucional);
-        }
-
         .lang-selector {
             display: flex;
             align-items: center;
-            margin-left: 25px;
-            padding-left: 15px;
-            border-left: 1px solid #ced4da;
             gap: 8px;
             font-size: 0.85rem;
             font-weight: 600;
@@ -247,7 +231,86 @@
             border-radius: 5px;
         }
 
-        /* 3. Sección: PBA EN N° */
+        /* 3. NUEVA SECCIÓN: RPIE (Régimen Provincial de Inversiones Estratégicas) */
+        .seccion-rpie {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e6eef5 100%);
+            border-bottom: 1px solid var(--borde-tarjeta);
+        }
+
+        .rpie-card-container {
+            background-color: var(--blanco);
+            border-radius: 12px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--azul-institucional);
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .rpie-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .rpie-header h2 {
+            font-size: 2rem;
+            color: var(--azul-oscuro);
+            text-transform: uppercase;
+        }
+
+        .rpie-tag {
+            background-color: rgba(0, 170, 228, 0.15);
+            color: var(--azul-institucional);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .rpie-desc {
+            font-size: 1.1rem;
+            color: var(--gris-medio);
+            max-width: 900px;
+        }
+
+        .rpie-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .rpie-feature-item {
+            background-color: var(--gris-claro);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--borde-tarjeta);
+        }
+
+        .rpie-feature-item h4 {
+            color: var(--azul-institucional);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .rpie-feature-item p {
+            font-size: 0.9rem;
+            color: var(--gris-medio);
+        }
+
+        .rpie-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        /* 4. Sección: PBA EN N° */
         .pba-numeros {
             padding: 80px 0;
             background-color: var(--blanco);
@@ -351,93 +414,7 @@
             font-weight: 500;
         }
 
-        /* 4. Carrusel de Herramientas */
-        .carrusel-secciones {
-            padding: 80px 0;
-            background-color: var(--gris-claro);
-            border-top: 1px solid var(--borde-tarjeta);
-        }
-
-        .tools-wrapper {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            background-color: var(--blanco);
-            border: 1px solid var(--borde-tarjeta);
-        }
-
-        .tools-track {
-            display: flex;
-            width: 300%;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .tools-item {
-            width: 33.3333%;
-            padding: 50px 70px;
-            text-align: center;
-        }
-
-        .tools-item h3 {
-            font-size: 1.8rem;
-            color: var(--azul-institucional);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .tools-item p {
-            color: var(--gris-medio);
-            font-size: 1.05rem;
-            margin-bottom: 25px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .tools-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: transparent;
-            border: none;
-            color: var(--azul-institucional);
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 10;
-            transition: color 0.2s;
-        }
-
-        .tools-control:hover { color: var(--celeste-gba); }
-        .tools-prev { left: 15px; }
-        .tools-next { right: 15px; }
-
-        .tools-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 20px;
-        }
-
-        .tools-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #ced4da;
-            border: none;
-            cursor: pointer;
-        }
-
-        .tools-dot.active {
-            background-color: var(--azul-institucional);
-            width: 20px;
-            border-radius: 5px;
-        }
-
-        /* 5. SECCIÓN MODIFICADA: SECTORES ESTRATÉGICOS SEGÚN IMAGEN COMPARTIDA */
+        /* 5. SECTORES ESTRATÉGICOS CON DESPLAZAMIENTO/BANNER */
         .sectores-estrategicos-foto {
             background: linear-gradient(rgba(10, 25, 47, 0.88), rgba(10, 25, 47, 0.88)), 
                         url('https://images.unsplash.com/photo-1477959858617-67f30ac4ce78?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
@@ -452,11 +429,11 @@
         }
 
         .sectores-foto-title-col {
-            width: 32%;
+            width: 30%;
         }
 
         .sectores-foto-title-col h2 {
-            font-size: 2.6rem;
+            font-size: 2.5rem;
             font-weight: 700;
             line-height: 1.15;
             color: var(--blanco);
@@ -475,26 +452,35 @@
             background-color: rgba(255, 255, 255, 0.6);
         }
 
-        .sectores-foto-cards-col {
-            width: 68%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        /* Banner Desplazable de Cards */
+        .sectores-banner-wrapper {
+            width: 70%;
+            position: relative;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+
+        .sectores-slider-track {
+            display: flex;
             gap: 20px;
+            transition: transform 0.4s ease-in-out;
         }
 
         .sector-card-foto {
+            min-width: calc(33.333% - 14px);
+            height: 360px;
             position: relative;
-            height: 380px;
             border-radius: 14px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 30px 20px;
+            padding: 25px 15px;
             text-align: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            flex-shrink: 0;
         }
 
         .sector-card-foto:hover {
@@ -524,7 +510,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.85) 100%);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.88) 100%);
             z-index: 2;
         }
 
@@ -537,22 +523,22 @@
         }
 
         .sector-card-content h3 {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--blanco);
             line-height: 1.25;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.6);
         }
 
         .btn-ver-mas-foto {
             display: inline-block;
-            padding: 8px 32px;
+            padding: 8px 25px;
             border: 1.5px solid rgba(255, 255, 255, 0.8);
             border-radius: 30px;
             color: var(--blanco);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(4px);
@@ -565,19 +551,47 @@
             border-color: var(--blanco);
         }
 
-        /* 6. NUEVA SECCIÓN: De PBA al Mundo */
-        .de-pba-al-mundo {
+        /* Flechas de Navegación del Slider de Sectores */
+        .sectores-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: var(--blanco);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .sectores-nav-btn:hover {
+            background: var(--celeste-gba);
+            border-color: var(--celeste-gba);
+        }
+
+        .sectores-btn-prev { left: 10px; }
+        .sectores-btn-next { right: 10px; }
+
+        /* 6. MODIFICACIÓN: PBA EXPORTA (Antes "De PBA al Mundo") */
+        .pba-exporta {
             padding: 80px 0;
             background-color: var(--blanco);
         }
 
-        .pba-mundo-grid {
+        .pba-exporta-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
 
-        .pba-mundo-card {
+        .pba-exporta-card {
             background-color: var(--gris-claro);
             border: 1px solid var(--borde-tarjeta);
             border-radius: 10px;
@@ -589,20 +603,20 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.03);
         }
 
-        .pba-mundo-card:hover {
+        .pba-exporta-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             border-color: var(--celeste-gba);
         }
 
-        .pba-mundo-card h3 {
+        .pba-exporta-card h3 {
             font-size: 1.35rem;
             color: var(--azul-oscuro);
             margin-bottom: 15px;
             text-transform: uppercase;
         }
 
-        .pba-mundo-card p {
+        .pba-exporta-card p {
             color: var(--gris-medio);
             font-size: 0.95rem;
             margin-bottom: 25px;
@@ -779,48 +793,6 @@
             text-transform: uppercase;
         }
 
-        .subsectores-title {
-            font-size: 1.2rem;
-            color: var(--azul-institucional);
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            font-weight: bold;
-            border-bottom: 2px solid var(--borde-tarjeta);
-            padding-bottom: 5px;
-        }
-
-        .subsectores-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        .subsector-card {
-            background-color: var(--gris-claro);
-            border: 1px solid var(--borde-tarjeta);
-            padding: 15px;
-            border-radius: 6px;
-        }
-
-        .subsector-card h4 {
-            font-size: 0.95rem;
-            color: var(--azul-oscuro);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            border-bottom: 1px solid #e9ecef;
-            padding-bottom: 5px;
-        }
-
-        .subsector-data {
-            font-size: 0.85rem;
-            color: var(--gris-oscuro);
-            margin-bottom: 4px;
-        }
-
-        .subsector-data strong {
-            color: var(--azul-institucional);
-        }
-
         /* 9. Sección: SERVICIOS */
         .servicios {
             padding: 80px 0;
@@ -919,54 +891,36 @@
             text-decoration: underline;
         }
 
-        /* Responsive */
+        /* Adaptabilidad Responsive */
         @media (max-width: 992px) {
-            .sectores-foto-layout {
-                flex-direction: column;
-                text-align: center;
-            }
-            .sectores-foto-title-col, .sectores-foto-cards-col {
-                width: 100%;
-            }
-            .sectores-foto-title-col h2::before {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            .pba-mundo-grid { grid-template-columns: repeat(2, 1fr); }
-            .subsectores-grid { grid-template-columns: repeat(2, 1fr); }
+            .sectores-foto-layout { flex-direction: column; text-align: center; }
+            .sectores-foto-title-col, .sectores-banner-wrapper { width: 100%; }
+            .sectores-foto-title-col h2::before { left: 50%; transform: translateX(-50%); }
+            .sector-card-foto { min-width: calc(50% - 10px); }
+            .pba-exporta-grid, .rpie-features { grid-template-columns: repeat(2, 1fr); }
             .regiones-grid { flex-direction: column; }
             .regiones-col-mapa, .regiones-col-desc { width: 100%; }
         }
 
         @media (max-width: 768px) {
-            .sectores-foto-cards-col, .pba-mundo-grid { grid-template-columns: 1fr; }
-            .pba-grid, .stats-row, .footer-grid {
-                flex-direction: column !important;
-            }
-            .pba-col-left, .pba-col-right, .footer-info, .footer-links {
-                width: 100% !important;
-                text-align: center !important;
-            }
-            .hero-arrow, .tools-control { display: none; }
-            .tools-item { padding: 40px 30px; }
-            .subsectores-grid { grid-template-columns: 1fr; }
+            .sector-card-foto { min-width: 100%; }
+            .pba-exporta-grid, .rpie-features { grid-template-columns: 1fr; }
+            .pba-grid, .stats-row, .footer-grid { flex-direction: column !important; }
+            .pba-col-left, .pba-col-right, .footer-info, .footer-links { width: 100% !important; text-align: center !important; }
+            .hero-arrow { display: none; }
             .modal-box { padding: 25px 15px; }
             .nav-container { flex-direction: column; gap: 15px; }
-            nav { flex-wrap: wrap; justify-content: center; }
-            .lang-selector { margin-left: 15px; padding-left: 10px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- 1. ENCABEZADO (Menú superior sin "Nuestros Recursos" ni "De PBA al Mundo") -->
     <header>
         <div class="container">
             <div class="nav-container">
                 <div class="logo-placeholder">Dirección Provincial de Promoción de Inversiones y Comercio Exterior</div>
                 <nav>
-                    <a href="recursos.html">Nuestros recursos</a>
-                    <a href="#de-pba-al-mundo">De PBA al Mundo</a>
-                    
                     <div class="lang-selector">
                         <a href="#" class="lang-btn active">ES</a>
                         <span class="lang-divider">|</span>
@@ -979,6 +933,7 @@
         </div>
     </header>
 
+    <!-- 2. PORTADA: Carrusel Hero Principal -->
     <section class="hero-carousel">
         <button class="hero-arrow hero-left" onclick="moverHero(-1)">&#10094;</button>
         <button class="hero-arrow hero-right" onclick="moverHero(1)">&#10095;</button>
@@ -996,10 +951,10 @@
             
             <div class="hero-slide">
                 <div class="container">
-                    <h1>Oferta Exportable</h1>
+                    <h1>PBA Exporta</h1>
                     <p>Conectá con el potencial productivo de la provincia y descubrí los bienes y servicios que las empresas bonaerenses ofrecen al mundo.</p>
                     <div class="cta-group">
-                        <a href="#de-pba-al-mundo" class="btn btn-secondary">Explorar Catálogo</a>
+                        <a href="#pba-exporta" class="btn btn-secondary">Explorar Oferta</a>
                         <a href="#servicios" class="btn btn-secondary">Contactanos</a>
                     </div>
                 </div>
@@ -1008,10 +963,9 @@
             <div class="hero-slide">
                 <div class="container">
                     <h1>Régimen Provincial de Inversiones Estratégicas</h1>
-                    <p>El Régimen Provincial de Inversiones Estratégicas (RPIE) impulsa proyectos de grandes inversiones mediante estabilidad jurídica, incentivos y acompañamiento integral en la Provincia de Buenos Aires.</p>
+                    <p>El RPIE impulsa proyectos de grandes inversiones mediante estabilidad jurídica, incentivos y acompañamiento integral en la Provincia de Buenos Aires.</p>
                     <div class="cta-group">
-                        <a href="#nuestros-recursos" class="btn btn-secondary">Inscripción</a>
-                        <a href="#" class="btn btn-secondary">Más información</a>
+                        <a href="#rpie" class="btn btn-secondary">Más información</a>
                     </div>
                 </div>
             </div>
@@ -1024,6 +978,40 @@
         </div>
     </section>
 
+    <!-- 3. NUEVA SECCIÓN ÚNICA Y DEDICADA PARA EL RPIE -->
+    <section class="seccion-rpie" id="rpie">
+        <div class="container">
+            <div class="rpie-card-container">
+                <div class="rpie-header">
+                    <h2>Régimen Provincial de Inversiones Estratégicas (RPIE)</h2>
+                    <span class="rpie-tag">Marco de Incentivos</span>
+                </div>
+                <p class="rpie-desc">
+                    El RPIE es la herramienta estratégica diseñada para favorecer la radicación de inversiones productivas de gran escala dentro de la Provincia de Buenos Aires, garantizando un marco predecible, estabilidad tributaria y facilidades operativas.
+                </p>
+                <div class="rpie-features">
+                    <div class="rpie-feature-item">
+                        <h4>Estabilidad Jurídica</h4>
+                        <p>Garantía de previsibilidad para el desarrollo de proyectos productivos de mediano y largo plazo.</p>
+                    </div>
+                    <div class="rpie-feature-item">
+                        <h4>Incentivos Fiscales</h4>
+                        <p>Exenciones y beneficios impositivos graduales sujetos a la escala y localización del proyecto.</p>
+                    </div>
+                    <div class="rpie-feature-item">
+                        <h4>Acompañamiento Integral</h4>
+                        <p>Gestión agilizada de trámites y soporte técnico personalizado ante organismos provinciales.</p>
+                    </div>
+                </div>
+                <div class="rpie-actions">
+                    <a href="https://www.gba.gob.ar/produccion/inversiones_estrategicas" target="_blank" class="btn-tool">Ir a la Web Oficial</a>
+                    <a href="ruta/al/documento-rpie.pdf" download class="btn-tool">Descargar Marco Legal (PDF)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Sección: PBA EN N° -->
     <section class="pba-numeros">
         <div class="container">
             <h2 class="section-title">PBA en N°</h2>
@@ -1060,79 +1048,109 @@
         </div>
     </section>
 
-    <!-- CARRUSEL NUESTROS RECURSOS: Se cambió Brochure por "Cursos y Herramientas" -->
-    <section class="carrusel-secciones" id="nuestros-recursos">
-        <div class="container">
-            <h2 class="section-title">Nuestros recursos</h2>
-            <div class="tools-wrapper">
-                <button class="tools-control tools-prev" onclick="moverTools(-1)">&#10094;</button>
-                <button class="tools-control tools-next" onclick="moverTools(1)">&#10095;</button>
-                <div class="tools-track" id="toolsTrack">
-                    <div class="tools-item">
-                        <h3>RPIE</h3>
-                        <p>El Régimen Provincial de Inversiones Estratégicas (RPIE) impulsa proyectos de grandes inversiones mediante estabilidad jurídica, incentivos y acompañamiento integral en la Provincia de Buenos Aires.</p>
-                        <a href="https://www.gba.gob.ar/produccion/inversiones_estrategicas" target="_blank" class="btn btn-tool">Ir a la Web</a>
-                        <a href="ruta/al/documento.pdf" download class="btn btn-tool">Descargar PDF</a>
-                    </div>
-                    <div class="tools-item">
-                        <h3>Oferta Exportable</h3>
-                        <p>Conectá con el potencial productivo de la provincia y descubrí los bienes y servicios que las empresas bonaerenses proyectan al mundo.</p>
-                        <a href="#" class="btn btn-tool">Explorar Catálogo</a>
-                    </div>
-                    <!-- MODIFICACIÓN SOLICITADA: Cursos y Herramientas -->
-                    <div class="tools-item">
-                        <h3>Cursos y Herramientas</h3>
-                        <p>Programas de formación, capacitaciones continuas y herramientas técnicas para potenciar la competitividad de las PyMEs bonaerenses.</p>
-                        <a href="#" class="btn btn-tool">Acceder</a>
-                    </div>
-                </div>
-            </div>
-            <div class="tools-indicators">
-                <button class="tools-dot active" onclick="irATools(0)"></button>
-                <button class="tools-dot" onclick="irATools(1)"></button>
-                <button class="tools-dot" onclick="irATools(2)"></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN MODIFICADA: SECTORES ESTRATÉGICOS CON FORMATO DE LA FOTO -->
+    <!-- 5. SECTORES ESTRATÉGICOS: 9 SECTORES EN BANNER SLIDER CON FLECHAS -->
     <section class="sectores-estrategicos-foto" id="sectores">
         <div class="container">
             <div class="sectores-foto-layout">
-                <!-- Columna Izquierda: Título Principal con línea superior -->
+                <!-- Columna Izquierda: Título -->
                 <div class="sectores-foto-title-col">
                     <h2>Sectores<br>estrategicos<br>para invertir</h2>
                 </div>
                 
-                <!-- Columna Derecha: Tarjetas de Sectores con Foto de Fondo -->
-                <div class="sectores-foto-cards-col">
-                    <!-- Card 1 -->
-                    <div class="sector-card-foto" onclick="openModal('modal-sbc')">
-                        <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="sector-card-overlay"></div>
-                        <div class="sector-card-content">
-                            <h3>Economía del Conocimiento</h3>
-                            <span class="btn-ver-mas-foto">Ver más</span>
+                <!-- Columna Derecha: Banner Desplazable con los 9 Sectores -->
+                <div class="sectores-banner-wrapper">
+                    <button class="sectores-nav-btn sectores-btn-prev" onclick="moverSectores(-1)">&#10094;</button>
+                    <button class="sectores-nav-btn sectores-btn-next" onclick="moverSectores(1)">&#10095;</button>
+                    
+                    <div class="sectores-slider-track" id="sectoresTrack">
+                        <!-- Sector 1: Alimentos -->
+                        <div class="sector-card-foto" onclick="openModal('modal-generic')">
+                            <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=800&auto=format&fit=crop');"></div>
+                            <div class="sector-card-overlay"></div>
+                            <div class="sector-card-content">
+                                <h3>Alimentos</h3>
+                                <span class="btn-ver-mas-foto">Ver más</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Card 2 -->
-                    <div class="sector-card-foto" onclick="openModal('modal-industria')">
-                        <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="sector-card-overlay"></div>
-                        <div class="sector-card-content">
-                            <h3>Metalurgia y maquinaria agrícola</h3>
-                            <span class="btn-ver-mas-foto">Ver más</span>
+                        <!-- Sector 2: Automotriz -->
+                        <div class="sector-card-foto" onclick="openModal('modal-generic')">
+                            <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop');"></div>
+                            <div class="sector-card-overlay"></div>
+                            <div class="sector-card-content">
+                                <h3>Automotriz</h3>
+                                <span class="btn-ver-mas-foto">Ver más</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Card 3 -->
-                    <div class="sector-card-foto" onclick="openModal('modal-energia')">
-                        <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="sector-card-overlay"></div>
-                        <div class="sector-card-content">
-                            <h3>Biotecnología y ciencias de la vida</h3>
-                            <span class="btn-ver-mas-foto">Ver más</span>
+                        <!-- Sector 3: Metalmecánica -->
+                        <div class="sector-card-foto" onclick="openModal('modal-generic')">
+                            <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=800&auto=format&fit=crop');"></div>
+                            <div class="sector-card-overlay"></div>
+                            <div class="sector-card-content">
+                                <h3>Metalmecánica</h3>
+                                <span class="btn-ver-mas-foto">Ver más</span>
+                            </div>
+                        </div>
+
+                        <!-- Sector 4: Siderurgia -->
+                        <div class="sector-card-foto" onclick="openModal('modal-generic')">
+                            <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop');"></div>
+                            <div class="sector-card-overlay"></div>
+                            <div class="sector-card-content">
+                                <h3>Siderurgia</h3>
+                                <span class="btn-ver-mas-foto">Ver más</span>
+                            </div>
+                        </div>
+
+                        <!-- Sector 5: Petroquímica -->
+                        <div class="sector-card-foto" onclick="openModal('modal-generic')">
+                            <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop');"></div>
+                            <div class="sector-card-overlay"></div>
+                            <div class="sector-card-content">
+                                <h3>Petroquímica</h3>
+                                <span class="btn-ver-mas-foto">Ver más</span>
+                            </div>
+                        </div>
+
+                        <!-- Sector 6: Indumentaria y Calzado -->
+                        <div class="sector-card-foto" onclick="openModal('modal-generic')">
+                            <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=800&auto=format&fit=crop');"></div>
+                            <div class="sector-card-overlay"></div>
+                            <div class="sector-card-content">
+                                <h3>Indumentaria y Calzado</h3>
+                                <span class="btn-ver-mas-foto">Ver más</span>
+                            </div>
+                        </div>
+
+                        <!-- Sector 7: Energía -->
+                        <div class="sector-card-foto" onclick="openModal('modal-generic')">
+                            <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=800&auto=format&fit=crop');"></div>
+                            <div class="sector-card-overlay"></div>
+                            <div class="sector-card-content">
+                                <h3>Energía</h3>
+                                <span class="btn-ver-mas-foto">Ver más</span>
+                            </div>
+                        </div>
+
+                        <!-- Sector 8: Turismo -->
+                        <div class="sector-card-foto" onclick="openModal('modal-generic')">
+                            <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop');"></div>
+                            <div class="sector-card-overlay"></div>
+                            <div class="sector-card-content">
+                                <h3>Turismo</h3>
+                                <span class="btn-ver-mas-foto">Ver más</span>
+                            </div>
+                        </div>
+
+                        <!-- Sector 9: SBC -->
+                        <div class="sector-card-foto" onclick="openModal('modal-generic')">
+                            <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?q=80&w=800&auto=format&fit=crop');"></div>
+                            <div class="sector-card-overlay"></div>
+                            <div class="sector-card-content">
+                                <h3>SBC (Servicios Basados en Conocimiento)</h3>
+                                <span class="btn-ver-mas-foto">Ver más</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1140,13 +1158,13 @@
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN SOLICITADA: De PBA al Mundo -->
-    <section class="de-pba-al-mundo" id="de-pba-al-mundo">
+    <!-- 6. SECCIÓN RENOMBRADA: PBA EXPORTA -->
+    <section class="pba-exporta" id="pba-exporta">
         <div class="container">
-            <h2 class="section-title">De PBA al Mundo</h2>
-            <div class="pba-mundo-grid">
+            <h2 class="section-title">PBA Exporta</h2>
+            <div class="pba-exporta-grid">
                 
-                <div class="pba-mundo-card">
+                <div class="pba-exporta-card">
                     <h3>Promoción Comercial</h3>
                     <p>Rondas de negocios con importadores, misiones comerciales y participación en ferias internacionales para posicionar bienes y servicios bonaerenses en el mercado externo.</p>
                     <div>
@@ -1154,7 +1172,7 @@
                     </div>
                 </div>
 
-                <div class="pba-mundo-card">
+                <div class="pba-exporta-card">
                     <h3>Oferta Exportable</h3>
                     <p>Directorio integral que agrupa y visibiliza el potencial productivo de las PyMEs y empresas locales preparadas para internacionalizar su producción.</p>
                     <div>
@@ -1162,7 +1180,7 @@
                     </div>
                 </div>
 
-                <div class="pba-mundo-card">
+                <div class="pba-exporta-card">
                     <h3>Catálogo</h3>
                     <p>Accedé a nuestros catálogos sectoriales digitalizados con la oferta exportable detallada de bienes y servicios bonaerenses para compradores globales.</p>
                     <div>
@@ -1174,7 +1192,7 @@
         </div>
     </section>
 
-    <!-- Regiones de la Provincia -->
+    <!-- 7. Regiones de la Provincia -->
     <section class="regiones-pba" id="regiones">
         <div class="container">
             <h2 class="section-title">Regiones de la Provincia</h2>
@@ -1216,101 +1234,30 @@
         </div>
     </section>
 
-    <!-- MODALES DE SECTORES ESTRATÉGICOS -->
-    <div id="modal-industria" class="modal-overlay" onclick="closeModalOutside(event, 'modal-industria')">
+    <!-- MODAL DE INFORMACIÓN SECTORIAL (Genérico) -->
+    <div id="modal-generic" class="modal-overlay" onclick="closeModalOutside(event, 'modal-generic')">
         <div class="modal-box">
-            <button class="modal-close" onclick="closeModal('modal-industria')">&times;</button>
+            <button class="modal-close" onclick="closeModal('modal-generic')">&times;</button>
             <div class="modal-header">
-                <h3>Metalurgia y maquinaria agrícola</h3>
-                <p class="modal-desc">Sector industrial diversificado y de alta densidad tecnológica en Maquinaria Agrícola y Metalmecánica.</p>
+                <h3>Información Sectorial</h3>
+                <p class="modal-desc">Datos e indicadores del sector estratégico seleccionado en la Provincia de Buenos Aires.</p>
             </div>
             <div class="modal-macro-grid">
                 <div class="macro-card">
-                    <div class="macro-num">25,6%</div>
-                    <div class="macro-label">Producto Provincial</div>
-                    <span class="macro-source">DPE - año 2024</span>
+                    <div class="macro-num">35%+</div>
+                    <div class="macro-label">Aporte Productivo</div>
+                    <span class="macro-source">DPE - Provincia de Buenos Aires</span>
                 </div>
                 <div class="macro-card">
-                    <div class="macro-num">36,8%</div>
-                    <div class="macro-label">Exportaciones Provinciales</div>
-                    <span class="macro-source">DPE - año 2025</span>
-                </div>
-                <div class="macro-card">
-                    <div class="macro-num">24,6%</div>
-                    <div class="macro-label">Empleo Formal Provincial</div>
-                    <span class="macro-source">OEDE - 2do trim 2025</span>
-                </div>
-            </div>
-            <div class="subsectores-title">Sub-sectores</div>
-            <div class="subsectores-grid">
-                <div class="subsector-card">
-                    <h4>Alimentos</h4>
-                    <div class="subsector-data">Expo: <strong>31,2%</strong> <small>(MOA)</small></div>
-                    <div class="subsector-data">Empleo: <strong>6,4%</strong></div>
-                </div>
-                <div class="subsector-card">
-                    <h4>Automotriz</h4>
-                    <div class="subsector-data">Expo: <strong>22,9%</strong> <small>(autos+autop.)</small></div>
-                    <div class="subsector-data">Empleo: <strong>2,0%</strong></div>
-                </div>
-                <div class="subsector-card">
-                    <h4>Metalmecánica</h4>
-                    <div class="subsector-data">Expo: <strong>1,1%</strong></div>
-                    <div class="subsector-data">Empleo: <strong>4,3%</strong></div>
+                    <div class="macro-num">Alto</div>
+                    <div class="macro-label">Impacto Exportador</div>
+                    <span class="macro-source">DPE - Comercio Exterior</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="modal-energia" class="modal-overlay" onclick="closeModalOutside(event, 'modal-energia')">
-        <div class="modal-box">
-            <button class="modal-close" onclick="closeModal('modal-energia')">&times;</button>
-            <div class="modal-header">
-                <h3>Biotecnología y ciencias de la vida</h3>
-                <p class="modal-desc">Desarrollos en salud, farmacología, biotecnología aplicada al agro y ciencia de vanguardia.</p>
-            </div>
-            <div class="modal-macro-grid">
-                <div class="macro-card">
-                    <div class="macro-num">1,8%</div>
-                    <div class="macro-label">Producto Provincial</div>
-                    <span class="macro-source">DPE</span>
-                </div>
-                <div class="macro-card">
-                    <div class="macro-num">0,7%</div>
-                    <div class="macro-label">Empleo Formal Provincial</div>
-                    <span class="macro-source">OEDE - 2do trim 2025</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-sbc" class="modal-overlay" onclick="closeModalOutside(event, 'modal-sbc')">
-        <div class="modal-box">
-            <button class="modal-close" onclick="closeModal('modal-sbc')">&times;</button>
-            <div class="modal-header">
-                <h3>Economía del Conocimiento</h3>
-                <p class="modal-desc">Ecosistema de I+D, software, servicios profesionales complejos, educación e industrias creativas.</p>
-            </div>
-            <div class="modal-macro-grid">
-                <div class="macro-card">
-                    <div class="macro-num">2,8%</div>
-                    <div class="macro-label">Producto Provincial</div>
-                    <span class="macro-source">DPE</span>
-                </div>
-                <div class="macro-card">
-                    <div class="macro-num">6,2%</div>
-                    <div class="macro-label">Empleo Formal Provincial</div>
-                    <span class="macro-source">OEDE</span>
-                </div>
-                <div class="macro-card">
-                    <div class="macro-num">11</div>
-                    <div class="macro-label">Polos Tecnológicos</div>
-                    <span class="macro-source">Red Provincial</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- 8. Sección: SERVICIOS -->
     <section class="servicios" id="servicios">
         <div class="container">
             <h2 class="section-title">Nuestros Servicios</h2>
@@ -1349,6 +1296,7 @@
         </div>
     </section>
 
+    <!-- 9. Pie de Página -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -1359,8 +1307,8 @@
                 </div>
                 <div class="footer-links">
                     <a href="#">Inicio</a>
-                    <a href="recursos.html">Nuestros recursos</a>
-                    <a href="#de-pba-al-mundo">PBA Exporta</a>
+                    <a href="#rpie">RPIE</a>
+                    <a href="#pba-exporta">PBA Exporta</a>
                     <a href="#servicios">Servicios</a>
                 </div>
             </div>
@@ -1368,7 +1316,7 @@
     </footer>
 
     <script>
-        /* --- Lógica Carrusel Principal --- */
+        /* --- Carrusel Hero Principal --- */
         let indexHero = 0;
         const heroTrack = document.getElementById('heroTrack');
         const heroDots = document.querySelectorAll('.hero-dot');
@@ -1394,30 +1342,22 @@
             actualizarHero();
         }
 
-        /* --- Lógica Carrusel de Herramientas / Recursos --- */
-        let indexTools = 0;
-        const toolsTrack = document.getElementById('toolsTrack');
-        const toolsDots = document.querySelectorAll('.tools-dot');
+        /* --- Slider Banner de Sectores Estratégicos (9 sectores) --- */
+        let sectorIndex = 0;
+        const totalSectores = 9;
+        const sectoresTrack = document.getElementById('sectoresTrack');
 
-        function actualizarTools() {
-            if (toolsTrack) {
-                toolsTrack.style.transform = 'translateX(-' + (indexTools * 33.3333) + '%)';
-                toolsDots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === indexTools);
-                });
-            }
-        }
+        function moverSectores(direccion) {
+            // Se calcula el número máximo de desplazamientos según la pantalla
+            const cardsPorVista = window.innerWidth <= 768 ? 1 : (window.innerWidth <= 992 ? 2 : 3);
+            const maxIndex = totalSectores - cardsPorVista;
 
-        function moverTools(dir) {
-            indexTools += dir;
-            if (indexTools >= 3) indexTools = 0;
-            if (indexTools < 0) indexTools = 2;
-            actualizarTools();
-        }
+            sectorIndex += direccion;
+            if (sectorIndex < 0) sectorIndex = 0;
+            if (sectorIndex > maxIndex) sectorIndex = maxIndex;
 
-        function irATools(idx) {
-            indexTools = idx;
-            actualizarTools();
+            const porcentaje = (100 / cardsPorVista) + (20 / cardsPorVista); 
+            sectoresTrack.style.transform = `translateX(-${sectorIndex * porcentaje}%)`;
         }
 
         /* --- Control de Modals --- */
