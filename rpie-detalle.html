@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto / Invertí - PBA</title>
+    <style>
+        /* Estilos Esenciales Basados en Why Córdoba y GBA */
+        :root {
+            --azul-institucional: #0056b3;
+            --gris-oscuro: #333333;
+            --gris-medio: #666666;
+            --gris-claro: #f8f9fa;
+            --borde: #e2e8f0;
+            --blanco: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--gris-oscuro);
+            background-color: var(--gris-claro);
+            line-height: 1.5;
+            padding: 60px 20px;
+        }
+
+        .form-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: var(--blanco);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--borde);
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            color: var(--azul-institucional);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        p {
+            color: var(--gris-medio);
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gris-oscuro);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--borde);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--gris-oscuro);
+            background-color: var(--gris-claro);
+            transition: all 0.2s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--azul-institucional);
+            background-color: var(--blanco);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .btn-container {
+            margin-top: 30px;
+        }
+
+        .btn-submit {
+            background-color: var(--azul-institucional);
+            color: var(--blanco);
+            border: none;
+            padding: 12px 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-submit:hover {
+            background-color: #004085;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--gris-medio);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .back-link:hover {
+            color: var(--azul-institucional);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Invertí en la Provincia</h1>
+        <p>Póngase en contacto con nuestro equipo técnico para presentarnos su proyecto u obtener asistencia estratégica de localización.</p>
+
+        <form action="#" method="POST">
+            
+            <div class="form-group">
+                <label for="nombre">Nombre Completo</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Pérez">
+            </div>
+
+            <div class="form-group">
+                <label for="empresa">Empresa / Organización</label>
+                <input type="text" id="empresa" name="empresa" required placeholder="Ej. Razón Social o Nombre de Fantasía">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" name="email" required placeholder="ejemplo@empresa.com">
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Ej. +54 9 11 ...">
+            </div>
+
+            <div class="form-group">
+                <label for="asunto">Asunto</label>
+                <input type="text" id="asunto" name="asunto" required placeholder="Ej. Radicación en Parque Industrial / Promoción Industrial">
+            </div>
+
+            <div class="form-group">
+                <label for="mensaje">Detalles del Proyecto / Comentarios</label>
+                <textarea id="mensaje" name="mensaje" required placeholder="Escriba aquí los detalles generales de su propuesta o necesidades específicas..."></textarea>
+            </div>
+
+            <div class="btn-container">
+                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+            </div>
+
+            <a href="index.html" class="back-link">← Volver al Portal General</a>
+
+        </form>
+    </div>
+
+</body>
+</html>
