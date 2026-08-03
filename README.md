@@ -20,3 +20,4 @@ Portal de informes y visualizaciones interactivas.
 | Informacion | [Informacion.html](https://matiaspiccolo.github.io/Web/Informacion.html) |
 | Monitor | [Monitor.html](https://matiaspiccolo.github.io/Web/Monitor.html) |
 | Herramientas | [Herramientas.html](https://matiaspiccolo.github.io/Web/Herramientas.html) |
+| RPIE | [RPIE.html](https://matiaspiccolo.github.io/Web/rpie-detalle.html) |
