@@ -254,7 +254,7 @@
         }
 
         .pba-col-left {
-            width: 40%;
+            width: 35%;
             text-align: center;
         }
 
@@ -301,7 +301,7 @@
         }
 
         .pba-col-right {
-            width: 60%;
+            width: 65%;
         }
 
         .stats-table {
@@ -318,14 +318,17 @@
         .stat-card {
             flex: 1;
             background-color: var(--gris-claro);
-            padding: 30px 20px;
+            padding: 25px 15px;
             text-align: center;
             border-radius: 8px;
             border: 1px solid var(--borde-tarjeta);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: bold;
             color: var(--celeste-gba);
             margin-bottom: 5px;
@@ -333,8 +336,14 @@
 
         .stat-label {
             font-size: 0.95rem;
+            color: var(--gris-oscuro);
+            font-weight: 600;
+        }
+
+        .stat-source {
+            font-size: 0.75rem;
             color: var(--gris-medio);
-            font-weight: 500;
+            margin-top: 5px;
         }
 
         /* 3. PBA EXPORTA */
@@ -647,7 +656,7 @@
         .sectores-btn-prev { left: 10px; }
         .sectores-btn-next { right: 10px; }
 
-        /* 5. SECCIÓN: RPIE (Optimización Marketinera) */
+        /* 5. SECCIÓN: RPIE */
         .seccion-rpie {
             padding: 70px 0;
             background: linear-gradient(135deg, var(--azul-oscuro) 0%, #001a38 100%);
@@ -958,7 +967,7 @@
         footer {
             background-color: var(--azul-institucional);
             color: var(--blanco);
-            padding: 60px 0 30px 0;
+            padding: 60px 0;
         }
 
         .footer-grid {
@@ -1002,21 +1011,6 @@
         .footer-links a:hover {
             opacity: 1;
             text-decoration: underline;
-        }
-
-        /* Branding Footer (Logo Ministerio) */
-        .footer-branding {
-            margin-top: 40px;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-        }
-
-        .footer-logo-img {
-            max-width: 100%;
-            height: auto;
-            max-height: 70px;
-            display: inline-block;
         }
 
         /* Adaptabilidad Responsive */
@@ -1139,13 +1133,31 @@
                                 <div class="stat-label">del empleo formal nacional</div>
                             </div>
                         </div>
+                        <!-- Nuevos datos añadidos -->
+                        <div class="stats-row">
+                            <div class="stat-card">
+                                <div class="stat-number">25,6%</div>
+                                <div class="stat-label">del Producto Provincial</div>
+                                <span class="stat-source">(DPE - año 2024)</span>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">36,8%</div>
+                                <div class="stat-label">de las exportaciones provinciales</div>
+                                <span class="stat-source">(DPE - año 2025)</span>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">24,6%</div>
+                                <div class="stat-label">del empleo formal provincial</div>
+                                <span class="stat-source">(OEDE - 2do trim 2025)</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. PBA EXPORTA (Opciones Unificadas) -->
+    <!-- 3. PBA EXPORTA -->
     <section class="pba-exporta-section" id="pba-exporta">
         <div class="container">
             <div class="pba-exporta-header">
@@ -1290,7 +1302,7 @@
         </div>
     </section>
 
-    <!-- 5. SECCIÓN RPIE (Optimización Marketinera) -->
+    <!-- 5. SECCIÓN RPIE -->
     <section class="seccion-rpie" id="rpie">
         <div class="container">
             <div class="rpie-card-container">
@@ -1427,9 +1439,6 @@
                     <a href="#regiones">Regiones</a>
                     <a href="#cursos-herramientas">Cursos y Herramientas</a>
                 </div>
-            </div>
-            <div class="footer-branding">
-                <img src="footer.jpg" alt="Ministerio de Producción, Ciencia e Innovación Tecnológica - Gobierno de la Provincia de Buenos Aires" class="footer-logo-img">
             </div>
         </div>
     </footer>
