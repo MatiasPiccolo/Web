@@ -144,7 +144,7 @@
             text-align: center;
             font-size: 2rem;
             color: var(--azul-institucional);
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             text-transform: uppercase;
         }
 
@@ -254,7 +254,7 @@
         }
 
         .pba-col-left {
-            width: 40%;
+            width: 35%;
             text-align: center;
         }
 
@@ -301,7 +301,7 @@
         }
 
         .pba-col-right {
-            width: 60%;
+            width: 65%;
         }
 
         .stats-table {
@@ -318,14 +318,17 @@
         .stat-card {
             flex: 1;
             background-color: var(--gris-claro);
-            padding: 30px 20px;
+            padding: 25px 15px;
             text-align: center;
             border-radius: 8px;
             border: 1px solid var(--borde-tarjeta);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: bold;
             color: var(--celeste-gba);
             margin-bottom: 5px;
@@ -333,31 +336,23 @@
 
         .stat-label {
             font-size: 0.95rem;
-            color: var(--gris-medio);
-            font-weight: 500;
+            color: var(--gris-oscuro);
+            font-weight: 600;
         }
 
-        /* 3. PBA EXPORTA (Estética con Banner Gradiente Magenta-Azul y Flechas) */
+        .stat-source {
+            font-size: 0.75rem;
+            color: var(--gris-medio);
+            margin-top: 5px;
+        }
+
+        /* 3. PBA EXPORTA */
         .pba-exporta-section {
             padding: 80px 0;
             background: linear-gradient(110deg, #b01e68 0%, #3b5088 45%, #1d7b9d 85%, #00aae4 100%);
             color: var(--blanco);
             position: relative;
             overflow: hidden;
-        }
-
-        /* Fondo decorativo con patrón de flechas en SVG (basado en la imagen de referencia) */
-        .pba-exporta-section::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 45%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" viewBox="0 0 60 40"><path d="M 5 20 L 35 20 M 25 10 L 35 20 L 25 30" stroke="rgba(255,255,255,0.25)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-            background-repeat: repeat;
-            opacity: 0.6;
-            pointer-events: none;
         }
 
         .pba-exporta-header {
@@ -423,8 +418,8 @@
 
         .pba-exporta-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
             position: relative;
             z-index: 2;
         }
@@ -461,6 +456,12 @@
             flex-grow: 1;
         }
 
+        .pba-exporta-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
         .btn-exporta {
             display: inline-block;
             background-color: var(--blanco);
@@ -472,7 +473,6 @@
             font-weight: 700;
             transition: all 0.3s ease;
             text-align: center;
-            align-self: flex-start;
         }
 
         .btn-exporta:hover {
@@ -480,7 +480,7 @@
             color: var(--blanco);
         }
 
-        /* 4. SECTORES ESTRATÉGICOS (CON BANNER SLIDER) */
+        /* 4. SECTORES ESTRATÉGICOS */
         .sectores-estrategicos-foto {
             background: linear-gradient(rgba(10, 25, 47, 0.88), rgba(10, 25, 47, 0.88)), 
                         url('https://images.unsplash.com/photo-1477959858617-67f30ac4ce78?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
@@ -645,89 +645,137 @@
 
         /* 5. SECCIÓN: RPIE */
         .seccion-rpie {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f0f4f8 0%, #e6eef5 100%);
-            border-bottom: 1px solid var(--borde-tarjeta);
+            padding: 70px 0;
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, #001a38 100%);
+            color: var(--blanco);
+            position: relative;
         }
 
         .rpie-card-container {
-            background-color: var(--blanco);
-            border-radius: 12px;
-            padding: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-left: 6px solid var(--azul-institucional);
             display: flex;
             flex-direction: column;
+            align-items: center;
+            text-align: center;
             gap: 25px;
-        }
-
-        .rpie-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .rpie-header h2 {
-            font-size: 2rem;
-            color: var(--azul-oscuro);
-            text-transform: uppercase;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .rpie-tag {
-            background-color: rgba(0, 170, 228, 0.15);
-            color: var(--azul-institucional);
-            padding: 6px 16px;
+            background-color: var(--celeste-gba);
+            color: var(--blanco);
+            padding: 6px 18px;
             border-radius: 20px;
             font-weight: bold;
             font-size: 0.85rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .rpie-header h2 {
+            font-size: 2.2rem;
+            color: var(--blanco);
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-top: 10px;
         }
 
         .rpie-desc {
-            font-size: 1.1rem;
-            color: var(--gris-medio);
-            max-width: 900px;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
         }
 
-        .rpie-features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 10px;
-        }
-
-        .rpie-feature-item {
-            background-color: var(--gris-claro);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--borde-tarjeta);
-        }
-
-        .rpie-feature-item h4 {
-            color: var(--azul-institucional);
-            margin-bottom: 8px;
-            font-size: 1rem;
-        }
-
-        .rpie-feature-item p {
-            font-size: 0.9rem;
-            color: var(--gris-medio);
-        }
-
-        .rpie-actions {
+        .rpie-highlights {
             display: flex;
-            gap: 15px;
-            margin-top: 10px;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            margin: 15px 0;
+            flex-wrap: wrap;
         }
 
-        /* 6. REGIONES DE LA PROVINCIA */
+        .rpie-pill {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-rpie-cta {
+            background-color: var(--magenta-pba);
+            color: var(--blanco);
+            padding: 14px 36px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(200, 42, 122, 0.4);
+        }
+
+        .btn-rpie-cta:hover {
+            background-color: #a81f63;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200, 42, 122, 0.6);
+        }
+
+        /* 6. REGIONES DE LA PROVINCIA CON BOTONES INTERACTIVOS DE SECTORES */
         .regiones-pba {
             padding: 80px 0;
             background-color: var(--gris-claro);
             border-top: 1px solid var(--borde-tarjeta);
             border-bottom: 1px solid var(--borde-tarjeta);
+        }
+
+        .sector-filter-container {
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .sector-filter-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--gris-medio);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 15px;
+        }
+
+        .sector-buttons-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .sector-filter-btn {
+            background-color: var(--blanco);
+            border: 1.5px solid var(--borde-tarjeta);
+            color: var(--azul-oscuro);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .sector-filter-btn:hover {
+            background-color: var(--azul-institucional);
+            color: var(--blanco);
+            border-color: var(--azul-institucional);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 86, 179, 0.2);
         }
 
         .regiones-grid {
@@ -739,15 +787,19 @@
         .regiones-col-mapa {
             width: 45%;
             text-align: center;
+            position: sticky;
+            top: 20px;
         }
 
         .mapa-regiones-container {
             width: 100%;
             background-color: var(--blanco);
             border: 1px solid var(--borde-tarjeta);
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
         }
 
         .mapa-regiones-img {
@@ -756,6 +808,40 @@
             max-height: 480px;
             object-fit: contain;
             display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Capas de marcado sobre el mapa */
+        .map-region-highlight {
+            position: absolute;
+            border-radius: 8px;
+            background: rgba(0, 170, 228, 0.25);
+            border: 2px dashed var(--celeste-gba);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.35s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--azul-oscuro);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(2px);
+        }
+
+        /* Posicionamiento relativo de las zonas en el contenedor del mapa */
+        #map-zone-amba { top: 32%; left: 52%; width: 35%; height: 22%; }
+        #map-zone-centronorte { top: 12%; left: 25%; width: 55%; height: 24%; }
+        #map-zone-centro { top: 38%; left: 20%; width: 45%; height: 28%; }
+        #map-zone-costa { top: 52%; left: 60%; width: 32%; height: 26%; }
+        #map-zone-sur { top: 62%; left: 15%; width: 45%; height: 32%; }
+
+        .map-region-highlight.active {
+            opacity: 1;
+            box-shadow: 0 0 15px rgba(0, 170, 228, 0.5);
+            transform: scale(1.03);
         }
 
         .regiones-col-desc {
@@ -768,9 +854,10 @@
         .region-item {
             background-color: var(--blanco);
             border: 1px solid var(--borde-tarjeta);
-            border-left: 4px solid var(--celeste-gba);
-            padding: 15px 20px;
+            border-left: 5px solid var(--celeste-gba);
+            padding: 18px 20px;
             border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
         }
 
         .region-item h4 {
@@ -778,6 +865,9 @@
             font-size: 1.1rem;
             text-transform: uppercase;
             margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .region-item p {
@@ -785,7 +875,20 @@
             color: var(--gris-medio);
         }
 
-        /* 7. NUEVA SECCIÓN: CURSOS Y HERRAMIENTAS */
+        /* Estado del resaltado al pasar el mouse por un sector */
+        .region-item.highlighted {
+            border-left-color: var(--magenta-pba);
+            background-color: #fff8fb;
+            box-shadow: 0 6px 18px rgba(200, 42, 122, 0.15);
+            transform: translateX(6px);
+        }
+
+        .region-item.dimmed {
+            opacity: 0.35;
+            filter: grayscale(80%);
+        }
+
+        /* 7. CURSOS Y HERRAMIENTAS */
         .cursos-herramientas {
             padding: 80px 0;
             background-color: var(--blanco);
@@ -794,7 +897,7 @@
         .cursos-header-desc {
             text-align: center;
             max-width: 800px;
-            margin: -30px auto 45px auto;
+            margin: -10px auto 45px auto;
             color: var(--gris-medio);
             font-size: 1.05rem;
         }
@@ -837,7 +940,6 @@
         .curso-subcard p {
             font-size: 0.9rem;
             color: var(--gris-medio);
-            margin-bottom: 25px;
             flex-grow: 1;
         }
 
@@ -1004,14 +1106,15 @@
             .sectores-foto-title-col, .sectores-banner-wrapper { width: 100%; }
             .sectores-foto-title-col h2::before { left: 50%; transform: translateX(-50%); }
             .sector-card-foto { min-width: calc(50% - 10px); }
-            .pba-exporta-grid, .cursos-grid, .rpie-features { grid-template-columns: repeat(2, 1fr); }
+            .pba-exporta-grid, .cursos-grid { grid-template-columns: repeat(2, 1fr); }
             .regiones-grid { flex-direction: column; }
             .regiones-col-mapa, .regiones-col-desc { width: 100%; }
+            .regiones-col-mapa { position: relative; top: 0; }
         }
 
         @media (max-width: 768px) {
             .sector-card-foto { min-width: 100%; }
-            .pba-exporta-grid, .cursos-grid, .rpie-features { grid-template-columns: 1fr; }
+            .pba-exporta-grid, .cursos-grid { grid-template-columns: 1fr; }
             .pba-grid, .stats-row, .footer-grid { flex-direction: column !important; }
             .pba-col-left, .pba-col-right, .footer-info, .footer-links { width: 100% !important; text-align: center !important; }
             .hero-arrow { display: none; }
@@ -1019,6 +1122,8 @@
             .nav-container { flex-direction: column; gap: 15px; }
             .pba-exporta-header { flex-direction: column; align-items: flex-start; gap: 10px; }
             .pba-exporta-brand-text { border-right: none; padding-right: 0; }
+            .rpie-highlights { flex-direction: column; align-items: center; }
+            .sector-buttons-grid { justify-content: flex-start; overflow-x: auto; padding-bottom: 10px; }
         }
     </style>
 </head>
@@ -1117,13 +1222,30 @@
                                 <div class="stat-label">del empleo formal nacional</div>
                             </div>
                         </div>
+                        <div class="stats-row">
+                            <div class="stat-card">
+                                <div class="stat-number">25,6%</div>
+                                <div class="stat-label">del Producto Provincial</div>
+                                <span class="stat-source">(DPE - año 2024)</span>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">36,8%</div>
+                                <div class="stat-label">de las exportaciones provinciales</div>
+                                <span class="stat-source">(DPE - año 2025)</span>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">24,6%</div>
+                                <div class="stat-label">del empleo formal provincial</div>
+                                <span class="stat-source">(OEDE - 2do trim 2025)</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. PBA EXPORTA (Con la nueva línea gráfica/gradiente del banner enviado) -->
+    <!-- 3. PBA EXPORTA -->
     <section class="pba-exporta-section" id="pba-exporta">
         <div class="container">
             <div class="pba-exporta-header">
@@ -1141,21 +1263,20 @@
 
             <div class="pba-exporta-grid">
                 <div class="pba-exporta-card">
-                    <h3>Promoción Comercial</h3>
+                    <h3>Rondas de Negocios</h3>
                     <p>Rondas de negocios con importadores, misiones comerciales y participación en ferias internacionales para posicionar bienes y servicios bonaerenses en el mercado externo.</p>
-                    <a href="Promocion.html" class="btn-exporta">Ver oportunidades</a>
+                    <div class="pba-exporta-actions">
+                        <a href="Promocion.html" class="btn-exporta">Inscribite acá!</a>
+                    </div>
                 </div>
 
                 <div class="pba-exporta-card">
-                    <h3>Oferta Exportable</h3>
-                    <p>Directorio integral que agrupa y visibiliza el potencial productivo de las PyMEs y empresas locales preparadas para internacionalizar su producción.</p>
-                    <a href="#" class="btn-exporta">Explorar Oferta</a>
-                </div>
-
-                <div class="pba-exporta-card">
-                    <h3>Catálogo Sectorial</h3>
-                    <p>Accedé a nuestros catálogos sectoriales digitalizados con la oferta exportable detallada de bienes y servicios bonaerenses para compradores globales.</p>
-                    <a href="#" class="btn-exporta">Ver Catálogo</a>
+                    <h3>Oferta Exportable y Catálogo Sectorial</h3>
+                    <p>Directorio integral y catálogos digitalizados que visibilizan el potencial productivo de las empresas bonaerenses ante compradores internacionales.</p>
+                    <div class="pba-exporta-actions">
+                        <a href="#" class="btn-exporta">Inscribite al Catálogo</a>
+                        <a href="#" class="btn-exporta">Explorá la Oferta</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1174,7 +1295,6 @@
                     <button class="sectores-nav-btn sectores-btn-next" onclick="moverSectores(1)">&#10095;</button>
                     
                     <div class="sectores-slider-track" id="sectoresTrack">
-                        <!-- Sector 1: Alimentos -->
                         <div class="sector-card-foto" onclick="openModal('modal-generic')">
                             <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=800&auto=format&fit=crop');"></div>
                             <div class="sector-card-overlay"></div>
@@ -1184,7 +1304,6 @@
                             </div>
                         </div>
 
-                        <!-- Sector 2: Automotriz -->
                         <div class="sector-card-foto" onclick="openModal('modal-generic')">
                             <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop');"></div>
                             <div class="sector-card-overlay"></div>
@@ -1194,7 +1313,6 @@
                             </div>
                         </div>
 
-                        <!-- Sector 3: Metalmecánica -->
                         <div class="sector-card-foto" onclick="openModal('modal-generic')">
                             <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=800&auto=format&fit=crop');"></div>
                             <div class="sector-card-overlay"></div>
@@ -1204,7 +1322,6 @@
                             </div>
                         </div>
 
-                        <!-- Sector 4: Siderurgia -->
                         <div class="sector-card-foto" onclick="openModal('modal-generic')">
                             <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop');"></div>
                             <div class="sector-card-overlay"></div>
@@ -1214,7 +1331,6 @@
                             </div>
                         </div>
 
-                        <!-- Sector 5: Petroquímica -->
                         <div class="sector-card-foto" onclick="openModal('modal-generic')">
                             <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop');"></div>
                             <div class="sector-card-overlay"></div>
@@ -1224,7 +1340,6 @@
                             </div>
                         </div>
 
-                        <!-- Sector 6: Indumentaria y Calzado -->
                         <div class="sector-card-foto" onclick="openModal('modal-generic')">
                             <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=800&auto=format&fit=crop');"></div>
                             <div class="sector-card-overlay"></div>
@@ -1234,7 +1349,6 @@
                             </div>
                         </div>
 
-                        <!-- Sector 7: Energía -->
                         <div class="sector-card-foto" onclick="openModal('modal-generic')">
                             <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=800&auto=format&fit=crop');"></div>
                             <div class="sector-card-overlay"></div>
@@ -1244,7 +1358,6 @@
                             </div>
                         </div>
 
-                        <!-- Sector 8: Turismo -->
                         <div class="sector-card-foto" onclick="openModal('modal-generic')">
                             <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop');"></div>
                             <div class="sector-card-overlay"></div>
@@ -1254,7 +1367,6 @@
                             </div>
                         </div>
 
-                        <!-- Sector 9: SBC -->
                         <div class="sector-card-foto" onclick="openModal('modal-generic')">
                             <div class="sector-card-bg" style="background-image: url('https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?q=80&w=800&auto=format&fit=crop');"></div>
                             <div class="sector-card-overlay"></div>
@@ -1273,69 +1385,86 @@
     <section class="seccion-rpie" id="rpie">
         <div class="container">
             <div class="rpie-card-container">
+                <span class="rpie-tag">Marco de Incentivos</span>
                 <div class="rpie-header">
                     <h2>Régimen Provincial de Inversiones Estratégicas (RPIE)</h2>
-                    <span class="rpie-tag">Marco de Incentivos</span>
                 </div>
                 <p class="rpie-desc">
-                    El RPIE es la herramienta estratégica diseñada para favorecer la radicación de inversiones productivas de gran escala dentro de la Provincia de Buenos Aires, garantizando un marco predecible, estabilidad tributaria y facilidades operativas.
+                    Impulsamos el desarrollo productivo bonaerense a través de un marco de previsibilidad, incentivos impositivos y acompañamiento integral para grandes proyectos de inversión.
                 </p>
-                <div class="rpie-features">
-                    <div class="rpie-feature-item">
-                        <h4>Estabilidad Jurídica</h4>
-                        <p>Garantía de previsibilidad para el desarrollo de proyectos productivos de mediano y largo plazo.</p>
-                    </div>
-                    <div class="rpie-feature-item">
-                        <h4>Incentivos Fiscales</h4>
-                        <p>Exenciones y beneficios impositivos graduales sujetos a la escala y localización del proyecto.</p>
-                    </div>
-                    <div class="rpie-feature-item">
-                        <h4>Acompañamiento Integral</h4>
-                        <p>Gestión agilizada de trámites y soporte técnico personalizado ante organismos provinciales.</p>
-                    </div>
+                <div class="rpie-highlights">
+                    <div class="rpie-pill">✓ Estabilidad Jurídica</div>
+                    <div class="rpie-pill">✓ Incentivos Fiscales</div>
+                    <div class="rpie-pill">✓ Acompañamiento Integral</div>
                 </div>
-                <div class="rpie-actions">
-                    <a href="https://www.gba.gob.ar/produccion/inversiones_estrategicas" target="_blank" class="btn-tool">Ir a la Web Oficial</a>
-                    <a href="ruta/al/documento-rpie.pdf" download class="btn-tool">Descargar Marco Legal (PDF)</a>
-                </div>
+                <a href="rpie-detalle.html" class="btn-rpie-cta">Conocé más sobre el RPIE &rarr;</a>
             </div>
         </div>
     </section>
 
-    <!-- 6. REGIONES DE LA PROVINCIA -->
+    <!-- 6. REGIONES DE LA PROVINCIA CON FILTRADO INTERACTIVO DE SECTORES -->
     <section class="regiones-pba" id="regiones">
         <div class="container">
             <h2 class="section-title">Regiones de la Provincia</h2>
+            
+            <!-- BOTONES DE SECTORES ESTRATÉGICOS -->
+            <div class="sector-filter-container">
+                <div class="sector-filter-title">🔍 Pasá el mouse sobre un sector para ubicarlo en el mapa:</div>
+                <div class="sector-buttons-grid">
+                    <button class="sector-filter-btn" onmouseenter="highlightSector('automotriz')" onmouseleave="resetSector()">🚗 Automotriz y Autopartes</button>
+                    <button class="sector-filter-btn" onmouseenter="highlightSector('petroquimica')" onmouseleave="resetSector()">⛽ Petroquímica y Refinería</button>
+                    <button class="sector-filter-btn" onmouseenter="highlightSector('metalmecanica')" onmouseleave="resetSector()">⚙️ Metalmecánica y Siderurgia</button>
+                    <button class="sector-filter-btn" onmouseenter="highlightSector('it')" onmouseleave="resetSector()">💻 Polos Tecnológicos e IT</button>
+                    <button class="sector-filter-btn" onmouseenter="highlightSector('agroindustria')" onmouseleave="resetSector()">🌾 Agroindustria y Alimentos</button>
+                    <button class="sector-filter-btn" onmouseenter="highlightSector('textil')" onmouseleave="resetSector()">🧵 Textil e Indumentaria</button>
+                    <button class="sector-filter-btn" onmouseenter="highlightSector('turismo')" onmouseleave="resetSector()">🏖️ Turismo</button>
+                    <button class="sector-filter-btn" onmouseenter="highlightSector('naval')" onmouseleave="resetSector()">⚓ Naval y Pesquera</button>
+                </div>
+            </div>
+
             <div class="regiones-grid">
+                <!-- COLUMNA MAPA CON CAPAS DE RESALTADO -->
                 <div class="regiones-col-mapa">
                     <div class="mapa-regiones-container">
-                        <img src="mapa-regiones.png" alt="Mapa Regional de la Provincia de Buenos Aires" class="mapa-regiones-img" onerror="this.style.display='none'; this.parentNode.style.height='400px'; this.parentNode.style.position='relative'; this.parentNode.innerHTML='<span style=\'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;\'>[ Insertar Imagen del Mapa Regional aquí ]</span>'">
+                        <img src="mapa-regiones.png" alt="Mapa Regional de la Provincia de Buenos Aires" class="mapa-regiones-img" onerror="this.style.display='none'; this.parentNode.style.height='400px'; this.parentNode.style.position='relative'; this.parentNode.insertAdjacentHTML('afterbegin', '<span style=\'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;\'>[ Mapa Regional de Buenos Aires ]</span>')">
+                        
+                        <!-- Capas Interactivas del Mapa -->
+                        <div id="map-zone-amba" class="map-region-highlight">AMBA</div>
+                        <div id="map-zone-centronorte" class="map-region-highlight">Centro Norte</div>
+                        <div id="map-zone-centro" class="map-region-highlight">Centro</div>
+                        <div id="map-zone-costa" class="map-region-highlight">Costa Atlántica</div>
+                        <div id="map-zone-sur" class="map-region-highlight">Sur</div>
                     </div>
                 </div>
                 
+                <!-- COLUMNA LISTA DE REGIONES -->
                 <div class="regiones-col-desc">
-                    <div class="region-item">
+                    <div class="region-item" id="region-amba" data-sectors="automotriz petroquimica metalmecanica it">
                         <h4>AMBA</h4>
                         <p><strong>AMBA Norte:</strong> Automotriz, autopartes, plásticos, polo tecnológico constituyentes.</p>
                         <p><strong>AMBA Sur:</strong> Polo refinería Dock Sud, polo petroquímica La Plata, polo IT La Plata, metalmecánica y servicios al petróleo.</p>
                         <p><strong>AMBA Interior (cordones hacia adentro):</strong> Metalmecánica y servicios al petróleo.</p>
                     </div>
-                    <div class="region-item">
+
+                    <div class="region-item" id="region-centronorte" data-sectors="metalmecanica petroquimica it agroindustria textil">
                         <h4>Centro Norte</h4>
                         <p><strong>Corredor rutas 8 y 9:</strong> complejo siderúrgico, metalmecánica, refinería, polos tecnológicos Junín y Pergamino.</p>
                         <p><strong>Corredor ruta 5:</strong> cadena maquinaria, agrícola, textil, confección.</p>    
                     </div>
-                    <div class="region-item">
+
+                    <div class="region-item" id="region-centro" data-sectors="metalmecanica it agroindustria">
                         <h4>Centro</h4>
                         <p><strong>Zona centro serrana:</strong> cemento, metalurgia, chacinados, polo informático Tandil, cluster tecnológico Olavarría.</p>
                         <p><strong>Centro oeste:</strong> lácteos, agroindustria, polos científico tecnológicos Trenque Lauquen y Coronel Suárez.</p>
                     </div>
-                    <div class="region-item">
+
+                    <div class="region-item" id="region-costa" data-sectors="turismo agroindustria textil it naval">
                         <h4>Costa Atlántica</h4>
                         <p><strong>La Costa:</strong> turismo, agroindustria.</p>
                         <p><strong>Gran Mar del Plata:</strong> polo textil confeccionista, polo IT, industria naval e industria pesquera.</p>
                     </div>
-                    <div class="region-item">
+
+                    <div class="region-item" id="region-sur" data-sectors="petroquimica it">
                         <h4>Sur</h4>
                         <p><strong>Gran Bahía Blanca:</strong> polo petroquímico, polo IT.</p>
                     </div>
@@ -1344,7 +1473,7 @@
         </div>
     </section>
 
-    <!-- 7. CURSOS Y HERRAMIENTAS (En reemplazo de Nuestros Servicios) -->
+    <!-- 7. CURSOS Y HERRAMIENTAS -->
     <section class="cursos-herramientas" id="cursos-herramientas">
         <div class="container">
             <h2 class="section-title">Cursos y Herramientas</h2>
@@ -1356,27 +1485,22 @@
                 <div class="curso-subcard">
                     <h3>Formación y Capacitaciones</h3>
                     <p>Programas de formación continua y talleres prácticos orientados al acompañamiento integral de las empresas en sus proyectos de inversión y procesos de internacionalización.</p>
-                    <div>
-                        <a href="Capacitaciones.html" class="btn-tool">Ver Cursos</a>
-                    </div>
                 </div>
 
                 <div class="curso-subcard">
                     <h3>Información Estratégica</h3>
                     <p>Acceso consolidado a regulaciones vigentes, guías normativas de trámites, asistencia técnica e informes sectoriales especializados de inversión y exportación.</p>
-                    <div>
-                        <a href="Informacion.html" class="btn-tool">Acceder a Guías</a>
-                    </div>
                 </div>
 
                 <div class="curso-subcard">
                     <h3>Monitor de Inversiones y Comercio Exterior</h3>
                     <p>Herramienta interactiva para el seguimiento de anuncios de inversión, fusiones & adquisiciones y reportes periódicos de comercio exterior en la provincia.</p>
-                    <div>
-                        <a href="Monitor.html" class="btn-tool">Consultar Monitor</a>
-                    </div>
                 </div>
 
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="Herramientas.html" class="btn btn-tool" style="padding: 12px 35px; font-size: 1rem;">Ver Cursos y Herramientas</a>
             </div>
         </div>
     </section>
@@ -1468,6 +1592,48 @@
 
             const porcentaje = (100 / cardsPorVista) + (20 / cardsPorVista); 
             sectoresTrack.style.transform = `translateX(-${sectorIndex * porcentaje}%)`;
+        }
+
+        /* LÓGICA DE RESALTADO INTERACTIVO: SECTORES -> MAPA Y REGIONES */
+        const mapZoneIds = {
+            'region-amba': 'map-zone-amba',
+            'region-centronorte': 'map-zone-centronorte',
+            'region-centro': 'map-zone-centro',
+            'region-costa': 'map-zone-costa',
+            'region-sur': 'map-zone-sur'
+        };
+
+        function highlightSector(sector) {
+            const regionItems = document.querySelectorAll('.region-item');
+            
+            regionItems.forEach(item => {
+                const sectors = item.getAttribute('data-sectors').split(' ');
+                const zoneId = mapZoneIds[item.id];
+                const mapZone = document.getElementById(zoneId);
+
+                if (sectors.includes(sector)) {
+                    item.classList.add('highlighted');
+                    item.classList.remove('dimmed');
+                    if (mapZone) mapZone.classList.add('active');
+                } else {
+                    item.classList.remove('highlighted');
+                    item.classList.add('dimmed');
+                    if (mapZone) mapZone.classList.remove('active');
+                }
+            });
+        }
+
+        function resetSector() {
+            const regionItems = document.querySelectorAll('.region-item');
+            const mapZones = document.querySelectorAll('.map-region-highlight');
+
+            regionItems.forEach(item => {
+                item.classList.remove('highlighted', 'dimmed');
+            });
+
+            mapZones.forEach(zone => {
+                zone.classList.remove('active');
+            });
         }
 
         /* Control de Modals */
