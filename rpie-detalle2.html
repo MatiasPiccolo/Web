@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPIE - Régimen Provincial de Inversiones Estratégicas | PBA</title>
     <style>
-        /* Variables e Identidad Visual GBA (Coincidente con la página principal) */
+        /* Variables e Identidad Visual GBA */
         :root {
             --azul-institucional: #0056b3;
             --azul-oscuro: #003670;
@@ -183,6 +183,37 @@
             margin-bottom: 15px;
             font-size: 1.05rem;
             color: var(--gris-oscuro);
+        }
+
+        /* Estilos para lista de pasos */
+        .steps-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .steps-list li {
+            position: relative;
+            padding-left: 45px;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .steps-list li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--azul-institucional);
+            color: var(--blanco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
         }
 
         /* Cards de Beneficios */
@@ -363,15 +394,23 @@
         <div class="container">
             <div class="grid-2col">
                 
-                <!-- COLUMNA PRINCIPAL: DETALLES -->
+                <!-- COLUMNA PRINCIPAL: RESPUESTAS DETALLADAS -->
                 <div class="main-info">
                     
+                    <!-- 1. ¿Qué es el RPIE? -->
                     <div class="info-block">
                         <h2 class="section-title-sub">¿Qué es el RPIE?</h2>
                         <p>El Régimen Provincial de Inversiones Estratégicas (RPIE) es la herramienta del Gobierno de la Provincia de Buenos Aires creada para atraer, acompañar y consolidar proyectos de inversión que generen un impacto estructural en el desarrollo provincial.</p>
                         <p>Brinda previsibilidad técnica, jurídica e incentivos fiscales a las empresas que realicen proyectos productivos, industriales o de servicios estratégicos en el territorio bonaerense.</p>
                     </div>
 
+                    <!-- 2. ¿Quiénes pueden acceder? -->
+                    <div class="info-block">
+                        <h2 class="section-title-sub">¿Quiénes pueden acceder?</h2>
+                        <p>Pueden acceder todas aquellas personas humanas o jurídicas que ejecuten o se comprometan a ejecutar proyectos productivos, industriales o de servicios estratégicos dentro del territorio de la Provincia de Buenos Aires, cumpliendo con los montos de inversión requeridos y las condiciones fijadas por la normativa vigente.</p>
+                    </div>
+
+                    <!-- 3. Ejes y Beneficios Clave -->
                     <div class="info-block">
                         <h2 class="section-title-sub">Ejes y Beneficios Clave</h2>
                         <div class="benefits-grid">
@@ -394,6 +433,18 @@
                         </div>
                     </div>
 
+                    <!-- 4. ¿Cómo realizar la solicitud? -->
+                    <div class="info-block">
+                        <h2 class="section-title-sub">¿Cómo realizar la solicitud?</h2>
+                        <ol class="steps-list" style="counter-reset: step-counter;">
+                            <li><strong>Acceder al Portal:</strong> Ingresá al sitio oficial del régimen o al sistema de gestión de trámites de la Provincia.</li>
+                            <li><strong>Verificar Requisitos:</strong> Revisá la normativa y asegurate de que tu proyecto encaje en los ejes estratégicos estipulados.</li>
+                            <li><strong>Presentar la Documentación:</strong> Completá el formulario de solicitud adjuntando el plan de inversiones, impacto técnico y estimación de empleo local.</li>
+                            <li><strong>Evaluación Provincial:</strong> El Ministerio de Producción evalúa la propuesta y dicta el acto administrativo correspondiente para el otorgamiento de los beneficios.</li>
+                        </ol>
+                    </div>
+
+                    <!-- 5. Registro de Proveedores -->
                     <div class="info-block">
                         <h2 class="section-title-sub">Registro de Proveedores</h2>
                         <p>Para potenciar el impacto en la economía local, el RPIE impulsa la integración de cadenas de valor bonaerenses. Si sos una PyME o empresa proveedora de la provincia, podés formar parte del registro para vincularte con los grandes proyectos de inversión aprobados.</p>
@@ -401,7 +452,7 @@
 
                 </div>
 
-                <!-- COLUMNA LATERAL: ENLACES OFICIALES Y BROCHURE -->
+                <!-- COLUMNA LATERAL: ACCESOS DIRECTOS -->
                 <aside class="sidebar">
                     <h3>Accesos Directos</h3>
                     
