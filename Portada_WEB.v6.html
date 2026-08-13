@@ -888,10 +888,15 @@
             filter: grayscale(80%);
         }
 
-        /* 7. CURSOS Y HERRAMIENTAS */
+        /* 7. CURSOS Y ASISTENCIAS / INFORMACIÓN ESTRATÉGICA */
         .cursos-herramientas {
             padding: 80px 0;
             background-color: var(--blanco);
+        }
+
+        .cursos-herramientas.alt-bg {
+            background-color: var(--gris-claro);
+            border-top: 1px solid var(--borde-tarjeta);
         }
 
         .cursos-header-desc {
@@ -902,10 +907,12 @@
             font-size: 1.05rem;
         }
 
-        .cursos-grid {
+        .cursos-grid-2 {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .curso-subcard {
@@ -918,6 +925,10 @@
             display: flex;
             flex-direction: column;
             transition: all 0.3s ease;
+        }
+
+        .cursos-herramientas.alt-bg .curso-subcard {
+            background-color: var(--blanco);
         }
 
         .curso-subcard:hover {
@@ -1106,7 +1117,7 @@
             .sectores-foto-title-col, .sectores-banner-wrapper { width: 100%; }
             .sectores-foto-title-col h2::before { left: 50%; transform: translateX(-50%); }
             .sector-card-foto { min-width: calc(50% - 10px); }
-            .pba-exporta-grid, .cursos-grid { grid-template-columns: repeat(2, 1fr); }
+            .pba-exporta-grid { grid-template-columns: repeat(2, 1fr); }
             .regiones-grid { flex-direction: column; }
             .regiones-col-mapa, .regiones-col-desc { width: 100%; }
             .regiones-col-mapa { position: relative; top: 0; }
@@ -1114,7 +1125,7 @@
 
         @media (max-width: 768px) {
             .sector-card-foto { min-width: 100%; }
-            .pba-exporta-grid, .cursos-grid { grid-template-columns: 1fr; }
+            .pba-exporta-grid, .cursos-grid-2 { grid-template-columns: 1fr; }
             .pba-grid, .stats-row, .footer-grid { flex-direction: column !important; }
             .pba-col-left, .pba-col-right, .footer-info, .footer-links { width: 100% !important; text-align: center !important; }
             .hero-arrow { display: none; }
@@ -1473,14 +1484,14 @@
         </div>
     </section>
 
-    <!-- 7. CURSOS Y HERRAMIENTAS -->
-    <section class="cursos-herramientas" id="cursos-herramientas">
+    <!-- 7. CURSOS Y ASISTENCIAS -->
+    <section class="cursos-herramientas" id="cursos-asistencias">
         <div class="container">
-            <h2 class="section-title">Cursos y Herramientas</h2>
+            <h2 class="section-title">Cursos y Asistencias</h2>
             <p class="cursos-header-desc">
-                Accedé a nuestros programas formativos, recursos técnicos y herramientas de análisis estratégico para potenciar el desarrollo de tu empresa.
+                Accedé a nuestros programas formativos y recursos de soporte técnico orientados a potenciar el crecimiento y desarrollo de tu empresa.
             </p>
-            <div class="cursos-grid">
+            <div class="cursos-grid-2">
                 
                 <div class="curso-subcard">
                     <h3>Formación y Capacitaciones</h3>
@@ -1488,19 +1499,41 @@
                 </div>
 
                 <div class="curso-subcard">
-                    <h3>Información Estratégica</h3>
-                    <p>Acceso consolidado a regulaciones vigentes, guías normativas de trámites, asistencia técnica e informes sectoriales especializados de inversión y exportación.</p>
+                    <h3>Asistencia Técnica</h3>
+                    <p>Acompañamiento especializado e integral para optimizar procesos productivos, adecuación normativa y desarrollo de proyectos estratégicos.</p>
+                </div>
+
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="Herramientas.html" class="btn btn-tool" style="padding: 12px 35px; font-size: 1rem;">Ver más</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. INFORMACIÓN ESTRATÉGICA -->
+    <section class="cursos-herramientas alt-bg" id="informacion-estrategica">
+        <div class="container">
+            <h2 class="section-title">Información Estratégica</h2>
+            <p class="cursos-header-desc">
+                Herramientas clave y análisis detallados para guiar decisiones de inversión y potenciar las capacidades exportadoras en la provincia.
+            </p>
+            <div class="cursos-grid-2">
+                
+                <div class="curso-subcard">
+                    <h3>Guías de trámites e incentivos</h3>
+                    <p>Acceso consolidado a regulaciones vigentes, guías normativas de trámites, incentivos fiscales y marcos legales para inversiones.</p>
                 </div>
 
                 <div class="curso-subcard">
-                    <h3>Monitor de Inversiones y Comercio Exterior</h3>
+                    <h3>Monitor de inversiones y comercio exterior</h3>
                     <p>Herramienta interactiva para el seguimiento de anuncios de inversión, fusiones & adquisiciones y reportes periódicos de comercio exterior en la provincia.</p>
                 </div>
 
             </div>
 
             <div style="text-align: center; margin-top: 40px;">
-                <a href="Herramientas.html" class="btn btn-tool" style="padding: 12px 35px; font-size: 1rem;">Ver Cursos y Herramientas</a>
+                <a href="Herramientas.html" class="btn btn-tool" style="padding: 12px 35px; font-size: 1rem;">Ver más</a>
             </div>
         </div>
     </section>
@@ -1544,7 +1577,8 @@
                     <a href="#sectores">Sectores</a>
                     <a href="#rpie">RPIE</a>
                     <a href="#regiones">Regiones</a>
-                    <a href="#cursos-herramientas">Cursos y Herramientas</a>
+                    <a href="#cursos-asistencias">Cursos y Asistencias</a>
+                    <a href="#informacion-estrategica">Información Estratégica</a>
                 </div>
             </div>
         </div>
