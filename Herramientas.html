@@ -303,110 +303,9 @@
             font-weight: bold;
         }
 
-        /* ----------------------------------------------------
-           3. SECCIÓN: FORMACIÓN Y CAPACITACIÓN (Grilla Asimétrica)
-           ---------------------------------------------------- */
-        .capacitacion-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 30px;
-            align-items: start;
-        }
-
-        .module-body {
-            padding: 20px;
-            font-size: 0.92rem;
-        }
-
-        .btn-modulo {
-            display: inline-block;
-            margin-top: 10px;
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-        }
-
-        .proyecto-card {
-            background-color: var(--gris-claro);
-            border: 1px solid var(--borde-linea);
-            border-top: 4px solid var(--celeste-gba);
-            border-radius: 8px;
-            padding: 25px;
-        }
-
-        .proyecto-card h3 {
-            font-size: 1.1rem;
-            color: var(--azul-oscuro);
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .proyecto-card .badge {
-            display: inline-block;
-            background-color: #e0f2fe;
-            color: #0369a1;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .proyecto-card p { font-size: 0.9rem; margin-bottom: 10px; }
-
-        .alianza-texto {
-            font-size: 0.82rem;
-            color: var(--gris-medio);
-            font-style: italic;
-            border-left: 2px solid var(--borde-linea);
-            padding-left: 8px;
-            margin-bottom: 15px;
-        }
-
-        .proyecto-list {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 20px;
-        }
-
-        .proyecto-list li {
-            position: relative;
-            padding-left: 15px;
-            font-size: 0.85rem;
-            margin-bottom: 6px;
-        }
-
-        .proyecto-list li::before {
-            content: "•";
-            color: var(--celeste-gba);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .btn-inscription {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background-color: var(--azul-oscuro);
-            color: var(--blanco);
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-        }
-
         /* Responsividad general */
         @media (max-width: 992px) {
-            .estrategica-grid, .monitor-grid, .capacitacion-grid {
+            .estrategica-grid, .monitor-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -417,8 +316,8 @@
     <!-- ENCABEZADO INTEGRADO DE PÁGINA -->
     <header class="page-header">
         <div class="container">
-            <h1>Portal de Inversiones, Comercio Exterior y Formación</h1>
-            <p>Acceda de forma centralizada al marco normativo, los indicadores económicos del Monitor Provincial y las herramientas de capacitación para el desarrollo productivo e internacional.</p>
+            <h1>Portal de Inversiones y Comercio Exterior</h1>
+            <p>Acceda de forma centralizada al marco normativo y a los indicadores económicos del Monitor Provincial para el desarrollo productivo e internacional.</p>
         </div>
     </header>
 
@@ -632,89 +531,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ===================================================
-             SECCIÓN 3: FORMACIÓN Y CAPACITACIONES
-             =================================================== -->
-        <section class="main-section">
-            <h2 class="section-heading">🎓 Formación y Capacitaciones Productivas</h2>
-            
-            <div class="capacitacion-grid">
-                
-                <!-- Desplegables de Cursos COMEX -->
-                <div>
-                    <h3 style="color: var(--azul-oscuro); text-transform: uppercase; margin-bottom: 15px; font-size: 1.1rem;">Capacitaciones Comercio Exterior</h3>
-                    
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Capacitaciones Online COMEX para PyMEs
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="module-body">
-                                <p>Serie de talleres virtuales dictados por especialistas en comercio exterior, diseñados para fortalecer las capacidades internacionales de las PyMEs bonaerenses.</p>
-                                <a href="#" class="btn-modulo">Iniciar curso ahora</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Curso Presencial para PyMEs
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="module-body">
-                                <p>Talleres presenciales en articulación con Municipios para potenciar las capacidades locales mediante un espacio de aprendizaje directo.</p>
-                                <a href="#" class="btn-modulo">Consultar fechas</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Preguntas Frecuentes Exportación
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="module-body">
-                                <p>Guía de respuestas clave y pasos administrativos fundamentales para concretar tu primera exportación.</p>
-                                <a href="#" class="btn-modulo">Descargar Guía</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tarjeta Destacada Proyectos de Inversión -->
-                <div>
-                    <h3 style="color: var(--azul-oscuro); text-transform: uppercase; margin-bottom: 15px; font-size: 1.1rem;">Proyectos de Inversión</h3>
-                    
-                    <div class="proyecto-card">
-                        <span class="badge">Curso Técnico Especializado</span>
-                        <h3>Formulación y Evaluación de Proyectos de Inversión</h3>
-                        
-                        <p><strong>Dirigido a:</strong> PyMEs y agentes municipales con poca experiencia previa en preparación de carpetas técnicas de inversión.</p>
-                        
-                        <p class="alianza-texto">En conjunto con la Escuela de Economía y Gestión para el Desarrollo Local.</p>
-                        
-                        <p style="font-size: 0.85rem;">Brinda instrumentos técnicos para formular proyectos sólidos que permitan obtener financiamiento efectivo.</p>
-                        
-                        <ul class="proyecto-list">
-                            <li><strong>Mód. 1:</strong> Identificación de proyectos</li>
-                            <li><strong>Mód. 2:</strong> Estudio de mercado</li>
-                            <li><strong>Mód. 3:</strong> Estudio técnico y ambiental</li>
-                            <li><strong>Mód. 4:</strong> Análisis económico-financiero</li>
-                            <li><strong>Mód. 5:</strong> Herramientas de financiamiento</li>
-                            <li><strong>Mód. 6:</strong> Presentación y planificación</li>
-                        </ul>
-                        
-                        <a href="mailto:direcciondeinversionespba@gmail.com" class="btn-inscription">Convocatoria cerrada</a>
                     </div>
                 </div>
 
