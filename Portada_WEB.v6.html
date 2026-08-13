@@ -157,12 +157,12 @@
 
         .hero-track {
             display: flex;
-            width: 400%;
+            width: 500%; /* Ajustado para 5 slides */
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .hero-slide {
-            width: 25%;
+            width: 20%; /* Ajustado para 5 slides */
             padding: 90px 0;
             text-align: center;
             color: var(--blanco);
@@ -172,12 +172,38 @@
         .hero-slide:nth-child(2) {
             background: linear-gradient(135deg, #004085 0%, var(--azul-oscuro) 100%);
         }
+
+        /* Slide especial para el Flyer */
+        .hero-slide-flyer {
+            padding: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #020b18;
+        }
+
+        .flyer-container {
+            max-width: 600px;
+            width: 90%;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .flyer-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            max-height: 480px;
+        }
         
-        .hero-slide:nth-child(3) {
+        .hero-slide:nth-child(4) {
             background: linear-gradient(135deg, #001f3f 0%, #004085 100%);
         }
 
-        .hero-slide:nth-child(4) {
+        .hero-slide:nth-child(5) {
             background: linear-gradient(135deg, #002b54 0%, #001a38 100%);
         }
 
@@ -1170,8 +1196,15 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Slide 3: Flyer Misión Comercial a China (Solo Imagen Informativa) -->
+            <div class="hero-slide hero-slide-flyer">
+                <div class="flyer-container">
+                    <img src="flyer china.jpg" alt="Misión Comercial a China - Feria CIIE 2026" class="flyer-img">
+                </div>
+            </div>
             
-            <!-- Slide 3 -->
+            <!-- Slide 4 -->
             <div class="hero-slide">
                 <div class="container">
                     <h1>Régimen Provincial de Inversiones Estratégicas</h1>
@@ -1182,7 +1215,7 @@
                 </div>
             </div>
 
-            <!-- Slide 4 -->
+            <!-- Slide 5 -->
             <div class="hero-slide">
                 <div class="container">
                     <h1>DESTINO ESTRATÉGICO PARA LA INVERSIÓN</h1>
@@ -1199,6 +1232,7 @@
             <button class="hero-dot" onclick="irAHero(1)"></button>
             <button class="hero-dot" onclick="irAHero(2)"></button>
             <button class="hero-dot" onclick="irAHero(3)"></button>
+            <button class="hero-dot" onclick="irAHero(4)"></button>
         </div>
     </section>
 
@@ -1274,19 +1308,18 @@
 
             <div class="pba-exporta-grid">
                 <div class="pba-exporta-card">
-                    <h3>Rondas de Negocios</h3>
-                    <p>Rondas de negocios con importadores, misiones comerciales y participación en ferias internacionales para posicionar bienes y servicios bonaerenses en el mercado externo.</p>
+                    <h3>RONDAS DE NEGOCIOS Y FERIAS INTERNACIONALES</h3>
+                    <p>Conectamos a las empresas de la provincia con compradores internacionales de manera estratégica y efectiva. Participa con agendas de negocios personalizadas, valida tu oferta exportable y acelera la inserción de tus productos en los mercados globales.</p>
                     <div class="pba-exporta-actions">
-                        <a href="Promocion.html" class="btn-exporta">Inscribite acá!</a>
+                        <a href="Promocion.html" class="btn-exporta">Explorar +</a>
                     </div>
                 </div>
 
                 <div class="pba-exporta-card">
-                    <h3>Oferta Exportable y Catálogo Sectorial</h3>
-                    <p>Directorio integral y catálogos digitalizados que visibilizan el potencial productivo de las empresas bonaerenses ante compradores internacionales.</p>
+                    <h3>OFERTA EXPORTABLE</h3>
+                    <p>Directorio de la capacidad productiva provincial. Agrupa, potencia y visibiliza los bienes y servicios que nuestras empresas tienen listos para el mundo.</p>
                     <div class="pba-exporta-actions">
-                        <a href="#" class="btn-exporta">Inscribite al Catálogo</a>
-                        <a href="#" class="btn-exporta">Explorá la Oferta</a>
+                        <a href="#" class="btn-exporta">Explorar +</a>
                     </div>
                 </div>
             </div>
@@ -1506,7 +1539,6 @@
             </div>
 
             <div style="text-align: center; margin-top: 40px;">
-                <!-- Enlace corregido a Cursos.html -->
                 <a href="Cursos.html" class="btn btn-tool" style="padding: 12px 35px; font-size: 1rem;">Ver más</a>
             </div>
         </div>
@@ -1534,7 +1566,6 @@
             </div>
 
             <div style="text-align: center; margin-top: 40px;">
-                <!-- Enlace corregido a Herramientas.html -->
                 <a href="Herramientas.html" class="btn btn-tool" style="padding: 12px 35px; font-size: 1rem;">Ver más</a>
             </div>
         </div>
@@ -1577,15 +1608,15 @@
     </footer>
 
     <script>
-        /* Carrusel Hero Principal */
+        /* Carrusel Hero Principal (Actualizado a 5 slides) */
         let indexHero = 0;
-        const totalHeroSlides = 4;
+        const totalHeroSlides = 5;
         const heroTrack = document.getElementById('heroTrack');
         const heroDots = document.querySelectorAll('.hero-dot');
 
         function actualizarHero() {
             if (heroTrack) {
-                heroTrack.style.transform = 'translateX(-' + (indexHero * 25) + '%)';
+                heroTrack.style.transform = 'translateX(-' + (indexHero * 20) + '%)';
                 heroDots.forEach((dot, i) => {
                     dot.classList.toggle('active', i === indexHero);
                 });
