@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro de Información, Monitor y Formación - PBA</title>
+    <title>Formación y Asistencia Técnica - PBA</title>
     <style>
-        /* Paleta de Colores Identidad GBA */
+        /* Paleta de Colores Identidad Institucional */
         :root {
             --azul-institucional: #0056b3;
             --azul-oscuro: #003670;
             --celeste-gba: #00aae4;
-            --gris-oscuro: #333333;
-            --gris-medio: #666666;
-            --gris-claro: #f8f9fa;
+            --gris-oscuro: #334155;
+            --gris-medio: #64748b;
+            --gris-claro: #f8fafc;
             --blanco: #ffffff;
-            --borde-linea: #cbd5e1;
+            --borde-linea: #e2e8f0;
+            --gris-boton: #334155;
         }
 
         * {
@@ -24,7 +25,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             color: var(--gris-oscuro);
             line-height: 1.6;
             background-color: var(--blanco);
@@ -32,189 +33,297 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Encabezado Principal de la Subpágina */
-        .page-header {
-            background-color: var(--gris-claro);
-            padding: 50px 0;
+        /* Encabezado Principal */
+        .main-header {
             text-align: center;
-            border-bottom: 1px solid #e2e8f0;
-            margin-bottom: 50px;
+            padding: 40px 0;
+            background-color: var(--gris-claro);
+            border-bottom: 1px solid var(--borde-linea);
+            margin-bottom: 40px;
         }
 
-        .page-header h1 {
-            font-size: 2.3rem;
+        .main-header h1 {
+            font-size: 2.2rem;
             color: var(--azul-oscuro);
             text-transform: uppercase;
+            font-weight: 800;
             margin-bottom: 15px;
             letter-spacing: -0.5px;
         }
 
-        .page-header p {
+        .main-header p {
             font-size: 1.1rem;
             color: var(--gris-medio);
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto;
-            line-height: 1.6;
         }
 
-        /* Títulos de Grandes Secciones */
-        .section-heading {
+        /* Títulos de Sub-secciones */
+        .section-title {
             font-size: 1.6rem;
             color: var(--azul-oscuro);
             text-transform: uppercase;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--celeste-gba);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .main-section {
-            margin-bottom: 60px;
-        }
-
-        /* ----------------------------------------------------
-           1. SECCIÓN: INFORMACIÓN ESTRATÉGICA (Tarjetas Fijas)
-           ---------------------------------------------------- */
-        .estrategica-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .info-block {
-            border: 1px solid var(--borde-linea);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-            background-color: var(--blanco);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .info-block-header {
-            background-color: var(--azul-oscuro);
-            color: var(--blanco);
-            padding: 16px;
-            font-size: 0.95rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            min-height: 60px;
+            margin-top: 30px;
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--celeste-gba);
+            padding-bottom: 8px;
             display: flex;
             align-items: center;
-        }
-
-        .info-block-content {
-            padding: 18px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex: 1;
-        }
-
-        .block-description {
-            font-size: 0.88rem;
-            color: var(--gris-medio);
-            margin-bottom: 15px;
-            border-bottom: 1px solid #f1f5f9;
-            padding-bottom: 10px;
-        }
-
-        .resource-list {
-            display: flex;
-            flex-direction: column;
             gap: 10px;
         }
 
-        .resource-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 10px;
-            background-color: var(--gris-claro);
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-        }
-
-        .resource-info {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            overflow: hidden;
-        }
-
-        .resource-tag {
-            font-size: 0.65rem;
-            font-weight: 800;
-            padding: 3px 6px;
-            border-radius: 4px;
+        .col-titulo {
+            font-size: 1.3rem;
+            color: var(--azul-oscuro);
             text-transform: uppercase;
-            flex-shrink: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--celeste-gba);
+            padding-bottom: 8px;
+            letter-spacing: 0.5px;
         }
 
-        .tag-pdf { background-color: #fee2e2; color: #991b1b; }
-        .tag-link { background-color: #e0f2fe; color: #0369a1; }
-
-        .resource-title {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--gris-oscuro);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        /* ==========================================================================
+           1. FORMACIÓN Y CAPACITACIONES (Grilla Asimétrica)
+           ========================================================================== */
+        .capacitacion-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: start;
+            margin-bottom: 50px;
         }
 
-        .btn-action-sm {
+        .comex-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Botón Módulo de Formación */
+        .btn-modulo {
+            display: inline-block;
+            background-color: var(--azul-institucional);
+            color: var(--blanco);
             text-decoration: none;
-            font-size: 0.75rem;
+            padding: 8px 20px;
+            border-radius: 4px;
             font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: background-color 0.2s;
+            border: 1px solid var(--azul-institucional);
+            margin-top: 10px;
+        }
+
+        .btn-modulo:hover {
+            background-color: var(--azul-oscuro);
+            border-color: var(--azul-oscuro);
+        }
+
+        /* Tarjeta Destacada Proyectos de Inversión */
+        .proyecto-card {
+            background-color: var(--gris-claro);
+            border: 1px solid var(--borde-linea);
+            border-top: 4px solid var(--celeste-gba);
+            border-radius: 8px;
+            padding: 30px 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .proyecto-card h3 {
+            font-size: 1.2rem;
+            color: var(--azul-oscuro);
+            text-transform: uppercase;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .proyecto-card .badge {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.75rem;
+            font-weight: 700;
             padding: 4px 10px;
             border-radius: 4px;
             text-transform: uppercase;
-            white-space: nowrap;
+            margin-bottom: 15px;
         }
 
-        .btn-download {
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
-        }
-
-        .btn-external {
-            background-color: var(--blanco);
+        .proyecto-card p {
+            font-size: 0.92rem;
             color: var(--gris-oscuro);
-            border: 1px solid var(--borde-linea);
+            margin-bottom: 15px;
         }
 
-        /* ----------------------------------------------------
-           2. SECCIÓN: MONITOR (Acordeones a 2 Columnas)
-           ---------------------------------------------------- */
-        .monitor-grid {
+        .proyecto-card .alianza-texto {
+            font-size: 0.85rem;
+            color: var(--gris-medio);
+            font-style: italic;
+            border-left: 2px solid var(--borde-linea);
+            padding-left: 10px;
+            margin-bottom: 18px;
+        }
+
+        .proyecto-card h4 {
+            font-size: 0.95rem;
+            color: var(--azul-oscuro);
+            text-transform: uppercase;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .proyecto-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 25px;
+        }
+
+        .proyecto-list li {
+            position: relative;
+            padding-left: 18px;
+            font-size: 0.88rem;
+            margin-bottom: 8px;
+            color: var(--gris-oscuro);
+        }
+
+        .proyecto-list li::before {
+            content: "•";
+            color: var(--celeste-gba);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* ==========================================================================
+           2. ASISTENCIA TÉCNICA (COMEX & INVERSIONES)
+           ========================================================================== */
+        .comex-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .comex-card {
+            background-color: var(--blanco);
+            border: 1px solid var(--borde-linea);
+            border-radius: 6px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            height: fit-content;
+            transition: all 0.3s ease;
+        }
+
+        .comex-card-trigger {
+            background: none;
+            border: none;
+            text-align: left;
+            width: 100%;
+            padding: 0;
+            cursor: pointer;
+            font-family: inherit;
+            display: block;
+            position: relative;
+        }
+
+        .comex-card-trigger .accordion-icon {
+            position: absolute;
+            right: 0;
+            top: 4px;
+            font-size: 0.75rem;
+            color: var(--gris-medio);
+            transition: transform 0.3s ease;
+        }
+
+        .comex-card.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .card-informe-detalle {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--celeste-gba);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .comex-card h3 {
+            font-size: 1.15rem;
+            color: var(--azul-oscuro);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.3;
+            padding-right: 15px;
+        }
+
+        .comex-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 8px;
+        }
+
+        .comex-list li {
+            position: relative;
+            padding-left: 15px;
+            font-size: 0.88rem;
+            color: var(--gris-oscuro);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .comex-list li::before {
+            content: "•";
+            color: var(--celeste-gba);
+            font-weight: bold;
+            font-size: 1.1rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .comex-action-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        /* ==========================================================================
+           COMPONENTES COMPARTIDOS (Acordeones Tradicionales y Botones)
+           ========================================================================== */
+        .inversiones-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 40px;
         }
 
         .accordion-block {
             border: 1px solid var(--borde-linea);
-            border-radius: 8px;
+            border-radius: 6px;
             overflow: hidden;
             background-color: var(--blanco);
-            margin-bottom: 15px;
         }
 
         .accordion-header {
             background-color: var(--azul-oscuro);
             color: var(--blanco);
             width: 100%;
-            padding: 15px 20px;
-            font-size: 0.95rem;
+            padding: 16px 20px;
+            font-size: 1.05rem;
             font-weight: 700;
             text-transform: uppercase;
             text-align: left;
@@ -235,178 +344,82 @@
             transition: transform 0.3s ease;
         }
 
-        .accordion-block.active .accordion-icon {
-            transform: rotate(180deg);
-        }
-
         .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
-            background-color: var(--blanco);
         }
 
         .accordion-block.active .accordion-content {
-            max-height: 1000px;
+            max-height: 800px;
+            transition: max-height 0.5s ease-in;
         }
 
-        .pdf-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 20px;
-            border-bottom: 1px solid #f1f5f9;
+        .accordion-block.active .accordion-header .accordion-icon {
+            transform: rotate(180deg);
         }
 
-        .pdf-row:last-child { border-bottom: none; }
-
-        .pdf-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .pdf-type-icon {
-            font-size: 0.75rem;
-            font-weight: bold;
-            padding: 3px 6px;
-            border-radius: 4px;
-        }
-
-        .icon-f-a { background-color: #e0f2fe; color: #0369a1; }
-        .icon-inv { background-color: #dcfce7; color: #15803d; }
-
-        .pdf-title {
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .pdf-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .btn-view {
-            font-size: 0.85rem;
-            color: var(--gris-oscuro);
-            text-decoration: none;
-        }
-
-        .btn-download-pdf {
-            background-color: #002347;
-            color: var(--blanco);
-            text-decoration: none;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.65rem;
-            font-weight: bold;
-        }
-
-        /* ----------------------------------------------------
-           3. SECCIÓN: FORMACIÓN Y CAPACITACIÓN (Grilla Asimétrica)
-           ---------------------------------------------------- */
-        .capacitacion-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 30px;
-            align-items: start;
-        }
-
-        .module-body {
+        .accordion-body {
             padding: 20px;
-            font-size: 0.92rem;
         }
 
-        .btn-modulo {
-            display: inline-block;
-            margin-top: 10px;
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-        }
-
-        .proyecto-card {
-            background-color: var(--gris-claro);
-            border: 1px solid var(--borde-linea);
-            border-top: 4px solid var(--celeste-gba);
-            border-radius: 8px;
-            padding: 25px;
-        }
-
-        .proyecto-card h3 {
-            font-size: 1.1rem;
-            color: var(--azul-oscuro);
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .proyecto-card .badge {
-            display: inline-block;
-            background-color: #e0f2fe;
-            color: #0369a1;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .proyecto-card p { font-size: 0.9rem; margin-bottom: 10px; }
-
-        .alianza-texto {
-            font-size: 0.82rem;
-            color: var(--gris-medio);
-            font-style: italic;
-            border-left: 2px solid var(--borde-linea);
-            padding-left: 8px;
-            margin-bottom: 15px;
-        }
-
-        .proyecto-list {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 20px;
-        }
-
-        .proyecto-list li {
-            position: relative;
-            padding-left: 15px;
-            font-size: 0.85rem;
-            margin-bottom: 6px;
-        }
-
-        .proyecto-list li::before {
-            content: "•";
-            color: var(--celeste-gba);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
+        .text-block-unificado {
+            font-size: 0.95rem;
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+            font-weight: 400;
         }
 
         .btn-inscription {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background-color: var(--azul-oscuro);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--gris-boton);
             color: var(--blanco);
             text-decoration: none;
-            padding: 10px;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 0.85rem;
+            padding: 12px 35px;
+            font-size: 0.9rem;
+            font-weight: 700;
             text-transform: uppercase;
+            border-radius: 4px;
+            transition: background-color 0.2s, color 0.2s;
+            border: 1px solid var(--gris-boton);
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+            text-align: center;
         }
 
-        /* Responsividad general */
+        .btn-inscription:hover {
+            background-color: var(--azul-oscuro);
+            border-color: var(--azul-oscuro);
+        }
+
+        /* Separador visual */
+        hr.divider {
+            border: 0;
+            height: 1px;
+            background: var(--borde-linea);
+            margin: 50px 0;
+        }
+
+        /* Ajustes Responsivos */
+        @media (max-width: 1100px) {
+            .comex-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 992px) {
-            .estrategica-grid, .monitor-grid, .capacitacion-grid {
+            .capacitacion-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .comex-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -414,304 +427,94 @@
 </head>
 <body>
 
-    <!-- ENCABEZADO INTEGRADO DE PÁGINA -->
-    <header class="page-header">
+    <!-- ENCABEZADO UNIFICADO -->
+    <header class="main-header">
         <div class="container">
-            <h1>Portal de Inversiones, Comercio Exterior y Formación</h1>
-            <p>Acceda de forma centralizada al marco normativo, los indicadores económicos del Monitor Provincial y las herramientas de capacitación para el desarrollo productivo e internacional.</p>
+            <h1>Formación, Capacitaciones y Asistencia Técnica</h1>
+            <p>Recursos, programas de formación y herramientas de asistencia técnica integral para acompañar el desarrollo de las empresas y fortalecer el entramado productivo bonaerense.</p>
         </div>
     </header>
 
     <main class="container">
 
         <!-- ===================================================
-             SECCIÓN 1: INFORMACIÓN ESTRATÉGICA Y REGÍMENES
+             1. SECCIÓN: FORMACIÓN Y CAPACITACIONES
              =================================================== -->
-        <section class="main-section">
-            <h2 class="section-heading">📌 Información Estratégica y Marcos Regulatorios</h2>
-            
-            <div class="estrategica-grid">
-                
-                <!-- Bloque 1 -->
-                <div class="info-block">
-                    <div class="info-block-header">Régimen de Promoción (RPIE)</div>
-                    <div class="info-block-content">
-                        <p class="block-description">Marco normativo y legal detallado que regula los incentivos y las garantías para las inversiones en el territorio provincial.</p>
-                        <div class="resource-list">
-                            <div class="resource-item">
-                                <div class="resource-info">
-                                    <span class="resource-tag tag-pdf">PDF</span>
-                                    <span class="resource-title">Texto Completo del Régimen</span>
-                                </div>
-                                <a href="#" download class="btn-action-sm btn-download">Descargar</a>
-                            </div>
-                            <div class="resource-item">
-                                <div class="resource-info">
-                                    <span class="resource-tag tag-link">Link</span>
-                                    <span class="resource-title">Plataforma de Tramitación</span>
-                                </div>
-                                <a href="#" target="_blank" class="btn-action-sm btn-external">Acceder</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <section>
+            <h2 class="section-title">🎓 Formación y Capacitaciones</h2>
 
-                <!-- Bloque 2 -->
-                <div class="info-block">
-                    <div class="info-block-header">Guías de Trámites y Registros</div>
-                    <div class="info-block-content">
-                        <p class="block-description">Manuales prácticos paso a paso para la habilitación de establecimientos y cumplimiento de normativas locales.</p>
-                        <div class="resource-list">
-                            <div class="resource-item">
-                                <div class="resource-info">
-                                    <span class="resource-tag tag-pdf">PDF</span>
-                                    <span class="resource-title">Radicación e Industria</span>
-                                </div>
-                                <a href="#" download class="btn-action-sm btn-download">Descargar</a>
-                            </div>
-                            <div class="resource-item">
-                                <div class="resource-info">
-                                    <span class="resource-tag tag-pdf">PDF</span>
-                                    <span class="resource-title">Registros Ambientales</span>
-                                </div>
-                                <a href="#" download class="btn-action-sm btn-download">Descargar</a>
-                            </div>
-                            <div class="resource-item">
-                                <div class="resource-info">
-                                    <span class="resource-tag tag-pdf">PDF</span>
-                                    <span class="resource-title">Habilitación Municipal</span>
-                                </div>
-                                <a href="#" download class="btn-action-sm btn-download">Descargar</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bloque 3 -->
-                <div class="info-block">
-                    <div class="info-block-header">Guía de Incentivos y Programas</div>
-                    <div class="info-block-content">
-                        <p class="block-description">Resumen de beneficios fiscales, subsidios de tasas y programas de financiamiento activos para sectores estratégicos.</p>
-                        <div class="resource-list">
-                            <div class="resource-item">
-                                <div class="resource-info">
-                                    <span class="resource-tag tag-pdf">PDF</span>
-                                    <span class="resource-title">Exenciones Impositivas</span>
-                                </div>
-                                <a href="#" download class="btn-action-sm btn-download">Descargar</a>
-                            </div>
-                            <div class="resource-item">
-                                <div class="resource-info">
-                                    <span class="resource-tag tag-pdf">PDF</span>
-                                    <span class="resource-title">Líneas de Crédito Productivo</span>
-                                </div>
-                                <a href="#" download class="btn-action-sm btn-download">Descargar</a>
-                            </div>
-                            <div class="resource-item">
-                                <div class="resource-info">
-                                    <span class="resource-tag tag-pdf">PDF</span>
-                                    <span class="resource-title">Incentivos al Empleo</span>
-                                </div>
-                                <a href="#" download class="btn-action-sm btn-download">Descargar</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ===================================================
-             SECCIÓN 2: MONITOR DE INVERSIONES Y COMEX
-             =================================================== -->
-        <section class="main-section">
-            <h2 class="section-heading">📊 Monitor de Inversiones y Comercio Exterior</h2>
-            <p style="margin-bottom: 25px; color: var(--gris-medio);">A partir del seguimiento de anuncios de inversión y del procesamiento de datos de exportaciones provinciales, desarrollamos indicadores para analizar la dinámica productiva de la provincia.</p>
-            
-            <div class="monitor-grid">
-                
-                <!-- Columna 1: Informes Trimestrales -->
-                <div>
-                    <div class="accordion-block active">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Anuncios de Inversión (Trimestrales)
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="pdf-row">
-                                <div class="pdf-info">
-                                    <span class="pdf-type-icon icon-inv">📊</span>
-                                    <span class="pdf-title">Informe Anuncios Inversión - 2° Trimestre 2024</span>
-                                </div>
-                                <div class="pdf-actions">
-                                    <a href="#" target="_blank" class="btn-view">Ver</a>
-                                    <a href="#" download class="btn-download-pdf">PDF</a>
-                                </div>
-                            </div>
-                            <div class="pdf-row">
-                                <div class="pdf-info">
-                                    <span class="pdf-type-icon icon-inv">📊</span>
-                                    <span class="pdf-title">Informe Anuncios Inversión - 1° Trimestre 2024</span>
-                                </div>
-                                <div class="pdf-actions">
-                                    <a href="#" target="_blank" class="btn-view">Ver</a>
-                                    <a href="#" download class="btn-download-pdf">PDF</a>
-                                </div>
-                            </div>
-                            <div class="pdf-row">
-                                <div class="pdf-info">
-                                    <span class="pdf-type-icon icon-inv">📊</span>
-                                    <span class="pdf-title">Informe Anuncios Inversión - 4° Trimestre 2023</span>
-                                </div>
-                                <div class="pdf-actions">
-                                    <a href="#" target="_blank" class="btn-view">Ver</a>
-                                    <a href="#" download class="btn-download-pdf">PDF</a>
-                                </div>
-                            </div>
-                            <div class="pdf-row">
-                                <div class="pdf-info">
-                                    <span class="pdf-type-icon icon-inv">📊</span>
-                                    <span class="pdf-title">Informe Anuncios Inversión - 1° Trimestre 2023</span>
-                                </div>
-                                <div class="pdf-actions">
-                                    <a href="#" target="_blank" class="btn-view">Ver</a>
-                                    <a href="#" download class="btn-download-pdf">PDF</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Columna 2: Fusiones y Adquisiciones -->
-                <div>
-                    <div class="accordion-block active">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Anuncios de Fusiones y Adquisiciones (M&A)
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="pdf-row">
-                                <div class="pdf-info">
-                                    <span class="pdf-type-icon icon-f-a">M&A</span>
-                                    <span class="pdf-title">Segundo semestre 2022</span>
-                                </div>
-                                <div class="pdf-actions">
-                                    <a href="#" target="_blank" class="btn-view">Ver</a>
-                                    <a href="#" download class="btn-download-pdf">PDF</a>
-                                </div>
-                            </div>
-                            <div class="pdf-row">
-                                <div class="pdf-info">
-                                    <span class="pdf-type-icon icon-f-a">M&A</span>
-                                    <span class="pdf-title">Primer semestre 2022</span>
-                                </div>
-                                <div class="pdf-actions">
-                                    <a href="#" target="_blank" class="btn-view">Ver</a>
-                                    <a href="#" download class="btn-download-pdf">PDF</a>
-                                </div>
-                            </div>
-                            <div class="pdf-row">
-                                <div class="pdf-info">
-                                    <span class="pdf-type-icon icon-f-a">M&A</span>
-                                    <span class="pdf-title">Segundo semestre 2021</span>
-                                </div>
-                                <div class="pdf-actions">
-                                    <a href="#" target="_blank" class="btn-view">Ver</a>
-                                    <a href="#" download class="btn-download-pdf">PDF</a>
-                                </div>
-                            </div>
-                            <div class="pdf-row">
-                                <div class="pdf-info">
-                                    <span class="pdf-type-icon icon-f-a">M&A</span>
-                                    <span class="pdf-title">Primer semestre 2021</span>
-                                </div>
-                                <div class="pdf-actions">
-                                    <a href="#" target="_blank" class="btn-view">Ver</a>
-                                    <a href="#" download class="btn-download-pdf">PDF</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ===================================================
-             SECCIÓN 3: FORMACIÓN Y CAPACITACIONES
-             =================================================== -->
-        <section class="main-section">
-            <h2 class="section-heading">🎓 Formación y Capacitaciones Productivas</h2>
-            
             <div class="capacitacion-grid">
                 
-                <!-- Desplegables de Cursos COMEX -->
+                <!-- Columna Izquierda: Capacitaciones COMEX -->
                 <div>
-                    <h3 style="color: var(--azul-oscuro); text-transform: uppercase; margin-bottom: 15px; font-size: 1.1rem;">Capacitaciones Comercio Exterior</h3>
+                    <h3 class="col-titulo">Capacitaciones COMEX</h3>
                     
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Capacitaciones Online COMEX para PyMEs
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="module-body">
-                                <p>Serie de talleres virtuales dictados por especialistas en comercio exterior, diseñados para fortalecer las capacidades internacionales de las PyMEs bonaerenses.</p>
-                                <a href="#" class="btn-modulo">Iniciar curso ahora</a>
+                    <div class="comex-container">
+                        
+                        <div class="accordion-block">
+                            <button class="accordion-header" onclick="toggleAccordion(this)">
+                                Capacitaciones Online en Comercio Exterior para PyMEs Bonaerenses
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-body">
+                                    <p>Serie de talleres virtuales dictados por especialistas en comercio exterior, diseñados para fortalecer las capacidades internacionales de las pequeñas y medianas empresas de la provincia.</p>
+                                    <a href="#" class="btn-modulo">Iniciar curso ahora</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Curso Presencial para PyMEs
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="module-body">
-                                <p>Talleres presenciales en articulación con Municipios para potenciar las capacidades locales mediante un espacio de aprendizaje directo.</p>
-                                <a href="#" class="btn-modulo">Consultar fechas</a>
+                        <div class="accordion-block">
+                            <button class="accordion-header" onclick="toggleAccordion(this)">
+                                Curso presencial para pymes
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-body">
+                                    <p>Serie de talleres presenciales en articulación con Municipios, pensado para potenciar las capacidades de las pequeñas y medianas empresas locales mediante un espacio de aprendizaje directo con especialistas, fomentando el intercambio de experiencias.</p>
+                                    <a href="#" class="btn-modulo">Consultar</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="accordion-block">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            Preguntas Frecuentes Exportación
-                            <span class="accordion-icon">▼</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="module-body">
-                                <p>Guía de respuestas clave y pasos administrativos fundamentales para concretar tu primera exportación.</p>
-                                <a href="#" class="btn-modulo">Descargar Guía</a>
+                        <div class="accordion-block">
+                            <button class="accordion-header" onclick="toggleAccordion(this)">
+                                Preguntas frecuentes
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-body">
+                                    <p>Respuestas claves para tu primera exportación.</p>
+                                    <a href="#" class="btn-modulo">Descargar material</a>
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
-                <!-- Tarjeta Destacada Proyectos de Inversión -->
+                <!-- Columna Derecha: Proyectos de Inversión -->
                 <div>
-                    <h3 style="color: var(--azul-oscuro); text-transform: uppercase; margin-bottom: 15px; font-size: 1.1rem;">Proyectos de Inversión</h3>
+                    <h3 class="col-titulo">Proyectos de Inversión</h3>
                     
                     <div class="proyecto-card">
                         <span class="badge">Curso Técnico Especializado</span>
-                        <h3>Formulación y Evaluación de Proyectos de Inversión</h3>
+                        <h3>Curso de Formulación y Evaluación de Proyectos de Inversión</h3>
                         
-                        <p><strong>Dirigido a:</strong> PyMEs y agentes municipales con poca experiencia previa en preparación de carpetas técnicas de inversión.</p>
+                        <p><strong>Dirigido a:</strong> PyMEs y agentes municipales con poca o ninguna experiencia en la preparación de carpetas de proyectos de inversión.</p>
                         
-                        <p class="alianza-texto">En conjunto con la Escuela de Economía y Gestión para el Desarrollo Local.</p>
+                        <p class="alianza-texto">Actividad realizada en conjunto con la Escuela de Economía y Gestión para el Desarrollo Local.</p>
                         
-                        <p style="font-size: 0.85rem;">Brinda instrumentos técnicos para formular proyectos sólidos que permitan obtener financiamiento efectivo.</p>
+                        <p>Busca concientizar, sensibilizar y brindar instrumentos técnicos sobre la importancia de una correcta formulación, tanto con fines de tener una evaluación positiva para conseguir financiamiento, como para implementar la adecuada planificación de un proyecto de inversión.</p>
                         
+                        <h4>Contenidos:</h4>
                         <ul class="proyecto-list">
-                            <li><strong>Mód. 1:</strong> Identificación de proyectos</li>
-                            <li><strong>Mód. 2:</strong> Estudio de mercado</li>
-                            <li><strong>Mód. 3:</strong> Estudio técnico y ambiental</li>
-                            <li><strong>Mód. 4:</strong> Análisis económico-financiero</li>
-                            <li><strong>Mód. 5:</strong> Herramientas de financiamiento</li>
-                            <li><strong>Mód. 6:</strong> Presentación y planificación</li>
+                            <li><strong>Módulo 1:</strong> Introducción: ¿Cómo identificar un proyecto de inversión?</li>
+                            <li><strong>Módulo 2:</strong> ¿Cómo hacer el estudio de mercado de mi proyecto?</li>
+                            <li><strong>Módulo 3:</strong> El estudio técnico y ambiental</li>
+                            <li><strong>Módulo 4:</strong> Estudio económico-financiero</li>
+                            <li><strong>Módulo 5:</strong> Herramientas de financiamiento</li>
+                            <li><strong>Módulo 6:</strong> Presentación y planificación de proyectos de inversión</li>
                         </ul>
                         
                         <a href="mailto:direcciondeinversionespba@gmail.com" class="btn-inscription">Convocatoria cerrada</a>
@@ -721,17 +524,174 @@
             </div>
         </section>
 
+        <hr class="divider">
+
+        <!-- ===================================================
+             2. SECCIÓN: SERVICIOS DE ASISTENCIA TÉCNICA
+             =================================================== -->
+        <section>
+            <h2 class="section-title">🛠️ Servicios de Asistencia Técnica</h2>
+
+            <!-- Asistencia Técnica COMEX -->
+            <h3 class="col-titulo" style="margin-top: 20px;">Asistencia Técnica en Comercio Exterior</h3>
+            
+            <div class="comex-grid">
+                
+                <!-- Informe 1 -->
+                <div class="comex-card">
+                    <button class="comex-card-trigger" onclick="toggleCardAccordion(this)">
+                        <div class="card-informe-detalle">1er informe</div>
+                        <h3>Diagnóstico, Tratamiento arancelario y Precio FOB</h3>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body" style="padding: 10px 0 0 0;">
+                            <ul class="comex-list">
+                                <li>Análisis integral de la empresa que abarca su proceso productivo, los canales de comercialización y su experiencia previa en comercio internacional.</li>
+                                <li>Evaluación estratégica (FODA) para evaluar el funcionamiento de la organización y su oferta, con el objetivo de identificar el producto o servicio que tenga el mayor potencial exportador.</li>
+                                <li>Se define la posición arancelaria de cada producto seleccionado y se determina su tratamiento aduanero correspondiente.</li>
+                                <li>Se confecciona el precio de exportación definitivo, contemplando cada uno de los costos asociados a la operación.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informe 2 -->
+                <div class="comex-card">
+                    <button class="comex-card-trigger" onclick="toggleCardAccordion(this)">
+                        <div class="card-informe-detalle">2do informe</div>
+                        <h3>Destinos posibles de exportación</h3>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body" style="padding: 10px 0 0 0;">
+                            <p style="font-size: 0.9rem; color: var(--gris-medio); margin-bottom: 10px;">Se eligen los mercados de exportación más adecuados para la oferta de la empresa. Para definir estos destinos, se consideran variables clave como:</p>
+                            <ul class="comex-list">
+                                <li>Cercanía geográfica y lazos culturales.</li>
+                                <li>Indicadores económicos (PBI per cápita, nivel de importación y cuota de mercado).</li>
+                                <li>Barreras y normativas (requisitos de ingreso y niveles arancelarios).</li>
+                            </ul>
+                            <p style="font-size: 0.9rem; color: var(--gris-medio); margin-top: 10px;">Con todos estos criterios ponderados, se elabora una Matriz de Selectividad para determinar cuáles son los mercados más estratégicos para el negocio.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informe 3 -->
+                <div class="comex-card">
+                    <button class="comex-card-trigger" onclick="toggleCardAccordion(this)">
+                        <div class="card-informe-detalle">3er informe</div>
+                        <h3>Estudio de mercado sobre un posible destino</h3>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body" style="padding: 10px 0 0 0;">
+                            <ul class="comex-list">
+                                <li>Se elabora un informe detallado que contempla el panorama económico, demográfico, la situación del sector, el comportamiento de la competencia y el comercio bilateral.</li>
+                                <li>El documento aporta de manera específica las normativas y los requisitos de ingreso exigidos para el producto en el mercado de destino.</li>
+                                <li>Incluye información práctica clave, como precios de referencia en plaza y datos de contacto de potenciales contrapartes para la negociación.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informe 4 -->
+                <div class="comex-card">
+                    <button class="comex-card-trigger" onclick="toggleCardAccordion(this)">
+                        <div class="card-informe-detalle">4to informe</div>
+                        <h3>Plan de exportación</h3>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body" style="padding: 10px 0 0 0;">
+                            <ul class="comex-list">
+                                <li>El informe final funciona como una herramienta práctica para que la empresa transforme toda la planificación previa en acciones concretas.</li>
+                                <li>Se evalúan los canales de comunicación y las planillas destinadas a la activación y el seguimiento de potenciales clientes.</li>
+                                <li>Se elabora formalmente la propuesta comercial junto con la estrategia de fijación de precios.</li>
+                                <li>Se diseña un cronograma de actividades para ordenar y ejecutar los pasos a seguir.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="comex-action-container">
+                <a href="#" class="btn-inscription" style="width: auto; padding: 12px 45px;">Inscripción</a>
+            </div>
+
+            <!-- Asistencia Técnica Inversiones -->
+            <h3 class="col-titulo">Asistencia Técnica en Inversiones</h3>
+            
+            <div class="inversiones-container">
+
+                <div class="accordion-block active">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Diagnóstico
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p class="text-block-unificado">
+                                Orientada a brindar asistencia integral en la formulación de proyectos de inversión. Contempla los estudios de mercado, el análisis técnico y operativo, los análisis normativos respectivos y el plan económico financiero.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-block">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Asistencia Técnica en Identificación y Diagnóstico de Proyectos de Inversión
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p class="text-block-unificado">
+                                Asistencia a PyMEs abocadas a presentarse en convocatorias de programas, líneas de financiamiento de la banca pública y/o privada o inversores estratégicos externos. Consiste en la realización de un diagnóstico para evaluar la factibilidad del proyecto, incluyendo la identificación del problema, las alternativas de solución o reorientación del proyecto, así como también la reunión, evaluación y análisis de la información económica-financiera sobre su viabilidad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <script>
+        // Función para los bloques de acordeón tradicionales
         function toggleAccordion(button) {
             const block = button.parentElement;
+            const content = button.nextElementSibling;
+            
+            block.classList.toggle('active');
+            
             if (block.classList.contains('active')) {
-                block.classList.remove('active');
+                content.style.maxHeight = content.scrollHeight + "px";
             } else {
-                block.classList.add('active');
+                content.style.maxHeight = null;
             }
         }
+
+        // Función para los cuadrantes de Asistencia Técnica COMEX
+        function toggleCardAccordion(button) {
+            const card = button.closest('.comex-card');
+            const content = button.nextElementSibling;
+            
+            card.classList.toggle('active');
+            
+            if (card.classList.contains('active')) {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.style.maxHeight = null;
+            }
+        }
+
+        // Inicializar elementos activos al cargar la página
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.accordion-block.active .accordion-content').forEach(content => {
+                content.style.maxHeight = content.scrollHeight + "px";
+            });
+        });
     </script>
 </body>
 </html>
