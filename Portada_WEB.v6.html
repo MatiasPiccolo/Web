@@ -157,12 +157,12 @@
 
         .hero-track {
             display: flex;
-            width: 300%;
+            width: 400%;
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .hero-slide {
-            width: 33.3333%;
+            width: 25%;
             padding: 90px 0;
             text-align: center;
             color: var(--blanco);
@@ -175,6 +175,10 @@
         
         .hero-slide:nth-child(3) {
             background: linear-gradient(135deg, #001f3f 0%, #004085 100%);
+        }
+
+        .hero-slide:nth-child(4) {
+            background: linear-gradient(135deg, #002b54 0%, #001a38 100%);
         }
 
         .hero-slide h1 {
@@ -1075,12 +1079,7 @@
         }
 
         .footer-info {
-            width: 60%;
-        }
-
-        .footer-links {
-            width: 40%;
-            text-align: right;
+            width: 100%;
         }
 
         footer h2 {
@@ -1096,20 +1095,6 @@
         }
 
         .contact-item strong { color: var(--celeste-gba); }
-
-        .footer-links a {
-            color: var(--blanco);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
 
         /* Adaptabilidad Responsive */
         @media (max-width: 992px) {
@@ -1127,7 +1112,7 @@
             .sector-card-foto { min-width: 100%; }
             .pba-exporta-grid, .cursos-grid-2 { grid-template-columns: 1fr; }
             .pba-grid, .stats-row, .footer-grid { flex-direction: column !important; }
-            .pba-col-left, .pba-col-right, .footer-info, .footer-links { width: 100% !important; text-align: center !important; }
+            .pba-col-left, .pba-col-right, .footer-info { width: 100% !important; text-align: center !important; }
             .hero-arrow { display: none; }
             .modal-box { padding: 25px 15px; }
             .nav-container { flex-direction: column; gap: 15px; }
@@ -1164,6 +1149,7 @@
         <button class="hero-arrow hero-right" onclick="moverHero(1)">&#10095;</button>
 
         <div class="hero-track" id="heroTrack">
+            <!-- Slide 1 -->
             <div class="hero-slide">
                 <div class="container">
                     <h1>Oportunidades Bonaerenses</h1>
@@ -1174,16 +1160,18 @@
                 </div>
             </div>
             
+            <!-- Slide 2: Ronda de Negocios -->
             <div class="hero-slide">
                 <div class="container">
-                    <h1>PBA Exporta</h1>
-                    <p>Conectá con el potencial productivo de la provincia y descubrí los bienes y servicios que las empresas bonaerenses ofrecen al mundo.</p>
+                    <h1>Ronda de Negocios Energía y Minería</h1>
+                    <p>Petróleo | Gas | Electricidad | Minería. Integración con valor agregado bonaerense. ¡Agendá la fecha! Martes 01/12 - Pasaje Dardo Rocha, La Plata, Provincia de Buenos Aires.</p>
                     <div class="cta-group">
-                        <a href="#pba-exporta" class="btn btn-secondary">Explorar Oferta</a>
+                        <a href="Promocion.html" class="btn btn-secondary">Inscribite</a>
                     </div>
                 </div>
             </div>
             
+            <!-- Slide 3 -->
             <div class="hero-slide">
                 <div class="container">
                     <h1>Régimen Provincial de Inversiones Estratégicas</h1>
@@ -1193,12 +1181,24 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Slide 4 -->
+            <div class="hero-slide">
+                <div class="container">
+                    <h1>DESTINO ESTRATÉGICO PARA LA INVERSIÓN</h1>
+                    <p>La Provincia de Buenos Aires ofrece oportunidades únicas de crecimiento con infraestructura, talento capacitado y acompañamiento constante para nuevos proyectos.</p>
+                    <div class="cta-group">
+                        <a href="Formulario.html" class="btn btn-secondary">Invertí</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="hero-dots">
             <button class="hero-dot active" onclick="irAHero(0)"></button>
             <button class="hero-dot" onclick="irAHero(1)"></button>
             <button class="hero-dot" onclick="irAHero(2)"></button>
+            <button class="hero-dot" onclick="irAHero(3)"></button>
         </div>
     </section>
 
@@ -1506,7 +1506,8 @@
             </div>
 
             <div style="text-align: center; margin-top: 40px;">
-                <a href="Herramientas.html" class="btn btn-tool" style="padding: 12px 35px; font-size: 1rem;">Ver más</a>
+                <!-- Enlace corregido a Cursos.html -->
+                <a href="Cursos.html" class="btn btn-tool" style="padding: 12px 35px; font-size: 1rem;">Ver más</a>
             </div>
         </div>
     </section>
@@ -1533,6 +1534,7 @@
             </div>
 
             <div style="text-align: center; margin-top: 40px;">
+                <!-- Enlace corregido a Herramientas.html -->
                 <a href="Herramientas.html" class="btn btn-tool" style="padding: 12px 35px; font-size: 1rem;">Ver más</a>
             </div>
         </div>
@@ -1570,16 +1572,6 @@
                     <div class="contact-item"><strong>E-mail:</strong> inversionycomex@mp.gba.gov.ar</div>
                     <div class="contact-item"><strong>Dirección:</strong> Tte. Gral Juan Domingo Perón 739, 1er Piso, CABA</div>
                 </div>
-                <div class="footer-links">
-                    <a href="#portada">Inicio</a>
-                    <a href="#pba-numeros">PBA en N°</a>
-                    <a href="#pba-exporta">PBA Exporta</a>
-                    <a href="#sectores">Sectores</a>
-                    <a href="#rpie">RPIE</a>
-                    <a href="#regiones">Regiones</a>
-                    <a href="#cursos-asistencias">Cursos y Asistencias</a>
-                    <a href="#informacion-estrategica">Información Estratégica</a>
-                </div>
             </div>
         </div>
     </footer>
@@ -1587,12 +1579,13 @@
     <script>
         /* Carrusel Hero Principal */
         let indexHero = 0;
+        const totalHeroSlides = 4;
         const heroTrack = document.getElementById('heroTrack');
         const heroDots = document.querySelectorAll('.hero-dot');
 
         function actualizarHero() {
             if (heroTrack) {
-                heroTrack.style.transform = 'translateX(-' + (indexHero * 33.3333) + '%)';
+                heroTrack.style.transform = 'translateX(-' + (indexHero * 25) + '%)';
                 heroDots.forEach((dot, i) => {
                     dot.classList.toggle('active', i === indexHero);
                 });
@@ -1601,8 +1594,8 @@
 
         function moverHero(dir) {
             indexHero += dir;
-            if (indexHero >= 3) indexHero = 0;
-            if (indexHero < 0) indexHero = 2;
+            if (indexHero >= totalHeroSlides) indexHero = 0;
+            if (indexHero < 0) indexHero = totalHeroSlides - 1;
             actualizarHero();
         }
 
