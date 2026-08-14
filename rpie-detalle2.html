@@ -102,47 +102,8 @@
         .page-header p {
             font-size: 1.2rem;
             max-width: 800px;
-            margin: 0 auto 30px auto;
+            margin: 0 auto;
             color: rgba(255, 255, 255, 0.9);
-        }
-
-        .header-actions {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        /* Botones Principales */
-        .btn-action {
-            display: inline-block;
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .btn-primary-rpie {
-            background-color: var(--magenta-pba);
-            color: var(--blanco);
-            box-shadow: 0 4px 12px rgba(200, 42, 122, 0.3);
-        }
-
-        .btn-primary-rpie:hover {
-            background-color: #a81f63;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline-rpie {
-            border: 2px solid var(--blanco);
-            color: var(--blanco);
-        }
-
-        .btn-outline-rpie:hover {
-            background-color: var(--blanco);
-            color: var(--azul-oscuro);
         }
 
         /* Contenido Detallado */
@@ -309,6 +270,13 @@
             background-color: #eef7fc;
         }
 
+        .btn-inline-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
         .btn-inline-link {
             display: inline-block;
             background-color: var(--azul-institucional);
@@ -318,7 +286,6 @@
             font-weight: 600;
             font-size: 0.9rem;
             text-decoration: none;
-            margin-top: 10px;
             transition: background-color 0.2s ease;
         }
 
@@ -326,7 +293,7 @@
             background-color: var(--azul-oscuro);
         }
 
-        /* Sidebar de Accesos Rápidos */
+        /* Sidebar */
         .sidebar {
             background-color: var(--gris-claro);
             border: 1px solid var(--borde-tarjeta);
@@ -335,50 +302,7 @@
             height: fit-content;
         }
 
-        .sidebar h3 {
-            font-size: 1.3rem;
-            color: var(--azul-oscuro);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .links-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .btn-link-portal {
-            display: block;
-            background-color: var(--blanco);
-            border: 1px solid var(--borde-tarjeta);
-            padding: 15px;
-            border-radius: 8px;
-            color: var(--azul-institucional);
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-        }
-
-        .btn-link-portal:hover {
-            border-color: var(--celeste-gba);
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
-            transform: translateX(3px);
-        }
-
-        .btn-link-portal span {
-            display: block;
-            font-size: 0.75rem;
-            font-weight: normal;
-            opacity: 0.8;
-            margin-top: 3px;
-        }
-
         .brochure-box {
-            margin-top: 35px;
             background: linear-gradient(135deg, var(--azul-institucional) 0%, var(--azul-oscuro) 100%);
             color: var(--blanco);
             padding: 25px 20px;
@@ -457,17 +381,12 @@
         </div>
     </header>
 
-    <!-- CABECERA DE LA SUBPÁGINA -->
+    <!-- CABECERA DE LA SUBPÁGINA (Sin los botones) -->
     <section class="page-header">
         <div class="container">
             <span class="tag">Provincia de Buenos Aires</span>
             <h1>Régimen Provincial de Inversiones Estratégicas (RPIE)</h1>
             <p>Un marco normativo diseñado para fomentar inversiones de gran escala, promoviendo el desarrollo económico, el empleo de calidad y la competitividad productiva en la provincia.</p>
-            
-            <div class="header-actions">
-                <a href="https://www.mp.gba.gov.ar/rpie/" target="_blank" class="btn-action btn-primary-rpie">Portal Oficial RPIE &rarr;</a>
-                <a href="brochure-rpie.pdf" download class="btn-action btn-outline-rpie">📥 Descargar Brochure (PDF)</a>
-            </div>
         </div>
     </section>
 
@@ -499,7 +418,7 @@
                         </ul>
                     </div>
 
-                    <!-- 3. Ejes y Beneficios Clave (CON TABLA DE ESQUEMA DE BENEFICIOS) -->
+                    <!-- 3. Ejes y Beneficios Clave -->
                     <div class="info-block">
                         <h2 class="section-title-sub">Ejes y Beneficios Clave</h2>
                         <div class="benefits-grid">
@@ -557,7 +476,7 @@
                         </div>
                     </div>
 
-                    <!-- 4. ¿Cómo realizar la solicitud? (ACTUALIZADO) -->
+                    <!-- 4. ¿Cómo realizar la solicitud? (URL Jerarquizada con botón) -->
                     <div class="info-block">
                         <h2 class="section-title-sub">¿Cómo realizar la solicitud?</h2>
                         <ol class="steps-list" style="counter-reset: step-counter;">
@@ -565,42 +484,30 @@
                             <li><strong>Verificar Requisitos:</strong> Revisá la normativa y asegurate de que tu proyecto encaje en los ejes estratégicos estipulados.</li>
                             <li>
                                 <strong>Presentación de Documentos y Tramitación:</strong>
-                                Se deberán presentar los documentos detallados y el resto de la documentación requerida, a través del Portal de Trámites de la Provincia (<a href="https://portal.gba.gob.ar/web/portal" target="_blank" style="color: var(--azul-institucional); text-decoration: underline;">portal.gba.gob.ar/web/portal</a>), buscando el trámite “Solicitud Adhesión Régimen Provincial de Inversiones Estratégicas”. Al iniciar una nueva presentación deberá elegir como Repartición “Mesa de Entradas del Régimen Provincial de Inversiones Estratégicas”.
-                                <br><br>
-                                <a href="https://www.gba.gob.ar/static/produccion/Modelos_de_Notas_y_Formularios_(AnexoII-Res._36-2026)_v2.rar" target="_blank" class="btn-inline-link">📥 Descargar Modelos de Notas y Formularios (Anexo II - Res. 36-2026)</a>
+                                Se deberán presentar los documentos detallados y el resto de la documentación requerida, a través del Portal de Trámites de la Provincia, buscando el trámite “Solicitud Adhesión Régimen Provincial de Inversiones Estratégicas”. Al iniciar una nueva presentación deberá elegir como Repartición “Mesa de Entradas del Régimen Provincial de Inversiones Estratégicas”.
+                                <div class="btn-inline-container">
+                                    <a href="https://portal.gba.gob.ar/web/portal" target="_blank" class="btn-inline-link">🌐 Portal de Trámites de la Provincia &rarr;</a>
+                                    <a href="https://www.gba.gob.ar/static/produccion/Modelos_de_Notas_y_Formularios_(AnexoII-Res._36-2026)_v2.rar" target="_blank" class="btn-inline-link">📥 Descargar Modelos de Notas y Formularios (Anexo II - Res. 36-2026)</a>
+                                </div>
                             </li>
                             <li><strong>Evaluación Provincial:</strong> El Ministerio de Producción evalúa la propuesta y dicta el acto administrativo correspondiente para el otorgamiento de los beneficios.</li>
                         </ol>
                     </div>
 
-                    <!-- 5. Registro de Proveedores (CON EL LINK MOVIDO AQUÍ) -->
+                    <!-- 5. Registro de Proveedores (2 Botones agregados) -->
                     <div class="info-block">
                         <h2 class="section-title-sub">Registro de Proveedores</h2>
                         <p>Para potenciar el impacto en la economía local, el RPIE impulsa la integración de cadenas de valor bonaerenses. Si sos una PyME o empresa proveedora de la provincia, podés formar parte del registro para vincularte con los grandes proyectos de inversión aprobados.</p>
-                        <a href="https://www.gba.gob.ar/produccion/registro_proveedores_RPIE" target="_blank" class="btn-inline-link">Inscribite al Registro de Proveedores RPIE &rarr;</a>
+                        <div class="btn-inline-container">
+                            <a href="https://www.gba.gob.ar/produccion/registro_proveedores_RPIE" target="_blank" class="btn-inline-link">Registro de Proveedores &rarr;</a>
+                            <a href="https://www.mp.gba.gov.ar/rpie/" target="_blank" class="btn-inline-link">Formulario de inscripción &rarr;</a>
+                        </div>
                     </div>
 
                 </div>
 
-                <!-- COLUMNA LATERAL: ACCESOS DIRECTOS -->
+                <!-- COLUMNA LATERAL: SÓLO MATERIAL INFORMATIVO -->
                 <aside class="sidebar">
-                    <h3>Accesos Directos</h3>
-                    
-                    <div class="links-list">
-                        <!-- Enlace 1 -->
-                        <a href="https://www.mp.gba.gov.ar/rpie/" target="_blank" class="btn-link-portal">
-                            Sitio Web Oficial del RPIE
-                            <span>Plataforma principal del régimen en el Ministerio de Producción.</span>
-                        </a>
-
-                        <!-- Enlace 2 -->
-                        <a href="https://www.gba.gob.ar/produccion/inversiones_estrategicas" target="_blank" class="btn-link-portal">
-                            Inversiones Estratégicas PBA
-                            <span>Marco legal, normativo y detalles del programa.</span>
-                        </a>
-                    </div>
-
-                    <!-- CAJA DE DESCARGA BROCHURE -->
                     <div class="brochure-box">
                         <h4>Material Informativo</h4>
                         <p>Descargá el Brochure oficial con todos los detalles técnicos, requisitos y escalas de incentivos del RPIE.</p>
