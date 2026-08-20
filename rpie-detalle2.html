@@ -16,6 +16,16 @@
             --gris-claro: #f8f9fa;
             --borde-tarjeta: #e9ecef;
             --blanco: #ffffff;
+
+            /* Variables de estilo del formato rpie-corto */
+            --navy: #0d2e63;
+            --blue: #1461c9;
+            --blue-light: #2fa8e0;
+            --cyan: #29c1e0;
+            --ink: #22293a;
+            --muted: #5a6478;
+            --bg-soft: #f4f7fb;
+            --border: #e3e8f0;
         }
 
         * {
@@ -114,20 +124,17 @@
         .section-title-sub {
             font-size: 1.8rem;
             color: var(--azul-oscuro);
-            margin-bottom: 25px;
+            margin-bottom: 10px;
             text-transform: uppercase;
             position: relative;
-            padding-bottom: 10px;
         }
 
-        .section-title-sub::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--celeste-gba);
+        .underline {
+            width: 56px;
+            height: 4px;
+            background: var(--cyan);
+            border-radius: 2px;
+            margin-bottom: 30px;
         }
 
         .grid-2col {
@@ -171,36 +178,79 @@
             top: -5px;
         }
 
-        /* Estilos para lista de pasos */
-        .steps-list {
-            list-style: none;
-            padding: 0;
+        /* PASOS Y BOTONES SEGÚN RPIE-CORTO */
+        .step {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 26px;
         }
-
-        .steps-list li {
-            position: relative;
-            padding-left: 45px;
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-        }
-
-        .steps-list li::before {
-            content: counter(step-counter);
-            counter-increment: step-counter;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 30px;
-            height: 30px;
-            background-color: var(--azul-institucional);
-            color: var(--blanco);
+        .step:last-child { margin-bottom: 0; }
+        .step-num {
+            flex: none;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
+            background: var(--navy);
+            color: #fff;
+            font-weight: 800;
+            font-size: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 0.9rem;
         }
+        .step-body p { font-size: 15.5px; color: var(--ink); }
+        .step-body p b { color: var(--navy); }
+
+        .btn-row { 
+            display: flex; 
+            gap: 12px; 
+            flex-wrap: wrap; 
+            margin-top: 14px; 
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--blue);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 11px 20px;
+            border-radius: 24px;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: var(--navy); }
+        .btn.outline {
+            background: transparent;
+            border: 2px solid var(--blue);
+            color: var(--blue);
+        }
+        .btn.outline:hover {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .contact-line {
+            margin-top: 34px;
+            font-size: 14.5px;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+        .contact-line a { color: var(--blue); font-weight: 700; text-decoration: none; }
+        .contact-line a:hover { text-decoration: underline; }
+
+        /* REGISTRO DE PROVEEDORES SEGÚN RPIE-CORTO */
+        section.providers { margin-top: 52px; }
+        .provider-box {
+            background: linear-gradient(120deg, var(--bg-soft) 0%, #eef4fb 100%);
+            border-radius: 14px;
+            padding: 30px 32px;
+            border: 1px solid var(--border);
+        }
+        .provider-box p { font-size: 15.5px; color: var(--ink); margin-bottom: 20px; }
 
         /* Cards de Beneficios */
         .benefits-grid {
@@ -406,6 +456,7 @@
                     <!-- 1. ¿Qué es el RPIE? (+ Botón de Información) -->
                     <div class="info-block">
                         <h2 class="section-title-sub">¿Qué es el RPIE?</h2>
+                        <div class="underline"></div>
                         <p>El Régimen Provincial de Inversiones Estratégicas (RPIE) es la herramienta del Gobierno de la Provincia de Buenos Aires creada para atraer, acompañar y consolidar proyectos de inversión que generen un impacto estructural en el desarrollo provincial.</p>
                         <p>Brinda previsibilidad técnica, jurídica e incentivos fiscales a las empresas que realicen proyectos productivos, industriales o de servicios estratégicos en el territorio bonaerense.</p>
                         <div class="btn-inline-container">
@@ -416,6 +467,7 @@
                     <!-- 2. ¿Quiénes pueden acceder? -->
                     <div class="info-block">
                         <h2 class="section-title-sub">¿Quiénes pueden acceder?</h2>
+                        <div class="underline"></div>
                         <p>Personas jurídicas, uniones transitorias, agrupaciones de colaboración o consorcios de cooperación, con proyectos de inversión en los sectores de:</p>
                         <ul class="bullet-list">
                             <li>Industria manufacturera.</li>
@@ -429,6 +481,7 @@
                     <!-- 3. Ejes y Beneficios Clave -->
                     <div class="info-block">
                         <h2 class="section-title-sub">Ejes y Beneficios Clave</h2>
+                        <div class="underline"></div>
                         <div class="benefits-grid">
                             <div class="benefit-card">
                                 <h4>Exenciones Impositivas</h4>
@@ -484,33 +537,72 @@
                         </div>
                     </div>
 
-                    <!-- 4. ¿Cómo realizar la solicitud? -->
+                    <!-- 4. ¿Cómo realizar la solicitud? (Formato rpie-corto) -->
                     <div class="info-block">
                         <h2 class="section-title-sub">¿Cómo realizar la solicitud?</h2>
-                        <ol class="steps-list" style="counter-reset: step-counter;">
-                            <li><strong>Acceder al Portal:</strong> Ingresá al sitio oficial del régimen o al sistema de gestión de trámites de la Provincia.</li>
-                            <li><strong>Verificar Requisitos:</strong> Revisá la normativa y asegurate de que tu proyecto encaje en los ejes estratégicos estipulados.</li>
-                            <li>
-                                <strong>Presentación de Documentos y Tramitación:</strong>
-                                Se deberán presentar los documentos detallados y el resto de la documentación requerida, a través del Portal de Trámites de la Provincia, buscando el trámite “Solicitud Adhesión Régimen Provincial de Inversiones Estratégicas”. Al iniciar una nueva presentación deberá elegir como Repartición “Mesa de Entradas del Régimen Provincial de Inversiones Estratégicas”.
-                                <div class="btn-inline-container">
-                                    <a href="https://portal.gba.gob.ar/web/portal" target="_blank" class="btn-inline-link">🌐 Portal de Trámites de la Provincia &rarr;</a>
-                                    <a href="https://www.gba.gob.ar/static/produccion/Modelos_de_Notas_y_Formularios_(AnexoII-Res._36-2026)_v2.rar" target="_blank" class="btn-inline-link">📥 Descargar Modelos de Notas y Formularios (Anexo II - Res. 36-2026)</a>
+                        <div class="underline"></div>
+
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-body">
+                                <p><b>Accede al Portal PBA:</b> vinculá a tu empresa mediante Delegación Digital, para poder operar y presentar trámites como persona jurídica.</p>
+                                <div class="btn-row">
+                                    <a href="https://portal.gba.gob.ar/web/portal" target="_blank" class="btn">Portal de Trámites de la Provincia &rarr;</a>
                                 </div>
-                            </li>
-                            <li><strong>Evaluación Provincial:</strong> El Ministerio de Producción evalúa la propuesta y dicta el acto administrativo correspondiente para el otorgamiento de los beneficios.</li>
-                        </ol>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-body">
+                                <p><b>Completá los formularios:</b> descargá los modelos oficiales, cargalos en dólares (USD) y seguí las alertas del sistema para completarlos correctamente.</p>
+                                <div class="btn-row">
+                                    <a href="https://www.gba.gob.ar/static/produccion/Modelos_de_Notas_y_Formularios_(AnexoII-Res._36-2026)_v2.rar" target="_blank" class="btn outline">Descargar formularios &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-body">
+                                <p><b>Presentá el trámite:</b> iniciá la solicitud en Mesa de Entradas Digital, eligiendo la repartición <b>"Régimen Provincial de Inversiones Estratégicas"</b>, y cargá toda la documentación requerida.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-num">4</div>
+                            <div class="step-body">
+                                <p><b>Seguimiento:</b> se asigna un número de expediente y el Ministerio de Producción evalúa la propuesta para el otorgamiento de los beneficios.</p>
+                            </div>
+                        </div>
+
+                        <div class="step" style="margin-top: 20px;">
+                            <div class="step-body">
+                                <p>Para conocer más en detalle el paso a paso consultá el siguiente instructivo:</p>
+                                <div class="btn-row">
+                                    <a href="#" class="btn">Conocer más &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="contact-line">
+                            ¿Dudas con la plataforma? Línea 148, opción 9 y luego opción 2 (8 a 20 hs).<br>
+                            Consultas sobre el Régimen: <a href="mailto:inversiones_estrategicas@mp.gba.gov.ar">inversiones_estrategicas@mp.gba.gov.ar</a>
+                        </p>
                     </div>
 
-                    <!-- 5. Registro de Proveedores -->
-                    <div class="info-block">
+                    <!-- 5. Registro de Proveedores (Formato rpie-corto) -->
+                    <section class="providers">
                         <h2 class="section-title-sub">Registro de Proveedores</h2>
-                        <p>Para potenciar el impacto en la economía local, el RPIE impulsa la integración de cadenas de valor bonaerenses. Si sos una PyME o empresa proveedora de la provincia, podés formar parte del registro para vincularte con los grandes proyectos de inversión aprobados.</p>
-                        <div class="btn-inline-container">
-                            <a href="https://www.gba.gob.ar/produccion/registro_proveedores_RPIE" target="_blank" class="btn-inline-link">Registro de Proveedores &rarr;</a>
-                            <a href="https://www.mp.gba.gov.ar/rpie/" target="_blank" class="btn-inline-link">Formulario de inscripción &rarr;</a>
+                        <div class="underline"></div>
+                        <div class="provider-box">
+                            <p>Para potenciar el impacto en la economía local, el RPIE impulsa la integración de cadenas de valor bonaerenses. Si sos una PyME o empresa proveedora de la provincia, podés sumarte al registro para vincularte con los grandes proyectos de inversión aprobados. <b>En proyectos mayores a USD 50 millones, la inscripción es obligatoria.</b></p>
+                            <div class="btn-row">
+                                <a href="https://www.gba.gob.ar/produccion/registro_proveedores_RPIE" target="_blank" class="btn">Registro de Proveedores &rarr;</a>
+                                <a href="https://www.mp.gba.gov.ar/rpie/" target="_blank" class="btn outline">Formulario de inscripción &rarr;</a>
+                            </div>
                         </div>
-                    </div>
+                    </section>
 
                 </div>
 
