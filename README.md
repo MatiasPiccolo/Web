@@ -23,3 +23,4 @@ Portal de informes y visualizaciones interactivas.
 | Cursos | [Cursos.html](https://matiaspiccolo.github.io/Web/Cursos.html) |
 | RPIE | [RPIE.html](https://matiaspiccolo.github.io/Web/rpie-detalle.html) |
 | RPIE 2 | [RPIE2.html](https://matiaspiccolo.github.io/Web/rpie-detalle2.html) |
+| MAPA | [RPIE2.html](https://matiaspiccolo.github.io/Web/Mapa.html) |
