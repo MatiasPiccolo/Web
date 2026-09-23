@@ -24,3 +24,4 @@ Portal de informes y visualizaciones interactivas.
 | RPIE | [RPIE.html](https://matiaspiccolo.github.io/Web/rpie-detalle.html) |
 | RPIE 2 | [RPIE2.html](https://matiaspiccolo.github.io/Web/rpie-detalle2.html) |
 | MAPA | [RPIE2.html](https://matiaspiccolo.github.io/Web/Mapa.html) |
+| CREDITO | [CREDITO.html](https://matiaspiccolo.github.io/Web/simuladorcredito.html) |
