@@ -303,7 +303,7 @@
           <input type="number" id="tna" value="48" min="0" step="0.1">
           <div class="presets">
             <button type="button" data-tna="48" id="btn-min">Mínima 48%</button>
-            <button type="button" data-tna="215" id="btn-max">Máxima 215%</button>
+            <button type="button" data-tna="250" id="btn-max">Máxima 250%</button>
           </div>
         </div>
         <div class="note">Rangos vigentes informados por Mercado Pago para línea de consumo y préstamos personales: TNA 48%–215%, plazo de 7 días a 24 meses.</div>
@@ -529,7 +529,7 @@ document.getElementById('btn-min').addEventListener('click', () => {
   render();
 });
 document.getElementById('btn-max').addEventListener('click', () => {
-  document.getElementById('tna').value = 215;
+  document.getElementById('tna').value = 250;
   clearPresetActive();
   document.getElementById('btn-max').classList.add('active');
   render();
