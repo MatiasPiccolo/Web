@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simulador de crédito — sistema francés</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f3f2ee;
+    --paper-raised: #fbfaf7;
+    --ink: #16191c;
+    --ink-soft: #565c62;
+    --line: #dbd8d0;
+    --line-strong: #b9b5aa;
+    --capital: #1e4d47;
+    --capital-soft: #1e4d4720;
+    --interes: #a8571f;
+    --interes-soft: #a8571f1a;
+    --mark: #9c2b2b;
+    --mark-soft: #9c2b2b14;
+    --focus: #1e4d47;
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --paper: #15171a;
+      --paper-raised: #1d2023;
+      --ink: #ece9e2;
+      --ink-soft: #9a9d9f;
+      --line: #33363a;
+      --line-strong: #46494d;
+      --capital: #6fb3a6;
+      --capital-soft: #6fb3a626;
+      --interes: #e0925a;
+      --interes-soft: #e0925a22;
+      --mark: #e08484;
+      --mark-soft: #e0848422;
+      --focus: #6fb3a6;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #15171a;
+    --paper-raised: #1d2023;
+    --ink: #ece9e2;
+    --ink-soft: #9a9d9f;
+    --line: #33363a;
+    --line-strong: #46494d;
+    --capital: #6fb3a6;
+    --capital-soft: #6fb3a626;
+    --interes: #e0925a;
+    --interes-soft: #e0925a22;
+    --mark: #e08484;
+    --mark-soft: #e0848422;
+    --focus: #6fb3a6;
+  }
+
+  * { box-sizing: border-box; }
+  html {
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+  }
+  html, body {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, .display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  ::selection { background: var(--capital-soft); }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  header {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+  header .kicker {
+    color: var(--ink-soft);
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-size: clamp(28px, 4vw, 38px);
+    margin: 0 0 8px;
+  }
+  header p {
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0;
+    font-size: 13px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  @media (max-width: 760px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    border: 1px solid var(--line);
+    background: var(--paper-raised);
+    padding: 22px;
+  }
+  .panel + .panel { margin-top: 24px; }
+
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .field label {
+    display: block;
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .field input[type="number"] {
+    width: 100%;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    color: var(--ink);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line-strong);
+    padding: 4px 2px 8px;
+    outline: none;
+  }
+  .field input[type="number"]:focus {
+    border-bottom-color: var(--focus);
+  }
+  .field .unit { color: var(--ink-soft); font-size: 12px; margin-left: 6px; }
+
+  .presets {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .presets button {
+    flex: 1;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    padding: 7px 6px;
+    cursor: pointer;
+  }
+  .presets button:hover { border-color: var(--focus); }
+  .presets button.active {
+    background: var(--capital);
+    border-color: var(--capital);
+    color: var(--paper);
+  }
+
+  .note {
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-bottom: 24px;
+  }
+  @media (max-width: 640px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .stat {
+    background: var(--paper-raised);
+    padding: 16px 14px;
+  }
+  .stat .label {
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .stat .value {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+  }
+  .stat .sub {
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+  .stat.mark .value { color: var(--mark); }
+
+  .chart-panel {
+    padding: 22px 22px 12px;
+  }
+  .chart-panel h2 {
+    font-size: 15px;
+    margin: 0 0 4px;
+  }
+  .chart-panel .sub {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+  .legend {
+    display: flex;
+    gap: 18px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 12px; height: 2px; display: inline-block; }
+
+  svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .axis-label { font-size: 10px; fill: var(--ink-soft); }
+  .grid-line { stroke: var(--line); stroke-width: 1; }
+  .ref-line { stroke: var(--ink-soft); stroke-width: 1.2; stroke-dasharray: 3 4; }
+  .capital-line { stroke: var(--capital); stroke-width: 2.2; fill: none; }
+  .mark-dot { fill: var(--mark); }
+  .mark-line { stroke: var(--mark); stroke-width: 1; stroke-dasharray: 2 3; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  thead th {
+    text-align: right;
+    font-weight: 500;
+    color: var(--ink-soft);
+    font-size: 10.5px;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--line-strong);
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    background: var(--paper-raised);
+  }
+  thead th:first-child, tbody td:first-child { text-align: left; }
+  tbody td {
+    text-align: right;
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--line);
+    font-variant-numeric: tabular-nums;
+  }
+  tbody tr.crossed { background: var(--mark-soft); }
+  tbody tr.crossed td:first-child { color: var(--mark); font-weight: 600; }
+  .table-scroll { max-height: 420px; overflow-y: auto; border: 1px solid var(--line); }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">SIMULADOR · SISTEMA FRANCÉS DE AMORTIZACIÓN</div>
+    <h1>¿Cuándo recuperan el capital que te prestan?</h1>
+    <p>Cargá monto, plazo y tasa nominal anual. El simulador arma la tabla de amortización cuota por cuota y marca el mes en que lo pagado acumulado iguala al capital original.</p>
+  </header>
+
+  <div class="grid">
+    <div>
+      <div class="panel">
+        <div class="field">
+          <label for="monto">Monto del préstamo <span class="unit">ARS</span></label>
+          <input type="number" id="monto" value="1000000" min="1000" step="1000">
+        </div>
+        <div class="field">
+          <label for="plazo">Plazo <span class="unit">meses</span></label>
+          <input type="number" id="plazo" value="12" min="1" max="24" step="1">
+        </div>
+        <div class="field">
+          <label for="tna">TNA fija <span class="unit">%</span></label>
+          <input type="number" id="tna" value="48" min="0" step="0.1">
+          <div class="presets">
+            <button type="button" data-tna="48" id="btn-min">Mínima 48%</button>
+            <button type="button" data-tna="215" id="btn-max">Máxima 215%</button>
+          </div>
+        </div>
+        <div class="note">Rangos vigentes informados por Mercado Pago para línea de consumo y préstamos personales: TNA 48%–215%, plazo de 7 días a 24 meses.</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="stats">
+        <div class="stat">
+          <div class="label">CUOTA FIJA MENSUAL</div>
+          <div class="value" id="s-cuota">—</div>
+        </div>
+        <div class="stat">
+          <div class="label">TEA EQUIVALENTE</div>
+          <div class="value" id="s-tea">—</div>
+          <div class="sub">capitalización de la TNA</div>
+        </div>
+        <div class="stat">
+          <div class="label">CFT ESTIMADO (CFTEA)</div>
+          <div class="value" id="s-cft">—</div>
+          <div class="sub">estimación, no cotización real</div>
+        </div>
+        <div class="stat">
+          <div class="label">TOTAL PAGADO</div>
+          <div class="value" id="s-total">—</div>
+        </div>
+        <div class="stat">
+          <div class="label">INTERÉS TOTAL</div>
+          <div class="value" id="s-interes">—</div>
+          <div class="sub" id="s-interes-pct">—</div>
+        </div>
+        <div class="stat mark">
+          <div class="label">RECUPERO DE CAPITAL</div>
+          <div class="value" id="s-mes">—</div>
+          <div class="sub" id="s-mes-pct">—</div>
+        </div>
+      </div>
+
+      <div class="panel chart-panel">
+        <h2>Pagado acumulado vs. capital prestado</h2>
+        <div class="sub">La línea sólida es lo que vas pagando cuota a cuota; la punteada es el capital original.</div>
+        <div class="legend">
+          <span><i style="background:var(--capital)"></i>Acumulado pagado</span>
+          <span><i style="background:var(--ink-soft)"></i>Capital prestado</span>
+          <span><i style="background:var(--mark)"></i>Mes de recupero</span>
+        </div>
+        <svg id="chart" viewBox="0 0 640 260" preserveAspectRatio="xMidYMid meet"></svg>
+      </div>
+
+      <div class="panel" style="margin-top:24px;">
+        <h2 style="font-size:15px;margin:0 0 12px;">Tabla de amortización</h2>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th>Cuota</th><th>Interés</th><th>Amortización</th><th>Saldo</th><th>Acumulado</th></tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Cálculo determinístico según los parámetros ingresados (sistema francés, cuota constante). La TEA es exacta (capitalización mensual de la TNA); el CFTEA es una <em>estimación</em> obtenida interpolando el recargo (seguros + gastos) entre las tasas mínima y máxima que Mercado Pago publica para línea de consumo y préstamos personales — no reemplaza el CFT real informado en cada operación concreta.
+  </footer>
+</div>
+
+<script>
+function fmt(n) {
+  return '$' + Math.round(n).toLocaleString('es-AR');
+}
+
+function teaFromTna(tnaPct) {
+  const im = (tnaPct / 100) / 12;
+  return Math.pow(1 + im, 12) - 1;
+}
+
+// Anclas publicadas por Mercado Pago para línea de consumo / préstamos personales
+// (tasa mínima y máxima vigentes, con su CFTEA real informado).
+const ANCHOR_MIN = { tna: 48, cftea: 0.7636 };
+const ANCHOR_MAX = { tna: 215, cftea: 9.5654 };
+
+// El CFT agrega seguros y gastos por encima de la TEA pura. No hay una fórmula
+// pública única para eso: acá se interpola linealmente el "recargo" entre las
+// dos anclas oficiales (mínima y máxima) y se extrapola con el mismo criterio
+// fuera de ese rango. Es una estimación de referencia, no el CFT real de una
+// operación concreta, que depende del perfil y de los seguros/gastos que
+// aplique cada fintech.
+function estimateCftea(tnaPct) {
+  const tea = teaFromTna(tnaPct);
+  const teaMin = teaFromTna(ANCHOR_MIN.tna);
+  const teaMax = teaFromTna(ANCHOR_MAX.tna);
+  const mMin = (1 + ANCHOR_MIN.cftea) / (1 + teaMin);
+  const mMax = (1 + ANCHOR_MAX.cftea) / (1 + teaMax);
+  const t = (tnaPct - ANCHOR_MIN.tna) / (ANCHOR_MAX.tna - ANCHOR_MIN.tna);
+  let m = mMin + (mMax - mMin) * t;
+  if (m < 1) m = 1;
+  return (1 + tea) * m - 1;
+}
+
+function computeSchedule(monto, plazo, tnaPct) {
+  const im = (tnaPct / 100) / 12;
+  let cuota;
+  if (im > 0) {
+    cuota = monto * im / (1 - Math.pow(1 + im, -plazo));
+  } else {
+    cuota = monto / plazo;
+  }
+  let saldo = monto;
+  let acumulado = 0;
+  const rows = [];
+  for (let m = 1; m <= plazo; m++) {
+    const interes = saldo * im;
+    let amortizacion = cuota - interes;
+    if (m === plazo) amortizacion = saldo; // ajuste final por redondeo
+    saldo = Math.max(0, saldo - amortizacion);
+    acumulado += (m === plazo ? amortizacion + interes : cuota);
+    rows.push({ mes: m, interes, amortizacion, saldo, acumulado });
+  }
+  return { cuota, rows };
+}
+
+function render() {
+  const monto = Math.max(1, parseFloat(document.getElementById('monto').value) || 0);
+  const plazo = Math.max(1, Math.round(parseFloat(document.getElementById('plazo').value) || 1));
+  const tna = Math.max(0, parseFloat(document.getElementById('tna').value) || 0);
+
+  const { cuota, rows } = computeSchedule(monto, plazo, tna);
+  const total = rows[rows.length - 1].acumulado;
+  const interesTotal = total - monto;
+
+  let crossIdx = rows.findIndex(r => r.acumulado >= monto);
+  if (crossIdx === -1) crossIdx = rows.length - 1;
+  const crossMes = rows[crossIdx].mes;
+
+  const tea = teaFromTna(tna);
+  const cftea = estimateCftea(tna);
+
+  document.getElementById('s-cuota').textContent = fmt(cuota);
+  document.getElementById('s-tea').textContent = (tea * 100).toFixed(1) + '%';
+  document.getElementById('s-cft').textContent = (cftea * 100).toFixed(1) + '%';
+  document.getElementById('s-total').textContent = fmt(total);
+  document.getElementById('s-interes').textContent = fmt(interesTotal);
+  document.getElementById('s-interes-pct').textContent = (100 * interesTotal / monto).toFixed(1) + '% del capital';
+  document.getElementById('s-mes').textContent = 'Cuota ' + crossMes + ' / ' + plazo;
+  document.getElementById('s-mes-pct').textContent = Math.round(100 * crossMes / plazo) + '% del plazo';
+
+  // tabla
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+  rows.forEach(r => {
+    const tr = document.createElement('tr');
+    if (r.mes === crossMes) tr.className = 'crossed';
+    tr.innerHTML = `<td>${r.mes}</td><td>${fmt(r.interes)}</td><td>${fmt(r.amortizacion)}</td><td>${fmt(r.saldo)}</td><td>${fmt(r.acumulado)}</td>`;
+    tbody.appendChild(tr);
+  });
+
+  drawChart(rows, monto, crossMes);
+}
+
+function drawChart(rows, monto, crossMes) {
+  const svg = document.getElementById('chart');
+  const W = 640, H = 260;
+  const padL = 56, padR = 16, padT = 16, padB = 30;
+  const innerW = W - padL - padR, innerH = H - padT - padB;
+
+  const maxY = Math.max(monto, rows[rows.length - 1].acumulado) * 1.08;
+  const n = rows.length;
+  const x = i => padL + (innerW * i) / (n - 1 || 1);
+  const y = v => padT + innerH - (innerH * v) / maxY;
+
+  let svgContent = '';
+
+  // grid lines (4 horizontal)
+  for (let i = 0; i <= 4; i++) {
+    const v = (maxY / 4) * i;
+    const yy = y(v);
+    svgContent += `<line class="grid-line" x1="${padL}" y1="${yy}" x2="${W - padR}" y2="${yy}" />`;
+    svgContent += `<text class="axis-label" x="${padL - 8}" y="${yy + 3}" text-anchor="end">${(v/1000).toFixed(0)}k</text>`;
+  }
+
+  // x axis labels (start, mid, end)
+  [0, Math.floor((n - 1) / 2), n - 1].forEach(i => {
+    svgContent += `<text class="axis-label" x="${x(i)}" y="${H - 6}" text-anchor="middle">m${rows[i].mes}</text>`;
+  });
+
+  // capital reference line
+  const yCap = y(monto);
+  svgContent += `<line class="ref-line" x1="${padL}" y1="${yCap}" x2="${W - padR}" y2="${yCap}" />`;
+
+  // acumulado path
+  let path = '';
+  rows.forEach((r, i) => {
+    const px = x(i), py = y(r.acumulado);
+    path += (i === 0 ? 'M' : 'L') + px + ',' + py + ' ';
+  });
+  svgContent += `<path class="capital-line" d="${path}" />`;
+
+  // cross marker
+  const crossIdx = rows.findIndex(r => r.mes === crossMes);
+  if (crossIdx >= 0) {
+    const cx = x(crossIdx), cy = y(rows[crossIdx].acumulado);
+    svgContent += `<line class="mark-line" x1="${cx}" y1="${padT}" x2="${cx}" y2="${padT + innerH}" />`;
+    svgContent += `<circle class="mark-dot" cx="${cx}" cy="${cy}" r="4" />`;
+  }
+
+  svg.innerHTML = svgContent;
+}
+
+document.getElementById('monto').addEventListener('input', render);
+document.getElementById('plazo').addEventListener('input', render);
+document.getElementById('tna').addEventListener('input', () => { clearPresetActive(); render(); });
+
+function clearPresetActive() {
+  document.getElementById('btn-min').classList.remove('active');
+  document.getElementById('btn-max').classList.remove('active');
+}
+document.getElementById('btn-min').addEventListener('click', () => {
+  document.getElementById('tna').value = 48;
+  clearPresetActive();
+  document.getElementById('btn-min').classList.add('active');
+  render();
+});
+document.getElementById('btn-max').addEventListener('click', () => {
+  document.getElementById('tna').value = 215;
+  clearPresetActive();
+  document.getElementById('btn-max').classList.add('active');
+  render();
+});
+
+document.getElementById('btn-min').classList.add('active');
+render();
+</script>
+</body>
+</html>
