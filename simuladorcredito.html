@@ -9,51 +9,51 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #f3f2ee;
-    --paper-raised: #fbfaf7;
-    --ink: #16191c;
-    --ink-soft: #565c62;
-    --line: #dbd8d0;
-    --line-strong: #b9b5aa;
-    --capital: #1e4d47;
-    --capital-soft: #1e4d4720;
-    --interes: #a8571f;
-    --interes-soft: #a8571f1a;
-    --mark: #9c2b2b;
-    --mark-soft: #9c2b2b14;
-    --focus: #1e4d47;
+    --paper: #f4f5f5;
+    --paper-raised: #ffffff;
+    --ink: #1a1a1a;
+    --ink-soft: #838383;
+    --line: #e0e0e0;
+    --line-strong: #b8b8b8;
+    --capital: #00aec3;
+    --capital-soft: #00aec31a;
+    --interes: #417099;
+    --interes-soft: #4170991a;
+    --mark: #e81f76;
+    --mark-soft: #e81f7614;
+    --focus: #00aec3;
   }
   :root:not([data-theme="light"]) {
     @media (prefers-color-scheme: dark) {
-      --paper: #15171a;
-      --paper-raised: #1d2023;
-      --ink: #ece9e2;
-      --ink-soft: #9a9d9f;
-      --line: #33363a;
-      --line-strong: #46494d;
-      --capital: #6fb3a6;
-      --capital-soft: #6fb3a626;
-      --interes: #e0925a;
-      --interes-soft: #e0925a22;
-      --mark: #e08484;
-      --mark-soft: #e0848422;
-      --focus: #6fb3a6;
+      --paper: #131416;
+      --paper-raised: #1c1e21;
+      --ink: #f0f0f0;
+      --ink-soft: #9e9e9e;
+      --line: #303236;
+      --line-strong: #484a4e;
+      --capital: #2fc6db;
+      --capital-soft: #2fc6db26;
+      --interes: #6f93b8;
+      --interes-soft: #6f93b822;
+      --mark: #ff5c96;
+      --mark-soft: #ff5c9622;
+      --focus: #2fc6db;
     }
   }
   :root[data-theme="dark"] {
-    --paper: #15171a;
-    --paper-raised: #1d2023;
-    --ink: #ece9e2;
-    --ink-soft: #9a9d9f;
-    --line: #33363a;
-    --line-strong: #46494d;
-    --capital: #6fb3a6;
-    --capital-soft: #6fb3a626;
-    --interes: #e0925a;
-    --interes-soft: #e0925a22;
-    --mark: #e08484;
-    --mark-soft: #e0848422;
-    --focus: #6fb3a6;
+    --paper: #131416;
+    --paper-raised: #1c1e21;
+    --ink: #f0f0f0;
+    --ink-soft: #9e9e9e;
+    --line: #303236;
+    --line-strong: #484a4e;
+    --capital: #2fc6db;
+    --capital-soft: #2fc6db26;
+    --interes: #6f93b8;
+    --interes-soft: #6f93b822;
+    --mark: #ff5c96;
+    --mark-soft: #ff5c9622;
+    --focus: #2fc6db;
   }
 
   * { box-sizing: border-box; }
@@ -147,6 +147,19 @@
   .field input[type="number"]:focus {
     border-bottom-color: var(--focus);
   }
+  .field select {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink);
+    background: var(--paper-raised);
+    border: none;
+    border-bottom: 1px solid var(--line-strong);
+    padding: 4px 2px 8px;
+    outline: none;
+  }
+  .field select:focus {
+    border-bottom-color: var(--focus);
+  }
   .field .unit { color: var(--ink-soft); font-size: 12px; margin-left: 6px; }
 
   .presets {
@@ -168,7 +181,7 @@
   .presets button.active {
     background: var(--capital);
     border-color: var(--capital);
-    color: var(--paper);
+    color: #0a1417;
   }
 
   .note {
@@ -295,8 +308,14 @@
           <input type="number" id="monto" value="1000000" min="1000" step="1000">
         </div>
         <div class="field">
-          <label for="plazo">Plazo <span class="unit">meses</span></label>
-          <input type="number" id="plazo" value="12" min="1" max="24" step="1">
+          <label for="plazo">Plazo</label>
+          <div style="display:flex; gap:8px;">
+            <input type="number" id="plazo" value="12" min="1" max="24" step="1" style="flex:1;">
+            <select id="unidad">
+              <option value="meses" selected>meses</option>
+              <option value="dias">días</option>
+            </select>
+          </div>
         </div>
         <div class="field">
           <label for="tna">TNA fija <span class="unit">%</span></label>
@@ -306,7 +325,7 @@
             <button type="button" data-tna="250" id="btn-max">Máxima 250%</button>
           </div>
         </div>
-        <div class="note">Rangos vigentes informados por Mercado Pago para línea de consumo y préstamos personales: TNA 48%–215%, plazo de 7 días a 24 meses.</div>
+        <div class="note">Rango de referencia para línea de consumo y préstamos personales en fintechs argentinas: TNA 48%–215%, plazo de 7 días a 24 meses.</div>
       </div>
     </div>
 
@@ -348,7 +367,7 @@
         <div class="legend">
           <span><i style="background:var(--capital)"></i>Acumulado pagado</span>
           <span><i style="background:var(--ink-soft)"></i>Capital prestado</span>
-          <span><i style="background:var(--mark)"></i>Mes de recupero</span>
+          <span><i style="background:var(--mark)"></i>Recupero de capital</span>
         </div>
         <svg id="chart" viewBox="0 0 640 260" preserveAspectRatio="xMidYMid meet"></svg>
       </div>
@@ -358,17 +377,62 @@
         <div class="table-scroll">
           <table>
             <thead>
-              <tr><th>Cuota</th><th>Interés</th><th>Amortización</th><th>Saldo</th><th>Acumulado</th></tr>
+              <tr><th id="th-period">Cuota</th><th>Interés</th><th>Amortización</th><th>Saldo</th><th>Acumulado</th></tr>
             </thead>
             <tbody id="tbody"></tbody>
           </table>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:24px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+          <h2 style="font-size:15px;margin:0;">Mora y punitorios</h2>
+          <label style="display:flex; align-items:center; gap:8px; font-size:12px; color:var(--ink-soft); cursor:pointer;">
+            <input type="checkbox" id="mora-toggle">
+            simular atraso en el pago
+          </label>
+        </div>
+        <div id="mora-body" style="display:none; margin-top:16px;">
+          <div class="sub" style="font-size:11.5px; color:var(--ink-soft); margin-bottom:16px;">
+            La Comunicación "A" 7937 del BCRA fija, para tarjetas de crédito, que la tasa punitoria no puede exceder en más del 25% al promedio del sistema financiero para préstamos personales sin garantía real — la usamos como recargo por defecto, editable, ya que cada producto puede pactar el suyo. El cálculo asume que el resto de las cuotas se sigue pagando en término y que el punitorio corre solo sobre la cuota (o el pago único) en atraso.
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:16px; margin-bottom:18px;">
+            <div class="field" id="field-cuota-mora" style="margin-bottom:0;">
+              <label for="cuota-mora">Cuota en atraso</label>
+              <select id="cuota-mora" style="width:100%;"></select>
+            </div>
+            <div class="field" style="margin-bottom:0;">
+              <label for="dias-atraso">Días de atraso</label>
+              <input type="number" id="dias-atraso" value="30" min="1" step="1">
+            </div>
+            <div class="field" style="margin-bottom:0;">
+              <label for="recargo-punitorio">Recargo punitorio <span class="unit">% s/ TNA</span></label>
+              <input type="number" id="recargo-punitorio" value="25" min="0" step="1">
+            </div>
+          </div>
+          <div class="stats" style="grid-template-columns:repeat(3, 1fr); margin-bottom:0;">
+            <div class="stat">
+              <div class="label">TASA PUNITORIA TOTAL</div>
+              <div class="value" id="s-tasa-punitoria">—</div>
+              <div class="sub">TNA compensatoria + recargo</div>
+            </div>
+            <div class="stat mark">
+              <div class="label">INTERÉS PUNITORIO</div>
+              <div class="value" id="s-interes-punitorio">—</div>
+              <div class="sub" id="s-interes-punitorio-pct">—</div>
+            </div>
+            <div class="stat mark">
+              <div class="label">NUEVO TOTAL CON MORA</div>
+              <div class="value" id="s-total-mora">—</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <footer>
-    Cálculo determinístico según los parámetros ingresados (sistema francés, cuota constante). La TEA es exacta (capitalización mensual de la TNA); el CFTEA es una <em>estimación</em> obtenida interpolando el recargo (seguros + gastos) entre las tasas mínima y máxima que Mercado Pago publica para línea de consumo y préstamos personales — no reemplaza el CFT real informado en cada operación concreta.
+    Cálculo determinístico según los parámetros ingresados (sistema francés, cuota constante). La TEA es exacta (capitalización mensual de la TNA); el CFTEA es una <em>estimación</em> obtenida interpolando el recargo (seguros + gastos) entre las tasas mínima y máxima de referencia para línea de consumo y préstamos personales — no reemplaza el CFT real informado en cada operación concreta.
   </footer>
 </div>
 
@@ -382,8 +446,8 @@ function teaFromTna(tnaPct) {
   return Math.pow(1 + im, 12) - 1;
 }
 
-// Anclas publicadas por Mercado Pago para línea de consumo / préstamos personales
-// (tasa mínima y máxima vigentes, con su CFTEA real informado).
+// Anclas de referencia para línea de consumo / préstamos personales
+// (tasa mínima y máxima de mercado, con su CFTEA correspondiente).
 const ANCHOR_MIN = { tna: 48, cftea: 0.7636 };
 const ANCHOR_MAX = { tna: 215, cftea: 9.5654 };
 
@@ -405,7 +469,19 @@ function estimateCftea(tnaPct) {
   return (1 + tea) * m - 1;
 }
 
-function computeSchedule(monto, plazo, tnaPct) {
+function computeSchedule(monto, plazo, tnaPct, unidad) {
+  if (unidad === 'dias') {
+    // Plazos cortos en fintechs argentinas suelen ser de pago único al
+    // vencimiento (sin cuotas), con interés simple sobre la base de 365 días.
+    const interes = monto * (tnaPct / 100) * (plazo / 365);
+    const total = monto + interes;
+    const rows = [
+      { periodo: 0, interes: 0, amortizacion: 0, saldo: monto, acumulado: 0 },
+      { periodo: plazo, interes, amortizacion: monto, saldo: 0, acumulado: total }
+    ];
+    return { cuota: total, rows, unidad };
+  }
+
   const im = (tnaPct / 100) / 12;
   let cuota;
   if (im > 0) {
@@ -422,50 +498,75 @@ function computeSchedule(monto, plazo, tnaPct) {
     if (m === plazo) amortizacion = saldo; // ajuste final por redondeo
     saldo = Math.max(0, saldo - amortizacion);
     acumulado += (m === plazo ? amortizacion + interes : cuota);
-    rows.push({ mes: m, interes, amortizacion, saldo, acumulado });
+    rows.push({ periodo: m, interes, amortizacion, saldo, acumulado });
   }
-  return { cuota, rows };
+  return { cuota, rows, unidad };
 }
 
 function render() {
   const monto = Math.max(1, parseFloat(document.getElementById('monto').value) || 0);
   const plazo = Math.max(1, Math.round(parseFloat(document.getElementById('plazo').value) || 1));
   const tna = Math.max(0, parseFloat(document.getElementById('tna').value) || 0);
+  const unidad = document.getElementById('unidad').value;
 
-  const { cuota, rows } = computeSchedule(monto, plazo, tna);
+  const { cuota, rows } = computeSchedule(monto, plazo, tna, unidad);
   const total = rows[rows.length - 1].acumulado;
   const interesTotal = total - monto;
 
   let crossIdx = rows.findIndex(r => r.acumulado >= monto);
   if (crossIdx === -1) crossIdx = rows.length - 1;
-  const crossMes = rows[crossIdx].mes;
+  const crossPeriodo = rows[crossIdx].periodo;
 
   const tea = teaFromTna(tna);
   const cftea = estimateCftea(tna);
 
-  document.getElementById('s-cuota').textContent = fmt(cuota);
   document.getElementById('s-tea').textContent = (tea * 100).toFixed(1) + '%';
   document.getElementById('s-cft').textContent = (cftea * 100).toFixed(1) + '%';
   document.getElementById('s-total').textContent = fmt(total);
   document.getElementById('s-interes').textContent = fmt(interesTotal);
   document.getElementById('s-interes-pct').textContent = (100 * interesTotal / monto).toFixed(1) + '% del capital';
-  document.getElementById('s-mes').textContent = 'Cuota ' + crossMes + ' / ' + plazo;
-  document.getElementById('s-mes-pct').textContent = Math.round(100 * crossMes / plazo) + '% del plazo';
+
+  const cuotaLabelEl = document.querySelector('#s-cuota').closest('.stat').querySelector('.label');
+  const mesLabelEl = document.querySelector('#s-mes').closest('.stat').querySelector('.label');
+  const thPeriod = document.getElementById('th-period');
+
+  if (unidad === 'dias') {
+    cuotaLabelEl.textContent = 'PAGO AL VENCIMIENTO';
+    document.getElementById('s-cuota').textContent = fmt(total);
+    mesLabelEl.textContent = 'VENCIMIENTO';
+    document.getElementById('s-mes').textContent = 'Día ' + plazo;
+    document.getElementById('s-mes-pct').textContent = 'pago único, sin cuotas';
+    thPeriod.textContent = 'Día';
+  } else {
+    cuotaLabelEl.textContent = 'CUOTA FIJA MENSUAL';
+    document.getElementById('s-cuota').textContent = fmt(cuota);
+    mesLabelEl.textContent = 'RECUPERO DE CAPITAL';
+    document.getElementById('s-mes').textContent = 'Cuota ' + crossPeriodo + ' / ' + plazo;
+    document.getElementById('s-mes-pct').textContent = Math.round(100 * crossPeriodo / plazo) + '% del plazo';
+    thPeriod.textContent = 'Cuota';
+  }
+
+  document.querySelector('.chart-panel .sub').textContent = unidad === 'dias'
+    ? 'En plazos cortos se paga todo junto al vencimiento: no hay recupero parcial hasta ese día.'
+    : 'La línea sólida es lo que vas pagando cuota a cuota; la punteada es el capital original.';
 
   // tabla
   const tbody = document.getElementById('tbody');
   tbody.innerHTML = '';
-  rows.forEach(r => {
+  rows.filter(r => !(unidad === 'dias' && r.periodo === 0)).forEach(r => {
     const tr = document.createElement('tr');
-    if (r.mes === crossMes) tr.className = 'crossed';
-    tr.innerHTML = `<td>${r.mes}</td><td>${fmt(r.interes)}</td><td>${fmt(r.amortizacion)}</td><td>${fmt(r.saldo)}</td><td>${fmt(r.acumulado)}</td>`;
+    if (r.periodo === crossPeriodo) tr.className = 'crossed';
+    tr.innerHTML = `<td>${r.periodo}</td><td>${fmt(r.interes)}</td><td>${fmt(r.amortizacion)}</td><td>${fmt(r.saldo)}</td><td>${fmt(r.acumulado)}</td>`;
     tbody.appendChild(tr);
   });
 
-  drawChart(rows, monto, crossMes);
+  drawChart(rows, monto, crossPeriodo, unidad);
+
+  populateCuotaMoraOptions(rows, unidad);
+  updateMora(rows, cuota, monto, total, unidad, tna);
 }
 
-function drawChart(rows, monto, crossMes) {
+function drawChart(rows, monto, crossPeriodo, unidad) {
   const svg = document.getElementById('chart');
   const W = 640, H = 260;
   const padL = 56, padR = 16, padT = 16, padB = 30;
@@ -475,6 +576,7 @@ function drawChart(rows, monto, crossMes) {
   const n = rows.length;
   const x = i => padL + (innerW * i) / (n - 1 || 1);
   const y = v => padT + innerH - (innerH * v) / maxY;
+  const unitLabel = unidad === 'dias' ? 'd' : 'm';
 
   let svgContent = '';
 
@@ -488,23 +590,29 @@ function drawChart(rows, monto, crossMes) {
 
   // x axis labels (start, mid, end)
   [0, Math.floor((n - 1) / 2), n - 1].forEach(i => {
-    svgContent += `<text class="axis-label" x="${x(i)}" y="${H - 6}" text-anchor="middle">m${rows[i].mes}</text>`;
+    svgContent += `<text class="axis-label" x="${x(i)}" y="${H - 6}" text-anchor="middle">${unitLabel}${rows[i].periodo}</text>`;
   });
 
   // capital reference line
   const yCap = y(monto);
   svgContent += `<line class="ref-line" x1="${padL}" y1="${yCap}" x2="${W - padR}" y2="${yCap}" />`;
 
-  // acumulado path
-  let path = '';
-  rows.forEach((r, i) => {
-    const px = x(i), py = y(r.acumulado);
-    path += (i === 0 ? 'M' : 'L') + px + ',' + py + ' ';
-  });
+  // acumulado path — línea continua para cuotas, escalón para pago único
+  let path;
+  if (unidad === 'dias') {
+    const x0 = x(0), xEnd = x(n - 1), yStart = y(0), yEnd = y(rows[n - 1].acumulado);
+    path = `M${x0},${yStart} L${xEnd},${yStart} L${xEnd},${yEnd}`;
+  } else {
+    path = '';
+    rows.forEach((r, i) => {
+      const px = x(i), py = y(r.acumulado);
+      path += (i === 0 ? 'M' : 'L') + px + ',' + py + ' ';
+    });
+  }
   svgContent += `<path class="capital-line" d="${path}" />`;
 
   // cross marker
-  const crossIdx = rows.findIndex(r => r.mes === crossMes);
+  const crossIdx = rows.findIndex(r => r.periodo === crossPeriodo);
   if (crossIdx >= 0) {
     const cx = x(crossIdx), cy = y(rows[crossIdx].acumulado);
     svgContent += `<line class="mark-line" x1="${cx}" y1="${padT}" x2="${cx}" y2="${padT + innerH}" />`;
@@ -514,9 +622,65 @@ function drawChart(rows, monto, crossMes) {
   svg.innerHTML = svgContent;
 }
 
+function populateCuotaMoraOptions(rows, unidad) {
+  const sel = document.getElementById('cuota-mora');
+  if (unidad === 'dias') return;
+  const prevVal = sel.value;
+  sel.innerHTML = '';
+  rows.forEach(r => {
+    const opt = document.createElement('option');
+    opt.value = r.periodo;
+    opt.textContent = 'Cuota ' + r.periodo;
+    sel.appendChild(opt);
+  });
+  const stillValid = Array.from(sel.options).some(o => o.value === prevVal);
+  sel.value = stillValid ? prevVal : rows[rows.length - 1].periodo;
+}
+
+function updateMora(rows, cuota, monto, total, unidad, tna) {
+  const toggle = document.getElementById('mora-toggle');
+  const body = document.getElementById('mora-body');
+  const fieldCuota = document.getElementById('field-cuota-mora');
+  body.style.display = toggle.checked ? 'block' : 'none';
+  fieldCuota.style.display = unidad === 'dias' ? 'none' : 'block';
+  if (!toggle.checked) return;
+
+  const diasAtraso = Math.max(1, Math.round(parseFloat(document.getElementById('dias-atraso').value) || 1));
+  const recargoPct = Math.max(0, parseFloat(document.getElementById('recargo-punitorio').value) || 0);
+  const tasaPunitoria = tna * (1 + recargoPct / 100);
+
+  // Base sobre la que corre el punitorio: la cuota fija (meses) o el pago
+  // único (días). En sistema francés todas las cuotas valen lo mismo, así
+  // que no hace falta distinguir cuál cuota puntual está en mora.
+  const base = unidad === 'dias' ? total : cuota;
+  const interesPunitorio = base * (tasaPunitoria / 100) * (diasAtraso / 365);
+  const nuevoTotal = total + interesPunitorio;
+
+  document.getElementById('s-tasa-punitoria').textContent = tasaPunitoria.toFixed(1) + '%';
+  document.getElementById('s-interes-punitorio').textContent = fmt(interesPunitorio);
+  document.getElementById('s-interes-punitorio-pct').textContent = (100 * interesPunitorio / base).toFixed(1) + '% de la base en mora';
+  document.getElementById('s-total-mora').textContent = fmt(nuevoTotal);
+}
+
 document.getElementById('monto').addEventListener('input', render);
 document.getElementById('plazo').addEventListener('input', render);
 document.getElementById('tna').addEventListener('input', () => { clearPresetActive(); render(); });
+document.getElementById('unidad').addEventListener('change', () => {
+  const plazoInput = document.getElementById('plazo');
+  const v = parseFloat(plazoInput.value) || 0;
+  if (document.getElementById('unidad').value === 'dias') {
+    plazoInput.min = 7; plazoInput.max = 365;
+    if (v < 7 || v > 365) plazoInput.value = 30;
+  } else {
+    plazoInput.min = 1; plazoInput.max = 24;
+    if (v < 1 || v > 24) plazoInput.value = 12;
+  }
+  render();
+});
+document.getElementById('mora-toggle').addEventListener('change', render);
+document.getElementById('dias-atraso').addEventListener('input', render);
+document.getElementById('recargo-punitorio').addEventListener('input', render);
+document.getElementById('cuota-mora').addEventListener('change', render);
 
 function clearPresetActive() {
   document.getElementById('btn-min').classList.remove('active');
